@@ -79,10 +79,15 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Update $request)
+    public function update(Update $request,AdminUser $adminUser)
     {
-        $user = $request->except('_token');
-        dd($user);
+        $user = $request->except(['_token','ar_id']);
+        if (array_key_exists('password',$user)) {
+            $user['password'] = bcrypt($user['password']);
+            $user = array_except($user, ['password_c']); 
+        }
+        $data =  $adminUser->updateOrCreate(['au_id'=>$user['au_id']],$user);
+        dd($user,$data);
     }
 
     /**
