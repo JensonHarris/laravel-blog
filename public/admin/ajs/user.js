@@ -56,10 +56,10 @@ layui.use(['form'], function(){
             delete data.field.password;
             delete data.field.password_c;
         }
-// console.log(data.field);return;
+        var url = '/admin/user/update/'+data.field.au_id;
         $.ajax({
             type: "POST",
-            url:'/admin/user/update',
+            url: url,
             dataType: "json",
             data: data.field,
             error: function(msg) {

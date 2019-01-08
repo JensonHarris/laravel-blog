@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin\User;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class Update extends FormRequest
@@ -25,14 +26,20 @@ class Update extends FormRequest
     public function rules()
     {
         //为了要知道排除谁不验证,应该获取当前路由里面的参数
-        $id = $this->route('au_id');
+        $au_id = $this->route('au_id');
 
         return [
             'ar_id'       => 'required',
-            'au_name'     => 'required|min:6|max:16|unique:admin_users,au_name,'.$this->route()->au_id,
+            'au_name'     => ['required','min:6','max:16',
+                Rule::unique('admin_users')->ignore($au_id,'au_id'),
+            ],
             'au_realname' => 'required',
-            'au_email'    => 'required|email|unique:admin_users,au_email,'.$this->route()->au_id,
-            'au_mobile'   => 'required|unique:admin_users,au_mobile,'.$this->route()->au_id,
+            'au_email'    => ['required','email',
+                Rule::unique('admin_users')->ignore($au_id,'au_id'),
+            ],
+            'au_mobile'   => ['required',
+                Rule::unique('admin_users')->ignore($au_id,'au_id'),
+            ],
             'password_c'  => 'same:password'
         ];
     }
