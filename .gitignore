@@ -1,0 +1,9 @@
+
+
+|        | GET|HEAD | posts                                         |      | App\Http\Controllers\Home\PostController@index   | web          |
+|        | POST     | posts                                         |      | App\Http\Controllers\Home\PostController@store   | web          |
+|        | GET|HEAD | posts/create                                  |      | App\Http\Controllers\Home\PostController@create  | web          |
+|        | PUT      | posts/destroy                                 |      | App\Http\Controllers\Home\PostController@destroy | web          |
+|        | GET|HEAD | posts/{post}                                  |      | App\Http\Controllers\Home\PostController@show    | web          |
+|        | PUT      | posts/{post}                                  |      | App\Http\Controllers\Home\PostController@update  | web          |
+|        | GET|HEAD | posts/{post}/ediHome\lers\PostController@edit |      | Closure                                          | web
