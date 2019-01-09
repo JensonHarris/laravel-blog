@@ -4,30 +4,54 @@
  <div class="ibox-title">
         <blockquote class="layui-elem-quote">
             <a href="{{'/admin/category'}}"><i class="fa fa-step-backward "></i></a>
-            <b>添加分类</b>
+            <b>添加文章分类</b>
         </blockquote>
     </div>
     <div class="ibox float-e-margins">
         <div class="ibox-content ">
             <div class="layui-row">
                 <form class="layui-form layui-form-pane layui-col-md6 layui-col-md-offset1" action="">
-
+                    {{ csrf_field() }}
                     <div class="layui-form-item">
                         <label class="layui-form-label">分类名称</label>
                         <div class="layui-input-block">
                             <input type="text" name="title" autocomplete="off" placeholder="请输入分类名称..." class="layui-input">
                         </div>
                     </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">父级分类</label>
+                        <div class="layui-input-block">
+                            <select name="ar_id" id="ar_id" lay-verify="group">
+                                <option value="" selected="">请选择父级分类</option>
+                                <option value="0">顶级分类</option>
+                                <option value="1">PHP</option>
+                                <option value="2">Mysql</option>
+                                <option value="3">Vue.js</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">SEO标题</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="title" autocomplete="off" placeholder="请输入分类名称..." class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">SEO关键字</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="title" autocomplete="off" placeholder="请输入分类名称..." class="layui-input">
+                        </div>
+                    </div>
                     <div class="layui-form-item layui-form-text">
-                        <label class="layui-form-label">分类描述</label>
+                        <label class="layui-form-label">SEO描述</label>
                         <div class="layui-input-block">
                             <textarea placeholder="请输入分类描述..." class="layui-textarea"></textarea>
                         </div>
                     </div>
                     <div class="layui-form-item" pane="">
-                        <label class="layui-form-label">是否禁用</label>
+                        <label class="layui-form-label">设为导航</label>
                         <div class="layui-input-block">
-                            <input type="checkbox" checked="" name="open" lay-skin="switch" lay-filter="switchTest" lay-text="启用|禁用">
+                            <input type="checkbox" checked="" name="open" lay-skin="switch" lay-filter="switchTest" lay-text="是|否">
                         </div>
                     </div>
                     <div class="layui-form-item">

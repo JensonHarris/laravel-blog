@@ -1,5 +1,5 @@
 @extends("admin.layout.main")
-    @section('title', '分类管理')
+    @section('title', '文章分类管理')
 @section("content")
     <div class="ibox-title">
         <blockquote class="layui-elem-quote quoteBox">
@@ -11,7 +11,7 @@
                     <a class="layui-btn search_btn" data-type="reload">搜索</a>
                 </div>
                 <div class="layui-inline">
-                    <a class="layui-btn layui-btn-normal addNews_btn" href="{{'/admin/category/create'}}">添加分类</a>
+                    <a class="layui-btn layui-btn-normal addNews_btn" href="{{'/admin/category/create'}}">添加文章分类</a>
                 </div>
                 <div class="layui-inline">
                     <a class="layui-btn layui-btn-danger layui-btn-normal delAll_btn">批量删除</a>

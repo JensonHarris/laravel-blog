@@ -4,14 +4,14 @@
  <div class="ibox-title">
         <blockquote class="layui-elem-quote">
             <a href="{{'/admin/category'}}"><i class="fa fa-step-backward "></i></a>
-            <b>编辑分类</b>
+            <b>编辑文章分类</b>
         </blockquote>
     </div>
     <div class="ibox float-e-margins">
         <div class="ibox-content ">
             <div class="layui-row">
                 <form class="layui-form layui-form-pane layui-col-md6 layui-col-md-offset1" action="">
-
+                    {{ csrf_field() }}
                     <div class="layui-form-item">
                         <label class="layui-form-label">分类名称</label>
                         <div class="layui-input-block">
