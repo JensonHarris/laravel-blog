@@ -11,7 +11,6 @@
         <div class="ibox-content ">
             <div class="layui-row">
                 <form class="layui-form layui-form-pane layui-col-md6 layui-col-md-offset1" action="">
-
                     <div class="layui-form-item">
                         <label class="layui-form-label">分类名称</label>
                         <div class="layui-input-block">

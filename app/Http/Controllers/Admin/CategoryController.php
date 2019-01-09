@@ -61,9 +61,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(ArticleCategory $articleCategory)
     {
-        return view('admin.category.edit');
+        return view('admin.category.edit',compact('articleCategory'));
     }
 
     /**
@@ -73,7 +73,7 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Store $request,ArticleCategory $articleCategory)
     {
         //
     }

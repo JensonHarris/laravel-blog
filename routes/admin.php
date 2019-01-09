@@ -4,7 +4,7 @@
  * @Author: Jenson Harris
  * @Date:   2018-12-24 22:05:00
  * @Last Modified by:   Jenson Harris
- * @Last Modified time: 2018-12-24 22:39:11
+ * @Last Modified time: 2019-01-09 21:33:01
  */
 
 Route::group(['prefix' => 'admin'], function() {
@@ -113,18 +113,18 @@ Route::group(['prefix' => 'admin'], function() {
 
 	//----文章分类列表----
 	Route::get('/category', 'Admin\CategoryController@index');
-	//文章创建页面
+	//文章分类创建页面
 	Route::get('/category/create', 'Admin\CategoryController@create');
 	//文章创建逻辑
 	Route::post('/category', 'Admin\CategoryController@store');
 
 
-	//文章详情页
-	Route::get('/category/{post}', 'Admin\CategoryController@show');
-	//文章编辑
-	Route::get('/category/{post}/edit','Admin\CategoryController@edit');
+	// //文章详情页
+	// Route::get('/category/{post}', 'Admin\CategoryController@show');
+	//文章分类编辑
+	Route::get('/category/{articleCategory}/edit','Admin\CategoryController@edit');
 	//文章编辑逻辑
-	Route::put('/category/{post}', 'Admin\CategoryController@update');
+	Route::post('/category/update/{id}', 'Admin\CategoryController@update');
 	//文章删除
 	Route::put('/category/destroy', 'Admin\CategoryController@destroy');
 

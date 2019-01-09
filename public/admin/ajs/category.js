@@ -38,7 +38,7 @@ layui.use(['form'], function(){
                         icon: 1,//提示的样式
                         time: 2000, //2秒关闭
                         end:function(){
-                            window.location.href="/admin/permission";
+                            window.location.href="/admin/category";
                         }
                     });
                 } else {
@@ -51,7 +51,12 @@ layui.use(['form'], function(){
 
     //监听提交
     form.on('submit(edit)', function(data){
-        var url = '/admin/permission/update/'+data.field.ap_id;
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        var url = '/admin/category/update/'+data.field.id;
         $.ajax({
             type: "POST",
             url: url,
