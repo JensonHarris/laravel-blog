@@ -2,14 +2,9 @@ layui.use(['form'], function(){
     var form = layui.form
     //监听提交
     form.on('submit(add)', function(data){
-        if (data.field.au_status=='on'){
-            data.field.au_status = 0;
-        }else{
-            data.field.au_status = 1;
-        }
         $.ajax({
             type: "POST",
-            url: '/admin/user',
+            url: '/admin/permission',
             dataType: "json",
             data: data.field,
             error: function(msg) {
@@ -33,7 +28,7 @@ layui.use(['form'], function(){
                         icon: 1,//提示的样式
                         time: 2000, //2秒关闭
                         end:function(){
-                            window.location.href="/admin/index";
+                            window.location.href="/admin/permission";
                         }
                     });
                 } else {
@@ -46,17 +41,7 @@ layui.use(['form'], function(){
 
     //监听提交
     form.on('submit(edit)', function(data){
-        if (data.field.au_status=='on'){
-            data.field.au_status = 0;
-        }else{
-            data.field.au_status = 1;
-        }
-
-        if (data.field.password ==''){
-            delete data.field.password;
-            delete data.field.password_c;
-        }
-        var url = '/admin/user/update/'+data.field.au_id;
+        var url = '/admin/permission/update/'+data.field.ap_id;
         $.ajax({
             type: "POST",
             url: url,
@@ -83,7 +68,7 @@ layui.use(['form'], function(){
                         icon: 1,//提示的样式
                         time: 2000, //2秒关闭
                         end:function(){
-                            window.location.href="/admin/index";
+                            window.location.href="/admin/permission";
                         }
                     });
                 } else {
@@ -91,51 +76,36 @@ layui.use(['form'], function(){
                 }
             }
         });
-        return false; //阻
+        return false;
     });
 
     //自定义验证规则
     form.verify({
-        group:function (value) {
-            if (value == "") {
-                return "请为该用户选择角色";
-            }
-        },
-        username: function(value, item){ //value：表单的值、item：表单的DOM对象
-            if( /^\s*$/g.test(value)){
-                return '账号不能为空';
-            }
-            if(!new RegExp("^[a-zA-Z0-9_-]{6,16}$").test(value)){
-                return '账号格式不正确';
-            }
-        },
-        realName:function(value, item){ //value：表单的值、item：表单的DOM对象
-            if( /^\s*$/g.test(value)){
-                return '用户姓名不能为空';
-            }
-        }
-        ,pass: [
-            /^[\S]{6,16}$/
-            ,'密码必须6到12位，且不能出现空格'
-        ]
-        ,repass: function(value, item){
-            var password_c = $('#password').val();
-            if(value != password_c){
-                return '两次输入的密码不一致!';
-            }
-        }
-        ,phone: function(value, item) { //value：表单的值、item：表单的DOM对象
-            if( /^\s*$/g.test(value)){
-                return '手机号不能为空';
-            }
-            if(!new RegExp("^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\\d{8}$").test(value)){
-                return '请输入正确的手机号';
-            }
-        }
-        ,email: [
-            /^[a-z0-9._%-]+@([a-z0-9-]+\.)+[a-z]{2,4}$|^1[3|4|5|7|8]\d{9}$/,
-            '请输入正确的邮箱'
-        ]
+        // select:function (value) {
+        //     if (value == "") {
+        //         return "请为该权限选择父权限";
+        //     }
+        // },
+        // apName:function(value, item){ //value：表单的值、item：表单的DOM对象
+        //     if( /^\s*$/g.test(value)){
+        //         return '权限名不能为空';
+        //     }
+        // },
+        // apControl:function(value, item){ //value：表单的值、item：表单的DOM对象
+        //     if( /^\s*$/g.test(value)){
+        //         return '控制器名不能为空';
+        //     }
+        // },
+        // apAction:function(value, item){ //value：表单的值、item：表单的DOM对象
+        //     if( /^\s*$/g.test(value)){
+        //         return '方法名不能为空';
+        //     }
+        // },
+        // apUrl:function(value, item){ //value：表单的值、item：表单的DOM对象
+        //     if( /^\s*$/g.test(value)){
+        //         return 'URL不能为空';
+        //     }
+        // },
     });
 
 

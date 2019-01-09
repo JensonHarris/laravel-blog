@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\Admin\User\Update;
 use App\Models\AdminUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\User\Store;
+use App\Http\Requests\Admin\User\Update;
 
 class UserController extends Controller
 {
@@ -67,7 +66,7 @@ class UserController extends Controller
      */
     public function edit(AdminUser $adminUser)
     {
-        dump($adminUser);
+//        dump($adminUser);
 //        $data = $adminUser->roles;
         return view('admin.user.edit',compact('adminUser'));
     }
@@ -81,13 +80,14 @@ class UserController extends Controller
      */
     public function update(Update $request,AdminUser $adminUser)
     {
-        $user = $request->except(['_token','ar_id']);
+        $user  = $request->except('_token');
+        $ar_id =  array_pull($user, 'ar_id');
         if (array_key_exists('password',$user)) {
             $user['password'] = bcrypt($user['password']);
-            $user = array_except($user, ['password_c']); 
+            $user = array_except($user, ['password_c']);
         }
-        $data =  $adminUser->updateOrCreate(['au_id'=>$user['au_id']],$user);
-        dd($user,$data);
+        $data =  $adminUser->where(['au_id'=>$user['au_id']])->update($user);
+        dd($ar_id,$user,$data);
     }
 
     /**

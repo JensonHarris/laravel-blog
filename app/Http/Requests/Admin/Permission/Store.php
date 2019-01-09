@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Admin\User;
+namespace App\Http\Requests\Admin\Permission;
 
 use Illuminate\Foundation\Http\FormRequest;
 
 class Store extends FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -24,13 +25,11 @@ class Store extends FormRequest
     public function rules()
     {
         return [
-            'ar_id'       => 'required',
-            'au_name'     => 'required|min:6|max:16|unique:admin_users',
-            'au_realname' => 'required',
-            'au_email'    => 'required|email|unique:admin_users',
-            'au_mobile'   => 'required|unique:admin_users',
-            'password'    => 'required|min:6|max:16',
-            'password_c'  => 'required|same:password'
+            'ap_pid'     => 'required',
+            'ap_name'    => 'required',
+            'ap_control' => 'required',
+            'ap_action'  => 'required',
+            'ap_url'     => 'required',
         ];
     }
 
@@ -44,12 +43,10 @@ class Store extends FormRequest
     public function attributes()
     {
         return [
-            'au_name'     => '登录账号',
-            'au_realname' => '管理员姓名',
-            'au_email'    => '管理员邮箱',
-            'au_mobile'   => '管理员手机号',
-            'password'    => '登录密码',
-            'password_c'  => '确认密码'
+            'ap_name'    => '权限名',
+            'ap_control' => '控制器名',
+            'ap_action'  => '方法名',
+            'ap_url'     => 'URL',
 
         ];
     }
@@ -63,7 +60,8 @@ class Store extends FormRequest
     public function messages()
     {
         return [
-            'ar_id.required'  =>'请为该用户选择角色',
+            'ap_pid.required'  =>'请为该权限选择父权限',
         ];
     }
+
 }

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Models\AdminPermission;
+use App\Http\Requests\Admin\Permission\Store;
 
-class AuthController extends Controller
+class PermissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class AuthController extends Controller
      */
     public function index()
     {
-        return view('admin.auth.index');
+        return view('admin.permission.index');
     }
 
     /**
@@ -24,7 +25,7 @@ class AuthController extends Controller
      */
     public function create()
     {
-        return view('admin.auth.create');
+        return view('admin.permission.create');
     }
 
     /**
@@ -33,9 +34,15 @@ class AuthController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Store $request,AdminPermission $adminPermission)
     {
-        //
+        $permission = $request->except('_token');
+        $result = $adminPermission->create($permission);
+        if (!$result){
+            return $this->error(40002);
+        }
+        return $this->success(20002);
+
     }
 
     /**
@@ -55,9 +62,9 @@ class AuthController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(AdminPermission $adminPermission)
     {
-        return view('admin.auth.edit');
+        return view('admin.permission.edit',compact('adminPermission'));
     }
 
     /**
@@ -67,9 +74,14 @@ class AuthController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Store $request,AdminPermission $adminPermission)
     {
-        //
+        $permission = $request->except('_token');
+        $result = $adminPermission->where(['ap_id'=>$permission['ap_id']])->update($permission);
+        if (!$result){
+            return $this->error(40004);
+        }
+        return $this->success(20004);
     }
 
     /**
@@ -80,6 +92,6 @@ class AuthController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }

@@ -11,7 +11,7 @@
                         <a class="layui-btn search_btn" data-type="reload">搜索</a>
                     </div>
                     <div class="layui-inline">
-                        <a class="layui-btn layui-btn-normal addNews_btn" href="{{url('/admin/auth/create')}}">添加权限</a>
+                        <a class="layui-btn layui-btn-normal addNews_btn" href="{{url('/admin/permission/create')}}">添加权限</a>
                     </div>
                     <div class="layui-inline">
                         <a class="layui-btn layui-btn-danger layui-btn-normal delAll_btn">批量删除</a>
@@ -40,7 +40,7 @@
  </script>
 
  <script type="text/html" id="barDemo">
-     <a class="layui-btn layui-btn-xs"  href="{{url('/admin/auth/8/edit')}}">编辑</a>
+     <a class="layui-btn layui-btn-xs"  href="{{url('/admin/permission/1/edit')}}">编辑</a>
      <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
  </script>
 

@@ -1,24 +1,24 @@
 @extends("admin.layout.main")
-    @section('title', '用户管理')
+    @section('title', '权限管理')
 @section("content")
-   <div class="ibox-title">
+  <div class="ibox-title">
         <blockquote class="layui-elem-quote">
-            <a href="{{url('/admin/user')}}"><i class="fa fa-step-backward "></i></a>
-            <b>编辑管理员</b>
+            <a href="{{url('/admin/permission')}}"><i class="fa fa-step-backward "></i></a>
+            <b>编辑权限</b>
         </blockquote>
     </div>
     <div class="ibox float-e-margins">
         <div class="ibox-content ">
             <div class="layui-row">
-                <form class="layui-form layui-form-pane layui-col-md6 layui-col-md-offset1">
-                    {{ csrf_field() }}
+                <form class="layui-form layui-form-pane layui-col-md7 layui-col-md-offset1">
+                        {{ csrf_field() }}
                     <div class="layui-form-item">
-                            <input type="hidden" name="au_id" id="au_id"  class="layui-input" value="{{$adminUser->au_id}}">
+                        <input type="hidden" name="ap_id" id="ap_id"  class="layui-input" value="{{$adminPermission->ap_id}}">
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">所属用户组</label>
+                        <label class="layui-form-label">父级权限</label>
                         <div class="layui-input-block">
-                            <select name="ar_id" id="ar_id" lay-verify="group">
+                            <select name="ap_pid" id="ap_pid" lay-verify="select">
                                 <option value="" selected="">请选择权限</option>
                                 <option value="0">顶级权限</option>
                                 <option value="1">用户管理</option>
@@ -26,53 +26,37 @@
                             </select>
                         </div>
                     </div>
-
                     <div class="layui-form-item">
-                        <label class="layui-form-label">登录账户</label>
+                        <label class="layui-form-label">权限名称</label>
                         <div class="layui-input-block">
-                            <input type="text" name="au_name" id="au_name" lay-verify="username" class="layui-input" value="{{$adminUser->au_name}}">
+                            <input type="text"  id="ap_name" name="ap_name" class="layui-input" value="{{$adminPermission->ap_name}}">
                         </div>
                     </div>
 
                     <div class="layui-form-item">
-                        <label class="layui-form-label">用户姓名</label>
+                        <label class="layui-form-label">控制器名</label>
                         <div class="layui-input-block">
-                            <input type="text" name="au_realname" id="au_realname" lay-verify="realName" class="layui-input" value="{{$adminUser->au_realname}}">
+                            <input type="text" id="ap_control" name="ap_control" class="layui-input" value="{{$adminPermission->ap_control}}">
                         </div>
                     </div>
 
                     <div class="layui-form-item">
-                        <label class="layui-form-label">手机号码</label>
+                        <label class="layui-form-label">方法名</label>
                         <div class="layui-input-block">
-                            <input type="text" name="au_mobile" id="au_mobile" lay-verify="phone"  class="layui-input" value="{{$adminUser->au_mobile}}">
+                            <input type="text" id="ap_action" name="ap_action" class="layui-input" value="{{$adminPermission->ap_action}}">
                         </div>
                     </div>
 
                     <div class="layui-form-item">
-                        <label class="layui-form-label">用户邮箱</label>
+                        <label class="layui-form-label">URL</label>
                         <div class="layui-input-block">
-                            <input type="text" name="au_email" id="au_email" lay-verify="email" class="layui-input" value="{{$adminUser->au_email}}">
+                            <input type="text" id="ap_url" name="ap_url" class="layui-input" value="{{$adminPermission->ap_url}}">
                         </div>
                     </div>
-
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">用户密码</label>
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">权限描述</label>
                         <div class="layui-input-block">
-                            <input type="password" name="password" id="password" class="layui-input">
-                        </div>
-                    </div>
-
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">确认密码</label>
-                        <div class="layui-input-block">
-                            <input type="password" name="password_c" id="password_c" lay-verify="repass" class="layui-input">
-                        </div>
-                    </div>
-
-                    <div class="layui-form-item" pane="">
-                        <label class="layui-form-label">是否禁用</label>
-                        <div class="layui-input-block">
-                            <input type="checkbox" checked="" name="au_status" lay-skin="switch" lay-filter="switchTest" lay-text="启用|禁用">
+                            <textarea class="layui-textarea" id="ap_description" name="ap_description" >{{$adminPermission->ap_description}}</textarea>
                         </div>
                     </div>
                     <div class="layui-form-item">
@@ -87,9 +71,10 @@
     </div>
 @endsection
 @section('scripts')
-    <script type="text/javascript" src="/admin/ajs/user.js"></script>
+    <script type="text/javascript" src="/admin/ajs/auth.js"></script>
 
-{{--<script>--}}
+
+    {{--<script>--}}
     {{--layui.use(['form', 'layedit', 'laydate'], function(){--}}
         {{--var form = layui.form--}}
             {{--,layer = layui.layer--}}
@@ -129,28 +114,14 @@
         {{--});--}}
 
         {{--//监听提交--}}
-        {{--form.on('submit(demo1)', function(data){--}}
+        {{--form.on('submit(InputContent)', function(data){--}}
             {{--layer.alert(JSON.stringify(data.field), {--}}
                 {{--title: '最终的提交信息'--}}
             {{--})--}}
             {{--return false;--}}
         {{--});--}}
-
-        {{--//表单初始赋值--}}
-        {{--form.val('example', {--}}
-            {{--"username": "贤心" // "name": "value"--}}
-            {{--,"password": "123456"--}}
-            {{--,"interest": 1--}}
-            {{--,"like[write]": true //复选框选中状态--}}
-            {{--,"close": true //开关状态--}}
-            {{--,"sex": "女"--}}
-            {{--,"desc": "我爱 layui"--}}
-        {{--})--}}
-
-
     {{--});--}}
 {{--</script>--}}
 @endsection
-
 
 

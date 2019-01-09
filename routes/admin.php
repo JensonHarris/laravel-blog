@@ -37,6 +37,27 @@ Route::group(['prefix' => 'admin'], function() {
     //文章删除
     Route::put('/user/destroy', 'Admin\UserController@destroy');
 
+
+
+    // 权限列表
+    Route::get('/permission', 'Admin\PermissionController@index');
+    //权限创建页面
+    Route::get('/permission/create', 'Admin\PermissionController@create');
+    //权限创建逻辑
+    Route::post('/permission', 'Admin\PermissionController@store');
+    //权限编辑
+    Route::get('/permission/{adminPermission}/edit','Admin\PermissionController@edit');
+    //文章编辑逻辑
+    Route::post('/permission/update/{ap_id}', 'Admin\PermissionController@update');
+
+
+    //文章删除
+    Route::put('/permission/destroy', 'Admin\PermissionController@destroy');
+
+
+
+
+
 	// 文章列表
 	Route::get('/article', 'Admin\ArticleController@index');
 	//文章创建页面
@@ -53,20 +74,6 @@ Route::group(['prefix' => 'admin'], function() {
 	Route::put('/article/destroy', 'Admin\ArticleController@destroy');
 
 
-	// 文章列表
-	Route::get('/auth', 'Admin\AuthController@index');
-	//文章创建页面
-	Route::get('/auth/create', 'Admin\AuthController@create');
-	//文章创建逻辑
-	Route::post('/auth', 'Admin\AuthController@store');
-	//文章详情页
-	Route::get('/auth/{post}', 'Admin\AuthController@show');
-	//文章编辑
-	Route::get('/auth/{post}/edit','Admin\AuthController@edit');
-	//文章编辑逻辑
-	Route::put('/auth/{post}', 'Admin\AuthController@update');
-	//文章删除
-	Route::put('/auth/destroy', 'Admin\AuthController@destroy');
 
 
 

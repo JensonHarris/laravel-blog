@@ -21,17 +21,43 @@
             </div>
             <div class="sidebar-collapse">
                 <ul class="nav" id="side-menu">
+                    {{--<li class="nav-header">--}}
+                        {{--<div class="dropdown profile-element">--}}
+                            {{--<span><img alt="image" class="img-circle" src="/admin/img/profile_small.jpg" /></span>--}}
+                            {{--<a data-toggle="dropdown" class="dropdown-toggle" href="#">--}}
+                                {{--<span class="clear">--}}
+                                    {{--<span class="block m-t-xs"><strong class="font-bold">Beaut-zihan</strong></span>--}}
+                                    {{--<span class="text-muted text-xs block">超级管理员<!-- <b class="caret"></b> --></span>--}}
+                                {{--</span>--}}
+                            {{--</a>--}}
+                        {{--</div>--}}
+                        {{--<div class="logo-element">CC--}}
+                        {{--</div>--}}
+                    {{--</li>--}}
                     <li class="nav-header">
                         <div class="dropdown profile-element">
-                            <span><img alt="image" class="img-circle" src="/admin/img/profile_small.jpg" /></span>
+                            <span><img alt="image" class="img-circle" src="img/profile_small.jpg" /></span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
-                                    <span class="block m-t-xs"><strong class="font-bold">Beaut-zihan</strong></span>
-                                    <span class="text-muted text-xs block">超级管理员<!-- <b class="caret"></b> --></span>
+                               <span class="block m-t-xs"><strong class="font-bold">JesonC</strong></span>
+                                <span class="text-muted text-xs block">超级管理员<b class="caret text-primary"></b></span>
                                 </span>
                             </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a class="J_menuItem" href="form_avatar.html">修改头像</a>
+                                </li>
+                                <li><a class="J_menuItem" href="profile.html">个人资料</a>
+                                </li>
+                                <li><a class="J_menuItem" href="contacts.html">联系我们</a>
+                                </li>
+                                <li><a class="J_menuItem" href="mailbox.html">信箱</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="{{url('/admin/logout')}}">安全退出</a>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="logo-element">CC
+                        <div class="logo-element">H+
                         </div>
                     </li>
                     <li>
@@ -48,7 +74,7 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="{{url('/admin/auth')}}">
+                                <a class="J_menuItem" href="{{url('/admin/permission')}}">
                                     <i class="fa fa-key"></i>
                                     <span class="nav-label">权限列表</span>
                                 </a>

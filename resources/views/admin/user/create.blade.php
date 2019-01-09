@@ -15,7 +15,7 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">所属用户组</label>
                         <div class="layui-input-block">
-                            <select name="ar_id" lay-filter="aihao" id="ar_id" lay-verify="group">
+                            <select name="ar_id" id="ar_id" lay-verify="group">
                                 <option value="" selected="">请选择权限</option>
                                 <option value="0">顶级权限</option>
                                 <option value="1">用户管理</option>

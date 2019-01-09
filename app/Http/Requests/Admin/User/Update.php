@@ -73,7 +73,7 @@ class Update extends FormRequest
     public function messages()
     {
         return [
-            'ar_id.required'  =>'请选择为该用户选择角色',
+            'ar_id.required'  =>'请为该用户选择角色',
         ];
     }
 }
