@@ -2,9 +2,19 @@ layui.use(['form'], function(){
     var form = layui.form
     //监听提交
     form.on('submit(add)', function(data){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        if (data.field.is_nav=='on'){
+            data.field.is_nav = 0;
+        }else{
+            data.field.is_nav = 1;
+        }
         $.ajax({
             type: "POST",
-            url: '/admin/permission',
+            url: '/admin/category',
             dataType: "json",
             data: data.field,
             error: function(msg) {
@@ -83,27 +93,12 @@ layui.use(['form'], function(){
     form.verify({
         select:function (value) {
             if (value == "") {
-                return "请为该权限选择父权限";
+                return "请为该分类选择父分类";
             }
         },
-        apName:function(value, item){ //value：表单的值、item：表单的DOM对象
+        name:function(value, item){ //value：表单的值、item：表单的DOM对象
             if( /^\s*$/g.test(value)){
-                return '权限名不能为空';
-            }
-        },
-        apControl:function(value, item){ //value：表单的值、item：表单的DOM对象
-            if( /^\s*$/g.test(value)){
-                return '控制器名不能为空';
-            }
-        },
-        apAction:function(value, item){ //value：表单的值、item：表单的DOM对象
-            if( /^\s*$/g.test(value)){
-                return '方法名不能为空';
-            }
-        },
-        apUrl:function(value, item){ //value：表单的值、item：表单的DOM对象
-            if( /^\s*$/g.test(value)){
-                return 'URL不能为空';
+                return '分类名不能为空';
             }
         },
     });

@@ -6,7 +6,7 @@ namespace App\Models;
 
 class AdminRole extends Model
 {
-//    protected $table = "admin_roles";
+
 
     protected $primaryKey = 'ar_id';
     /*

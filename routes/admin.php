@@ -111,12 +111,14 @@ Route::group(['prefix' => 'admin'], function() {
 
 
 
-	//  文章分类列表
+	//----文章分类列表----
 	Route::get('/category', 'Admin\CategoryController@index');
 	//文章创建页面
 	Route::get('/category/create', 'Admin\CategoryController@create');
 	//文章创建逻辑
 	Route::post('/category', 'Admin\CategoryController@store');
+
+
 	//文章详情页
 	Route::get('/category/{post}', 'Admin\CategoryController@show');
 	//文章编辑

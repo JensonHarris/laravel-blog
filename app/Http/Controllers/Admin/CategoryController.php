@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Models\ArticleCategory;
+use App\Http\Requests\Admin\Category\Store;
 
 class CategoryController extends Controller
 {
@@ -33,9 +34,14 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Store $request,ArticleCategory $articleCategory)
     {
-        //
+        $category = $request->input();
+        $result   = $articleCategory->create($category);
+        if (!$result){
+            return $this->error(40002);
+        }
+        return $this->success(20002);
     }
 
     /**
