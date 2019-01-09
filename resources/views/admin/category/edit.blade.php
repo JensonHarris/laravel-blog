@@ -10,7 +10,10 @@
     <div class="ibox float-e-margins">
         <div class="ibox-content ">
             <div class="layui-row">
- <form class="layui-form layui-form-pane layui-col-md6 layui-col-md-offset1" action="">
+                 <form class="layui-form layui-form-pane layui-col-md6 layui-col-md-offset1" action="">
+                     <div class="layui-form-item">
+                            <input type="hidden" name="id" id="id"  class="layui-input" value="{{$articleCategory->id}}">
+                    </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">分类名称</label>
                         <div class="layui-input-block">
@@ -55,7 +58,7 @@
                     </div>
                     <div class="layui-form-item">
                         <div class="layui-input-block">
-                            <button class="layui-btn" lay-submit="" lay-filter="add">保存</button>
+                            <button class="layui-btn" lay-submit="" lay-filter="edit">保存</button>
                             <button type="reset" class="layui-btn layui-btn-primary" lay-submit lay-filter="">重置</button>
                         </div>
                     </div>

@@ -56,6 +56,11 @@ layui.use(['form'], function(){
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+         if (data.field.is_nav=='on'){
+            data.field.is_nav = 0;
+        }else{
+            data.field.is_nav = 1;
+        }
         var url = '/admin/category/update/'+data.field.id;
         $.ajax({
             type: "POST",
@@ -83,7 +88,7 @@ layui.use(['form'], function(){
                         icon: 1,//提示的样式
                         time: 2000, //2秒关闭
                         end:function(){
-                            window.location.href="/admin/permission";
+                            window.location.href="/admin/category";
                         }
                     });
                 } else {

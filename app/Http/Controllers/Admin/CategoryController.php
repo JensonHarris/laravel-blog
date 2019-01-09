@@ -75,7 +75,12 @@ class CategoryController extends Controller
      */
     public function update(Store $request,ArticleCategory $articleCategory)
     {
-        //
+        $category = $request->input();
+        $result   = $articleCategory->where(['id'=>$category['id']])->update($category);
+        if (!$result){
+            return $this->error(40004);
+        }
+        return $this->success(20004);
     }
 
     /**
