@@ -25,10 +25,11 @@ class PermissionController extends Controller
      */
     public function create(AdminPermission $adminPermission)
     {
-        $data =  $adminPermission->all()->toArray();
-        dd(getDepartments($data));
-        dd(arrayToTree($data,'ap_id','ap_pid'));
-        return view('admin.permission.create');
+        $permissions    =  $adminPermission->all()->toArray();
+        $newPermissions = array2level($permissions);
+//        $newPermissions =  arrayLevel($permissions,'ap_id','ap_pid');
+//        dump($newPermissions);
+        return view('admin.permission.create',compact('newPermissions'));
     }
 
     /**

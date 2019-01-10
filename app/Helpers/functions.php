@@ -43,15 +43,40 @@ if (! function_exists('arrayLevel')){
      * @param int $level       默认层级值
      * @return array
      */
-    function arrayLevel($array,$id_name='id',$pid_name='pid', $pid = 0, $level = 1) {
+    function arrayLevel($array, $idName = 'id', $pidName = 'pid', $pid = 0, $level = 1) {
         $list = [];
         foreach ($array as $item) {
-            if ($item[$pid_name] == $pid) {
+            if ($item[$pidName] == $pid) {
                 $item['level'] = $level;
                 $list[] = $item;
-                arrayLevel($array, $item[$id_name], $level + 1);
+                arrayLevel($array,'ap_id', 'ap_pid', $item['ap_id'],$level + 1);
             }
         }
         return $list;
     }
 }
+
+
+function array2level($array, $pid = 0, $level = 1) {
+    static $list = [];
+    foreach ($array as $v) {
+        if ($v['ap_pid'] == $pid) {
+            $v['level'] = $level;
+            $list[] = $v;
+            array2level($array, $v['ap_id'], $level + 1);
+        }
+    }
+
+    return $list;
+}
+//function arrayLevel($array,$idName='id',$pidName='pid', $pid = 0, $level = 1) {
+//    $list = [];
+//    foreach ($array as $item) {
+//        if ($item[$pidName] == $pid) {
+//            $item['level'] = $level;
+//            $list[] = $item;
+//            arrayLevel($array, $idName,$pidName,$item[$idName],$level + 1);
+//        }
+//    }
+//    return $list;
+//}
