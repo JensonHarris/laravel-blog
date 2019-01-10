@@ -19,7 +19,7 @@ class CreateAdminUsersTable extends Migration
             $table->string('au_realname',32)->default('')->comment('管理员姓名');
             $table->string('au_mobile', 20)->default('')->comment('管理员手机号');
             $table->string('au_email')->default('')->comment('管理员邮箱');
-            $table->tinyInteger('au_status')->default(0)->comment('用户状态：0启用 1禁用');
+            $table->boolean('au_status')->default(0)->comment('用户状态：0启用 1禁用');
             $table->string('password',64)->comment('管理员密码');
             $table->string('headimgurl')->default('')->comment('管理员头像');
             $table->rememberToken();

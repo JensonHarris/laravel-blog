@@ -10,7 +10,7 @@
     <div class="ibox float-e-margins">
         <div class="ibox-content ">
             <div class="layui-row">
-                 <form class="layui-form layui-form-pane layui-col-md6 layui-col-md-offset1" action="">
+                 <form class="layui-form layui-form-pane layui-col-md6 layui-col-md-offset1">
                      <div class="layui-form-item">
                             <input type="hidden" name="id" id="id"  class="layui-input" value="{{$articleCategory->id}}">
                     </div>

@@ -27,14 +27,11 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/user/create', 'Admin\UserController@create');
     //管理员创建逻辑
     Route::post('/user', 'Admin\UserController@store');
-
-//    //文章详情页
-//    Route::get('/user/{adminUser}', 'Admin\UserController@show');
-    //文章编辑
+    //管理员编辑
     Route::get('/user/{adminUser}/edit','Admin\UserController@edit');
-    //文章编辑逻辑
+    //管理员编辑逻辑
     Route::post('/user/update/{au_id}', 'Admin\UserController@update');
-    //文章删除
+    //管理员删除
     Route::put('/user/destroy', 'Admin\UserController@destroy');
 
 
@@ -47,11 +44,9 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('/permission', 'Admin\PermissionController@store');
     //权限编辑
     Route::get('/permission/{adminPermission}/edit','Admin\PermissionController@edit');
-    //文章编辑逻辑
+    //权限编辑逻辑
     Route::post('/permission/update/{ap_id}', 'Admin\PermissionController@update');
-
-
-    //文章删除
+    //权限删除
     Route::put('/permission/destroy', 'Admin\PermissionController@destroy');
 
 
@@ -129,19 +124,17 @@ Route::group(['prefix' => 'admin'], function() {
 	Route::put('/category/destroy', 'Admin\CategoryController@destroy');
 
 
-	//  标签列表
+	//标签列表
 	Route::get('/tag', 'Admin\TagController@index');
-	//文章创建页面
+	//标签创建页面
 	Route::get('/tag/create', 'Admin\TagController@create');
-	//文章创建逻辑
+	//标签创建逻辑
 	Route::post('/tag', 'Admin\TagController@store');
-	//文章详情页
-	Route::get('/tag/{post}', 'Admin\TagController@show');
-	//文章编辑
-	Route::get('/tag/{post}/edit','Admin\TagController@edit');
-	//文章编辑逻辑
-	Route::put('/tag/{post}', 'Admin\TagController@update');
-	//文章删除
+	//标签编辑
+	Route::get('/tag/{tag}/edit','Admin\TagController@edit');
+	//标签编辑逻辑
+	Route::post('/tag/update/{id}', 'Admin\TagController@update');
+	//标签删除
 	Route::put('/tag/destroy', 'Admin\TagController@destroy');
 
 

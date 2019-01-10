@@ -19,7 +19,7 @@ class CreateMemberTable extends Migration
             $table->string('realname',32)->default('')->comment('会员姓名');
             $table->string('mobile', 20)->default('')->comment('会员手机号');
             $table->string('email')->default('')->comment('会员员邮箱');
-            $table->tinyInteger('status')->default(0)->comment('用户状态：0启用 1禁用');
+            $table->boolean('status')->default(0)->comment('用户状态：0启用 1禁用');
             $table->string('password',64)->comment('会员密码');
             $table->string('headimgurl')->default('')->comment('会员头像');
             $table->rememberToken();

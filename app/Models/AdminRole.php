@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-
-
 class AdminRole extends Model
 {
 

@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Models\ArticleCategory;
 use App\Http\Requests\Admin\Category\Store;
 
 class CategoryController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Notes : 文章分类列表
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/10 11:08
      */
     public function index()
     {
@@ -19,9 +18,9 @@ class CategoryController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Notes : 文章分类创建页
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/10 11:08
      */
     public function create()
     {
@@ -29,10 +28,11 @@ class CategoryController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Notes : 文章分类创建逻辑
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/10 11:08
+     * @param Store $request
+     * @param ArticleCategory $articleCategory
      */
     public function store(Store $request,ArticleCategory $articleCategory)
     {
@@ -45,21 +45,10 @@ class CategoryController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Notes : 文章分类编辑页
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/10 11:09
+     * @param ArticleCategory $articleCategory
      */
     public function edit(ArticleCategory $articleCategory)
     {
@@ -67,11 +56,11 @@ class CategoryController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Notes : 文章分类编辑逻辑
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/10 11:09
+     * @param Store $request
+     * @param ArticleCategory $articleCategory
      */
     public function update(Store $request,ArticleCategory $articleCategory)
     {
@@ -84,10 +73,10 @@ class CategoryController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Notes : 删除文章分类
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/10 11:09
+     * @param $id
      */
     public function destroy($id)
     {
