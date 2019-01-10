@@ -23,8 +23,11 @@ class PermissionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(AdminPermission $adminPermission)
     {
+        $data =  $adminPermission->all()->toArray();
+        dd(getDepartments($data));
+        dd(arrayToTree($data,'ap_id','ap_pid'));
         return view('admin.permission.create');
     }
 
