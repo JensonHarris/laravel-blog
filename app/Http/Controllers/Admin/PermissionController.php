@@ -26,9 +26,7 @@ class PermissionController extends Controller
     public function create(AdminPermission $adminPermission)
     {
         $permissions    =  $adminPermission->all()->toArray();
-        $newPermissions = array2level($permissions);
-//        $newPermissions =  arrayLevel($permissions,'ap_id','ap_pid');
-//        dump($newPermissions);
+        $newPermissions =  arrayLevel($permissions,'ap_id','ap_pid');
         return view('admin.permission.create',compact('newPermissions'));
     }
 

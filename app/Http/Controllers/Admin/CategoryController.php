@@ -22,9 +22,11 @@ class CategoryController extends Controller
      * Author: JesonC <748532271@qq.com>
      * Date  : 2019/1/10 11:08
      */
-    public function create()
+    public function create(ArticleCategory $articleCategory)
     {
-        return view('admin.category.create');
+        $category =  $articleCategory->all()->toArray();
+        $newCategorys = arrayLevel($category,'id','parent_id');
+        return view('admin.category.create',compact('newCategorys'));
     }
 
     /**
