@@ -25,9 +25,9 @@ class CreateAdminUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes()->comment('软删除');
-            $table->engine = 'InnoDB';
-            $table->comment = '管理员用户表';
         });
+        DB::statement("ALTER TABLE `admin_users` comment'管理员用户表'"); // 表注释
+
     }
 
     /**

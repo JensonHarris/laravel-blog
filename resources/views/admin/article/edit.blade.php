@@ -1,9 +1,6 @@
-
 <!DOCTYPE html>
 <html>
-
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>文章管理</title>
@@ -12,11 +9,11 @@
     <link href="/admin/css/style.css?v=4.1.0" rel="stylesheet">
     <link href="/plugins/markdown/css/editormd.css" rel="stylesheet"/>
     <link href="/admin/plugins/layui/css/layui.css" rel="stylesheet">
-    <!-- <style>
-        .layui-form select {
-             display: inline-block;
+  <style>
+    #test-editormd {
+             z-index: 1000;
         }
-    </style> -->
+    </style>
 </head>
 <body class="gray-bg bg-success">
 <div class="wrapper wrapper-content animated fadeInRight">
@@ -236,7 +233,7 @@ editor.setPreviewTheme('theme-name');
     var testEditor;
     $(function() {
         testEditor = editormd("test-editormd", {
-            width        : "95%",
+            width        : "85%",
             height       : 750,
             toc : true,
             todoList:true,

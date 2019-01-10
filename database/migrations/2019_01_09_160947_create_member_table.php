@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -25,9 +26,9 @@ class CreateMemberTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes()->comment('软删除');
-            $table->engine = 'InnoDB';
-            $table->comment = '会员表';
         });
+        DB::statement("ALTER TABLE `members` comment'会员表'"); // 表注释
+
     }
 
     /**

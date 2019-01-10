@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -18,8 +19,8 @@ class CreateArticleContentsTable extends Migration
             $table->unsignedInteger('article_id')->comment('文章ID');
             $table->mediumText('markdown')->comment('markdown文章内容');
             $table->timestamps();
-            $table->comment = '文章内容表';
         });
+        DB::statement("ALTER TABLE `article_contents` comment'文章内容表'"); // 表注释
     }
 
     /**

@@ -4,7 +4,7 @@
     <div class="ibox-title">
         <blockquote class="layui-elem-quote">
             <a href="{{'/admin/member'}}"><i class="fa fa-step-backward "></i></a>
-            <b>新增管理员</b>
+            <b>新增会员员</b>
         </blockquote>
     </div>
     <div class="ibox float-e-margins">
@@ -12,64 +12,31 @@
             <div class="layui-row">
                 <form class="layui-form layui-form-pane layui-col-md6 layui-col-md-offset1" action="">
                     <div class="layui-form-item">
-                        <label class="layui-form-label">所属用户组</label>
-                        <div class="layui-input-block">
-                            <select name="interest" lay-filter="aihao">
-                                <option value="">请选择权限</option>
-                                <option value="0" selected="">顶级权限</option>
-                                <option value="1">用户管理</option>
-                                <option value="2">用户列表</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">所属用部门</label>
-                        <div class="layui-input-block">
-                            <select name="interest" lay-filter="aihao">
-                                <option value="">请选择权限</option>
-                                <option value="0" selected="">顶级权限</option>
-                                <option value="1">用户管理</option>
-                                <option value="2">用户列表</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="layui-form-item">
                         <label class="layui-form-label">登录账户</label>
                         <div class="layui-input-block">
                             <input type="text" name="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
                         </div>
                     </div>
-
                     <div class="layui-form-item">
                         <label class="layui-form-label">用户密码</label>
                         <div class="layui-input-block">
                             <input type="password" name="password" placeholder="请输入密码" autocomplete="off" class="layui-input">
                         </div>
                     </div>
-
                     <div class="layui-form-item">
                         <label class="layui-form-label">确认密码</label>
                         <div class="layui-input-block">
                             <input type="password" name="password" placeholder="请输入密码" autocomplete="off" class="layui-input">
                         </div>
                     </div>
-
                     <div class="layui-form-item">
                         <label class="layui-form-label">用户邮箱</label>
                         <div class="layui-input-block">
                             <input type="text" name="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
                         </div>
                     </div>
-
                     <div class="layui-form-item">
                         <label class="layui-form-label">手机号码</label>
-                        <div class="layui-input-block">
-                            <input type="text" name="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
-                        </div>
-                    </div>
-
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">邮箱</label>
                         <div class="layui-input-block">
                             <input type="text" name="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
                         </div>

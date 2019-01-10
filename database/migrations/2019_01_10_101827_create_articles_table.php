@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -25,8 +26,8 @@ class CreateArticlesTable extends Migration
             $table->integer('click')->unsigned()->default(0)->comment('点击数');
             $table->timestamps();
             $table->softDeletes();
-            $table->comment = '文章表';
         });
+        DB::statement("ALTER TABLE `articles` comment'文章表'"); // 表注释
     }
 
     /**

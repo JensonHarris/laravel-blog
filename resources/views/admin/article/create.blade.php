@@ -9,11 +9,7 @@
     <link href="/admin/css/style.css?v=4.1.0" rel="stylesheet">
     <link href="/plugins/markdown/css/editormd.css" rel="stylesheet"/>
     <link href="/admin/plugins/layui/css/layui.css" rel="stylesheet">
-  <!--   <style>
-        .layui-form select {
-             display: inline-block;
-        }
-    </style> -->
+    <style> #test-editormd {z-index: 1000;}</style>
 </head>
 <body class="gray-bg bg-success">
 <div class="wrapper wrapper-content animated fadeInRight">
@@ -233,7 +229,7 @@ editor.setPreviewTheme('theme-name');
     var testEditor;
     $(function() {
         testEditor = editormd("test-editormd", {
-            width        : "95%",
+            width        : "85%",
             height       : 750,
             toc : true,
             todoList:true,
@@ -253,7 +249,7 @@ editor.setPreviewTheme('theme-name');
                     "list-ul", "list-ol", "hr", "|",
                     "link", "reference-link", "image", "code",'code-block', "table", "datetime", "emoji", "html-entities", "pagebreak", "|",
                      "watch", "preview", "clear", "|",
-                    "help"
+                    "help", 'fullscreen',
                 ]
             },
             //显示主题
