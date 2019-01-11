@@ -8,18 +8,18 @@ if (! function_exists('arrayToTree')) {
      * Author: JesonC <748532271@qq.com>
      * Date  : 2019/1/10 16:10
      ** @param array $array     一维数组
-     * @param string $id_name  id字段名   例:auth_id
-     * @param string $pid_name 父id字段名 例:auth_pid
+     * @param string $idname  id字段名   例:id
+     * @param string $pidname 父id字段名 例:pid
      * @return array
      */
-    function arrayToTree($array,$id_name='',$pid_name=''){
+    function arrayToTree($array,$idname='',$pidname=''){
         $tree = [];
         foreach($array as $k=>$item) {
-            if ($item[$pid_name] == 0) {
+            if ($item[$pidname] == 0) {
                 $tree[] = &$array[$k];
             } else {
                 foreach($array as $key=>$v){
-                    if ($v[$id_name] == $item[$pid_name]) {
+                    if ($v[$idname] == $item[$pidname]) {
                         $array[$key]['children'][] = &$array[$k];
                         break;
                     }
@@ -37,19 +37,19 @@ if (! function_exists('arrayLevel')){
      * Author: JesonC <748532271@qq.com>
      * Date  : 2019/1/10 16:07
      * @param array $array     一维数组
-     * @param string $id_name  id字段名   例:auth_id
-     * @param string $pid_name 父id字段名 例:auth_pid
+     * @param string $idname  id字段名   例:id
+     * @param string $pidname 父id字段名 例:pid
      * @param int $pid         默认pid值
      * @param int $level       默认层级值
      * @return array
      */
-    function arrayLevel($array, $idName = 'id', $pidName = 'pid', $pid = 0, $level = 1) {
+    function arrayLevel($array, $idname = 'id', $pidname = 'pid', $pid = 0, $level = 1) {
         static $list = []; //static
         foreach ($array as $item) {
-            if ($item[$pidName] == $pid) {
+            if ($item[$pidname] == $pid) {
                 $item['level'] = $level;
                 $list[] = $item;
-                arrayLevel($array, $idName, $pidName, $item[$idName] , $level + 1);
+                arrayLevel($array, $idname, $pidname, $item[$idname] , $level + 1);
             }
         }
         return $list;
