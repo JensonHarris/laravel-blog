@@ -9,18 +9,19 @@
     <link href="/admin/css/style.css?v=4.1.0" rel="stylesheet">
     <link href="/plugins/markdown/css/editormd.css" rel="stylesheet"/>
     <link href="/admin/plugins/layui/css/layui.css" rel="stylesheet">
-  <style>
-    #test-editormd {
-             z-index: 1000;
+    <style>
+        #article-editormd select {
+            display: inline-block;
         }
     </style>
+    <style> #article-editormd {z-index: 1000;}</style>
 </head>
 <body class="gray-bg bg-success">
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="ibox-title">
         <blockquote class="layui-elem-quote">
             <a href="{{url('/admin/article')}}" ><i class="fa fa-step-backward "></i></a>
-            <b>新增文章</b>
+            <b>编辑文章</b>
         </blockquote>
     </div>
     <div class="ibox float-e-margins">
@@ -30,7 +31,35 @@
                     <div class="layui-form-item layui-col-md6 layui-col-md-offset1">
                         <label class="layui-form-label">文章分类</label>
                         <div class="layui-input-block" id="tag_ids2">
-
+                            <select>
+                                <option value=""></option>
+                                <option value="0">写作</option>
+                                <option value="1" selected>阅读</option>
+                                <option value="2">游戏</option>
+                                <option value="3" selected>音乐</option>
+                                <option value="4">旅行</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item layui-col-md6 layui-col-md-offset1">
+                        <label class="layui-form-label">文章标签</label>
+                        <div class="layui-input-block" id="tag_ids1">
+                            <select multiple="multiple" lay-filter="test">
+                                <option value=""></option>
+                                <option value="0" selected>写作</option>
+                                <option value="1">阅读</option>
+                                <option value="2">游戏</option>
+                                <option value="3" selected>音乐</option>
+                                <option value="4">旅行</option>
+                                <option value="0" selected>写作</option>
+                                <option value="1">阅读</option>
+                                <option value="2">游戏</option>
+                                <option value="3" selected>音乐</option>
+                                <option value="4">旅行</option>
+                                <option value="1">阅读</option>
+                                <option value="2">游戏</option>
+                                <option value="4">旅行</option>
+                            </select>
                         </div>
                     </div>
                     <div class="layui-form-item layui-col-md6 layui-col-md-offset1">
@@ -39,21 +68,18 @@
                             <input type="text" name="article_title" autocomplete="off" placeholder="请输入文章标题..." class="layui-input">
                         </div>
                     </div>
-
                     <div class="layui-form-item layui-col-md6 layui-col-md-offset1">
                         <label class="layui-form-label">文章作者</label>
                         <div class="layui-input-block">
                             <input type="text" name="author" autocomplete="off" placeholder="请输入文章作者..." class="layui-input">
                         </div>
                     </div>
-
                     <div class="layui-form-item layui-col-md6 layui-col-md-offset1">
-                        <label class="layui-form-label">文章标签</label>
-                        <div class="layui-input-block" id="tag_ids1">
-
+                        <label class="layui-form-label">文章关键词</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="author" autocomplete="off" placeholder="请输入文章作者..." class="layui-input">
                         </div>
                     </div>
-
                     <div class="layui-form-item layui-form-text layui-col-md6 layui-col-md-offset1">
                         <label class="layui-form-label">文章描述</label>
                         <div class="layui-input-block">
@@ -62,7 +88,7 @@
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label layui-col-md-offset1">文章内容</label>
-                        <div id="test-editormd">
+                        <div id="article-editormd">
                             <textarea name="content" style="display:none;">
 [TOC]
 
@@ -150,15 +176,15 @@ editor.setPreviewTheme('theme-name');
                         </div>
                     </div>
                     <div class="layui-form-item  layui-col-md6 layui-col-md-offset1" pane="">
-                        <label class="layui-form-label">是否发布</label>
+                        <label class="layui-form-label">是否置顶</label>
                         <div class="layui-input-block">
                             <input type="checkbox" checked="" name="issue" lay-skin="switch" lay-filter="switchTest" lay-text="ON|OFF">
                         </div>
                     </div>
                     <div class="layui-form-item layui-col-md6 layui-col-md-offset1">
                         <div class="layui-input-block">
-                            <button class="layui-btn" lay-submit="" lay-filter="InputContent">保存</button>
-                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                            <button class="layui-btn" lay-submit="" lay-filter="edit">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary" lay-submit lay-filter="">重置</button>
                         </div>
                     </div>
                 </form>
@@ -172,67 +198,30 @@ editor.setPreviewTheme('theme-name');
 <script type="text/javascript" src="/admin/plugins/layui/layui.js"></script>
 <script type="text/javascript" src="/plugins/markdown/editormd.js"></script>
 <script>
-    var tagData = [{"id":12,"name":"长者","status":0},{"id":13,"name":"工厂"},{"id":14,"name":"小学生"},{"id":15,"name":"大学生"},{"id":16,"name":"研究生"},{"id":17,"name":"教师"},{"id":18,"name":"记者"}];
     layui.config({
-        base : '/admin/plugins'
-    }).extend({
-        selectN: '/layui_extends/selectN',
-        selectM: '/layui_extends/selectM',
-    }).use(['layer','form','jquery','selectN','selectM'],function(){
-        $ = layui.jquery;
-        var form = layui.form
-            ,layer = layui.layer
-            ,selectN = layui.selectN
-            ,selectM = layui.selectM;
-        //多选标签-基本配置
-        var tagIns1 = selectM({
-            //元素容器【必填】
-            elem: '#tag_ids1'
-            //候选数据【必填】
-            ,data: tagData
-            ,max:2
-            ,tips: '请选择文章标签'
-            // ,width:400
-            //添加验证
-            ,verify:'required'
-        });
-        var catIns1 = selectM({
-            //元素容器【必填】
-            elem: '#tag_ids2'
-            ,max:1
-            ,tips: '请选择文章类型'
-            //候选数据【必填】
-            ,data: tagData
-        });
-
-        //监听重置按钮
-        $('form').find(':reset').click(function(){
-            $('form')[0].reset();
-            return false;
-        });
-        // //监听指定开关
-        // form.on('switch(switchTest)', function(data){
-        //     layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
-        //         offset: '6px'
-        //     });
-        //     layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
-        // });
-
-        //监听提交
-        form.on('submit(InputContent)', function(data){
-            console.log(data.field);
-            // layer.alert(JSON.stringify(data.field), {
-            //     title: '最终的提交信息'
-            // });
-            return false;
-        });
-
+        base: '/admin/plugins/layui_ext/multiSelect/',
+    })
+    layui.use(['multiSelect'],function() {
+        var $ = layui.jquery,form = layui.form,multiSelect = layui.multiSelect;
+        $('#get-val').click(function() {
+            var vals = [],
+                texts = [];
+            $('select[multiple] option:selected').each(function() {
+                vals.push($(this).val());
+                texts.push($(this).text());
+            })
+            console.dir(vals);
+            console.dir(texts);
+        })
+        form.on('select(test)',function(data){
+            console.dir(data);
+        })
     });
 </script>
 <script type="text/javascript">
     var testEditor;
     $(function() {
-        testEditor = editormd("test-editormd", {
+        testEditor = editormd("article-editormd", {
             width        : "85%",
             height       : 750,
             toc : true,
@@ -252,8 +241,8 @@ editor.setPreviewTheme('theme-name');
                     "h1", "h2", "h3", "h4", "h5", "h6", "|",
                     "list-ul", "list-ol", "hr", "|",
                     "link", "reference-link", "image", "code",'code-block', "table", "datetime", "emoji", "html-entities", "pagebreak", "|",
-                     "watch", "preview", "clear", "|",
-                    "help"
+                    "watch", "preview", "clear", "|",
+                    "help", 'fullscreen',
                 ]
             },
             //显示主题

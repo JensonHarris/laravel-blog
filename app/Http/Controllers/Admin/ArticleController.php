@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Tag;
+use App\Models\Article;
+use App\Models\ArticleTag;
+use App\Models\ArticleContent;
+use App\Models\ArticleCategory;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Article\Store;
 
 class ArticleController extends Controller
 {
@@ -24,7 +29,10 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('admin.article.create');
+        $tags      = Tag::all();
+        $categoryData = ArticleCategory::all();
+        $categorys    =  arrayLevel($categoryData,'id','parent_id');
+        return view('admin.article.create',compact('tags','categorys'));
     }
 
     /**
@@ -33,9 +41,12 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Store $request,Article $article)
     {
-        //
+        $articlesData  = $request->input();
+        $tagIds        =  array_pull($user, 'ar_id');
+        $articleresult  = $article->create($articlesData);
+        dd($articleresult,$tagIds);
     }
 
     /**

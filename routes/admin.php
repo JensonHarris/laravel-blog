@@ -59,12 +59,10 @@ Route::group(['prefix' => 'admin'], function() {
 	Route::get('/article/create', 'Admin\ArticleController@create');
 	//文章创建逻辑
 	Route::post('/article', 'Admin\ArticleController@store');
-	//文章详情页
-	Route::get('/article/{post}', 'Admin\ArticleController@show');
 	//文章编辑
-	Route::get('/article/{post}/edit','Admin\ArticleController@edit');
+	Route::get('/article/{article}/edit','Admin\ArticleController@edit');
 	//文章编辑逻辑
-	Route::put('/article/{post}', 'Admin\ArticleController@update');
+	Route::post('/article/update/{id}', 'Admin\ArticleController@update');
 	//文章删除
 	Route::put('/article/destroy', 'Admin\ArticleController@destroy');
 
@@ -113,9 +111,6 @@ Route::group(['prefix' => 'admin'], function() {
 	//文章创建逻辑
 	Route::post('/category', 'Admin\CategoryController@store');
 
-
-	// //文章详情页
-	// Route::get('/category/{post}', 'Admin\CategoryController@show');
 	//文章分类编辑
 	Route::get('/category/{articleCategory}/edit','Admin\CategoryController@edit');
 	//文章编辑逻辑
@@ -139,7 +134,7 @@ Route::group(['prefix' => 'admin'], function() {
 
 
 	//  评论列表
-	Route::get('/ccomment', 'Admin\CommentController@index');
+	Route::get('/comment', 'Admin\CommentController@index');
 
 });
 
