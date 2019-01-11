@@ -78,7 +78,7 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label layui-col-md-offset1">文章内容</label>
                         <div id="article-editormd">
-                            <textarea name="content" style="display:none;">
+                            <textarea name="markdown" style="display:none;">
 [TOC]
 
 
