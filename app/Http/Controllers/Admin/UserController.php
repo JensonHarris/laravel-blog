@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\AdminUser;
+use App\Models\AdminRole;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\Admin\User\Store;
@@ -27,7 +28,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.user.create');
+        $roles = AdminRole::all()->toArray();
+        return view('admin.user.create',compact('roles'));
     }
 
     /**

@@ -17,9 +17,9 @@
                         <div class="layui-input-block">
                             <select name="ar_id" id="ar_id" lay-verify="group">
                                 <option value="" selected="">请选择权限</option>
-                                <option value="0">顶级权限</option>
-                                <option value="1">用户管理</option>
-                                <option value="2">用户列表</option>
+                                   @foreach ($roles as $role)
+                                <option value="{{$role['ar_id']}}">{{$role['ar_name']}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
