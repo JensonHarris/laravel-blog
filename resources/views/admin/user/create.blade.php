@@ -13,7 +13,7 @@
                 <form class="layui-form layui-form-pane layui-col-md6 layui-col-md-offset1">
                     {{ csrf_field() }}
                     <div class="layui-form-item">
-                        <label class="layui-form-label">所属用户组</label>
+                        <label class="layui-form-label">所属角色</label>
                         <div class="layui-input-block">
                             <select name="ar_id" id="ar_id" lay-verify="group">
                                 <option value="" selected="">请选择权限</option>
