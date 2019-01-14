@@ -30,15 +30,15 @@
                 <form class="layui-form layui-form-pane layui-col-md6 layui-col-md-offset1">
 
                     <div class="layui-form-item">
-                        <label class="layui-form-label">用户角色名</label>
+                        <label class="layui-form-label">角色名称</label>
                         <div class="layui-input-block">
-                            <input type="text" name="ar_name" id="ar_name" placeholder="请输入标题" class="layui-input">
+                            <input type="text" name="ar_name" id="ar_name" placeholder="请输入角色名称" class="layui-input">
                         </div>
                     </div>
                     <div class="layui-form-item layui-form-text">
-                        <label class="layui-form-label">权限描述</label>
+                        <label class="layui-form-label">角色描述</label>
                         <div class="layui-input-block">
-                            <textarea placeholder="请输入内容" name="ar_description" id="ar_description" class="layui-textarea"></textarea>
+                            <textarea placeholder="请输入角色描述..." name="ar_description" id="ar_description" class="layui-textarea"></textarea>
                         </div>
                     </div>
                     <div class="layui-form-item">
