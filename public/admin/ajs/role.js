@@ -53,7 +53,6 @@ layui.use(['form'], function(){
             }
             data.field.permissions = dtree.getCheckbarNodesParam("menubarTree2");
 
-           console.log(data.field);
             $.ajax({
                 type: "POST",
                 url: '/admin/role',
@@ -79,8 +78,8 @@ layui.use(['form'], function(){
                         layer.msg(res.message, {
                             icon: 1,//提示的样式
                             time: 2000, //2秒关闭
-                            end:function(){return false;
-                                window.location.href="/admin/index";
+                            end:function(){
+                                window.location.href="/admin/role";
                             }
                         });
                     } else {
@@ -90,19 +89,11 @@ layui.use(['form'], function(){
             });
             return false; //阻
         });
-        // //单击节点 监听事件
-        // dtree.on("chooseDone('menubarTree2')", function(param) {
-        //     var params = dtree.getCheckbarNodesParam("menubarTree2");
-        //     layer.msg(JSON.stringify(params));
-        // });
-        // //点击获取所有选中的节点数据
-        // $("#getall").click(function() {
-        //     var params = dtree.getCheckbarNodesParam("menubarTree2");
-        //     layer.msg(JSON.stringify(params));
-        // })
+
+        form.on('submit(reset)', function() {
+             window.location.reload()
 
     });
-
 });
 
 

@@ -4,7 +4,7 @@
  * @Author: Jenson Harris
  * @Date:   2018-12-24 22:05:00
  * @Last Modified by:   Jenson Harris
- * @Last Modified time: 2019-01-09 21:33:01
+ * @Last Modified time: 2019-01-14 21:42:00
  */
 
 Route::group(['prefix' => 'admin'], function() {
@@ -20,8 +20,7 @@ Route::group(['prefix' => 'admin'], function() {
 
 	Route::get('/charts', 'Admin\ChartController@index');
 
-
-    //管理员列表页
+    //---------管理员列表页-------------------------------
     Route::get('/user', 'Admin\UserController@index');
     //管理员创建页面
     Route::get('/user/create', 'Admin\UserController@create');
@@ -35,8 +34,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::put('/user/destroy', 'Admin\UserController@destroy');
 
 
-
-    // 权限列表
+    //---------权限列表-------------------------------
     Route::get('/permission', 'Admin\PermissionController@index');
     //权限创建页面
     Route::get('/permission/create', 'Admin\PermissionController@create');
@@ -50,10 +48,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::put('/permission/destroy', 'Admin\PermissionController@destroy');
 
 
-
-
-
-	// 文章列表
+	//---------文章列表-------------------------------
 	Route::get('/article', 'Admin\ArticleController@index');
 	//文章创建页面
 	Route::get('/article/create', 'Admin\ArticleController@create');
@@ -66,54 +61,46 @@ Route::group(['prefix' => 'admin'], function() {
 	//文章删除
 	Route::put('/article/destroy', 'Admin\ArticleController@destroy');
 
-
-
-
-
-	// 用户组列表
+	//---------角色列表-------------------------------
 	Route::get('/role', 'Admin\RoleController@index');
-	//文章创建页面
+	//角色创建页面
 	Route::get('/role/create', 'Admin\RoleController@create');
-
+    //权限数据
     Route::post('/role/create', 'Admin\RoleController@create');
-
-    //文章创建逻辑
+    //角色创建逻辑
 	Route::post('/role', 'Admin\RoleController@store');
-	//文章详情页
-	Route::get('/role/{post}', 'Admin\RoleController@show');
-	//文章编辑
-	Route::get('/role/{post}/edit','Admin\RoleController@edit');
-	//文章编辑逻辑
-	Route::put('/role/{post}', 'Admin\RoleController@update');
-	//文章删除
+	//角色编辑
+	Route::get('/role/{adminRole}/edit','Admin\RoleController@edit');
+	//角色编辑逻辑
+	Route::post('/role/update/{ar_id}', 'Admin\RoleController@update');
+	//角色删除
 	Route::put('/role/destroy', 'Admin\RoleController@destroy');
 
 
-	//  会员列表
+	//---------会员列表-------------------------------
 	Route::get('/member', 'Admin\MemberController@index');
-	//文章创建页面
+	//会员创建页面
 	Route::get('/member/create', 'Admin\MemberController@create');
-	//文章创建逻辑
+	//会员创建逻辑
 	Route::post('/member', 'Admin\MemberController@store');
-	//文章详情页
+	//会员详情页
 	Route::get('/member/{post}', 'Admin\MemberController@show');
-	//文章编辑
+	//会员编辑
 	Route::get('/member/{post}/edit','Admin\MemberController@edit');
-	//文章编辑逻辑
+	//会员编辑逻辑
 	Route::put('/member/{post}', 'Admin\MemberController@update');
-	//文章删除
+	//会员删除
 	Route::put('/member/destroy', 'Admin\MemberController@destroy');
 
 
 
 
-	//----文章分类列表----
+	//---------文章分类列表-------------------------------
 	Route::get('/category', 'Admin\CategoryController@index');
 	//文章分类创建页面
 	Route::get('/category/create', 'Admin\CategoryController@create');
 	//文章创建逻辑
 	Route::post('/category', 'Admin\CategoryController@store');
-
 	//文章分类编辑
 	Route::get('/category/{articleCategory}/edit','Admin\CategoryController@edit');
 	//文章编辑逻辑
@@ -122,7 +109,7 @@ Route::group(['prefix' => 'admin'], function() {
 	Route::put('/category/destroy', 'Admin\CategoryController@destroy');
 
 
-	//标签列表
+	//---------标签列表-------------------------------
 	Route::get('/tag', 'Admin\TagController@index');
 	//标签创建页面
 	Route::get('/tag/create', 'Admin\TagController@create');
