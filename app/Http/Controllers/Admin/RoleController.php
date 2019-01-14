@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\AdminRole;
 use App\Models\AdminPermission;
 use App\Models\AdminPermissionRole;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\Admin\Role\Store;
 
 class RoleController extends Controller
@@ -51,18 +52,21 @@ class RoleController extends Controller
     {
         $roles = $request->input();
         $permissions =  array_pull($roles, 'permissions');
-        $role = $adminRole->create($roles);
-        $multiplied = collect( $permissions)->map(function ($item) {
-            return $item['ap_id'];
-        })->toArray();
-
-        $arr=[];
-        foreach($multiplied as $k=>$item){
-            $arr[$k]['ar_id'] = 2;
-            $arr[$k]['ap_id']= $item;
+        DB::beginTransaction();
+        try {
+            $role  = $adminRole->create($roles);
+            $array = [];
+            foreach($permissions as $k=>$item){
+                $array[$k]['ar_id'] = $role->ar_id;
+                $array[$k]['ap_id'] = $item['ap_id'];
+            }
+            $resulte = AdminPermissionRole::insert($array);
+            DB::commit();
+            return $this->success(20002);
+        } catch (\Exception $e){
+            DB::rollBack();
+            return $this->error(40002);
         }
-        $resulte = AdminPermissionRole::insert($arr);
-        dd($roles,$permissions,$resulte,$arr);
     }
 
     /**
