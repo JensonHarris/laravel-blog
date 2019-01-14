@@ -57,7 +57,7 @@
                 ,{field:'role_name', title:'角色名'}
                 ,{field:'role_desc', title:'角色描述'}
                 ,{field:'create_time', title:'加入时间', width:200, sort: true}
-                ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
+                ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:200}
             ]]
             ,page: true
         });

@@ -45,10 +45,11 @@ if (! function_exists('arrayLevel')){
      */
     function arrayLevel($array, $idname = 'id', $pidname = 'pid', $pid = 0, $level = 1) {
         static $list = []; //static
-        foreach ($array as $item) {
+        foreach ($array as $key=>$item) {
             if ($item[$pidname] == $pid) {
                 $item['level'] = $level;
                 $list[] = $item;
+                unset($array[$key]);
                 arrayLevel($array, $idname, $pidname, $item[$idname] , $level + 1);
             }
         }

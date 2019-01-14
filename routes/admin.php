@@ -74,7 +74,10 @@ Route::group(['prefix' => 'admin'], function() {
 	Route::get('/role', 'Admin\RoleController@index');
 	//文章创建页面
 	Route::get('/role/create', 'Admin\RoleController@create');
-	//文章创建逻辑
+
+    Route::post('/role/create', 'Admin\RoleController@create');
+
+    //文章创建逻辑
 	Route::post('/role', 'Admin\RoleController@store');
 	//文章详情页
 	Route::get('/role/{post}', 'Admin\RoleController@show');

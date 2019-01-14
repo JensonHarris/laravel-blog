@@ -1,7 +1,11 @@
-/***
- * 自定义树组件封装模块
- */
+/**
 
+ @Name：dtree 树形组件
+ @Author：智慧的小西瓜
+ @Site：http://www.wisdomelon.com/DTreeHelper/
+ @License：LAYUI
+    
+ */
 layui.define(['jquery','layer','form'], function(exports) {
 	var $ = layui.$,
 		layer = layui.layer,
@@ -104,14 +108,19 @@ layui.define(['jquery','layer','form'], function(exports) {
 			if(typeof str !== 'string') return '';
 			return str.replace(entityReg.unescape, function(match){return entityMap.unescape[match];});
 		},
-		cloneObj: function (obj) {  //深复制对象方法    
+		cloneObj: function (obj, filter) {  //深复制对象方法    
 		    var newObj = {};  
 		    if (obj instanceof Array) {  
 		        newObj = [];  
 		    }  
+		    var str = "";
+		    if(typeof filter !== 'undefined') {str = filter.join(",");} 
 		    for (var key in obj) {  
-		        var val = obj[key];  
-		        newObj[key] = typeof val === 'object' ? cloneObj(val): val;  
+		    	if(str.indexOf(key) == -1){
+	    			var val = obj[key]; 
+			        newObj[key] = typeof val === 'object' ? event.cloneObj(val, typeof filter !== undefined ? filter : []): val;  
+	    		}
+
 		    }  
 		    return newObj;  
 		}
@@ -222,7 +231,8 @@ layui.define(['jquery','layer','form'], function(exports) {
 			dataType: "dataType",	//节点标记
 			ischecked: "ischecked",	//节点复选框选中状态
 			initchecked: "initchecked",	//节点复选框初始状态
-			basicData: "basicData"		//用户自定义的记录节点数据
+			basicData: "basicData",		//用户自定义的记录节点数据
+			recordData: "recordData",		//当前data数据（排除basicData和children字段）
 		};
 		this.toolbarFun = {
 			addTreeNode: function(param, $div) {	//添加树节点后调用的函数，用于用户自定义，如未指定则树不会发生变化
@@ -277,7 +287,8 @@ layui.define(['jquery','layer','form'], function(exports) {
 				dataType: "dataType",	//节点标记
 				ischecked: "ischecked",	//节点复选框选中状态
 				initchecked: "initchecked",	//节点复选框初始状态
-				basicData: "basicData"		//用户自定义的记录节点数据
+				basicData: "basicData",		//用户自定义的记录节点数据
+				recordData: "recordData",		//当前data数据（排除basicData和children字段）
 			},  
 			iframeRequest: {}	//iframe的自定义参数
 		};
@@ -306,7 +317,8 @@ layui.define(['jquery','layer','form'], function(exports) {
 			dataType: "",	//节点标记
 			ischecked: "",	//节点复选框选中状态
 			initchecked: "",	//节点复选框初始状态
-			basicData: ""		//用户自定义的记录节点数据
+			basicData: "",		//用户自定义的记录节点数据
+			recordData: "",		//当前data数据（排除basicData和children字段）
 		};
 		this.toolbarMenu = {};	// 工具栏右键菜单绑定的所有元素
 		this.checkbarNode = [];	// 复选框标记的全部节点数据
@@ -329,6 +341,8 @@ layui.define(['jquery','layer','form'], function(exports) {
 		this.initLevel = this.options.initLevel || 2;	//默认展开节点  2节    
 		this.type = this.options.type || "load";	// 树的加载方式  all，全量树，  load，增量树，默认load
 		this.cache = (typeof (this.options.cache) === "boolean") ? this.options.cache : true;		//开启数据缓存
+		this.record = (typeof (this.options.record) === "boolean") ? this.options.record : false;		//开启数据记录模式
+		this.load = (typeof (this.options.load) === "boolean") ? this.options.load : true;		//开启加载动画
 
 		/** 样式相关参数**/
 		this.firstIconArray = $.extend(firstIconArray, this.options.firstIconArray) || firstIconArray;	//用户自定义一级图标集合，node
@@ -370,17 +384,19 @@ layui.define(['jquery','layer','form'], function(exports) {
 		this.method = this.options.method || "post";	//请求类型
 		this.dataType = this.options.dataType || "json";	//参数类型
 		this.defaultRequest = $.extend(this.defaultRequest, this.options.defaultRequest) || this.defaultRequest;	//默认请求参数
+		this.filterRequest = this.options.filterRequest || [];	//过滤请求参数
 		this.request = this.options.request || {};		//用户自定义请求参数
 		this.response = $.extend(this.response, this.options.response) || this.response;	//返回json格式
-		this.data = this.options.data || [];		//初始化指定该参数，则不会访问异步接口
+		this.data = this.options.data || null;		//初始化指定该参数，则不会访问异步接口
 		this.dataFormat = this.options.dataFormat || "levelRelationship";  //用于用户配置的data数据格式，list：列表，  levelRelationship：层级关系，默认
 		this.dataStyle = this.options.dataStyle || "defaultStyle";  //用于用户配置layui通用的json数据风格,layuiStyle:layui风格，defaultStyle：默认风格
+		this.success = this.options.success || function(data, obj){};		//树加载完毕后执行解析树之前的回调（仅限异步加载）
 		this.done = this.options.done || function(data, obj){};		//树加载完毕后的回调（仅限异步加载）
 
 		/** 工具栏参数**/
 		this.toolbar = this.options.toolbar || false;	//是否开启可编辑模式
 		this.toolbarStyle = $.extend(this.toolbarStyle, this.options.toolbarStyle) || this.toolbarStyle;	//toolbar的自定义风格，标题，弹框大小
-		this.toolbarScroll = this.options.toolbarScroll || "body";	//树的上级div容器，让树可以显示滚动条的div容器
+		this.toolbarScroll = this.options.toolbarScroll || this.elem;	//树的上级div容器，让树可以显示滚动条的div容器
 		this.toolbarLoad = this.options.toolbarLoad || "node";	//toolbar作用范围：node:所有节点，noleaf:非最后一级节点，leaf:最后一级
 		this.toolbarShow = this.options.toolbarShow || ["add","edit","delete"];		// toolbar三个按钮自定义加载
 		this.toolbarBtn = this.options.toolbarBtn || null;		// toolbar增删改中内容的自定义加载
@@ -395,7 +411,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 		/** 复选框参数**/
 		this.checkbar = this.options.checkbar || false;	//是否开启复选框模式
 		this.checkbarLoad = this.options.checkbarLoad || "node";  // 复选框作用范围，node：所有节点， leaf：最后一级；默认所有节点
-		this.checkbarType = this.options.checkbarType || "all" ;	//复选框选中形式	all：子集选中父级也选中，  no-all：子集选中父级半选中，子集全选父级选中，p-casc：父级选中子集全选，子集无法改变父级选中状态， self：没有任何级联关系   默认all
+		this.checkbarType = this.options.checkbarType || "all" ;	//复选框选中形式	all：子集选中父级也选中，  no-all：子集选中父级半选中，子集全选父级选中，p-casc：父级选中子集全选，子集无法改变父级选中状态， self：没有任何级联关系，only：只能选中一个复选框。   默认all
 		this.checkbarData = this.options.checkbarData || "choose" ;	//复选框记录数据类型形式，  change表示记录变更数据，choose表示记录选中数据，all，记录全部数据，默认choose
 		this.checkbarFun =  $.extend(this.checkbarFun, this.options.checkbarFun) || this.checkbarFun;	// checkbar事件加载
 
@@ -426,7 +442,9 @@ layui.define(['jquery','layer','form'], function(exports) {
 		this.initLevel = this.options.initLevel || this.initLevel;	//默认展开节点  2节    
 		this.type = this.options.type || this.type;		// 树的加载方式  all，全量树，  load，增量树，默认load
 		this.cache = (typeof (this.options.cache) === "boolean") ? this.options.cache : this.cache;		//开启数据缓存
-
+		this.record = (typeof (this.options.record) === "boolean") ? this.options.record : this.record;		//开启数据记录模式
+		this.load = (typeof (this.options.load) === "boolean") ? this.options.load : this.load;		//开启加载动画
+		
 		/** 样式相关参数**/
 		this.firstIconArray = $.extend(firstIconArray, this.options.firstIconArray) || this.firstIconArray;	//用户自定义一级图标集合，node
 		this.nodeIconArray = $.extend(nodeIconArray, this.options.nodeIconArray) || this.nodeIconArray;	//用户自定义二级图标集合，node
@@ -467,11 +485,13 @@ layui.define(['jquery','layer','form'], function(exports) {
 		this.method = this.options.method || this.method;	//请求类型
 		this.dataType = this.options.dataType || this.dataType;	//参数类型
 		this.defaultRequest = $.extend(this.defaultRequest, this.options.defaultRequest) || this.defaultRequest;	//默认请求参数
+		this.filterRequest = this.options.filterRequest || this.filterRequest;	//过滤请求参数
 		this.request = this.options.request || this.request;		//用户自定义请求参数
 		this.response = $.extend(this.response, this.options.response) || this.response;	//返回json格式
 		this.data = this.options.data || this.data;		//初始化指定该参数，则不会访问异步接口
 		this.dataFormat = this.options.dataFormat || this.dataFormat;  //用于用户配置的data数据格式，list：列表，  levelRelationship：层级关系，默认
 		this.dataStyle = this.options.dataStyle || this.dataStyle;  //用于用户配置layui通用的json数据风格,layuiStyle:layui风格，defaultStyle：默认风格
+		this.success = this.options.success || this.success;		//树加载完毕后执行解析树之前的回调（仅限异步加载）
 		this.done = this.options.done || this.done;		//树加载完毕后的回调（仅限异步加载）
 
 		/** 可编辑模式参数**/
@@ -492,7 +512,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 		/** 复选框参数**/
 		this.checkbar = this.options.checkbar || this.checkbar;	//是否开启复选框模式
 		this.checkbarLoad = this.options.checkbarLoad || this.checkbarLoad;  // 复选框作用范围，node：所有节点， leaf：最后一级；默认所有节点
-		this.checkbarType = this.options.checkbarType || this.checkbarType ;	//复选框选中形式	all：子集选中父级也选中，  no-all：子集选中父级半选中，子集全选父级选中，p-casc：父级选中子集全选，子集无法改变父级选中状态， self：没有任何级联关系   默认all
+		this.checkbarType = this.options.checkbarType || this.checkbarType ;	//复选框选中形式	all：子集选中父级也选中，  no-all：子集选中父级半选中，子集全选父级选中，p-casc：父级选中子集全选，子集无法改变父级选中状态， self：没有任何级联关系，only：只能选中一个复选框。   默认all
 		this.checkbarData = this.options.checkbarData || this.checkbarData ;	//复选框记录数据类型形式，  change表示记录变更数据，choose表示记录选中数据，all，记录全部数据，默认choose
 		this.checkbarFun =  $.extend(this.checkbarFun, this.options.checkbarFun)|| this.checkbarFun ;	// checkbar事件加载
 
@@ -519,10 +539,18 @@ layui.define(['jquery','layer','form'], function(exports) {
 			return ;
 		}
 
-		if(_this.data && _this.data.length > 0) {
+		if(_this.data) {
+			if(typeof _this.data.length === 'undefined'){
+				layer.msg("数据解析异常，data数据格式不正确", {icon:5});
+				return ;
+			}
+			
 			//先将ul中的元素清空
 			_this.obj.html("");
 
+			// 加载完毕后执行树解析前的回调
+			_this.success(_this.data, _this.obj);
+			
 			// 第一次解析树
 			if (_this.dataFormat == 'list'){
 				//1.识别根节点ul中的data-id标签，判断顶级父节点
@@ -533,6 +561,9 @@ layui.define(['jquery','layer','form'], function(exports) {
 			} else {
 				_this.loadTree(_this.data, 1);
 			}
+			
+			// 加载完毕后的回调
+			_this.done(_this.data, _this.obj);
 
 		} else {
 			if (!_this.url) {
@@ -543,14 +574,15 @@ layui.define(['jquery','layer','form'], function(exports) {
 			//先将ul中的元素清空
 			_this.obj.html("");
 
-			var index = layer.load(1);
+			var index = _this.load ? layer.load(1) : "";
+			
 			AjaxHelper.request({
 				async: _this.async,
 				headers: _this.headers,
 				type: _this.method,
 				url: _this.url,
 				dataType: _this.dataType,
-				data: _this.getRequestParam(),
+				data: _this.getFilterRequestParam(_this.getRequestParam()),
 				success: function(result) {
 					if (typeof result === 'string') {
 						result = $.parseJSON(result);
@@ -563,6 +595,9 @@ layui.define(['jquery','layer','form'], function(exports) {
 					}
 
 					if (code == _this.response.statusCode) {
+						// 加载完毕后执行树解析前的回调
+						_this.success(result, _this.obj);
+						
 						// 第一次解析树
 						if (_this.dataFormat == 'list'){
 							//1.识别根节点ul中的data-id标签，判断顶级父节点
@@ -583,72 +618,88 @@ layui.define(['jquery','layer','form'], function(exports) {
 							layer.msg(result.status[_this.response.message], {icon:2});
 						}
 					}
-					layer.close(index);
 				},
-				complete: function(){
-					layer.close(index);
-				}
+				complete: function(){if(_this.load){layer.close(index);}}
 			});
 		}
 	};
 
 	// 加载子节点
-	DTree.prototype.getChild = function($div, async) {
+	DTree.prototype.getChild = function($div, data) {
 		var _this = this,
 			$ul = $div.next("ul");
-
-		if (!_this.url) {
-			layer.msg("数据请求异常，url参数未指定", {icon:5});
-			return ;
-		}
-
+		
 		_this.setNodeParam($div);
 
-		var index = layer.load(1);
-		AjaxHelper.request({
-			async: (typeof (async) === "boolean") ? async : _this.async,
-			headers: _this.headers,
-			type: _this.method,
-			url: _this.url,
-			dataType: _this.dataType,
-			data:  _this.getRequestParam(),
-			success: function(result) {
-				if (typeof result === 'string') {
-					result = $.parseJSON(result);
-				}
-				var code = "";
-				if (_this.dataStyle == 'layuiStyle'){
-					code = result[_this.response.statusName];
-				} else {
-					code = result.status[_this.response.statusName];
-				}
-
-				if (code == _this.response.statusCode) {
-					// 解析树
-					var pid = _this.node.nodeId;
-					var level = parseInt(_this.node.level)+1;
-					if (_this.dataFormat == 'list'){
-						var pListData = _this.queryListTreeByPid(pid, result[_this.response.rootName]);
-						_this.loadListTree(pListData, result[_this.response.rootName], level, $ul);
-					} else {
-						_this.loadTree(result[_this.response.rootName], level, $ul);
-					}
-
-					$ul.addClass(NAV_SHOW);
-				} else {
-					if (_this.dataStyle == 'layuiStyle'){
-						layer.msg(result[_this.response.message], {icon:2});
-					} else {
-						layer.msg(result.status[_this.response.message], {icon:2});
-					}
-				}
-
-				layer.close(index);
-			},
-			complete: function(){
-				layer.close(index);
+		if(typeof data !== 'undefined') {
+			if(typeof data.length === 'undefined'){
+				layer.msg("数据解析异常，data数据格式不正确", {icon:5});
+				return ;
 			}
-		});
+
+			//先将ul中的元素清空
+			$ul.html("");
+
+			// 解析树
+			if (_this.dataFormat == 'list'){
+				var pid = _this.node.nodeId;
+				var level = parseInt(_this.node.level)+1;
+
+				var listData = _this.queryListTreeByPid(pid, data);
+				_this.loadListTree(listData, _this.data, level);
+			} else {
+				_this.loadTree(data, level);
+			}
+
+		} else {
+			if (!_this.url) {
+				layer.msg("数据请求异常，url参数未指定", {icon:5});
+				return ;
+			}
+
+			$ul.html("");
+			var index = _this.load ? layer.load(1) : "";
+			AjaxHelper.request({
+				async: _this.async,
+				headers: _this.headers,
+				type: _this.method,
+				url: _this.url,
+				dataType: _this.dataType,
+				data:  _this.getFilterRequestParam(_this.getRequestParam()),
+				success: function(result) {
+					if (typeof result === 'string') {
+						result = $.parseJSON(result);
+					}
+					var code = "";
+					if (_this.dataStyle == 'layuiStyle'){
+						code = result[_this.response.statusName];
+					} else {
+						code = result.status[_this.response.statusName];
+					}
+
+					if (code == _this.response.statusCode) {
+						// 解析树
+						var pid = _this.node.nodeId;
+						var level = parseInt(_this.node.level)+1;
+						if (_this.dataFormat == 'list'){
+							var pListData = _this.queryListTreeByPid(pid, result[_this.response.rootName]);
+							_this.loadListTree(pListData, result[_this.response.rootName], level, $ul);
+						} else {
+							_this.loadTree(result[_this.response.rootName], level, $ul);
+						}
+
+						$ul.addClass(NAV_SHOW);
+					} else {
+						if (_this.dataStyle == 'layuiStyle'){
+							layer.msg(result[_this.response.message], {icon:2});
+						} else {
+							layer.msg(result.status[_this.response.message], {icon:2});
+						}
+					}
+				},
+				complete: function(){if(_this.load){layer.close(index);}}
+			});
+		}
 	};
 
 	// 初始化树或者拼接树
@@ -664,7 +715,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 				var childListData = _this.queryListTreeByPid(parseData.treeId(), listData); // 根据已知数据的id判断该条数据是否还有子数据
 
 				// 3. 页面元素加载数据
-				$ul.append(_this.getLiItemDom(parseData.treeId(), parseData.parentId(), parseData.title(), parseData.isLast(childListData.length), parseData.iconClass(), parseData.checkArr(), level, parseData.spread(level), parseData.disabled(), parseData.basicData(), ($ul.hasClass(UL_ROOT) ? "root" : "item")));
+				$ul.append(_this.getLiItemDom(parseData.treeId(), parseData.parentId(), parseData.title(), parseData.isLast(childListData.length), parseData.iconClass(), parseData.checkArr(), level, parseData.spread(level), parseData.disabled(), parseData.basicData(), parseData.recordData(), ($ul.hasClass(UL_ROOT) ? "root" : "item")));
 				// 4.有子数据的元素加载子节点
 				if(childListData.length > 0){
 					var cLevel = parseInt(level)+1;
@@ -706,7 +757,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 				if(typeof data !== "object") continue;
 				var parseData = _this.parseData(data);
 				var children = parseData.children();
-				$ul.append(_this.getLiItemDom(parseData.treeId(), parseData.parentId(), parseData.title(), parseData.isLast(children.length), parseData.iconClass(), parseData.checkArr(), level, parseData.spread(level), parseData.disabled(), parseData.basicData(), ($ul.hasClass(UL_ROOT) ? "root" : "item")));
+				$ul.append(_this.getLiItemDom(parseData.treeId(), parseData.parentId(), parseData.title(), parseData.isLast(children.length), parseData.iconClass(), parseData.checkArr(), level, parseData.spread(level), parseData.disabled(), parseData.basicData(), parseData.recordData(), ($ul.hasClass(UL_ROOT) ? "root" : "item")));
 				if (children.length != 0) {
 					var cLevel = parseInt(level)+1;
 					_this.loadTree(children, cLevel, _this.obj.find("ul[data-id='"+parseData.treeId()+"']"));
@@ -776,7 +827,11 @@ layui.define(['jquery','layer','form'], function(exports) {
 				return data[_this.response.childName] || [];
 			},
 			basicData: function(){
-				return event.escape(JSON.stringify(data[_this.response.basicData])) || "";
+				return event.escape(JSON.stringify(data[_this.response.basicData])) || JSON.stringify({});
+			},
+			recordData: function(){
+				var recordData = _this.record ? event.cloneObj(data, [_this.response.basicData, _this.response.childName]) : {};
+				return event.escape(JSON.stringify(recordData));
 			},
 			data: function(){
 				return event.escape(JSON.stringify(data));
@@ -892,12 +947,14 @@ layui.define(['jquery','layer','form'], function(exports) {
 	};
 
 	// 获取拼接好的li
-	DTree.prototype.getLiItemDom =  function(treeId, parentId, title, isLast, iconClass, checkArr, level, spread, disabled, basicData, flag) {
+	DTree.prototype.getLiItemDom =  function(treeId, parentId, title, isLast, iconClass, checkArr, level, spread, disabled, basicData, recordData, flag) {
 		var _this = this,
 			rootId = _this.obj[0].id;
 
 		var dom = _this.getDom(treeId, parentId, title, isLast, iconClass, checkArr, level, spread, disabled);
-		var div = "<div class='"+LI_DIV_ITEM+" "+_this.style.item+"' data-id='"+treeId+"' dtree-id='"+rootId+"' dtree-click='"+eventName.itemNodeClick+"' data-basic='"+basicData+"' ";
+		basicData = (basicData == "{}") ? "" : basicData;
+		recordData = (recordData == "{}") ? "" : recordData;
+		var div = "<div class='"+LI_DIV_ITEM+" "+_this.style.item+"' data-id='"+treeId+"' dtree-id='"+rootId+"' dtree-click='"+eventName.itemNodeClick+"' data-basic='"+basicData+"' data-record='"+recordData+"' ";
 		if(_this.toolbar){
 			if(_this.toolbarLoad == "node") { div += " d-contextmenu='true'>"; }
 			if(_this.toolbarLoad == "noleaf") { if(!isLast){ div += " d-contextmenu='true'>"; } else { div += " d-contextmenu='false'>";} }
@@ -922,6 +979,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 		$div.parent().find("."+_this.style.itemThis).removeClass(_this.style.itemThis);
 		$div.addClass(NAV_THIS);
 		$div.addClass(_this.style.itemThis);
+		_this.setNodeParam($div);
 		// 将该节点的父节点全部展开
 		var $li_parents = $div.parents("."+LI_NAV_ITEM);
 		$li_parents.children("ul").addClass(NAV_SHOW);
@@ -1168,7 +1226,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 				}
 			},
 			closeAllNode: function(){ //收缩所有节点
-				$("."+LI_NAV_CHILD).each(function(){
+				_this.obj.find("."+LI_NAV_CHILD).each(function(){
 					// 获取当前节点的信息
 					var $ul = $(this),
 						$div = $ul.prev("div"),
@@ -1214,6 +1272,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 					layer.confirm('确定要删除选中节点？', {icon: 3, title:'删除选中节点'}, function(index1){
 						var flag = _this.menubarFun.remove(_this.checkbarNode);
 						if(flag){
+							_this.obj.find("i[data-par][data-checked='1']").closest("."+LI_DIV_ITEM).next("ul").remove();
 							_this.obj.find("i[data-par][data-checked='1']").closest("."+LI_DIV_ITEM).remove();
 							_this.checkbarNode=[];
 						}
@@ -1567,7 +1626,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 				var parseData = _this.parseData(returnID);
 
 				if(parseData.treeId()){
-					$ul.append(_this.getLiItemDom(parseData.treeId(), parseData.parentId(), parseData.title(), parseData.isLast(0), parseData.iconClass(), parseData.checkArr(), level, parseData.spread(), parseData.disabled(), parseData.basicData(), "item"));
+					$ul.append(_this.getLiItemDom(parseData.treeId(), parseData.parentId(), parseData.title(), parseData.isLast(0), parseData.iconClass(), parseData.checkArr(), level, parseData.spread(), parseData.disabled(), parseData.basicData(), parseData.recordData(), "item"));
 
 					// 建造完毕后，选中该DIV
 					var $addDiv = $ul.find("div[data-id='"+returnID.id+"']");
@@ -1821,7 +1880,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 			_this.checkStatus($child_li_i).check();
 		}
 	};
-
+	
 	//实现复选框点击，self：各自选中互不影响
 	DTree.prototype.checkOrNot = function($i) {
 		var _this = this;
@@ -1832,7 +1891,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 			$li = $i.closest(dataPar),		//当前checkbox的上级li节点
 			$parent_li = $i.parents(dataPar),		//当前checkbox的所有父级li节点
 			$child_li = $li.find(dataPar);	//当前checkbox的上级li节点下的所有子级li节点
-
+		
 		if ($i.attr("data-checked") == "1") {	//当前复选框为选中状态，点击后变为未选中状态
 			// 处理当前节点的选中状态
 			_this.checkStatus($i).noCheck();
@@ -1842,12 +1901,35 @@ layui.define(['jquery','layer','form'], function(exports) {
 		}
 	};
 
+	//实现复选框点击，only：只能选中1个复选框
+	DTree.prototype.checkOnly = function($i) {
+		var _this = this;
+		//$i 当前点击的checkbox
+		var $div = $i.closest("."+LI_DIV_ITEM),
+			dataPar = $i.attr("data-par"),
+			dataType = $i.attr("data-type"),
+			$li = $i.closest(dataPar),		//当前checkbox的上级li节点
+			$parent_li = $i.parents(dataPar),		//当前checkbox的所有父级li节点
+			$child_li = $li.find(dataPar);	//当前checkbox的上级li节点下的所有子级li节点
+	
+		var checked = $i.attr("data-checked");
+		// 将全部节点全部设为未选中状态
+		var $all_i = _this.obj.find("i[data-checked]");
+		_this.checkStatus($all_i).noCheck();
+		
+		if (checked != "1") {	//当前复选框为未选中状态，点击后变为选中状态
+			// 处理当前节点的选中状态
+			_this.checkStatus($i).check();
+		}
+		
+		
+	};
+	
 	//实现复选框点击
 	DTree.prototype.changeCheck = function() {
 		var _this = this;
 		var temp = _this.temp;
 		var $i = temp[0];
-
 		// 复选框选中事件
 		if (_this.checkbarType == "all") {
 			_this.checkAllOrNot($i);
@@ -1857,6 +1939,8 @@ layui.define(['jquery','layer','form'], function(exports) {
 			_this.checkAllOrPcascOrNot($i);
 		} else if(_this.checkbarType == "self") {
 			_this.checkOrNot($i);
+		} else if(_this.checkbarType == "only") {
+			_this.checkOnly($i);
 		} else {
 			_this.checkAllOrNot($i);
 		}
@@ -2000,6 +2084,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 		temp_node.level = $div.parent().attr("data-index");
 		temp_node.spread = $div.find("i[data-spread]").eq(0).attr("data-spread") == "open" ? true : false;
 		temp_node.basicData = $div.attr("data-basic");
+		temp_node.recordData = $div.attr("data-record");
 		temp_node.dataType = $i.attr("data-type");
 		temp_node.ischecked = $i.attr("data-checked");
 		temp_node.initchecked = $i.attr("data-initchecked");
@@ -2116,6 +2201,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 		_this.node.level = $div.parent().attr("data-index");
 		_this.node.spread = $div.find("i[data-spread]").eq(0).attr("data-spread") == "open" ? true : false;
 		_this.node.basicData = $div.attr("data-basic");
+		_this.node.recordData = $div.attr("data-record");
 		if ($div.find("i[data-par]")) {
 			var dataTypes = "", ischeckeds = "", initcheckeds = "";
 			$div.find("i[data-par]").each(function(){
@@ -2157,6 +2243,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 		temp_node.level = $div.parent().attr("data-index");
 		temp_node.spread = $div.find("i[data-spread]").eq(0).attr("data-spread") == "open" ? true : false;
 		temp_node.basicData = $div.attr("data-basic");
+		temp_node.recordData = $div.attr("data-record");
 		if ($div.find("i[data-par]")) {
 			var dataTypes = "", ischeckeds = "", initcheckeds = "";
 			$div.find("i[data-par]").each(function(){
@@ -2216,10 +2303,18 @@ layui.define(['jquery','layer','form'], function(exports) {
 		}
 		return requestParam;
 	};
+	
+	// 获取filterParam过滤后的requestParam
+	DTree.prototype.getFilterRequestParam = function(requestParam){
+		var _this = this;
+		var filterRequest = _this.filterRequest;
+		return event.cloneObj(requestParam, filterRequest);
+	};
 
 	// 获取当前选中值
 	DTree.prototype.getNowParam = function(){
 		var _this = this;
+		
 		return _this.getRequestParam(_this.getNodeParam());
 	};
 
@@ -2293,7 +2388,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 			_this.clickSpread($div);	// 展开或隐藏节点
 
 			// 树状态改变后，用户自定义想做的事情
-			layui.event.call(this, MOD_NAME, "changeTree("+$(_this.obj)[0].id+")",  {param: _this.callbackData().node(node), dom: _this.callbackData().dom($i)});
+			layui.event.call(this, MOD_NAME, "changeTree("+$(_this.obj)[0].id+")",  {param: _this.callbackData().node(node), dom: _this.callbackData().dom($i), show: _this.callbackData().dom($i).attr("data-spread") == "open" ? true : false});
 		});
 
 		// 绑定所有子节点div的单击事件，点击时触发加载iframe或用户自定义想做的事情
@@ -2314,7 +2409,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 			$div.addClass(_this.style.itemThis);
 
 			if (_this.useIframe) {
-				var iframeParam = _this.getIframeRequestParam(node);
+				var iframeParam = _this.getFilterRequestParam(_this.getIframeRequestParam(node));
 				var flag = _this.loadIframe($div, iframeParam);	// 加载iframe
 				if (flag) {
 					// iframe加载完毕后，用户自定义想做的事情
@@ -2423,7 +2518,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 									}
 								}
 								
-								$ul.append(_this.getLiItemDom(id, parentId, data.addNodeName, true, "", checkArr, level, false, false, "", "item"));
+								$ul.append(_this.getLiItemDom(id, parentId, data.addNodeName, true, "", checkArr, level, false, false, "", "", "item"));
 								// 先将li节点隐藏
 								$ul.find("li[data-id='"+id+"']").hide();
 								// 重新赋值
@@ -2544,14 +2639,19 @@ layui.define(['jquery','layer','form'], function(exports) {
 		// 本身事件解绑
 		_this.obj.unbind();
 		// 菜单栏解绑
-		_this.obj.prevAll('div#dtree_menubar_'+_this.obj[0].id).unbind();
-		if(_this.obj.closest('body').find("*[dtree-id='"+_this.obj[0].id+"'][dtree-menu]").length > 0){
-			_this.obj.closest('body').find("*[dtree-id='"+_this.obj[0].id+"'][dtree-menu]").unbind();
+		if(_this.menubar){
+			_this.obj.prevAll('div#dtree_menubar_'+_this.obj[0].id).unbind();
+			if(_this.obj.closest('body').find("*[dtree-id='"+_this.obj[0].id+"'][dtree-menu]").length > 0){
+				_this.obj.closest('body').find("*[dtree-id='"+_this.obj[0].id+"'][dtree-menu]").unbind();
+			}
 		}
+
 		// 工具栏解绑
-		_this.obj.prevAll('div#dtree_toolbar_'+_this.obj[0].id).unbind();
-		if(_this.obj.closest(_this.toolbarScroll).length > 0){
-			_this.obj.closest(_this.toolbarScroll).unbind();
+		if(_this.toolbar){
+			_this.obj.prevAll('div#dtree_toolbar_'+_this.obj[0].id).unbind();
+			if(_this.obj.closest(_this.toolbarScroll).length > 0){
+				_this.obj.closest(_this.toolbarScroll).unbind();
+			}
 		}
 	};
 
@@ -2683,6 +2783,15 @@ layui.define(['jquery','layer','form'], function(exports) {
 				return ;
 			}
 			return dTree.changeCheckbarNodes();
+		},
+		refreshTree: function(dTree){ //刷新树，并具有数据回显的功能，自动识别复选框or单选（未完成）
+			if(typeof dTree === "string"){
+				dTree = DTrees[dTree];
+			}
+			if(typeof dTree === "undefined"){
+				layer.msg("方法获取失败，请检查ID或对象传递是否正确",{icon:2});
+				return ;
+			}
 		},
 		escape: function(html){
 			return event.escape(html);

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Models\AdminPermission;
 
 class RoleController extends Controller
 {
@@ -22,9 +22,20 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('admin.role.create');
+        if ($request->ajax()) {
+            $permissions      = AdminPermission::all(['ap_id','ap_pid','ap_name'])->toArray();
+            $multiplied = collect( $permissions)->map(function ($item) {
+                $item['checkArr'] = [['type'=>'0','isChecked'=>'0']];
+                return $item;
+            });
+            $permissionsLevel = arrayLevel($multiplied,'ap_id','ap_pid');
+            $permissionsTree  =  arrayToTree($permissionsLevel,'ap_id','ap_pid');
+            return $this->success('200',$permissionsTree);
+        } else {
+            return view('admin.role.create');
+        }
     }
 
     /**
@@ -33,7 +44,7 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Store $request,AdminPermission $adminPermission)
     {
         //
     }
