@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Models\AdminRole;
 use App\Models\AdminPermission;
+use App\Http\Requests\Admin\Role\Store;
 
 class RoleController extends Controller
 {
@@ -44,9 +46,11 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Store $request,AdminPermission $adminPermission)
+    public function store(Store $request,AdminRole $adminRole)
     {
-        //
+        $roles = $request->input();
+        $permissions =  array_pull($roles, 'permissions');
+        dd($roles,$permissions);
     }
 
     /**

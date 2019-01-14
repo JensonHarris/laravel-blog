@@ -33,6 +33,11 @@ layui.use(['form'], function(){
                 toolbar: ["moveDown", "moveUp"],
                 group: []
             },
+            defaultRequest:{
+                nodeId: "ap_id",		//节点ID
+                parentId: "ap_pid",	//父节点ID
+                context: "ap_name",	//节点内容
+            },
             toolbar: true,
             toolbarScroll: "#toolbarDiv",
             toolbarShow: [], // 工具栏自带的按钮制空
