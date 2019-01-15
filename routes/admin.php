@@ -36,6 +36,8 @@ Route::group(['prefix' => 'admin'], function() {
 
     //---------权限列表-------------------------------
     Route::get('/permission', 'Admin\PermissionController@index');
+    //权限数据
+    Route::get('/permission/jsonData', 'Admin\PermissionController@jsonData');
     //权限创建页面
     Route::get('/permission/create', 'Admin\PermissionController@create');
     //权限创建逻辑

@@ -38,74 +38,9 @@
          <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
      </div>
  </script>
-
  <script type="text/html" id="barDemo">
-     <a class="layui-btn layui-btn-xs"  href="{{url('/admin/permission/1/edit')}}">编辑</a>
+     <a class="layui-btn layui-btn-xs"  href="/admin/permission/@{{d.ap_id}}/edit">编辑</a>
      <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
  </script>
-
-
- <script>
-     layui.use('table', function(){
-         var table = layui.table;
-
-         table.render({
-             elem: '#test'
-             ,url:'/data/auth_data.json'
-             ,toolbar: '#toolbarDemo'
-             ,title: '权限数据表'
-             ,cols: [[
-                 {type: 'checkbox', fixed: 'left'}
-                 ,{field:'auth_id', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
-                 ,{field:'auth_name', title:'权限名'}
-                 ,{field:'auth_c', title:'控制器' }
-                 ,{field:'auth_a', title:'方法'}
-                 ,{field:'auth_path', title:'URL'}
-                 ,{field:'create_time', title:'添加时间',width:200, sort: true}
-                 ,{fixed: 'right', title:'操作', toolbar: '#barDemo'}
-             ]]
-             ,page: true
-         });
-
-         //头工具栏事件
-         table.on('toolbar(test)', function(obj){
-             var checkStatus = table.checkStatus(obj.config.id);
-             switch(obj.event){
-                 case 'getCheckData':
-                     var data = checkStatus.data;
-                     layer.alert(JSON.stringify(data));
-                     break;
-                 case 'getCheckLength':
-                     var data = checkStatus.data;
-                     layer.msg('选中了：'+ data.length + ' 个');
-                     break;
-                 case 'isAll':
-                     layer.msg(checkStatus.isAll ? '全选': '未全选');
-                     break;
-             };
-         });
-
-         //监听行工具事件
-         table.on('tool(test)', function(obj){
-             var data = obj.data;
-             //console.log(obj)
-             if(obj.event === 'del'){
-                 layer.confirm('真的删除行么', function(index){
-                     obj.del();
-                     layer.close(index);
-                 });
-             } else if(obj.event === 'edit'){
-                 layer.prompt({
-                     formType: 2
-                     ,value: data.email
-                 }, function(value, index){
-                     obj.update({
-                         email: value
-                     });
-                     layer.close(index);
-                 });
-             }
-         });
-     });
- </script>
+ <script type="text/javascript" src="/admin/ajs/auth.js"></script>
 @endsection
