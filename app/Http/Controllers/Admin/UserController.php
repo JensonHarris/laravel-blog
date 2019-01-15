@@ -18,6 +18,8 @@ class UserController extends Controller
      */
     public function index(AdminUser $adminUser)
     {
+        $da =  $adminUser->users();
+        dd($da);
         return view('admin.user.index');
     }
 
@@ -28,7 +30,7 @@ class UserController extends Controller
      */
     public function create()
     {
-//        $roles = AdminRole::take(2)->roles;
+        $roles = AdminRole::all()->toArray();
         return view('admin.user.create',compact('roles'));
     }
 
