@@ -16,7 +16,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(AdminUser $adminUser)
     {
         return view('admin.user.index');
     }
@@ -28,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = AdminRole::all()->toArray();
+//        $roles = AdminRole::take(2)->roles;
         return view('admin.user.create',compact('roles'));
     }
 
@@ -68,8 +68,8 @@ class UserController extends Controller
      */
     public function edit(AdminUser $adminUser)
     {
-//        dump($adminUser);
 //        $data = $adminUser->roles;
+//        dump($data);
         return view('admin.user.edit',compact('adminUser'));
     }
 

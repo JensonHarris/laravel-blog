@@ -32,8 +32,9 @@ class AdminUser extends Authenticatable
     */
     public function roles()
     {
-        return $this->belongsToMany(AdminRole::class, 'admin_role_user', 'au_id', 'ar_id')->withPivot(['au_id', 'ar_id']);
+        return $this->belongsToMany(AdminRole::class, 'admin_role_user', 'au_id', 'ar_id');
     }
+
 
 
     /*
@@ -68,5 +69,7 @@ class AdminUser extends Authenticatable
     {
         return $this->roles()->detach($role);
     }
+
+
 
 }

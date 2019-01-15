@@ -8,6 +8,16 @@ class AdminRole extends Model
 
     protected $primaryKey = 'ar_id';
 
+
+
+    /**
+     * 角色用户
+     */
+    public function users()
+    {
+        return $this->belongsToMany(AdminUser::class);
+    }
+
     /*
      * 当前角色的所有权限
      */

@@ -62,7 +62,7 @@
                         return '<em>'+ res.email +'</em>'
                     }}
                 ,{field:'sex', title:'性别', width:80, sort: true}
-                ,{field:'logins', title:'用户组', width:100}
+                ,{field:'logins', title:'角色', width:100}
                 ,{field:'logins', title:'姓名', width:100}
                 ,{field:'logins', title:'联系方式', width:100}
                 ,{field:'logins', title:'登录次数', width:100}
