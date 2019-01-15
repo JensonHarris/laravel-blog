@@ -46,6 +46,13 @@
                 </div>
 
                 <div class="layui-form-item">
+                    <label class="layui-form-label">请求方式</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="method" name="method" placeholder="请输入请求方式..." class="layui-input" lay-verify="ismethod">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
                     <label class="layui-form-label">URL</label>
                     <div class="layui-input-block">
                         <input type="text" id="ap_url" name="ap_url" placeholder="请输入URL..." class="layui-input" lay-verify="apUrl">

@@ -86,22 +86,27 @@ layui.use(['form'], function(){
                 return "请为该权限选择父权限";
             }
         },
-        apName:function(value, item){ //value：表单的值、item：表单的DOM对象
+        apName:function(value, item){
             if( /^\s*$/g.test(value)){
                 return '权限名不能为空';
             }
         },
-        apControl:function(value, item){ //value：表单的值、item：表单的DOM对象
+        apControl:function(value, item){
             if( /^\s*$/g.test(value)){
                 return '控制器名不能为空';
             }
         },
-        apAction:function(value, item){ //value：表单的值、item：表单的DOM对象
+        apAction:function(value, item){
             if( /^\s*$/g.test(value)){
                 return '方法名不能为空';
             }
         },
-        apUrl:function(value, item){ //value：表单的值、item：表单的DOM对象
+        ismethod:function(value, item){
+            if( /^\s*$/g.test(value)){
+                return '请求方法不能为空';
+            }
+        },
+        apUrl:function(value, item){
             if( /^\s*$/g.test(value)){
                 return 'URL不能为空';
             }

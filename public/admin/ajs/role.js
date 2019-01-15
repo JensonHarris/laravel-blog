@@ -53,6 +53,7 @@ layui.use(['form'], function(){
             }
             data.field.permissions = dtree.getCheckbarNodesParam("menubarTree2");
 
+            console.log(data.field);
             $.ajax({
                 type: "POST",
                 url: '/admin/role',
@@ -89,11 +90,8 @@ layui.use(['form'], function(){
             });
             return false; //阻
         });
-
-        form.on('submit(reset)', function() {
-             window.location.reload()
-
     });
+
 });
 
 

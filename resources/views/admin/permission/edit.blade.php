@@ -48,6 +48,13 @@
                     </div>
 
                     <div class="layui-form-item">
+                        <label class="layui-form-label">请求方式</label>
+                        <div class="layui-input-block">
+                            <input type="text" id="method" name="method" class="layui-input" lay-verify="ismethod" value="{{$adminPermission->method}}">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
                         <label class="layui-form-label">URL</label>
                         <div class="layui-input-block">
                             <input type="text" id="ap_url" name="ap_url" class="layui-input" value="{{$adminPermission->ap_url}}">
