@@ -7,132 +7,149 @@
  * @Last Modified time: 2019-01-14 21:42:00
  */
 
+//登录模块
 Route::group(['prefix' => 'admin'], function() {
+    Route::group(['prefix' => 'login'], function() {
+        //登录页面
+        Route::get('', 'Admin\LoginController@index');
+        //登录验证
+        Route::post('', 'Admin\LoginController@login');
+    });
+});
 
-	//登录页面
-	Route::get('/login', 'Admin\LoginController@index');
-	//登录验证
-	Route::post('/login', 'Admin\LoginController@login');
-	//退出登录
-	Route::get('/logout', 'Admin\LoginController@logout');
+//后台模块
+Route::group(['prefix' => 'admin','middleware' => 'admin.auth'], function() {
 
-	Route::get('/index', 'Admin\IndexController@index');
+    Route::get('/index', 'Admin\IndexController@index');
+    //退出登录
+    Route::get('/logout', 'Admin\LoginController@logout');
 
-	Route::get('/charts', 'Admin\ChartController@index');
-
+    Route::get('/charts', 'Admin\ChartController@index');
 
     //---------管理员列表页-------------------------------
-    Route::get('/user', 'Admin\UserController@index');
-    //管理员列表数据
-    Route::get('/user/jsonData', 'Admin\UserController@jsonData');
-    //管理员创建页面
-    Route::get('/user/create', 'Admin\UserController@create');
-    //管理员创建逻辑
-    Route::post('/user', 'Admin\UserController@store');
-    //管理员编辑
-    Route::get('/user/{adminUser}/edit','Admin\UserController@edit');
-    //管理员编辑逻辑
-    Route::post('/user/update/{au_id}', 'Admin\UserController@update');
-    //管理员删除
-    Route::put('/user/destroy', 'Admin\UserController@destroy');
+    Route::group(['prefix' => 'user'], function() {
+        Route::get('', 'Admin\UserController@index');
+        //管理员列表数据
+        Route::get('/jsonData', 'Admin\UserController@jsonData');
+        //管理员创建页面
+        Route::get('/create', 'Admin\UserController@create');
+        //管理员创建逻辑
+        Route::post('', 'Admin\UserController@store');
+        //管理员编辑
+        Route::get('/{adminUser}/edit', 'Admin\UserController@edit');
+        //管理员编辑逻辑
+        Route::post('/update/{au_id}', 'Admin\UserController@update');
+        //管理员删除
+        Route::put('/destroy', 'Admin\UserController@destroy');
+    });
 
 
     //---------权限列表-------------------------------
-    Route::get('/permission', 'Admin\PermissionController@index');
-    //权限数据
-    Route::get('/permission/jsonData', 'Admin\PermissionController@jsonData');
-    //权限创建页面
-    Route::get('/permission/create', 'Admin\PermissionController@create');
-    //权限创建逻辑
-    Route::post('/permission', 'Admin\PermissionController@store');
-    //权限编辑
-    Route::get('/permission/{adminPermission}/edit','Admin\PermissionController@edit');
-    //权限编辑逻辑
-    Route::post('/permission/update/{ap_id}', 'Admin\PermissionController@update');
-    //权限删除
-    Route::put('/permission/destroy', 'Admin\PermissionController@destroy');
+    Route::group(['prefix' => 'permission'], function() {
+        Route::get('', 'Admin\PermissionController@index');
+        //权限数据
+        Route::get('/jsonData', 'Admin\PermissionController@jsonData');
+        //权限创建页面
+        Route::get('/create', 'Admin\PermissionController@create');
+        //权限创建逻辑
+        Route::post('', 'Admin\PermissionController@store');
+        //权限编辑
+        Route::get('/{adminPermission}/edit', 'Admin\PermissionController@edit');
+        //权限编辑逻辑
+        Route::post('/update/{ap_id}', 'Admin\PermissionController@update');
+        //权限删除
+        Route::put('/destroy', 'Admin\PermissionController@destroy');
+    });
 
 
-	//---------文章列表-------------------------------
-	Route::get('/article', 'Admin\ArticleController@index');
-	//文章创建页面
-	Route::get('/article/create', 'Admin\ArticleController@create');
-	//文章创建逻辑
-	Route::post('/article', 'Admin\ArticleController@store');
-	//文章编辑
-	Route::get('/article/{article}/edit','Admin\ArticleController@edit');
-	//文章编辑逻辑
-	Route::post('/article/update/{id}', 'Admin\ArticleController@update');
-	//文章删除
-	Route::put('/article/destroy', 'Admin\ArticleController@destroy');
-
-	//---------角色列表-------------------------------
-	Route::get('/role', 'Admin\RoleController@index');
-	//角色数据
-    Route::get('/role/jsonData', 'Admin\RoleController@jsonData');
-    //角色创建页面
-	Route::get('/role/create', 'Admin\RoleController@create');
-    //权限数据
-    Route::post('/role/create', 'Admin\RoleController@create');
-    //角色创建逻辑
-	Route::post('/role', 'Admin\RoleController@store');
-	//角色编辑
-	Route::get('/role/{adminRole}/edit','Admin\RoleController@edit');
-	//角色编辑逻辑
-	Route::post('/role/update/{ar_id}', 'Admin\RoleController@update');
-	//角色删除
-	Route::put('/role/destroy', 'Admin\RoleController@destroy');
+    Route::group(['prefix' => 'article'], function() {
+        //---------文章列表-------------------------------
+        Route::get('', 'Admin\ArticleController@index');
+        //文章创建页面
+        Route::get('/create', 'Admin\ArticleController@create');
+        //文章创建逻辑
+        Route::post('', 'Admin\ArticleController@store');
+        //文章编辑
+        Route::get('/{article}/edit', 'Admin\ArticleController@edit');
+        //文章编辑逻辑
+        Route::post('/update/{id}', 'Admin\ArticleController@update');
+        //文章删除
+        Route::put('/destroy', 'Admin\ArticleController@destroy');
+    });
 
 
-	//---------会员列表-------------------------------
-	Route::get('/member', 'Admin\MemberController@index');
-	//会员创建页面
-	Route::get('/member/create', 'Admin\MemberController@create');
-	//会员创建逻辑
-	Route::post('/member', 'Admin\MemberController@store');
-	//会员详情页
-	Route::get('/member/{post}', 'Admin\MemberController@show');
-	//会员编辑
-	Route::get('/member/{post}/edit','Admin\MemberController@edit');
-	//会员编辑逻辑
-	Route::put('/member/{post}', 'Admin\MemberController@update');
-	//会员删除
-	Route::put('/member/destroy', 'Admin\MemberController@destroy');
+    Route::group(['prefix' => 'role'], function() {
+        //---------角色列表-------------------------------
+        Route::get('', 'Admin\RoleController@index');
+        //角色数据
+        Route::get('/jsonData', 'Admin\RoleController@jsonData');
+        //角色创建页面
+        Route::get('/create', 'Admin\RoleController@create');
+        //权限数据
+        Route::post('/create', 'Admin\RoleController@create');
+        //角色创建逻辑
+        Route::post('', 'Admin\RoleController@store');
+        //角色编辑
+        Route::get('/{adminRole}/edit', 'Admin\RoleController@edit');
+        //角色编辑逻辑
+        Route::post('/update/{ar_id}', 'Admin\RoleController@update');
+        //角色删除
+        Route::put('/destroy', 'Admin\RoleController@destroy');
+    });
 
 
+    Route::group(['prefix' => 'member'], function() {
+        //---------会员列表-------------------------------
+        Route::get('', 'Admin\MemberController@index');
+        //会员创建页面
+        Route::get('/create', 'Admin\MemberController@create');
+        //会员创建逻辑
+        Route::post('', 'Admin\MemberController@store');
+        //会员详情页
+        Route::get('/{post}', 'Admin\MemberController@show');
+        //会员编辑
+        Route::get('/{post}/edit', 'Admin\MemberController@edit');
+        //会员编辑逻辑
+        Route::put('/{post}', 'Admin\MemberController@update');
+        //会员删除
+        Route::put('/destroy', 'Admin\MemberController@destroy');
+    });
 
 
-	//---------文章分类列表-------------------------------
-	Route::get('/category', 'Admin\CategoryController@index');
-	//文章分类数据
-    Route::get('/category/jsonData', 'Admin\CategoryController@jsonData');
-    //文章分类创建页面
-	Route::get('/category/create', 'Admin\CategoryController@create');
-	//文章创建逻辑
-	Route::post('/category', 'Admin\CategoryController@store');
-	//文章分类编辑
-	Route::get('/category/{articleCategory}/edit','Admin\CategoryController@edit');
-	//文章编辑逻辑
-	Route::post('/category/update/{id}', 'Admin\CategoryController@update');
-	//文章删除
-	Route::put('/category/destroy', 'Admin\CategoryController@destroy');
+    Route::group(['prefix' => 'category'], function() {
+        //---------文章分类列表-------------------------------
+        Route::get('', 'Admin\CategoryController@index');
+        //文章分类数据
+        Route::get('/jsonData', 'Admin\CategoryController@jsonData');
+        //文章分类创建页面
+        Route::get('/create', 'Admin\CategoryController@create');
+        //文章创建逻辑
+        Route::post('', 'Admin\CategoryController@store');
+        //文章分类编辑
+        Route::get('/{articleCategory}/edit', 'Admin\CategoryController@edit');
+        //文章编辑逻辑
+        Route::post('/update/{id}', 'Admin\CategoryController@update');
+        //文章删除
+        Route::put('/destroy', 'Admin\CategoryController@destroy');
+    });
 
 
-	//---------标签列表-------------------------------
-	Route::get('/tag', 'Admin\TagController@index');
-	//标签数据
-    Route::get('/tag/jsonData', 'Admin\TagController@jsonData');
-    //标签创建页面
-	Route::get('/tag/create', 'Admin\TagController@create');
-	//标签创建逻辑
-	Route::post('/tag', 'Admin\TagController@store');
-	//标签编辑
-	Route::get('/tag/{tag}/edit','Admin\TagController@edit');
-	//标签编辑逻辑
-	Route::post('/tag/update/{id}', 'Admin\TagController@update');
-	//标签删除
-	Route::put('/tag/destroy', 'Admin\TagController@destroy');
-
+    Route::group(['prefix' => 'tag'], function() {
+        //---------标签列表-------------------------------
+        Route::get('', 'Admin\TagController@index');
+        //标签数据
+        Route::get('/jsonData', 'Admin\TagController@jsonData');
+        //标签创建页面
+        Route::get('/create', 'Admin\TagController@create');
+        //标签创建逻辑
+        Route::post('', 'Admin\TagController@store');
+        //标签编辑
+        Route::get('/{tag}/edit', 'Admin\TagController@edit');
+        //标签编辑逻辑
+        Route::post('/update/{id}', 'Admin\TagController@update');
+        //标签删除
+        Route::put('/destroy', 'Admin\TagController@destroy');
+    });
 
 	//  评论列表
 	Route::get('/comment', 'Admin\CommentController@index');
