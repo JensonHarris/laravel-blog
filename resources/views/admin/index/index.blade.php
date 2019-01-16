@@ -249,7 +249,7 @@
                         </a>
                     </li>
                     <li>
-                        <a >
+                        <a href="/">
                             <i class="fa fa-home"></i>前台
                         </a>
                     </li>
@@ -291,7 +291,7 @@
             <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="{{url('/admin/charts')}}"frameborder="0" data-id="{{url('/admin/charts')}}" seamless></iframe>
         </div>
         <div class="footer">
-            <div class="pull-right">&copy; 2014-2015 <a href="http://www.zi-han.net/" target="_blank">zihan's blog</a>
+            <div class="pull-right">&copy; 2018-2019 <a href="#">Jeson'C blog</a>
             </div>
         </div>
     </div>

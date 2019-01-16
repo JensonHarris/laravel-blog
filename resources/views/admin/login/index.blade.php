@@ -22,7 +22,7 @@
 	<div class="larry-canvas" id="canvas"></div>
 	<div class="layui-layout layui-layout-login">
 		<h1>
-			<strong>CCSHOP管理系统后台</strong>
+			<strong>blog管理系统后台</strong>
 			<em>Jenson Harris</em>
 		</h1>
 		<div class="layui-user-icon larry-login">
@@ -42,7 +42,7 @@
 		</div>
 		<div class="layui-login-text">
 			<p>© 2016-2017 Larry 版权所有</p>
-			<p>粤ICP备18048113 <a href="" title="">larrycms.com</a></p>
+			<p>粤ICP备18048113 <a href="" title="">bjson.cn</a></p>
 		</div>
 	</div>
 </form>
