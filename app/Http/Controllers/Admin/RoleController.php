@@ -12,24 +12,33 @@ use App\Http\Requests\Admin\Role\Store;
 class RoleController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Notes : 角色列表页
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:27
      */
     public function index()
     {
         return view('admin.role.index');
     }
 
-    public function jsonData(Request $request){
+    /**
+     * Notes : 角色列表数据
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:27
+     * @param Request $request
+     */
+    public function jsonData(Request $request)
+    {
         $limit = $request->input('limit','10');
         $roles  = AdminRole::paginate($limit);
         return $this->success('200',$roles);
     }
+
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Notes : 角色创建页
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:27
+     * @param Request $request
      */
     public function create(Request $request)
     {
@@ -48,10 +57,11 @@ class RoleController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Notes : 角色创建逻辑
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:27
+     * @param Store $request
+     * @param AdminRole $adminRole
      */
     public function store(Store $request,AdminRole $adminRole)
     {
@@ -86,10 +96,10 @@ class RoleController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Notes : 角色编辑页
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:28
+     * @param AdminRole $adminRole
      */
     public function edit(AdminRole $adminRole)
     {
@@ -97,11 +107,11 @@ class RoleController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Notes : 角色编辑逻辑
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:28
+     * @param Request $request
+     * @param $id
      */
     public function update(Request $request, $id)
     {
@@ -109,10 +119,10 @@ class RoleController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Notes : 角色删除逻辑
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:29
+     * @param $id
      */
     public function destroy($id)
     {

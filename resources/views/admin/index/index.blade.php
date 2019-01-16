@@ -21,19 +21,6 @@
             </div>
             <div class="sidebar-collapse">
                 <ul class="nav" id="side-menu">
-                    {{--<li class="nav-header">--}}
-                        {{--<div class="dropdown profile-element">--}}
-                            {{--<span><img alt="image" class="img-circle" src="/admin/img/profile_small.jpg" /></span>--}}
-                            {{--<a data-toggle="dropdown" class="dropdown-toggle" href="#">--}}
-                                {{--<span class="clear">--}}
-                                    {{--<span class="block m-t-xs"><strong class="font-bold">Beaut-zihan</strong></span>--}}
-                                    {{--<span class="text-muted text-xs block">超级管理员<!-- <b class="caret"></b> --></span>--}}
-                                {{--</span>--}}
-                            {{--</a>--}}
-                        {{--</div>--}}
-                        {{--<div class="logo-element">CC--}}
-                        {{--</div>--}}
-                    {{--</li>--}}
                     <li class="nav-header">
                         <div class="dropdown profile-element">
                             <span><img alt="image" class="img-circle" src="img/profile_small.jpg" /></span>
@@ -102,21 +89,21 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-user"></i>
-                            <span class="nav-label">会员管理</span>
-                            <span class="fa arrow"></span>
-                        </a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a class="J_menuItem" href="{{'/admin/member'}}">
-                                    <i class="fa fa-user"></i>
-                                    <span class="nav-label">会员列表</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    {{--<li>--}}
+                        {{--<a href="#">--}}
+                            {{--<i class="fa fa-user"></i>--}}
+                            {{--<span class="nav-label">会员管理</span>--}}
+                            {{--<span class="fa arrow"></span>--}}
+                        {{--</a>--}}
+                        {{--<ul class="nav nav-second-level">--}}
+                            {{--<li>--}}
+                                {{--<a class="J_menuItem" href="{{'/admin/member'}}">--}}
+                                    {{--<i class="fa fa-user"></i>--}}
+                                    {{--<span class="nav-label">会员列表</span>--}}
+                                {{--</a>--}}
+                            {{--</li>--}}
+                        {{--</ul>--}}
+                    {{--</li>--}}
                     <li>
                         <a href="#">
                             <i class="fa fa-th-large"></i>

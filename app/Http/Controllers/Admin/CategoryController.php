@@ -18,7 +18,12 @@ class CategoryController extends Controller
         return view('admin.category.index');
     }
 
-
+    /**
+     * Notes : 文章分类列表数据
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:24
+     * @param Request $request
+     */
     public function jsonData(Request $request)
     {
         $limit = $request->input('limit','10');

@@ -14,9 +14,9 @@ use App\Http\Requests\Admin\Article\Store;
 class ArticleController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Notes : 文章列表页
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:19
      */
     public function index()
     {
@@ -24,9 +24,9 @@ class ArticleController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Notes : 文章创建页
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:20
      */
     public function create()
     {
@@ -37,10 +37,11 @@ class ArticleController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Notes : 文章创建逻辑
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:22
+     * @param Store $request
+     * @param Article $article
      */
     public function store(Store $request,Article $article)
     {
@@ -84,10 +85,10 @@ class ArticleController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Notes : 文章编辑页
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:22
+     * @param Article $article
      */
     public function edit(Article $article)
     {
@@ -98,11 +99,11 @@ class ArticleController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Notes : 文章编辑逻辑
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:22
+     * @param Request $request
+     * @param $id
      */
     public function update(Request $request, $id)
     {
@@ -110,10 +111,10 @@ class ArticleController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Notes : 文章删除逻辑
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:23
+     * @param $id
      */
     public function destroy($id)
     {

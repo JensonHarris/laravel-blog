@@ -12,9 +12,9 @@ use App\Http\Requests\Admin\User\Update;
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Notes : 用户列表页
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:31
      */
     public function index()
     {
@@ -22,16 +22,24 @@ class UserController extends Controller
         return view('admin.user.index');
     }
 
+    /**
+     * Notes : 用户列表数据
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:31
+     * @param Request $request
+     * @param AdminUser $adminUser
+     */
     public function jsonData(Request $request,AdminUser $adminUser)
     {
         $limit = $request->input('limit','10');
         $usersData =  $adminUser->users($limit);
         return $this->success('200',$usersData);
     }
+
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Notes : 用户创建页
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:31
      */
     public function create()
     {
@@ -40,10 +48,11 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Notes : 用户创建逻辑
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:30
+     * @param Store $request
+     * @param AdminUser $adminUser
      */
     public function store(Store $request,AdminUser $adminUser)
     {
@@ -74,25 +83,23 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Notes : 用户编辑页
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:30
+     * @param AdminUser $adminUser
      */
     public function edit(AdminUser $adminUser)
     {
-//        $data = $adminUser->roles;
-//        dump($data);
         $roles = AdminRole::all()->toArray();
         return view('admin.user.edit',compact('adminUser','roles'));
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Notes : 用户编辑逻辑
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:30
+     * @param Update $request
+     * @param AdminUser $adminUser
      */
     public function update(Update $request,AdminUser $adminUser)
     {
@@ -107,10 +114,10 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Notes : 用户删除逻辑
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:29
+     * @param $id
      */
     public function destroy($id)
     {

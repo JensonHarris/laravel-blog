@@ -18,6 +18,12 @@ class TagController extends Controller
         return view('admin.tag.index');
     }
 
+    /**
+     * Notes : 标签列表数据
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:29
+     * @param Request $request
+     */
     public function jsonData(Request $request)
     {
         $limit = $request->input('limit','10');
@@ -81,7 +87,7 @@ class TagController extends Controller
     }
 
     /**
-     * Notes : 便签删除
+     * Notes : 标签删除
      * Author: JesonC <748532271@qq.com>
      * Date  : 2019/1/10 11:07
      * @param $id

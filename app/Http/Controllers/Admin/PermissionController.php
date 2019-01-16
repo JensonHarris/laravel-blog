@@ -9,25 +9,33 @@ use App\Http\Requests\Admin\Permission\Store;
 class PermissionController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Notes : 权限列表页
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:24
      */
     public function index()
     {
         return view('admin.permission.index');
     }
 
+    /**
+     * Notes : 权限数据
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:24
+     * @param Request $request
+     */
     public function jsonData(Request $request)
     {
         $limit = $request->input('limit','10');
         $permissions  = AdminPermission::paginate($limit);
         return $this->success('200',$permissions);
     }
+
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Notes : 权限创建页
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:25
+     * @param AdminPermission $adminPermission
      */
     public function create(AdminPermission $adminPermission)
     {
@@ -37,10 +45,11 @@ class PermissionController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Notes : 权限创建逻辑
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:25
+     * @param Store $request
+     * @param AdminPermission $adminPermission
      */
     public function store(Store $request,AdminPermission $adminPermission)
     {
@@ -65,10 +74,10 @@ class PermissionController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Notes : 权限编辑页
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:26
+     * @param AdminPermission $adminPermission
      */
     public function edit(AdminPermission $adminPermission)
     {
@@ -78,11 +87,11 @@ class PermissionController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Notes : 权限编辑逻辑
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:26
+     * @param Store $request
+     * @param AdminPermission $adminPermission
      */
     public function update(Store $request,AdminPermission $adminPermission)
     {
@@ -95,10 +104,10 @@ class PermissionController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Notes : 权限删除逻辑
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/16 14:26
+     * @param $id
      */
     public function destroy($id)
     {
