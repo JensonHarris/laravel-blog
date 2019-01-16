@@ -91,7 +91,8 @@ class UserController extends Controller
     public function edit(AdminUser $adminUser)
     {
         $roles = AdminRole::all()->toArray();
-        return view('admin.user.edit',compact('adminUser','roles'));
+        $myRole  = collect($adminUser->roles)->pluck('ar_id');
+        return view('admin.user.edit',compact('adminUser','roles','myRole'));
     }
 
     /**

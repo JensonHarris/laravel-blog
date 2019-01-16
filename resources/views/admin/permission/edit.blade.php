@@ -19,9 +19,15 @@
                         <div class="layui-input-block">
                             <select name="ap_pid" id="ap_pid" lay-verify="select">
                                 <option value="" selected="">请选择权限</option>
-                                <option value="0">顶级权限</option>
+                                <option value="0"
+                                        @if ($adminPermission->ap_pid ==0 )
+                                        selected @endif>顶级权限
+                                </option>
                                 @foreach ($newPermissions as $Permission)
-                                <option value="{{$Permission['ap_id']}}">{{str_repeat('━ ',$Permission['level'])}}&nbsp;{{$Permission['ap_name']}}</option>
+                                <option value="{{$Permission['ap_id']}}"
+                                        @if ($Permission['ap_id'] == $adminPermission->ap_pid)
+                                        selected @endif>{{str_repeat('━ ',$Permission['level'])}}&nbsp;{{$Permission['ap_name']}}
+                                </option>
                                 @endforeach
                             </select>
                         </div>

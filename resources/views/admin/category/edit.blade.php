@@ -25,9 +25,11 @@
                         <div class="layui-input-block">
                             <select name="parent_id" id="parent_id" lay-verify="select">
                                 <option value="" selected="">请选择父级分类</option>
-                                <option value="0">顶级分类</option>
+                                <option value="0"  @if ($articleCategory->parent_id ==0 )
+                                selected @endif>顶级分类</option>
                                 @foreach ($newCategorys as $newCategory)
-                                <option value="{{$newCategory['id']}}">{{str_repeat('━ ',$newCategory['level'])}}{{$newCategory['name']}}</option>
+                                <option value="{{$newCategory['id']}}" @if ($newCategory['id'] == $articleCategory->parent_id)
+                                selected @endif>{{str_repeat('━ ',$newCategory['level'])}}{{$newCategory['name']}}</option>
                                 @endforeach
                             </select>
                         </div>

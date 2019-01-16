@@ -15,7 +15,7 @@
                         <label class="layui-form-label">所属角色</label>
                         <div class="layui-input-block">
                             <select name="ar_id" id="ar_id" lay-verify="group">
-                                <option value="" selected="">请选择权限</option>
+                                <option value="" selected="">请选择角色</option>
                                    @foreach ($roles as $role)
                                 <option value="{{$role['ar_id']}}">{{$role['ar_name']}}</option>
                                 @endforeach
