@@ -18,7 +18,8 @@ class PermissionController extends Controller
         return view('admin.permission.index');
     }
 
-    public function jsonData(Request $request){
+    public function jsonData(Request $request)
+    {
         $limit = $request->input('limit','10');
         $permissions  = AdminPermission::paginate($limit);
         return $this->success('200',$permissions);

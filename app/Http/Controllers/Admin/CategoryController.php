@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Http\Request;
 use App\Models\ArticleCategory;
 use App\Http\Requests\Admin\Category\Store;
 
@@ -17,6 +18,13 @@ class CategoryController extends Controller
         return view('admin.category.index');
     }
 
+
+    public function jsonData(Request $request)
+    {
+        $limit = $request->input('limit','10');
+        $category  = ArticleCategory::paginate($limit);
+        return $this->success('200',$category);
+    }
     /**
      * Notes : 文章分类创建页
      * Author: JesonC <748532271@qq.com>

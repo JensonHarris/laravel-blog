@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Tag;
+use Illuminate\Http\Request;
 use App\Http\Requests\Admin\Tag\Store;
 
 class TagController extends Controller
@@ -17,6 +18,12 @@ class TagController extends Controller
         return view('admin.tag.index');
     }
 
+    public function jsonData(Request $request)
+    {
+        $limit = $request->input('limit','10');
+        $tags  = Tag::paginate($limit);
+        return $this->success('200',$tags);
+    }
     /**
      * Notes : 创建标签页
      * Author: JesonC <748532271@qq.com>

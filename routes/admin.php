@@ -104,7 +104,9 @@ Route::group(['prefix' => 'admin'], function() {
 
 	//---------文章分类列表-------------------------------
 	Route::get('/category', 'Admin\CategoryController@index');
-	//文章分类创建页面
+	//文章分类数据
+    Route::get('/category/jsonData', 'Admin\CategoryController@jsonData');
+    //文章分类创建页面
 	Route::get('/category/create', 'Admin\CategoryController@create');
 	//文章创建逻辑
 	Route::post('/category', 'Admin\CategoryController@store');
@@ -118,7 +120,9 @@ Route::group(['prefix' => 'admin'], function() {
 
 	//---------标签列表-------------------------------
 	Route::get('/tag', 'Admin\TagController@index');
-	//标签创建页面
+	//标签数据
+    Route::get('/tag/jsonData', 'Admin\TagController@jsonData');
+    //标签创建页面
 	Route::get('/tag/create', 'Admin\TagController@create');
 	//标签创建逻辑
 	Route::post('/tag', 'Admin\TagController@store');

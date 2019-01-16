@@ -22,7 +22,8 @@ class UserController extends Controller
         return view('admin.user.index');
     }
 
-    public function jsonData(Request $request,AdminUser $adminUser){
+    public function jsonData(Request $request,AdminUser $adminUser)
+    {
         $limit = $request->input('limit','10');
         $usersData =  $adminUser->users($limit);
         return $this->success('200',$usersData);
