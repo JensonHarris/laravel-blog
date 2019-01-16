@@ -152,7 +152,12 @@ Route::group(['prefix' => 'admin','middleware' => 'admin.auth'], function() {
     });
 
 	//  评论列表
-	Route::get('/comment', 'Admin\CommentController@index');
+    Route::group(['prefix' => 'comment'], function() {
+        //评论列表
+        Route::get('', 'Admin\CommentController@index');
+        //评论数据
+        Route::get('/jsonData', 'Admin\CommentController@jsonData');
+    });
 
 });
 

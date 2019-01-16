@@ -19,7 +19,6 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
-
                 <div class="ibox-content">
                     <table class="layui-hide" id="test" lay-filter="test" ></table>
                 </div>
@@ -36,72 +35,10 @@
     </div>
 </script>
 <script type="text/html" id="barDemo">
-    <a class="layui-btn layui-btn-xs"  href="edit.html">编辑</a>
+    <a class="layui-btn layui-btn-xs">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
-<script>
-    layui.use('table', function(){
-        var table = layui.table;
-
-        table.render({
-            elem: '#test'
-            ,url:'/data/comment_data.json'
-            ,toolbar: '#toolbarDemo'
-            ,title: '评论数据表'
-            ,cols: [[
-                {type: 'checkbox', fixed: 'left'}
-                ,{field:'comment_id', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
-                ,{field:'details', title:'评论内容', }
-                ,{field:'article_name', title:'评论文章'}
-                ,{field:'member_name', title:'用户', width:100}
-                ,{field:'status', title:'状态', width:120, templet:'#commentStatus'}
-                ,{field:'create_time', title:'评论时间', width:200, sort: true}
-                ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
-            ]]
-            ,page: true
-        });
-
-        //头工具栏事件
-        table.on('toolbar(test)', function(obj){
-            var checkStatus = table.checkStatus(obj.config.id);
-            switch(obj.event){
-                case 'getCheckData':
-                    var data = checkStatus.data;
-                    layer.alert(JSON.stringify(data));
-                    break;
-                case 'getCheckLength':
-                    var data = checkStatus.data;
-                    layer.msg('选中了：'+ data.length + ' 个');
-                    break;
-                case 'isAll':
-                    layer.msg(checkStatus.isAll ? '全选': '未全选');
-                    break;
-            };
-        });
-
-        //监听行工具事件
-        table.on('tool(test)', function(obj){
-            var data = obj.data;
-            //console.log(obj)
-            if(obj.event === 'del'){
-                layer.confirm('真的删除行么', function(index){
-                    obj.del();
-                    layer.close(index);
-                });
-            } else if(obj.event === 'edit'){
-                layer.prompt({
-                    formType: 2
-                    ,value: data.email
-                }, function(value, index){
-                    obj.update({
-                        email: value
-                    });
-                    layer.close(index);
-                });
-            }
-        });
-    });
-</script>
+<script type="text/javascript" src="/admin/ajs/comment.js"></script>
 <script type="text/html" id="commentStatus">
     @{{#  if(d.status ==0){ }}
     <button type="button" class="btn btn-danger btn-xs">禁用</button>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Models\ArticleComment;
 
 class CommentController extends Controller
 {
@@ -15,6 +15,13 @@ class CommentController extends Controller
     public function index()
     {
         return view('admin.comment.index');
+    }
+
+    public function jsonData(Request $request, ArticleComment $articleComment)
+    {
+        $limit = $request->input('limit','10');
+        $comments  = $articleComment->comments($limit);
+        return $this->success('200',$comments);
     }
 
     /**

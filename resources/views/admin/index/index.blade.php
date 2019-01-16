@@ -158,7 +158,7 @@
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a class="J_menuItem" href="{{'/admin/ccomment'}}">
+                            <a class="J_menuItem" href="{{'/admin/comment'}}">
                                 <i class="fa fa-edit"></i>
                                 <span>评论列表</span>
                             </a>
