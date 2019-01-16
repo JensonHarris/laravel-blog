@@ -15,9 +15,7 @@ class PermissionController extends Controller
      */
     public function index()
     {
-
-            return view('admin.permission.index');
-
+        return view('admin.permission.index');
     }
 
     public function jsonData(Request $request){

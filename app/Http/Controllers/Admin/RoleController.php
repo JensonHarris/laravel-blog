@@ -21,6 +21,11 @@ class RoleController extends Controller
         return view('admin.role.index');
     }
 
+    public function jsonData(Request $request){
+        $limit = $request->input('limit','10');
+        $roles  = AdminRole::paginate($limit);
+        return $this->success('200',$roles);
+    }
     /**
      * Show the form for creating a new resource.
      *

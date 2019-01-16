@@ -20,8 +20,11 @@ Route::group(['prefix' => 'admin'], function() {
 
 	Route::get('/charts', 'Admin\ChartController@index');
 
+
     //---------管理员列表页-------------------------------
     Route::get('/user', 'Admin\UserController@index');
+    //管理员列表数据
+    Route::get('/user/jsonData', 'Admin\UserController@jsonData');
     //管理员创建页面
     Route::get('/user/create', 'Admin\UserController@create');
     //管理员创建逻辑
@@ -65,7 +68,9 @@ Route::group(['prefix' => 'admin'], function() {
 
 	//---------角色列表-------------------------------
 	Route::get('/role', 'Admin\RoleController@index');
-	//角色创建页面
+	//角色数据
+    Route::get('/role/jsonData', 'Admin\RoleController@jsonData');
+    //角色创建页面
 	Route::get('/role/create', 'Admin\RoleController@create');
     //权限数据
     Route::post('/role/create', 'Admin\RoleController@create');

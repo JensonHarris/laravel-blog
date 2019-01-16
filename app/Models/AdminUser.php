@@ -36,12 +36,12 @@ class AdminUser extends Authenticatable
         return $this->belongsToMany(AdminRole::class, 'admin_role_user', 'au_id', 'ar_id');
     }
 
-    public function users()
+    public function users($limit)
     {
         return DB::table('admin_users')
             ->leftJoin('admin_role_user','admin_users.au_id','=','admin_role_user.au_id')
             ->leftJoin('admin_roles','admin_roles.ar_id','=','admin_role_user.ar_id')
-            ->paginate(10);
+            ->paginate($limit);
     }
 
     /*
