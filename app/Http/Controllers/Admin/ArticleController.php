@@ -23,6 +23,13 @@ class ArticleController extends Controller
         return view('admin.article.index');
     }
 
+
+    public function jsonData(Request $request)
+    {
+        $limit = $request->input('limit','10');
+        $articles  = Article::paginate($limit);
+        return $this->success('200',$articles);
+    }
     /**
      * Notes : 文章创建页
      * Author: JesonC <748532271@qq.com>

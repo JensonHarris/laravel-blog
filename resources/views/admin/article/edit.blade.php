@@ -32,7 +32,7 @@
                     <div class="layui-form-item layui-col-md6 layui-col-md-offset1">
                         <label class="layui-form-label">文章分类</label>
                         <div class="layui-input-block">
-                            <select name="category_id" id="category_id" lay-verify="category">
+                            <select name="category_id" id="category_id" lay-verify="category" disabled>
                                 <option value=""></option>
                                 @foreach ($categorys as $category)
                                     <option value="{{$category['id']}}">{{str_repeat('━ ',$category['level'])}}{{$category['name']}}</option>
@@ -43,7 +43,7 @@
                     <div class="layui-form-item layui-col-md6 layui-col-md-offset1">
                         <label class="layui-form-label">文章标签</label>
                         <div class="layui-input-block">
-                            <select multiple="multiple" lay-filter="test" id="tag_ids" name="tag_ids" lay-verify="tag">
+                            <select multiple="multiple" lay-filter="test" id="tag_ids" name="tag_ids" disabled>
                                 <option value=""></option>
                                 @foreach ($tags as $tag)
                                     <option value="{{$tag['id']}}">{{$tag['name']}}</option>

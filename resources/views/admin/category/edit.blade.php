@@ -23,7 +23,7 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">父级分类</label>
                         <div class="layui-input-block">
-                            <select name="parent_id" id="parent_id" lay-verify="select">
+                            <select name="parent_id" id="parent_id" lay-verify="select" disabled>
                                 <option value="" selected="">请选择父级分类</option>
                                 <option value="0"  @if ($articleCategory->parent_id ==0 )
                                 selected @endif>顶级分类</option>

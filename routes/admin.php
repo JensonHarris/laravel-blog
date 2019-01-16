@@ -65,6 +65,8 @@ Route::group(['prefix' => 'admin','middleware' => 'admin.auth'], function() {
     Route::group(['prefix' => 'article'], function() {
         //---------文章列表-------------------------------
         Route::get('', 'Admin\ArticleController@index');
+        //文章数据
+        Route::get('/jsonData', 'Admin\ArticleController@jsonData');
         //文章创建页面
         Route::get('/create', 'Admin\ArticleController@create');
         //文章创建逻辑

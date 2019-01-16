@@ -17,7 +17,7 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">所属用户组</label>
                         <div class="layui-input-block">
-                            <select name="ar_id" id="ar_id" lay-verify="group">
+                            <select name="ar_id" id="ar_id" lay-verify="group" disabled>
                                 <option value="" selected="">请选择角色</option>
                                 @foreach ($roles as $role)
                                     <option value="{{$role['ar_id']}}" @if ($role['ar_id'] == $myRole[0])
