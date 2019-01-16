@@ -49,11 +49,17 @@ class UserController extends Controller
     {
          $user = $request->except('_token');
          $user['password'] = bcrypt($user['password']);
-         $admins = $adminUser->create($user);
-         $reslut = $admins->assignRole($user['ar_id']);
 
-        dd($admins,$reslut);
-        dd($data,$user);
+        DB::beginTransaction();
+        try {
+         $admins = $adminUser->create($user);
+         $result = $admins->assignRole($user['ar_id']);
+            DB::commit();
+            return $this->success(20002);
+        } catch (\Exception $e){
+            DB::rollBack();
+            return $this->error(40002);
+        }
     }
 
     /**
@@ -77,7 +83,8 @@ class UserController extends Controller
     {
 //        $data = $adminUser->roles;
 //        dump($data);
-        return view('admin.user.edit',compact('adminUser'));
+        $roles = AdminRole::all()->toArray();
+        return view('admin.user.edit',compact('adminUser','roles'));
     }
 
     /**

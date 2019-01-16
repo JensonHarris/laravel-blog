@@ -11,7 +11,6 @@
         <div class="ibox-content ">
             <div class="layui-row">
                 <form class="layui-form layui-form-pane layui-col-md7 layui-col-md-offset1">
-                        {{ csrf_field() }}
                     <div class="layui-form-item">
                         <input type="hidden" name="ap_id" id="ap_id"  class="layui-input" value="{{$adminPermission->ap_id}}">
                     </div>
@@ -21,8 +20,9 @@
                             <select name="ap_pid" id="ap_pid" lay-verify="select">
                                 <option value="" selected="">请选择权限</option>
                                 <option value="0">顶级权限</option>
-                                <option value="1">用户管理</option>
-                                <option value="2">用户列表</option>
+                                @foreach ($newPermissions as $Permission)
+                                <option value="{{$Permission['ap_id']}}">{{str_repeat('━ ',$Permission['level'])}}&nbsp;{{$Permission['ap_name']}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>

@@ -72,7 +72,9 @@ class PermissionController extends Controller
      */
     public function edit(AdminPermission $adminPermission)
     {
-        return view('admin.permission.edit',compact('adminPermission'));
+        $permissions    =  $adminPermission->all()->toArray();
+        $newPermissions =  arrayLevel($permissions,'ap_id','ap_pid');
+        return view('admin.permission.edit',compact('adminPermission','newPermissions'));
     }
 
     /**

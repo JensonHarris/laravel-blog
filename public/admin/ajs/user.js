@@ -33,7 +33,7 @@ layui.use(['form'], function(){
                         icon: 1,//提示的样式
                         time: 2000, //2秒关闭
                         end:function(){
-                            window.location.href="/admin/index";
+                            window.location.href="/admin/user";
                         }
                     });
                 } else {
@@ -83,7 +83,7 @@ layui.use(['form'], function(){
                         icon: 1,//提示的样式
                         time: 2000, //2秒关闭
                         end:function(){
-                            window.location.href="/admin/index";
+                            window.location.href="/admin/user";
                         }
                     });
                 } else {

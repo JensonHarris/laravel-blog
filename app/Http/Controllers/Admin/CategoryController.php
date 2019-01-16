@@ -62,7 +62,9 @@ class CategoryController extends Controller
      */
     public function edit(ArticleCategory $articleCategory)
     {
-        return view('admin.category.edit',compact('articleCategory'));
+        $category =  $articleCategory->all()->toArray();
+        $newCategorys = arrayLevel($category,'id','parent_id');
+        return view('admin.category.edit',compact('articleCategory','newCategorys'));
     }
 
     /**
