@@ -414,6 +414,7 @@ class ComposerStaticInit06f64ed375685ec51c7c8d545c226de0
         'App\\Models\\AdminUser' => __DIR__ . '/../..' . '/app/Models/AdminUser.php',
         'App\\Models\\Article' => __DIR__ . '/../..' . '/app/Models/Article.php',
         'App\\Models\\ArticleCategory' => __DIR__ . '/../..' . '/app/Models/ArticleCategory.php',
+        'App\\Models\\ArticleComment' => __DIR__ . '/../..' . '/app/Models/ArticleComment.php',
         'App\\Models\\ArticleContent' => __DIR__ . '/../..' . '/app/Models/ArticleContent.php',
         'App\\Models\\ArticleTag' => __DIR__ . '/../..' . '/app/Models/ArticleTag.php',
         'App\\Models\\Member' => __DIR__ . '/../..' . '/app/Models/Member.php',

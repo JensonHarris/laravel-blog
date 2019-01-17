@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
+use App\Models\ArticleContent;
 use App\Http\Controllers\Controller;
 
 class ArticleController extends Controller
@@ -14,7 +15,10 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('home.article.index');
+
+        $data =  ArticleContent::find(3);
+        $da =  $data->markdown;
+        return view('home.article.article',compact('da'));
     }
 
     /**

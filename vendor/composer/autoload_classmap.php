@@ -48,6 +48,7 @@ return array(
     'App\\Models\\AdminUser' => $baseDir . '/app/Models/AdminUser.php',
     'App\\Models\\Article' => $baseDir . '/app/Models/Article.php',
     'App\\Models\\ArticleCategory' => $baseDir . '/app/Models/ArticleCategory.php',
+    'App\\Models\\ArticleComment' => $baseDir . '/app/Models/ArticleComment.php',
     'App\\Models\\ArticleContent' => $baseDir . '/app/Models/ArticleContent.php',
     'App\\Models\\ArticleTag' => $baseDir . '/app/Models/ArticleTag.php',
     'App\\Models\\Member' => $baseDir . '/app/Models/Member.php',

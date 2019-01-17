@@ -10,12 +10,6 @@
     <link href="/admin/css/article.css" rel="stylesheet">
     <link href="/admin/plugins/layui/css/layui.css" rel="stylesheet">
     <link href="/plugins/markdown/css/editormd.css" rel="stylesheet"/>
-    <style>
-        #article-editormd select {
-            display: inline-block;
-        }
-    </style>
-    <style> #article-editormd {z-index: 1000;}</style>
 </head>
 <body class="gray-bg bg-success">
 <div class="wrapper wrapper-content animated fadeInRight">
@@ -148,6 +142,7 @@
                 ]
             },
             //显示主题
+            placeholder  :'请在此编写文章...',
             theme        : "dark",
             previewTheme :  "default",
             editorTheme  :  "monokai",

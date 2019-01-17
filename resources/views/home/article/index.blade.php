@@ -6,7 +6,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>异清轩博客文章页面</title>
-<link rel="stylesheet" type="text/css" href="/home/css/bootstrap.min.css">
+
+    <link href="/plugins/markdown/css/editormd.css" rel="stylesheet" />
+
+
+    <link rel="stylesheet" type="text/css" href="/home/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/home/css/nprogress.css">
 <link rel="stylesheet" type="text/css" href="/home/css/style.css">
 <link rel="stylesheet" type="text/css" href="/home/css/font-awesome.min.css">
@@ -149,7 +153,7 @@
                     </a></li>
                     <li><a href="https://www.liangjucai.com/article/255" target="_blank" title="生活，不会亏待努力奋斗的人" draggable="false">
                       生活，不会亏待努力奋斗的人
-                    </a></li>       
+                    </a></li>
                   </ul>
                 </div>
                 <div class="title" id="comment">
@@ -215,7 +219,7 @@
                         </div>
 
                     </div>
-              
+
                     <div class="lyb_info_info">
                         <span>——————&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系我&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;——————</span>
                     </div>
@@ -299,18 +303,18 @@
     <li class="list-group-item"><span>浏览器：</span>Chrome47</li>
   </ul>
 </div>
-<script src="/home/js/bootstrap.min.js"></script> 
-<script src="/home/js/jquery.ias.js"></script> 
-<script src="/home/js/scripts.js"></script> 
-<script src="/home/js/jquery.qqFace.js"></script> 
+<script src="/home/js/bootstrap.min.js"></script>
+<script src="/home/js/jquery.ias.js"></script>
+<script src="/home/js/scripts.js"></script>
+<script src="/home/js/jquery.qqFace.js"></script>
 <script type="text/javascript">
 $(function(){
 	$('.emotion').qqFace({
-		id : 'facebox', 
-		assign:'comment-textarea', 
+		id : 'facebox',
+		assign:'comment-textarea',
 		path:'/home/images/arclist/'	//表情存放的路径
 	});
- });  
+ });
 
 $(".ps_tab a").click(function () {
     $(".ps_tab a").removeClass('active');
@@ -335,3 +339,13 @@ $(".praise").click(function(){
 </script>
 </body>
 </html>
+
+
+<script src="/plugins/markdown/lib/flowchart.min.js"></script>
+<script src="/plugins/markdown/lib/jquery.flowchart.min.js"></script>
+<script src="/plugins/markdown/lib/marked.min.js"></script>
+<script src="/plugins/markdown/lib/prettify.min.js"></script>
+<script src="/plugins/markdown/lib/raphael.min.js"></script>
+<script src="/plugins/markdown/lib/underscore.min.js"></script>
+<script src="/plugins/markdown/lib/sequence-diagram.min.js"></script>
+<script src="/plugins/markdown/editormd.js"></script>
