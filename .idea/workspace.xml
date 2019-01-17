@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0309578-d17d-4de2-b75c-ef41f21187cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/home/article/article.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Home/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Home/ArticleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/css/article.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/css/article.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/article/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/article/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/article/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/article/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/index/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/index/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/css/editormd.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/css/editormd.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +30,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="8" />
+          <entry key="css" value="9" />
           <entry key="env" value="1" />
           <entry key="html" value="3" />
           <entry key="js" value="70" />
@@ -51,7 +42,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Blade" value="148" />
-          <entry key="CSS" value="8" />
+          <entry key="CSS" value="9" />
           <entry key="HTML" value="3" />
           <entry key="JSON" value="6" />
           <entry key="JavaScript" value="70" />
@@ -104,7 +95,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/home/article/article.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="3965">
@@ -112,6 +103,15 @@
               <folding>
                 <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/plugins/markdown/css/editormd.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="4040" selection-start-line="4040" selection-end-line="4047" />
             </state>
           </provider>
         </entry>
@@ -150,7 +150,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Models/AdminRole.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/user/index.blade.php" />
         <option value="$PROJECT_DIR$/public/admin/ajs/role.js" />
         <option value="$PROJECT_DIR$/public/admin/ajs/rolelist.js" />
@@ -201,6 +200,7 @@
         <option value="$PROJECT_DIR$/resources/views/home/article/test.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/home/article/article.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Home/ArticleController.php" />
+        <option value="$PROJECT_DIR$/public/plugins/markdown/css/editormd.css" />
       </list>
     </option>
   </component>
@@ -307,7 +307,7 @@
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="294" />
     <option name="y" value="486" />
     <option name="width" value="1090" />
@@ -399,27 +399,6 @@
             <path>
               <item name="laravel-blog" type="b2602c69:ProjectViewProjectNode" />
               <item name="laravel-blog" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="laravel-blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel-blog" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="laravel-blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel-blog" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="article" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="laravel-blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel-blog" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -470,12 +449,12 @@
       <workItem from="1547600808633" duration="23533000" />
       <workItem from="1547632826051" duration="12000" />
       <workItem from="1547688882004" duration="1267000" />
-      <workItem from="1547690336233" duration="17666000" />
+      <workItem from="1547690336233" duration="18522000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147554000" />
+    <option name="totallyTimeSpent" value="148410000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -510,9 +489,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/storage/logs/laravel.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/comment/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="616">
@@ -859,6 +835,13 @@
           <folding>
             <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/plugins/markdown/css/editormd.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="4040" selection-start-line="4040" selection-end-line="4047" />
         </state>
       </provider>
     </entry>
