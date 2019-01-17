@@ -7,7 +7,7 @@
     <title>文章管理</title>
     <link rel="shortcut icon" href="favicon.ico">
     <link href="/admin/css/font-awesome.css" rel="stylesheet">
-    <link href="/admin/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="/admin/css/article.css" rel="stylesheet">
     <link href="/admin/plugins/layui/css/layui.css" rel="stylesheet">
     <link href="/plugins/markdown/css/editormd.css" rel="stylesheet"/>
     <style>
@@ -75,7 +75,7 @@
                             <textarea name="description" id="description" placeholder="请输入文章描述..." class="layui-textarea"></textarea>
                         </div>
                     </div>
-                    <div class="layui-form-item layui-form-text">
+                    <div class="layui-form-item">
                         <label class="layui-form-label layui-col-md-offset1">文章内容</label>
                         <div id="article-editormd">
                             <textarea name="markdown"></textarea>
