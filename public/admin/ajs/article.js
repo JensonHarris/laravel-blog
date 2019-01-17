@@ -44,7 +44,7 @@ layui.use(['form'], function(){
                         icon: 1,//提示的样式
                         time: 2000, //2秒关闭
                         end:function(){
-                            window.location.href="/admin/permission";
+                            window.location.href="/admin/article";
                         }
                     });
                 } else {

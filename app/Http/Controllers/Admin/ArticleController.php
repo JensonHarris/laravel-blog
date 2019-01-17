@@ -55,7 +55,6 @@ class ArticleController extends Controller
         $articlesData  = $request->input();
         $tagIds        =  array_pull($articlesData, 'tag_ids');
         $markdown      =  array_pull($articlesData,'markdown');
-
         DB::beginTransaction();
         try {
             $articleResult = $article->create($articlesData);
@@ -67,8 +66,8 @@ class ArticleController extends Controller
             $content = ArticleContent::create($contentDate);
 
             $tags = [];
-            foreach ($tagIds as $tag => $key) {
-                $tags[$key]['tag_id'] = $tag;
+            foreach ($tagIds as $key => $tagid) {
+                $tags[$key]['tag_id'] = $tagid;
                 $tags[$key]['article_id'] = $articleResult->id;
             }
             $tag = ArticleTag::insert($tags);

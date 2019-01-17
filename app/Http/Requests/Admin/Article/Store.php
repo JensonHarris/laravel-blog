@@ -29,6 +29,7 @@ class Store extends FormRequest
             'author'      => 'required',
             'keywords'    => 'required',
             'title'       => 'required',
+            'description' => 'required',
         ];
     }
 
@@ -47,6 +48,7 @@ class Store extends FormRequest
             'author.required'      => '请输入作者姓名',
             'keywords.required'    => '文章标题不能为空',
             'title.required'       => '文章关键词不能为空',
+            'description.required' => '文章描述不能为空',
         ];
     }
 }

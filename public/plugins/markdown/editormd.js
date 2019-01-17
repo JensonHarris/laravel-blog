@@ -3365,7 +3365,7 @@
 
     // Emoji graphics files url path
     editormd.emoji = {
-        path  : "/blog/public/plugins/markdown/plugins/emoji-dialog/emoji/",
+        path  : "/plugins/markdown/plugins/emoji-dialog/emoji/",
         ext   : ".png"
     };
     // editormd.emoji     = {
