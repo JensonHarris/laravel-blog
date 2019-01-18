@@ -52,7 +52,7 @@ class ArticleController extends Controller
      */
     public function store(Store $request,Article $article)
     {
-        $articlesData  = $request->input();
+        $articlesData  = $request->except('file');
         $tagIds        =  array_pull($articlesData, 'tag_ids');
         $markdown      =  array_pull($articlesData,'markdown');
         DB::beginTransaction();
@@ -75,6 +75,7 @@ class ArticleController extends Controller
             return $this->success(20002);
         } catch (\Exception $e){
             DB::rollBack();
+            return   $e->getMessage();
             return $this->error(40002);
         }
     }

@@ -165,6 +165,8 @@ Route::group(['prefix' => 'admin','middleware' => 'admin.auth'], function() {
     //  评论列表
     Route::group(['prefix' => 'upload'], function() {
         Route::post('', 'Admin\UploaderController@uploadImage');
+        Route::post('/cover', 'Admin\UploaderController@uploadCover');
+
     });
 
 });

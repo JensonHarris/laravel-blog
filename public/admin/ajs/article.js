@@ -122,6 +122,11 @@ layui.use(['form'], function(){
                 return '请输入文章关键词';
             }
         },
+        cover_map:function(value, item){
+            if( /^\s*$/g.test(value)){
+                return '请上传文章封面图';
+            }
+        },
     });
 });
 
@@ -176,5 +181,28 @@ $(function() {
         path         : '/plugins/markdown/lib/',
         imageUpload:true,
         imageUploadURL:'/admin/upload',//图片上传地址
+    });
+});
+
+//文章封面图上传
+layui.use('upload', function(){
+    var $ = layui.jquery
+        ,upload = layui.upload;
+    //拖拽上传
+    upload.render({
+        elem: '#cove'
+        ,exts: 'jpg|png|jpeg|gif'
+        ,headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+        }
+        ,url: '/admin/upload/cover'
+        ,done: function(res){
+            if (res.succese = 1){
+                $('#cover_map').val(res.url);
+                $('#cover ').attr('src', res.url);
+            }else{
+                layer.msg(res.message)
+            }
+        }
     });
 });

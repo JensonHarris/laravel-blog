@@ -51,6 +51,15 @@
                             <input type="text" name="author" id="author" placeholder="请输入文章作者..." class="layui-input" lay-verify="author">
                         </div>
                     </div>
+
+                    <div class="layui-form-item layui-col-md6 layui-col-md-offset1">
+                        <label class="layui-form-label">文章封面</label>
+                        <div class="cover layui-col-md3" id="cove">
+                            <img  id="cover" class="cover-map" src="/admin/img/coverimg.png" alt="文章封面图">
+                        </div>
+                        <input type="hidden" name="cover_map" id="cover_map"  class="layui-input" value="" lay-verify="cover_map">
+                    </div>
+
                     <div class="layui-form-item layui-col-md6 layui-col-md-offset1">
                         <label class="layui-form-label">文章标题</label>
                         <div class="layui-input-block">
@@ -98,61 +107,7 @@
 <script type="text/javascript" src="/admin/plugins/layui/layui.js"></script>
 <script type="text/javascript" src="/admin/ajs/article.js"></script>
 <script type="text/javascript" src="/plugins/markdown/editormd.js"></script>
+<script>
 
-{{--<script>--}}
-    {{--layui.config({--}}
-        {{--base: '/admin/plugins/layui_ext/multiSelect/',--}}
-    {{--})--}}
-    {{--layui.use(['multiSelect'],function() {--}}
-        {{--var $ = layui.jquery,form = layui.form,multiSelect = layui.multiSelect;--}}
-        {{--$('#get-val').click(function() {--}}
-            {{--var vals = [],--}}
-                {{--texts = [];--}}
-            {{--$('select[multiple] option:selected').each(function() {--}}
-                {{--vals.push($(this).val());--}}
-                {{--texts.push($(this).text());--}}
-            {{--})--}}
-            {{--console.dir(vals);--}}
-            {{--console.dir(texts);--}}
-        {{--})--}}
-        {{--form.on('select(test)',function(data){--}}
-            {{--console.dir(data);--}}
-        {{--})--}}
-    {{--});--}}
-{{--</script>--}}
-{{--<script type="text/javascript">--}}
-    {{--var testEditor;--}}
-    {{--$(function() {--}}
-        {{--testEditor = editormd("article-editormd", {--}}
-            {{--width        : "85%",--}}
-            {{--height       : 750,--}}
-            {{--syncScrolling : "single",--}}
-            {{--toc : true,--}}
-            {{--todoList:true,--}}
-            {{--emoji : true,       // Support Github emoji, Twitter Emoji(Twemoji), fontAwesome, Editor.md logo emojis.--}}
-            {{--toolbarIcons : function() {--}}
-                {{--return [--}}
-                    {{--"undo", "redo", "|",--}}
-                    {{--"bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",--}}
-                    {{--"h1", "h2", "h3", "h4", "h5", "h6", "|",--}}
-                    {{--"list-ul", "list-ol", "hr", "|",--}}
-                    {{--"link", "reference-link", "image", "code", "preformatted-text", 'code-block', "table", "datetime", "emoji", "html-entities", "pagebreak", "|",--}}
-                     {{--"watch", "preview", "clear", "|",--}}
-                    {{--"help", 'fullscreen',--}}
-                {{--]--}}
-            {{--},--}}
-            {{--//显示主题--}}
-            {{--placeholder  :'请在此编写文章...',--}}
-            {{--theme        : "dark",--}}
-            {{--previewTheme :  "default",--}}
-            {{--editorTheme  :  "monokai",--}}
-            {{--path         : '/plugins/markdown/lib/',--}}
-            {{--imageUpload:true,--}}
-            {{--imageUploadURL:'url',//图片上传地址--}}
-        {{--});--}}
-    {{--});--}}
-{{--</script>--}}
-
-
-
+</script>
 

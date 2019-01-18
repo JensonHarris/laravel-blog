@@ -21,7 +21,7 @@ class CreateArticlesTable extends Migration
             $table->string('author')->default('')->comment('作者');
             $table->string('description')->default('')->comment('描述');
             $table->string('keywords')->default('')->comment('关键词');
-            $table->string('cover')->default('')->comment('封面图');
+            $table->string('cover_map')->default('')->comment('封面图');
             $table->boolean('is_top')->default(0)->comment('是否置顶 0是 1否');
             $table->integer('click')->unsigned()->default(0)->comment('点击数');
             $table->timestamps();
