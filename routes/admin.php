@@ -77,8 +77,6 @@ Route::group(['prefix' => 'admin','middleware' => 'admin.auth'], function() {
         Route::post('/update/{id}', 'Admin\ArticleController@update');
         //文章删除
         Route::put('/destroy', 'Admin\ArticleController@destroy');
-        // 上传图片
-        Route::post('uploadImage', 'Admin\ArticleController@uploadImage');
     });
 
 
@@ -161,6 +159,12 @@ Route::group(['prefix' => 'admin','middleware' => 'admin.auth'], function() {
         Route::get('', 'Admin\CommentController@index');
         //评论数据
         Route::get('/jsonData', 'Admin\CommentController@jsonData');
+    });
+
+
+    //  评论列表
+    Route::group(['prefix' => 'upload'], function() {
+        Route::post('', 'Admin\UploaderController@uploadImage');
     });
 
 });

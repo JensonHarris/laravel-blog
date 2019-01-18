@@ -41,27 +41,56 @@
                 var guid   = (new Date).getTime();
                 var action = settings.imageUploadURL + (settings.imageUploadURL.indexOf("?") >= 0 ? "&" : "?") + "guid=" + guid;
 
+                // if (settings.crossDomainUpload)
+                // {
+                //     action += "&callback=" + settings.uploadCallbackURL + "&dialog_id=editormd-image-dialog-" + guid;
+                // }
+                //
+                //  var dialogContent = ( (settings.imageUpload) ? "<form action=\"" + action +"\" target=\"" + iframeName + "\" method=\"post\" enctype=\"multipart/form-data\" class=\"" + classPrefix + "form\">" : "<div class=\"" + classPrefix + "form\">" ) +
+                                    //     ( (settings.imageUpload) ? "<iframe name=\"" + iframeName + "\" id=\"" + iframeName + "\" guid=\"" + guid + "\"></iframe>" : "" ) +
+                                    //     "<label>" + imageLang.url + "</label>" +
+                                    //     "<input type=\"text\" data-url />" + (function(){
+                                    //         return (settings.imageUpload) ? "<div class=\"" + classPrefix + "file-input\">" +
+                                    //                                             "<input type=\"file\" name=\"" + classPrefix + "image-file\" accept=\"image/*\" />" +
+                                    //                                             "<input type=\"submit\" value=\"" + imageLang.uploadButton + "\" />" +
+                                    //                                         "</div>" : "";
+                                    //     })() +
+                                    //     "<br/>" +
+                                    //     "<label>" + imageLang.alt + "</label>" +
+                                    //     "<input type=\"text\" value=\"" + selection + "\" data-alt />" +
+                                    //     "<br/>" +
+                                    //     "<label>" + imageLang.link + "</label>" +
+                                    //     "<input type=\"text\" value=\"http://\" data-link />" +
+                                    //     "<br/>" +
+                                    // ( (settings.imageUpload) ? "</form>" : "</div>");
+
                 if (settings.crossDomainUpload)
                 {
-                    action += "&callback=" + settings.uploadCallbackURL + "&dialog_id=editormd-image-dialog-" + guid;
+                     action += "&callback=" + settings.uploadCallbackURL + "&dialog_id=editormd-image-dialog-" + guid;
+                }
+                var csrfToken = $('meta[name="csrf-token"]').attr('content');
+                var csrfField = "";
+                if (csrfToken) {
+                       csrfField = "<input type='hidden' name='_token' value='" + csrfToken + "' />";
                 }
 
-                var dialogContent = ( (settings.imageUpload) ? "<form action=\"" + action +"\" target=\"" + iframeName + "\" method=\"post\" enctype=\"multipart/form-data\" class=\"" + classPrefix + "form\">" : "<div class=\"" + classPrefix + "form\">" ) +
-                                        ( (settings.imageUpload) ? "<iframe name=\"" + iframeName + "\" id=\"" + iframeName + "\" guid=\"" + guid + "\"></iframe>" : "" ) +
-                                        "<label>" + imageLang.url + "</label>" +
-                                        "<input type=\"text\" data-url />" + (function(){
-                                            return (settings.imageUpload) ? "<div class=\"" + classPrefix + "file-input\">" +
-                                                                                "<input type=\"file\" name=\"" + classPrefix + "image-file\" accept=\"image/*\" />" +
-                                                                                "<input type=\"submit\" value=\"" + imageLang.uploadButton + "\" />" +
-                                                                            "</div>" : "";
-                                        })() +
-                                        "<br/>" +
-                                        "<label>" + imageLang.alt + "</label>" +
-                                        "<input type=\"text\" value=\"" + selection + "\" data-alt />" +
-                                        "<br/>" +
-                                        "<label>" + imageLang.link + "</label>" +
-                                        "<input type=\"text\" value=\"http://\" data-link />" +
-                                        "<br/>" +
+                var dialogContent = ( (settings.imageUpload) ? "<form action=\"" + action + "\" target=\"" + iframeName + "\" method=\"post\" enctype=\"multipart/form-data\" class=\"" + classPrefix + "form\">" : "<div class=\"" + classPrefix + "form\">" ) +
+                                    ( (settings.imageUpload) ? "<iframe name=\"" + iframeName + "\" id=\"" + iframeName + "\" guid=\"" + guid + "\"></iframe>" : "" ) +
+                                    "<label>" + imageLang.url + "</label>" +
+                                    "<input type=\"text\" data-url />" + (function () {
+                                        return (settings.imageUpload) ? "<div class=\"" + classPrefix + "file-input\">" +
+                                        "<input type=\"file\" name=\"" + classPrefix + "image-file\" accept=\"image/*\" />" +
+                                        csrfField +
+                                        "<input type=\"submit\" value=\"" + imageLang.uploadButton + "\" />" +
+                                        "</div>" : "";
+                                    })() +
+                                    "<br/>" +
+                                    "<label>" + imageLang.alt + "</label>" +
+                                    "<input type=\"text\" value=\"" + selection + "\" data-alt />" +
+                                    "<br/>" +
+                                    "<label>" + imageLang.link + "</label>" +
+                                    "<input type=\"text\" value=\"http://\" data-link />" +
+                                    "<br/>" + csrfField +
                                     ( (settings.imageUpload) ? "</form>" : "</div>");
 
                 //var imageFooterHTML = "<button class=\"" + classPrefix + "btn " + classPrefix + "image-manager-btn\" style=\"float:left;\">" + imageLang.managerButton + "</button>";

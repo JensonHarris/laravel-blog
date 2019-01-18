@@ -127,27 +127,4 @@ class ArticleController extends Controller
         //
     }
 
-    /**
-     * 配合editormd上传图片的方法
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function uploadImage()
-    {
-        $result = uploadFile('editormd-image-file', 'uploads/article');
-        if ($result['status_code'] === 200) {
-            $data = [
-                'success' => 1,
-                'message' => $result['message'],
-                'url' => $result['data']['path'].$result['data']['new_name']
-            ];
-        } else {
-            $data = [
-                'success' => 0,
-                'message' => $result['message'],
-                'url' => ''
-            ];
-        }
-        return response()->json($data);
-    }
 }

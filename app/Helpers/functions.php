@@ -98,12 +98,19 @@ if ( !function_exists('uploadFile') ) {
         $newName = uniqid() . '.' . $file->getClientOriginalExtension();
         //上传失败
         if (!$file->move($path, $newName)) {
-            $data = ['status_code' => 500, 'message' => '保存文件失败'];
+            $data = [
+                'success' => 0,
+                'message' => '保存文件失败',
+                'url' => ''
+            ];
             return $data;
         }
         //上传成功
-        $data = ['status_code' => 200, 'message' => '上传成功', 'data' => ['old_name' => $oldName, 'new_name' => $newName, 'path' => trim($path, '.')]];
+        $data =   [
+            'success' => 1,
+            'message' => '上传成功',
+            'url' => trim($path, '.').$newName
+        ];
         return $data;
     }
 }
-
