@@ -7,7 +7,7 @@
     <title>文章管理</title>
     <link rel="shortcut icon" href="favicon.ico">
     <link href="/admin/css/font-awesome.css" rel="stylesheet">
-    <link href="/admin/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="/admin/css/article.css" rel="stylesheet">
     <link href="/plugins/markdown/css/editormd.css" rel="stylesheet"/>
     <link href="/admin/plugins/layui/css/layui.css" rel="stylesheet">
     <style>
@@ -57,6 +57,19 @@
                             <input type="text" name="author" id="author" class="layui-input" lay-verify="author" value="{{$article->author}}">
                         </div>
                     </div>
+
+                    <div class="layui-form-item layui-col-md6 layui-col-md-offset1">
+                        <label class="layui-form-label">文章封面</label>
+                        <div class="cover layui-col-md3" id="cove">
+                            @if(!$article->cover_map)
+                                <img  id="cover" class="cover-map" src="/admin/img/coverimg.png" alt="文章封面图">
+                            @else
+                                <img  id="cover" class="cover-map" src="{{$article->cover_map}}" alt="文章封面图">
+                            @endif
+                        </div>
+                        <input type="hidden" name="cover_map" id="cover_map"  class="layui-input" value="{{$article->cover_map}}" lay-verify="cover_map">
+                    </div>
+
                     <div class="layui-form-item layui-col-md6 layui-col-md-offset1">
                         <label class="layui-form-label">文章标题</label>
                         <div class="layui-input-block">

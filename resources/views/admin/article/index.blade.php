@@ -39,7 +39,7 @@
     </div>
 </script>
 <script type="text/html" id="barDemo">
-    <a class="layui-btn layui-btn-xs"  href="{{url('/admin/article/1/edit')}}">编辑</a>
+    <a class="layui-btn layui-btn-xs"  href="{{url('/admin/article/6/edit')}}">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
 <script>
