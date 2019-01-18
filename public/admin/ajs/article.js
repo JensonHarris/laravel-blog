@@ -124,3 +124,57 @@ layui.use(['form'], function(){
         },
     });
 });
+
+
+//多选框
+layui.config({
+    base: '/admin/plugins/layui_ext/multiSelect/',
+})
+layui.use(['multiSelect'],function() {
+    var $ = layui.jquery,form = layui.form,multiSelect = layui.multiSelect;
+    $('#get-val').click(function() {
+        var vals = [],
+            texts = [];
+        $('select[multiple] option:selected').each(function() {
+            vals.push($(this).val());
+            texts.push($(this).text());
+        })
+        console.dir(vals);
+        console.dir(texts);
+    })
+    form.on('select(test)',function(data){
+        console.dir(data);
+    })
+});
+
+//Markdown文本编辑器
+var testEditor;
+$(function() {
+    testEditor = editormd("article-editormd", {
+        width        : "85%",
+        height       : 750,
+        syncScrolling : "single",
+        toc : true,
+        todoList:true,
+        emoji : true,       // Support Github emoji, Twitter Emoji(Twemoji), fontAwesome, Editor.md logo emojis.
+        toolbarIcons : function() {
+            return [
+                "undo", "redo", "|",
+                "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
+                "h1", "h2", "h3", "h4", "h5", "h6", "|",
+                "list-ul", "list-ol", "hr", "|",
+                "link", "reference-link", "image", "code", "preformatted-text", 'code-block', "table", "datetime", "emoji", "html-entities", "pagebreak", "|",
+                "watch", "preview", "clear", "|",
+                "help", 'fullscreen',
+            ]
+        },
+        //显示主题
+        placeholder  :'请在此编写文章...',
+        theme        : "dark",
+        previewTheme :  "default",
+        editorTheme  :  "monokai",
+        path         : '/plugins/markdown/lib/',
+        imageUpload:true,
+        imageUploadURL:'/admin/article/uploadImage',//图片上传地址
+    });
+});

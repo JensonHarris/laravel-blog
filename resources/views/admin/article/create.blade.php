@@ -22,7 +22,7 @@
     <div class="ibox float-e-margins">
         <div class="ibox-content ">
             <div class="layui-row">
-                <form class="layui-form layui-form-pane" action="">
+                <form class="layui-form layui-form-pane">
                     <div class="layui-form-item layui-col-md6 layui-col-md-offset1">
                         <label class="layui-form-label">文章分类</label>
                         <div class="layui-input-block">
@@ -99,59 +99,59 @@
 <script type="text/javascript" src="/admin/ajs/article.js"></script>
 <script type="text/javascript" src="/plugins/markdown/editormd.js"></script>
 
-<script>
-    layui.config({
-        base: '/admin/plugins/layui_ext/multiSelect/',
-    })
-    layui.use(['multiSelect'],function() {
-        var $ = layui.jquery,form = layui.form,multiSelect = layui.multiSelect;
-        $('#get-val').click(function() {
-            var vals = [],
-                texts = [];
-            $('select[multiple] option:selected').each(function() {
-                vals.push($(this).val());
-                texts.push($(this).text());
-            })
-            console.dir(vals);
-            console.dir(texts);
-        })
-        form.on('select(test)',function(data){
-            console.dir(data);
-        })
-    });
-</script>
-<script type="text/javascript">
-    var testEditor;
-    $(function() {
-        testEditor = editormd("article-editormd", {
-            width        : "85%",
-            height       : 750,
-            syncScrolling : "single",
-            toc : true,
-            todoList:true,
-            emoji : true,       // Support Github emoji, Twitter Emoji(Twemoji), fontAwesome, Editor.md logo emojis.
-            toolbarIcons : function() {
-                return [
-                    "undo", "redo", "|",
-                    "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
-                    "h1", "h2", "h3", "h4", "h5", "h6", "|",
-                    "list-ul", "list-ol", "hr", "|",
-                    "link", "reference-link", "image", "code", "preformatted-text", 'code-block', "table", "datetime", "emoji", "html-entities", "pagebreak", "|",
-                     "watch", "preview", "clear", "|",
-                    "help", 'fullscreen',
-                ]
-            },
-            //显示主题
-            placeholder  :'请在此编写文章...',
-            theme        : "dark",
-            previewTheme :  "default",
-            editorTheme  :  "monokai",
-            path         : '/plugins/markdown/lib/',
-            imageUpload:true,
-            imageUploadURL:'url',//图片上传地址
-        });
-    });
-</script>
+{{--<script>--}}
+    {{--layui.config({--}}
+        {{--base: '/admin/plugins/layui_ext/multiSelect/',--}}
+    {{--})--}}
+    {{--layui.use(['multiSelect'],function() {--}}
+        {{--var $ = layui.jquery,form = layui.form,multiSelect = layui.multiSelect;--}}
+        {{--$('#get-val').click(function() {--}}
+            {{--var vals = [],--}}
+                {{--texts = [];--}}
+            {{--$('select[multiple] option:selected').each(function() {--}}
+                {{--vals.push($(this).val());--}}
+                {{--texts.push($(this).text());--}}
+            {{--})--}}
+            {{--console.dir(vals);--}}
+            {{--console.dir(texts);--}}
+        {{--})--}}
+        {{--form.on('select(test)',function(data){--}}
+            {{--console.dir(data);--}}
+        {{--})--}}
+    {{--});--}}
+{{--</script>--}}
+{{--<script type="text/javascript">--}}
+    {{--var testEditor;--}}
+    {{--$(function() {--}}
+        {{--testEditor = editormd("article-editormd", {--}}
+            {{--width        : "85%",--}}
+            {{--height       : 750,--}}
+            {{--syncScrolling : "single",--}}
+            {{--toc : true,--}}
+            {{--todoList:true,--}}
+            {{--emoji : true,       // Support Github emoji, Twitter Emoji(Twemoji), fontAwesome, Editor.md logo emojis.--}}
+            {{--toolbarIcons : function() {--}}
+                {{--return [--}}
+                    {{--"undo", "redo", "|",--}}
+                    {{--"bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",--}}
+                    {{--"h1", "h2", "h3", "h4", "h5", "h6", "|",--}}
+                    {{--"list-ul", "list-ol", "hr", "|",--}}
+                    {{--"link", "reference-link", "image", "code", "preformatted-text", 'code-block', "table", "datetime", "emoji", "html-entities", "pagebreak", "|",--}}
+                     {{--"watch", "preview", "clear", "|",--}}
+                    {{--"help", 'fullscreen',--}}
+                {{--]--}}
+            {{--},--}}
+            {{--//显示主题--}}
+            {{--placeholder  :'请在此编写文章...',--}}
+            {{--theme        : "dark",--}}
+            {{--previewTheme :  "default",--}}
+            {{--editorTheme  :  "monokai",--}}
+            {{--path         : '/plugins/markdown/lib/',--}}
+            {{--imageUpload:true,--}}
+            {{--imageUploadURL:'url',//图片上传地址--}}
+        {{--});--}}
+    {{--});--}}
+{{--</script>--}}
 
 
 

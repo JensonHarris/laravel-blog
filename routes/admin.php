@@ -77,6 +77,8 @@ Route::group(['prefix' => 'admin','middleware' => 'admin.auth'], function() {
         Route::post('/update/{id}', 'Admin\ArticleController@update');
         //文章删除
         Route::put('/destroy', 'Admin\ArticleController@destroy');
+        // 上传图片
+        Route::post('uploadImage', 'Admin\ArticleController@uploadImage');
     });
 
 
