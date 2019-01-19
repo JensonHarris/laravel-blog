@@ -23,6 +23,29 @@
                                 <i class="layui-icon"></i>
                                 <p>点击上传，或将文件拖拽到此处</p>
                             </div>
+                        </div>
+                        <!-- <hr class="layui-bg-red"> -->
+                        <br>
+                        <div class="ibox-content profile-content">
+                            <div>
+                                <div class="feed-activity-list">
+                                    <div class="feed-element">
+                                        <span class="layui-badge">name </span>
+                                    </div>
+                                    <div class="feed-element">
+                                        <span class="layui-badge">phone</span>
+                                    </div>
+                                    <div class="feed-element">
+                                        <span class="layui-badge">email </span>
+                                    </div>
+                                     <div class="feed-element">
+                                        <span class="layui-badge">phone</span>
+                                    </div>
+                                    <div class="feed-element">
+                                        <span class="layui-badge">email </span>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="user-button">
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -39,34 +62,48 @@
             </div>
             <div class="col-sm-8">
                 <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>个人资料</h5>
-                    </div>
                     <div class="ibox-content">
-                        <div>
-                            <div class="feed-activity-list">
-                                <div class="feed-element">
-                                    <span class="layui-badge">name </span>
+                        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+                            <legend>简约时间线：大事记</legend>
+                        </fieldset>
+                        <ul class="layui-timeline">
+                            <li class="layui-timeline-item">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                    <div class="layui-timeline-title">2018年，layui 5.0 发布。并发展成为中国最受欢迎的前端UI框架（期望）</div>
                                 </div>
-                                <div class="feed-element">
-                                    <span class="layui-badge">phone</span>
+                            </li>
+                            <li class="layui-timeline-item">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                    <div class="layui-timeline-title">2017年，layui 里程碑版本 2.0 发布</div>
                                 </div>
-                                 <div class="feed-element">
-                                    <span class="layui-badge">email </span>
+                            </li>
+                            <li class="layui-timeline-item">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                    <div class="layui-timeline-title">2016年，layui 首个版本发布</div>
                                 </div>
-                            </div>
-
-                            <button class="btn btn-primary btn-block m"><i class="fa fa-arrow-down"></i> 显示更多</button>
-
-                        </div>
-
+                            </li>
+                            <li class="layui-timeline-item">
+                                <i class="layui-icon layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                    <div class="layui-timeline-title">2015年，layui 孵化</div>
+                                </div>
+                            </li>
+                            <li class="layui-timeline-item">
+                                <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i>
+                                <div class="layui-timeline-content layui-text">
+                                    <div class="layui-timeline-title">更久前，轮子时代。维护几个独立组件：layer等</div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
             </div>
         </div>
     </div>
-
     <!-- 全局js -->
     <script src="js/jquery.min.js?v=2.1.4"></script>
     <script type="text/javascript" src="/admin/plugins/layui/layui.js"></script>
@@ -74,16 +111,16 @@
 
 </html>
 <script>
-layui.use('upload', function(){
-  var $ = layui.jquery
-  ,upload = layui.upload;
-  //拖拽上传
-  upload.render({
+    layui.use('upload', function(){
+        var $ = layui.jquery
+        ,upload = layui.upload;
+//拖拽上传
+upload.render({
     elem: '#test10'
     ,url: '/upload/'
     ,done: function(res){
-      console.log(res)
+        console.log(res)
     }
-  });
+});
 });
 </script>
