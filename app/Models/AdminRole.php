@@ -5,17 +5,14 @@ namespace App\Models;
 class AdminRole extends Model
 {
 
-
     protected $primaryKey = 'ar_id';
-
-
 
     /**
      * 角色用户
      */
     public function users()
     {
-        return $this->belongsToMany(AdminUser::class);
+        return $this->belongsToMany(AdminUser::class,'admin_role_user', 'au_id','ar_id');
     }
 
     /*
