@@ -35,7 +35,8 @@
                             <select name="category_id" id="category_id" lay-verify="category" disabled>
                                 <option value=""></option>
                                 @foreach ($categorys as $category)
-                                    <option value="{{$category['id']}}">{{str_repeat('━ ',$category['level'])}}{{$category['name']}}</option>
+                                    <option value="{{$category['id']}}" @if ($category['id'] == $article->category_id)
+                                    selected @endif>{{str_repeat('━ ',$category['level'])}}{{$category['name']}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -46,7 +47,10 @@
                             <select multiple="multiple" lay-filter="test" id="tag_ids" name="tag_ids" disabled>
                                 <option value=""></option>
                                 @foreach ($tags as $tag)
-                                    <option value="{{$tag['id']}}">{{$tag['name']}}</option>
+                                    @foreach ($article_tags as $article_tag)
+                                    <option value="{{$tag['id']}}" @if ($tag['id'] == $article_tag['id'])
+                                    selected @endif>{{$tag['name']}}</option>
+                                    @endforeach
                                 @endforeach
                             </select>
                         </div>

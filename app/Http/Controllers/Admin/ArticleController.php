@@ -102,7 +102,8 @@ class ArticleController extends Controller
         $tags      = Tag::all();
         $categoryData = ArticleCategory::all();
         $categorys    =  arrayLevel($categoryData,'id','parent_id');
-        return view('admin.article.edit',compact('article','tags','categorys'));
+        $article_tags =  $article->articleTags->toArray();
+        return view('admin.article.edit',compact('article','tags','categorys','article_tags'));
     }
 
     /**
