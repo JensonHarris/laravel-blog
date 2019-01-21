@@ -28,7 +28,7 @@
         <div class="ibox-content ">
             <div class="layui-row">
                 <form class="layui-form layui-form-pane layui-col-md6 layui-col-md-offset1">
-
+                    <input type="hidden" name="ar_id" id="ar_id"  class="layui-input" value="{{$adminRole->ar_id}}">
                     <div class="layui-form-item">
                         <label class="layui-form-label">角色名称</label>
                         <div class="layui-input-block">
@@ -61,7 +61,7 @@
                                         </dl>
                                     </div>
                                 </div>
-                                <ul id="menubarTree2" class="dtree" data-id="0"></ul>
+                                <ul id="menubarTree" class="dtree" data-id="0"></ul>
                                 {{--<button id='getall'>获取所有节点</button>--}}
                             </div>
                         </div>

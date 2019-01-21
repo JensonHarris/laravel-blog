@@ -14,6 +14,7 @@ layui.use(['form'], function(){
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+        var ar_id = $('#ar_id').val();
         var DemoTree = dtree.render({
             elem: "#menubarTree2",
             url: "/admin/role/create",
@@ -43,7 +44,35 @@ layui.use(['form'], function(){
             toolbarShow: [], // 工具栏自带的按钮制空
             dot: false
         });
-
+        var DemoTrees = dtree.render({
+            elem: "#menubarTree",
+            url: "/admin/role/"+ar_id+"/edit",
+            // data: data,
+            checkbar: true,
+            initLevel: 1,
+            menubar: true,
+            dataStyle:"layuiStyle",
+            response:{
+                code: 200,
+                treeId: 'ap_id',
+                parentId: "ap_pid",
+                title:'ap_name',
+                rootName: 'data'
+            },
+            menubarTips: {
+                toolbar: ["moveDown", "moveUp"],
+                group: []
+            },
+            defaultRequest:{
+                nodeId: "ap_id",		//节点ID
+                parentId: "ap_pid",	//父节点ID
+                context: "ap_name",	//节点内容
+            },
+            toolbar: true,
+            toolbarScroll: "#toolbarDiv",
+            toolbarShow: [], // 工具栏自带的按钮制空
+            dot: false
+        });
         //监听提交
         form.on('submit(add)', function(data){
             if (data.field.ar_status=='on'){

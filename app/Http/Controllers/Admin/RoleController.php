@@ -101,9 +101,24 @@ class RoleController extends Controller
      * Date  : 2019/1/16 14:28
      * @param AdminRole $adminRole
      */
-    public function edit(AdminRole $adminRole)
+    public function edit(Request $request, AdminRole $adminRole)
     {
-         return view('admin.role.edit',compact('adminRole'));
+        if ($request->ajax()) {
+            $rolePermissions  = $adminRole->permissions->toArray();
+            $permissions      = AdminPermission::all()->toArray();
+            dd($permissions);
+            $aps              = array_column($rolePermissions,'ap_id');
+            foreach ($permissions as $key=>&$permission ){
+                if (in_array($permission['ap_id'],$aps)){
+                    $permission['checkArr'] = [['type'=>'0','isChecked'=>'1']];
+                };
+            }
+            $permissionsLevel = arrayLevel($permissions,'ap_id','ap_pid');
+            $permissionsTree  =  arrayToTree($permissionsLevel,'ap_id','ap_pid');
+            return $this->success('200',$permissionsTree);
+        } else {
+            return view('admin.role.edit',compact('adminRole'));
+        }
     }
 
     /**

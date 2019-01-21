@@ -20,7 +20,7 @@ class AdminRole extends Model
      */
     public function permissions()
     {
-        return $this->belongsToMany(AdminPermission::class, 'admin_permission_role', 'ap_id', 'ar_id')->withPivot(['ap_id', 'ar_id']);
+        return $this->belongsToMany(AdminPermission::class, 'admin_permission_role', 'ar_id', 'ap_id')->withPivot(['ap_id', 'ar_id']);
     }
 
     /*

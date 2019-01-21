@@ -95,6 +95,8 @@ Route::group(['prefix' => 'admin','middleware' => 'admin.auth'], function() {
         Route::post('', 'Admin\RoleController@store');
         //角色编辑
         Route::get('/{adminRole}/edit', 'Admin\RoleController@edit');
+        //权限数据
+        Route::post('/{adminRole}/edit', 'Admin\RoleController@create');
         //角色编辑逻辑
         Route::post('/update/{ar_id}', 'Admin\RoleController@update');
         //角色删除
