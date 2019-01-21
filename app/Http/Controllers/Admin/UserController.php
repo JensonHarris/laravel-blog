@@ -16,7 +16,7 @@ class UserController extends Controller
      * Author: JesonC <748532271@qq.com>
      * Date  : 2019/1/16 14:31
      */
-    public function index()
+    public function index(AdminUser $adminUser)
     {
         return view('admin.user.index');
     }

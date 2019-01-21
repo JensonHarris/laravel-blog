@@ -144,7 +144,7 @@
   </div>
   <aside class="sidebar">
     <div class="fixed">
-            <div class="widget widget_sentence">
+            <!-- <div class="widget widget_sentence">
                 <h3>个人简介</h3>
                 <div class="widget-sentence-content">
                     <div class="lyb_info_img">
@@ -184,7 +184,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
       <div class="widget widget-tabs">

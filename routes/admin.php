@@ -4,7 +4,7 @@
  * @Author: Jenson Harris
  * @Date:   2018-12-24 22:05:00
  * @Last Modified by:   Jenson Harris
- * @Last Modified time: 2019-01-14 21:42:00
+ * @Last Modified time: 2019-01-19 19:58:45
  */
 
 //登录模块
@@ -21,6 +21,8 @@ Route::group(['prefix' => 'admin'], function() {
 Route::group(['prefix' => 'admin','middleware' => 'admin.auth'], function() {
 
     Route::get('/index', 'Admin\IndexController@index');
+
+    Route::get('/profile', 'Admin\IndexController@profile');
     //退出登录
     Route::get('/logout', 'Admin\LoginController@logout');
 
