@@ -106,11 +106,12 @@ class RoleController extends Controller
         if ($request->ajax()) {
             $rolePermissions  = $adminRole->permissions->toArray();
             $permissions      = AdminPermission::all()->toArray();
-            dd($permissions);
             $aps              = array_column($rolePermissions,'ap_id');
             foreach ($permissions as $key=>&$permission ){
                 if (in_array($permission['ap_id'],$aps)){
                     $permission['checkArr'] = [['type'=>'0','isChecked'=>'1']];
+                }else{
+                    $permission['checkArr'] = [['type'=>'0','isChecked'=>'0']];
                 };
             }
             $permissionsLevel = arrayLevel($permissions,'ap_id','ap_pid');
