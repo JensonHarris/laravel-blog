@@ -8,6 +8,7 @@ layui.use('form', function(){
             dataType: "json",
             data: data.field,
             error: function(msg) {
+                click_verify();//刷新验证码
                 if (msg.status == 422) {
                     var json=JSON.parse(msg.responseText);
                     json = json.errors;
@@ -53,6 +54,11 @@ layui.use('form', function(){
             ,'请填写完整的验证码'
         ]
     });
+
+    function click_verify(){
+        var imgurl = $("#verifyImg")[0].src;
+        $("#verifyImg").attr('src',imgurl+Math.random());
+    }
 });
 
 layui.use(['jquery','layer'],function(){
