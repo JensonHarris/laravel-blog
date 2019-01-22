@@ -8,55 +8,86 @@
     <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
     <link href="css/style.css?v=4.1.0" rel="stylesheet">
     <link href="/admin/plugins/layui/css/layui.css" rel="stylesheet">
+    <style>
+        .profile-user-img{
+            padding: 3px;
+            border: 3px solid #D2D6DE;
+            border-radius: 50%;
+        }
+        .profile-user-img img{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .profile-content{
+            text-align: center;
+        }
+    </style>
 </head>
 <body class="gray-bg">
     <div class="wrapper wrapper-content">
         <div class="row animated fadeInRight">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>个人头像</h5>
                     </div>
                     <div>
+                        <form class="layui-form layui-form-pane">
                         <div class="ibox-content profile-content">
-                            <div class="layui-upload-drag" id="test10">
-                                <i class="layui-icon"></i>
-                                <p>点击上传，或将文件拖拽到此处</p>
-                            </div>
+                                <div class="layui-upload-drag profile-user-img" id="cove">
+                                    <img  id="cover" class="cover-map" src="/admin/img/avatar.png" alt="文章封面图">
+                                </div>
+                                <input type="hidden" name="cover_map" id="cover_map"  class="layui-input" value="" lay-verify="cover_map">
                         </div>
-                        <!-- <hr class="layui-bg-red"> -->
-                        <br>
                         <div class="ibox-content profile-content">
-                            <div>
-                                <div class="feed-activity-list">
-                                    <div class="feed-element">
-                                        <span class="layui-badge">name </span>
-                                    </div>
-                                    <div class="feed-element">
-                                        <span class="layui-badge">phone</span>
-                                    </div>
-                                    <div class="feed-element">
-                                        <span class="layui-badge">email </span>
-                                    </div>
-                                     <div class="feed-element">
-                                        <span class="layui-badge">phone</span>
-                                    </div>
-                                    <div class="feed-element">
-                                        <span class="layui-badge">email </span>
+                                <div class="layui-form-item">
+                                    <input type="hidden" name="au_id" id="au_id"  class="layui-input" value="">
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">登录账户</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="au_name" id="au_name" lay-verify="username" class="layui-input" value="admin" disabled>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="user-button">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> 发送消息</button>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <button type="button" class="btn btn-default btn-sm btn-block"><i class="fa fa-coffee"></i> 赞助</button>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">用户姓名</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="au_realname" id="au_realname" lay-verify="realName" class="layui-input" value="">
                                     </div>
                                 </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">手机号码</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="au_mobile" id="au_mobile" lay-verify="phone"  class="layui-input" value="">
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">用户邮箱</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="au_email" id="au_email" lay-verify="email" class="layui-input" value=>
+                                    </div>
+                                </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">手机号码</label>
+                                <div class="layui-input-block">
+                                    <input type="password" name="password" id="password" class="layui-input">
+                                </div>
                             </div>
-                        </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">用户邮箱</label>
+                                <div class="layui-input-block">
+                                    <input type="password" name="password_c" id="password_c" lay-verify="repass" class="layui-input">
+                                </div>
+                            </div>
+                                <div class="layui-form-item">
+                                    <div class="layui-input-block">
+                                        <button class="layui-btn" lay-submit="" lay-filter="add">保存</button>
+                                        <button type="reset" class="layui-btn layui-btn-primary" lay-submit lay-filter="">重置</button>
+                                    </div>
+                                </div>
+                          </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -104,23 +135,91 @@
             </div>
         </div>
     </div>
-    <!-- 全局js -->
-    <script src="js/jquery.min.js?v=2.1.4"></script>
-    <script type="text/javascript" src="/admin/plugins/layui/layui.js"></script>
+<!-- 全局js -->
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script type="text/javascript" src="/admin/plugins/layui/layui.js"></script>
 </body>
 
 </html>
 <script>
     layui.use('upload', function(){
         var $ = layui.jquery
-        ,upload = layui.upload;
+            ,upload = layui.upload;
 //拖拽上传
-upload.render({
-    elem: '#test10'
-    ,url: '/upload/'
-    ,done: function(res){
-        console.log(res)
-    }
-});
-});
+        upload.render({
+            elem: '#cove'
+            ,url: '/upload/'
+            ,done: function(res){
+                console.log(res)
+            }
+        });
+    });
+
+
 </script>
+
+<script>
+    layui.use(['form', 'layedit', 'laydate'], function(){
+        var form = layui.form
+            ,layer = layui.layer
+            ,layedit = layui.layedit
+            ,laydate = layui.laydate;
+
+        //日期
+        laydate.render({
+            elem: '#date'
+        });
+        laydate.render({
+            elem: '#date1'
+        });
+
+        //创建一个编辑器
+        var editIndex = layedit.build('LAY_demo_editor');
+
+        //自定义验证规则
+        form.verify({
+            title: function(value){
+                if(value.length < 5){
+                    return '标题至少得5个字符啊';
+                }
+            }
+            ,pass: [
+                /^[\S]{6,12}$/
+                ,'密码必须6到12位，且不能出现空格'
+            ]
+            ,content: function(value){
+                layedit.sync(editIndex);
+            }
+        });
+
+        //监听指定开关
+        form.on('switch(switchTest)', function(data){
+            layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+                offset: '6px'
+            });
+            layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+        });
+
+        //监听提交
+        form.on('submit(demo1)', function(data){
+            layer.alert(JSON.stringify(data.field), {
+                title: '最终的提交信息'
+            })
+            return false;
+        });
+
+        //表单初始赋值
+        form.val('example', {
+            "username": "贤心" // "name": "value"
+            ,"password": "123456"
+            ,"interest": 1
+            ,"like[write]": true //复选框选中状态
+            ,"close": true //开关状态
+            ,"sex": "女"
+            ,"desc": "我爱 layui"
+        })
+
+
+    });
+</script>
+

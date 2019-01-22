@@ -31,14 +31,14 @@
                                 </span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a class="J_menuItem" href="form_avatar.html">修改头像</a>
-                                </li>
+                                {{--<li><a class="J_menuItem" href="form_avatar.html">修改头像</a>--}}
+                                {{--</li>--}}
                                 <li><a class="J_menuItem" href="/admin/profile">个人资料</a>
                                 </li>
-                                <li><a class="J_menuItem" href="contacts.html">联系我们</a>
-                                </li>
-                                <li><a class="J_menuItem" href="mailbox.html">信箱</a>
-                                </li>
+                                {{--<li><a class="J_menuItem" href="contacts.html">联系我们</a>--}}
+                                {{--</li>--}}
+                                {{--<li><a class="J_menuItem" href="mailbox.html">信箱</a>--}}
+                                {{--</li>--}}
                                 <li class="divider"></li>
                                 <li><a href="{{url('/admin/logout')}}">安全退出</a>
                                 </li>

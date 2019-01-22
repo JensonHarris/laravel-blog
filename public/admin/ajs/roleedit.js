@@ -14,9 +14,10 @@ layui.use(['form'], function(){
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        var DemoTree = dtree.render({
-            elem: "#menubarTree2",
-            url: "/admin/role/create",
+        var ar_id = $('#ar_id').val();
+        var DemoTrees = dtree.render({
+            elem: "#menubarTree",
+            url: "/admin/role/"+ar_id+"/edit",
             // data: data,
             checkbar: true,
             initLevel: 1,
@@ -44,18 +45,18 @@ layui.use(['form'], function(){
             dot: false
         });
         //监听提交
-        form.on('submit(add)', function(data){
+        form.on('submit(edit)', function(data){
+            var url = '/admin/role/update/'+data.field.ar_id;
             if (data.field.ar_status=='on'){
                 data.field.ar_status = 0;
             }else{
                 data.field.ar_status = 1;
             }
-            data.field.permissions = dtree.getCheckbarNodesParam("menubarTree2");
-
-            console.log(data.field);
+            data.field.permissions = dtree.getCheckbarNodesParam("menubarTree");
+console.log(data);
             $.ajax({
                 type: "POST",
-                url: '/admin/role',
+                url: url,
                 dataType: "json",
                 data: data.field,
                 error: function(msg) {

@@ -62,7 +62,6 @@
                                     </div>
                                 </div>
                                 <ul id="menubarTree" class="dtree" data-id="0"></ul>
-                                {{--<button id='getall'>获取所有节点</button>--}}
                             </div>
                         </div>
                     </div>
@@ -87,4 +86,4 @@
 </body>
 </html>
 <script type="text/javascript" src="/admin/plugins/layui/layui.js"></script>
-<script type="text/javascript" src="/admin/ajs/role.js"></script>
+<script type="text/javascript" src="/admin/ajs/roleedit.js"></script>

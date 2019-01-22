@@ -129,9 +129,32 @@ class RoleController extends Controller
      * @param Request $request
      * @param $id
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, AdminRole $adminRole)
     {
-        //
+        $roles = $request->input();
+        $permissions =  array_pull($roles, 'permissions');
+        DB::beginTransaction();
+        try {
+            $ar_id = $roles['ar_id'];
+            $role  = $adminRole->where(['ar_id'=>$ar_id])->update($roles);
+            $array = [];
+            foreach($permissions as $k=>$item){
+                $array[$k]['ar_id'] = $ar_id;
+                $array[$k]['ap_id'] = $item['ap_id'];
+            }
+            $delete  = AdminPermissionRole::where('ar_id','=',$ar_id)->delete();
+            if ($delete){
+                $resulte = AdminPermissionRole::insert($array);
+                DB::commit();
+                return $this->success(20004);
+            }
+            DB::rollBack();
+            return $this->error(40004);
+        } catch (\Exception $e){
+            DB::rollBack();
+            dd($e->getMessage());
+            return $this->error(40004);
+        }
     }
 
     /**
