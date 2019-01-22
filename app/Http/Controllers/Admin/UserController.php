@@ -103,7 +103,7 @@ class UserController extends Controller
      */
     public function update(Update $request,AdminUser $adminUser)
     {
-        $user  = $request->except('_token');
+        $user  = $request->except('file');
         $ar_id =  array_pull($user, 'ar_id');
         if (array_key_exists('password',$user)) {
             $user['password'] = bcrypt($user['password']);
