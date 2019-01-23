@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\AdminUser;
 use App\Models\AdminRole;
+use App\models\AdminRoleUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\Admin\User\Store;
@@ -55,7 +56,7 @@ class UserController extends Controller
      */
     public function store(Store $request,AdminUser $adminUser)
     {
-         $user = $request->except('_token');
+         $user = $request->input();
          $user['password'] = bcrypt($user['password']);
 
         DB::beginTransaction();
@@ -109,8 +110,22 @@ class UserController extends Controller
             $user['password'] = bcrypt($user['password']);
             $user = array_except($user, ['password_c']);
         }
-        $data =  $adminUser->where(['au_id'=>$user['au_id']])->update($user);
-        dd($ar_id,$user,$data);
+        DB::beginTransaction();
+        try {
+            $admins =  $adminUser->where(['au_id'=>$user['au_id']])->update($user);
+            $delete =  AdminRoleUser::where('au_id','=',$user['au_id'])->delete();
+            if ($delete){
+                $roleUser = ['ar_id'=>$ar_id,'au_id'=>$user['au_id']];
+                $result = AdminRoleUser::insert($roleUser);
+                DB::commit();
+                return $this->success(20004);
+            }
+                DB::rollBack();
+                return $this->error(40004);
+        } catch (\Exception $e){
+            DB::rollBack();
+            return $this->error(40004);
+        }
     }
 
     /**

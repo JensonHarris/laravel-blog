@@ -7,6 +7,11 @@ layui.use(['form'], function(){
         }else{
             data.field.au_status = 1;
         }
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
         $.ajax({
             type: "POST",
             url: '/admin/user',
@@ -57,6 +62,11 @@ layui.use(['form'], function(){
             delete data.field.password_c;
         }
         var url = '/admin/user/update/'+data.field.au_id;
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
         $.ajax({
             type: "POST",
             url: url,

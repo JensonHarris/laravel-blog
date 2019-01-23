@@ -14,6 +14,7 @@ Route::group(['prefix' => 'admin'], function() {
         Route::get('', 'Admin\LoginController@index');
         //登录验证
         Route::post('', 'Admin\LoginController@login');
+
     });
 });
 
@@ -23,6 +24,8 @@ Route::group(['prefix' => 'admin','middleware' => 'admin.auth'], function() {
     Route::get('/index', 'Admin\IndexController@index');
 
     Route::get('/profile', 'Admin\IndexController@profile');
+    //修改完个人信息
+    Route::post('/updateUser/{au_id}', 'Admin\IndexController@updateUser');
     //退出登录
     Route::get('/logout', 'Admin\LoginController@logout');
 

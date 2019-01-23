@@ -1,0 +1,20 @@
+.profile-user-img{
+    padding: 3px;
+    border: 3px solid #D2D6DE;
+    border-radius: 50%;
+}
+.profile-user-img img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.profile-content{
+    text-align: center;
+    border: none !important;
+}
+h3{
+    font-size: 21px;
+}
+h4{
+    font-size: 13PX;
+}

@@ -29,7 +29,6 @@ class Update extends FormRequest
         $au_id = $this->route('au_id');
 
         return [
-            'ar_id'       => 'required',
             'au_name'     => ['required','min:6','max:16',
                 Rule::unique('admin_users')->ignore($au_id,'au_id'),
             ],
@@ -61,19 +60,6 @@ class Update extends FormRequest
             'password'    => '登录密码',
             'password_c'  => '确认密码'
 
-        ];
-    }
-
-    /**
-     * Notes : 定义中文提示
-     * Author: JesonC <748532271@qq.com>
-     * Date  : 2019/1/7 11:04
-     * @return array
-     */
-    public function messages()
-    {
-        return [
-            'ar_id.required'  =>'请为该用户选择角色',
         ];
     }
 }

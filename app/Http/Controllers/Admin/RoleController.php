@@ -144,7 +144,7 @@ class RoleController extends Controller
             }
             $delete  = AdminPermissionRole::where('ar_id','=',$ar_id)->delete();
             if ($delete){
-                $resulte = AdminPermissionRole::insert($array);
+                $result = AdminPermissionRole::insert($array);
                 DB::commit();
                 return $this->success(20004);
             }
@@ -152,7 +152,6 @@ class RoleController extends Controller
             return $this->error(40004);
         } catch (\Exception $e){
             DB::rollBack();
-            dd($e->getMessage());
             return $this->error(40004);
         }
     }
