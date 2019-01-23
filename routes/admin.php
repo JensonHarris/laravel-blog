@@ -18,8 +18,11 @@ Route::group(['prefix' => 'admin'], function() {
     });
 });
 
+//权限控制开启
+//Route::group(['prefix' => 'admin','middleware' => ['check.login', 'admin.auth']], function() {
+
 //后台模块
-Route::group(['prefix' => 'admin','middleware' => 'admin.auth'], function() {
+Route::group(['prefix' => 'admin','middleware' => ['check.login']], function() {
 
     Route::get('/index', 'Admin\IndexController@index');
 
