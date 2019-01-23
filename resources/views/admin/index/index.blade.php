@@ -8,7 +8,7 @@
     <title>JesonC blog后台</title>
     <link rel="shortcut icon" href="favicon.ico">
     <link href="/admin/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="/admin/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
     <link href="/admin/css/animate.css" rel="stylesheet">
     <link href="/admin/css/style.css?v=4.1.0" rel="stylesheet">
 </head>

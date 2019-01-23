@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>CCSHOP后台</title>
     <link rel="shortcut icon" href="favicon.ico">
-    <link href="/admin/css/font-awesome.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
     <link href="/admin/css/style.css?v=4.1.0" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/admin/plugins/layui/css/layui.css">
     <link rel="stylesheet" type="text/css" href="/admin/plugins/layui_ext/dtree/dtree.css">

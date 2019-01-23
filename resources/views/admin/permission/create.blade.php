@@ -1,5 +1,8 @@
 @extends("admin.layout.main")
     @section('title', '权限管理')
+@section('styles')
+    <link href="/plugins/fontawesome/dist/css/fontawesome-iconpicker.min.css" rel="stylesheet">
+@endsection
 @section("content")
   <div class="ibox-title">
         <blockquote class="layui-elem-quote">
@@ -52,6 +55,13 @@
                 </div>
 
                 <div class="layui-form-item">
+                    <label class="layui-form-label">icon图标</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="icon" name="icon" placeholder="请选择图标..." class="layui-input" lay-verify="">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
                     <label class="layui-form-label">URL</label>
                     <div class="layui-input-block">
                         <input type="text" id="ap_url" name="ap_url" placeholder="请输入URL..." class="layui-input" lay-verify="apUrl">
@@ -76,6 +86,12 @@
 @endsection
 @section('scripts')
     <script type="text/javascript" src="/admin/ajs/auth.js"></script>
+    <script type="text/javascript" src="/plugins/fontawesome/dist/js/fontawesome-iconpicker.js"></script>
+    <script>
+        $(function () {
+            $('#icon').iconpicker();
+        });
+    </script>
 @endsection
 
 
