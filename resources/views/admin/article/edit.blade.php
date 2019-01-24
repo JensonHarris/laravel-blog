@@ -28,11 +28,17 @@
     <div class="ibox float-e-margins">
         <div class="ibox-content ">
             <div class="layui-row">
-                <form class="layui-form layui-form-pane" action="">
+                <form class="layui-form layui-form-pane">
+                    <div class="layui-form-item">
+                            <input type="hidden" name="id" id="id"  class="layui-input" value="{{$article->id}}">
+                    </div>
+                    <div class="layui-form-item">
+                            <input type="hidden" name="content_id" id="content_id"  class="layui-input" value="{{$content->id}}">
+                    </div>
                     <div class="layui-form-item layui-col-md6 layui-col-md-offset1">
                         <label class="layui-form-label">文章分类</label>
                         <div class="layui-input-block">
-                            <select name="category_id" id="category_id" lay-verify="category" disabled>
+                            <select name="category_id" id="category_id" lay-verify="category">
                                 <option value=""></option>
                                 @foreach ($categorys as $category)
                                     <option value="{{$category['id']}}" @if ($category['id'] == $article->category_id)
@@ -44,13 +50,14 @@
                     <div class="layui-form-item layui-col-md6 layui-col-md-offset1">
                         <label class="layui-form-label">文章标签</label>
                         <div class="layui-input-block">
-                            <select multiple="multiple" lay-filter="test" id="tag_ids" name="tag_ids" disabled>
+                            <select multiple="multiple" lay-filter="test" id="tag_ids" name="tag_ids" >
                                 <option value=""></option>
                                 @foreach ($tags as $tag)
-                                    @foreach ($article_tags as $article_tag)
-                                    <option value="{{$tag['id']}}" @if ($tag['id'] == $article_tag['id'])
-                                    selected @endif>{{$tag['name']}}</option>
-                                    @endforeach
+                                    @if (in_array($tag['id'],$article_tags))
+                                    <option value="{{$tag['id']}}" selected >{{$tag['name']}}</option>
+                                    @else
+                                     <option value="{{$tag['id']}}">{{$tag['name']}}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
@@ -95,9 +102,7 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label layui-col-md-offset1">文章内容</label>
                         <div id="article-editormd">
-                            <textarea name="markdown" style="display:none;">
-                                {{$article->keywords}}
-                            </textarea>
+                            <textarea name="markdown" style="display:none;">{{$content->markdown}}</textarea>
                         </div>
                     </div>
                     <div class="layui-form-item  layui-col-md6 layui-col-md-offset1" pane="">
@@ -108,7 +113,7 @@
                     </div>
                     <div class="layui-form-item layui-col-md6 layui-col-md-offset1">
                         <div class="layui-input-block">
-                            <button class="layui-btn" lay-submit="" lay-filter="add">保存</button>
+                            <button class="layui-btn" lay-submit="" lay-filter="edit">保存</button>
                             <button type="reset" class="layui-btn layui-btn-primary" lay-submit lay-filter="">重置</button>
                         </div>
                     </div>
@@ -124,118 +129,6 @@
 <script type="text/javascript" src="/plugins/markdown/editormd.js"></script>
 <script type="text/javascript" src="/admin/ajs/article.js"></script>
 
-<script>
-    layui.config({
-        base: '/admin/plugins/layui_ext/multiSelect/',
-    })
-    layui.use(['multiSelect'],function() {
-        var $ = layui.jquery,form = layui.form,multiSelect = layui.multiSelect;
-        $('#get-val').click(function() {
-            var vals = [],
-                texts = [];
-            $('select[multiple] option:selected').each(function() {
-                vals.push($(this).val());
-                texts.push($(this).text());
-            })
-            console.dir(vals);
-            console.dir(texts);
-        })
-        form.on('select(test)',function(data){
-            console.dir(data);
-        })
-    });
-    // var tagData = [{"id":12,"name":"长者","status":0},{"id":13,"name":"工厂"},{"id":14,"name":"小学生"},{"id":15,"name":"大学生"},{"id":16,"name":"研究生"},{"id":17,"name":"教师"},{"id":18,"name":"记者"}];
-    // layui.config({
-    //     base : '/admin/plugins'
-    // }).extend({
-    //     selectN: '/layui_extends/selectN',
-    //     selectM: '/layui_extends/selectM',
-    // }).use(['layer','form','jquery','selectN','selectM'],function(){
-    //     $ = layui.jquery;
-    //     var form = layui.form
-    //         ,layer = layui.layer
-    //         ,selectN = layui.selectN
-    //         ,selectM = layui.selectM;
-    //     //多选标签-基本配置
-    //     var tagIns1 = selectM({
-    //         //元素容器【必填】
-    //         elem: '#tag_ids1'
-    //         //候选数据【必填】
-    //         ,data: tagData
-    //         ,max:2
-    //         ,tips: '请选择文章标签'
-    //         // ,width:400
-    //         //添加验证
-    //         ,verify:'required'
-    //     });
-    //     var catIns1 = selectM({
-    //         //元素容器【必填】
-    //         elem: '#tag_ids2'
-    //         ,max:1
-    //         ,tips: '请选择文章类型'
-    //         //候选数据【必填】
-    //         ,data: tagData
-    //     });
-    //
-    //     //监听重置按钮
-    //     $('form').find(':reset').click(function(){
-    //         $('form')[0].reset();
-    //         return false;
-    //     });
-    //     // //监听指定开关
-    //     // form.on('switch(switchTest)', function(data){
-    //     //     layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
-    //     //         offset: '6px'
-    //     //     });
-    //     //     layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
-    //     // });
-    //
-    //     //监听提交
-    //     form.on('submit(InputContent)', function(data){
-    //         console.log(data.field);
-    //         // layer.alert(JSON.stringify(data.field), {
-    //         //     title: '最终的提交信息'
-    //         // });
-    //         return false;
-    //     });
-    //
-    // });
-</script>
-<script type="text/javascript">
-    var testEditor;
-    $(function() {
-        testEditor = editormd("article-editormd", {
-            width        : "85%",
-            height       : 750,
-            toc : true,
-            todoList:true,
-            emoji : true,       // Support Github emoji, Twitter Emoji(Twemoji), fontAwesome, Editor.md logo emojis.
-            taskList : true,
-            tex: true,                   // 开启科学公式TeX语言支持，默认关闭
-            flowChart: true,             // 开启流程图支持，默认关闭
-            sequenceDiagram: true,       // 开启时序/序列图支持，默认关闭,
-            imageUpload:true,
-            imageUploadURL:'url',//图片上传地址
-            // Editor.md theme, default or dark, change at v1.5.0
-            toolbarIcons : function() {
-                return [
-                    "undo", "redo", "|",
-                    "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
-                    "h1", "h2", "h3", "h4", "h5", "h6", "|",
-                    "list-ul", "list-ol", "hr", "|",
-                    "link", "reference-link", "image", "code",'code-block', "table", "datetime", "emoji", "html-entities", "pagebreak", "|",
-                    "watch", "preview", "clear", "|",
-                    "help", 'fullscreen',
-                ]
-            },
-            //显示主题
-            theme        : "dark",
-            previewTheme :  "default",
-            editorTheme  :  "monokai",
-            path         : '/plugins/markdown/lib/'
-        });
-    });
-</script>
 
 
 

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\AdminRole;
 use App\Models\Tag;
 use App\Models\Article;
 use App\Models\ArticleTag;
@@ -51,7 +50,7 @@ class ArticleController extends Controller
      * @param Store $request
      * @param Article $article
      */
-    public function store(Store $request,Article $article)
+    public function store(Store $request, Article $article)
     {
         $articlesData  = $request->except('file');
         $tagIds        =  array_pull($articlesData, 'tag_ids');
@@ -76,7 +75,6 @@ class ArticleController extends Controller
             return $this->success(20002);
         } catch (\Exception $e){
             DB::rollBack();
-            return   $e->getMessage();
             return $this->error(40002);
         }
     }
@@ -103,8 +101,9 @@ class ArticleController extends Controller
         $tags      = Tag::all();
         $categoryData = ArticleCategory::all();
         $categorys    =  arrayLevel($categoryData,'id','parent_id');
-        $article_tags =  $article->articleTags->toArray();
-        return view('admin.article.edit',compact('article','tags','categorys','article_tags'));
+        $article_tags =  $article->articleTags->pluck('id')->toArray();
+        $content      =  $article->articleContent;
+        return view('admin.article.edit',compact('article', 'tags', 'categorys', 'article_tags', 'content'));
     }
 
     /**
@@ -114,9 +113,34 @@ class ArticleController extends Controller
      * @param Request $request
      * @param $id
      */
-    public function update(Request $request, $id)
+    public function update(Store $request, Article $article)
     {
-        //
+        $articlesData  =  $request->except('file');
+        $tagIds        =  array_pull($articlesData, 'tag_ids');
+        $markdown      =  array_pull($articlesData,'markdown');
+        $content_id    =  array_pull($articlesData,'content_id');
+        $contentDate   =  ['markdown' => $markdown];
+        //更新文章
+        DB::beginTransaction();
+        try {
+            $articleResult = $article->where(['id' => $articlesData['id']])->update($articlesData);
+            $contentResult = ArticleContent::where(['id'=> $content_id])->update($contentDate);
+            $delete =  ArticleTag::where('article_id', '=', $articlesData['id'])->delete();
+            if ($delete){
+                $tags = [];
+                foreach ($tagIds as $key => $tagid) {
+                    $tags[$key]['tag_id'] = $tagid;
+                    $tags[$key]['article_id'] = $articlesData['id'];
+                }
+                $tag = ArticleTag::insert($tags);
+                DB::commit();
+                return $this->success(20004);
+            }
+            return $this->error(40004);
+        } catch (\Exception $e){
+            DB::rollBack();
+            return $this->error(40004);
+        }
     }
 
     /**

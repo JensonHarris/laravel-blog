@@ -106,16 +106,17 @@ class UserController extends Controller
     {
         $user  = $request->except('file');
         $ar_id =  array_pull($user, 'ar_id');
+        $au_id = $user['au_id'];
         if (array_key_exists('password',$user)) {
             $user['password'] = bcrypt($user['password']);
             $user = array_except($user, ['password_c']);
         }
         DB::beginTransaction();
         try {
-            $admins =  $adminUser->where(['au_id'=>$user['au_id']])->update($user);
-            $delete =  AdminRoleUser::where('au_id','=',$user['au_id'])->delete();
+            $admins =  $adminUser->where(['au_id'=>$au_id])->update($user);
+            $delete =  AdminRoleUser::where('au_id','=',$au_id)->delete();
             if ($delete){
-                $roleUser = ['ar_id'=>$ar_id,'au_id'=>$user['au_id']];
+                $roleUser = ['ar_id'=>$ar_id,'au_id'=>$au_id];
                 $result = AdminRoleUser::insert($roleUser);
                 DB::commit();
                 return $this->success(20004);

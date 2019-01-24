@@ -2,7 +2,6 @@ layui.use(['form'], function(){
     var form = layui.form
     //监听提交
     form.on('submit(add)', function(data){
-        console.log(data.field);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -55,9 +54,26 @@ layui.use(['form'], function(){
         return false; //阻
     });
 
-    //监听提交
+     //监听提交
     form.on('submit(edit)', function(data){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        if (data.field.is_top=='on'){
+            data.field.is_top = 0;
+        }else{
+            data.field.is_top = 1;
+        }
+        var vals = [];
+        $('select[multiple] option:selected').each(function() {
+            vals.push($(this).val());
+        });
+        data.field.tag_ids = vals;
+
         var url = '/admin/article/update/'+data.field.id;
+        console.log(data.field);
         $.ajax({
             type: "POST",
             url: url,
@@ -84,7 +100,7 @@ layui.use(['form'], function(){
                         icon: 1,//提示的样式
                         time: 2000, //2秒关闭
                         end:function(){
-                            window.location.href="/admin/permission";
+                            window.location.href="/admin/article";
                         }
                     });
                 } else {
@@ -92,8 +108,9 @@ layui.use(['form'], function(){
                 }
             }
         });
-        return false;
+        return false; //阻
     });
+
 
     //自定义验证规则
     form.verify({
