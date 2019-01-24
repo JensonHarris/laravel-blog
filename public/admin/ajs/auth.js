@@ -1,3 +1,8 @@
+//图标选择
+$(function () {
+    $('#icon').iconpicker();
+});
+
 layui.use(['form'], function(){
     var form = layui.form
     //监听提交
@@ -141,11 +146,12 @@ layui.use('table', function(){
             {type: 'checkbox', fixed: 'left'}
             ,{field:'ap_id', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
             ,{field:'ap_name', title:'权限名'}
+            ,{field:'icon', title:'图标', width:60, toolbar: '#iconfont'}
             ,{field:'ap_control', title:'控制器' }
             ,{field:'ap_action', title:'方法'}
             ,{field:'ap_url', title:'URL'}
             ,{field:'method', title:'请求方式'}
-            ,{field:'created_at', title:'添加时间',width:200, sort: true}
+            ,{field:'created_at', title:'添加时间', width:200, sort: true}
             ,{fixed: 'right', title:'操作', toolbar: '#barDemo'}
 
 

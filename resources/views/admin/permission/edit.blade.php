@@ -61,6 +61,13 @@
                     </div>
 
                     <div class="layui-form-item">
+                        <label class="layui-form-label">icon图标</label>
+                        <div class="layui-input-block">
+                            <input type="text" id="icon" name="icon" class="layui-input" lay-verify="" value="{{$adminPermission->icon}}">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
                         <label class="layui-form-label">URL</label>
                         <div class="layui-input-block">
                             <input type="text" id="ap_url" name="ap_url" class="layui-input" value="{{$adminPermission->ap_url}}">

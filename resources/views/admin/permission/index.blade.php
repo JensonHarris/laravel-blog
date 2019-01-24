@@ -42,5 +42,8 @@
      <a class="layui-btn layui-btn-xs"  href="/admin/permission/@{{d.ap_id}}/edit">编辑</a>
      <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
  </script>
+ <script type="text/html" id="iconfont">
+     <i class="@{{ d.icon }}"></i>
+ </script>
  <script type="text/javascript" src="/admin/ajs/auth.js"></script>
 @endsection

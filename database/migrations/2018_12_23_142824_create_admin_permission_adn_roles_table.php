@@ -32,8 +32,8 @@ class CreateAdminPermissionAdnRolesTable extends Migration
             $table->string('ap_control',20)->default('')->comment('控制器名');
             $table->string('ap_action',20)->default('')->comment('方法名');
             $table->string('method',20)->default('')->comment('请求方式');
-            $table->string('ap_url',32)->default('')->comment('URL');
-            $table->string('ap_icon',32)->default('')->comment('权限图标');
+            $table->string('ap_url',50)->default('')->comment('URL');
+            $table->string('icon',32)->default('')->comment('权限图标');
             $table->string('ap_description')->default('')->comment('权限介绍');;
             $table->timestamps();
         });
