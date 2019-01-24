@@ -23,11 +23,11 @@
                 <ul class="nav" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element">
-                            <span><img alt="image" class="img-circle" src="img/profile_small.jpg" /></span>
+                            <span><img alt="image" class="img-circle" src="{{$adminUser->headimgurl}}" /></span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
-                               <span class="block m-t-xs"><strong class="font-bold">JesonC</strong></span>
-                                <span class="text-muted text-xs block">超级管理员<b class="caret text-primary"></b></span>
+                               <span class="block m-t-xs"><strong class="font-bold">{{$adminUser->au_name}}</strong></span>
+                                <span class="text-muted text-xs block">{{$adminRole[0]}}<b class="caret text-primary"></b></span>
                                 </span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
@@ -77,13 +77,13 @@
                         <ul class="nav nav-second-level">
                             <li>
                                 <a class="J_menuItem" href="{{url('/admin/user')}}">
-                                    <i class="fa fa-user-secret"></i>
+                                    <i class="fas fa-user-lock"></i>
                                     <span class="nav-label"> 管理员列表</span>
                                 </a>
                             </li>
                             <li>
                                 <a  class="J_menuItem" href="{{'/admin/role'}}">
-                                    <i class="fa fa-users"></i>
+                                    <i class="fas fa-user-secret"></i>
                                     <span class="nav-label">角色列表</span>
                                 </a>
                             </li>
@@ -144,7 +144,7 @@
                     <ul class="nav nav-second-level">
                         <li>
                             <a class="J_menuItem" href="{{url('/admin/article')}}" >
-                                <i class="fa fa-file-text-o"></i>
+                                <i class="fas fa-book-open"></i>
                                 <span>文章列表</span>
                             </a>
                         </li>
@@ -161,26 +161,6 @@
                             <a class="J_menuItem" href="{{'/admin/comment'}}">
                                 <i class="fa fa-edit"></i>
                                 <span>评论列表</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-database"></i>
-                        <span class="nav-label">数据库管理</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a class="J_menuItem" href="../datum/list.html">
-                                <i class="fa fa-file-text-o"></i>
-                                <span>数据库</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="../user/admin_add_list.html">
-                                还原数据库
                             </a>
                         </li>
                     </ul>
@@ -245,7 +225,7 @@
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
                         <a >
-                            <i class="fa fa-spin fa-refresh"></i>清除缓存
+                            <i class="fa fa-spin fa-sync-alt"></i>清除缓存
                         </a>
                     </li>
                     <li>

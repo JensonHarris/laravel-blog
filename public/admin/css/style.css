@@ -7896,3 +7896,8 @@ body.skin-3 {
         font-size: 12px
     }
 }
+
+.img-circle{
+    height: 64px;
+    width: 64px;
+}

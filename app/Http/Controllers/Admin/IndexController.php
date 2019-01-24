@@ -17,7 +17,10 @@ class IndexController extends Controller
      */
     public function index()
     {
-        return view('admin.index.index');
+        $adminUser = Auth::guard('admin')->user();
+        $adminRole = $adminUser->roles->pluck('ar_name');
+//        dd($adminRole);
+        return view('admin.index.index',compact('adminUser', 'adminRole'));
     }
 
     /**
