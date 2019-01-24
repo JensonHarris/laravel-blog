@@ -5,7 +5,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>文章管理</title>
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="/favicon.ico">
     <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
     <link href="/admin/css/article.css" rel="stylesheet">
     <link href="/admin/plugins/layui/css/layui.css" rel="stylesheet">

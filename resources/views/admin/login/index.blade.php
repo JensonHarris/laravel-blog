@@ -12,7 +12,7 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="Shortcut Icon" href="favicon.ico" />
+	<link rel="Shortcut Icon" href="/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="/admin/plugins/layui/css/layui.css" media="all">
 	<link rel="stylesheet" type="text/css" href="/admin/css/login.css" media="all">
 </head>

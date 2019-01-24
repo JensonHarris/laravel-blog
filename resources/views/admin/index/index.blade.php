@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit">
     <title>JesonC blog后台</title>
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="/favicon.ico">
     <link href="/admin/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
     <link href="/admin/css/animate.css" rel="stylesheet">
