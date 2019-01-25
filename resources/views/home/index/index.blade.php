@@ -22,14 +22,6 @@
 <header class="header">
   <nav class="navbar navbar-default" id="navbar">
     <div class="container">
-      <!-- <div class="header-topbar hidden-xs link-border">
-<ul class="site-nav topmenu">
-<li><a href="tags.html">标签云</a></li>
-<li><a href="readers.html" rel="nofollow">读者墙</a></li>
-<li><a href="links.html" rel="nofollow">友情链接</a></li>
-</ul>
-<a data-toggle="modal" data-target="#loginModal" class="login" rel="nofollow">Hi,请登录</a>  <a href="javascript:;" class="register" rel="nofollow">我要注册</a>  <a href="" rel="nofollow">找回密码</a>
-</div> -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar" aria-expanded="false"> <span class="sr-only"></span>  <span class="icon-bar"></span>  <span class="icon-bar"></span>  <span class="icon-bar"></span>
         </button>
@@ -121,58 +113,41 @@
         <h3>最新发布</h3>
 
       </div>
-      <article class="excerpt excerpt-1">
-        <a class="focus" href="/article" title="">
-          <img class="thumb" data-original="/home/images/excerpt.jpg" src="/home/images/excerpt.jpg" alt="">
+      @foreach ($articles as $article)
+      <article class="excerpt">
+        <a class="focus" href="/article/{{$article->id}}" target="_blank">
+          <img class="thumb" src="{{$article->cover_map}}">
         </a>
-        <header><a class="cat" href="program">后端程序<i></i></a>
-
-          <h2><a href="article.html" title="">php如何判断一个日期的格式是否正确</a></h2>
-
+        <header>
+          <a class="cat" href="#" target="_blank">{{$article->articleCategory->name}}<i></i></a>
+          <h2>
+            <a href="/article/{{$article->id}}" target="_blank">{{$article->title}}</a>
+          </h2>
         </header>
         <p class="meta">
-          <time class="time"><i class="glyphicon glyphicon-time"></i> 2016-1-4 10:29:39</time> <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 共120人围观</span>  <a class="comment" href="article.html#comment"><i class="glyphicon glyphicon-comment"></i> 0个不明物体</a>
+          <time class="time">
+            <i class="glyphicon glyphicon-time"></i>
+            {{$article->created_at}}
+          </time>
+          <span class="views">
+            <i class="glyphicon glyphicon-eye-open"></i>
+            共120人围观
+          </span>
+          <a class="comment" href="article.html#comment">
+            <i class="glyphicon glyphicon-comment"></i> 0个不明物体
+          </a>
         </p>
-        <p class="note">可以用strtotime()把日期（$date）转成时间戳，再用date()按需要验证的格式转成一个日期，来跟$date比较是否相同来验证这个日期的格式是否是正确的。所以要验证日期格式 ...</p>
-      </article>
-      <article class="excerpt excerpt-2">
-        <a class="focus" href="/article" title="">
-          <img class="thumb" data-original="/home/images/excerpt.jpg" src="/home/images/excerpt.jpg" alt="">
-        </a>
-        <header><a class="cat" href="program">后端程序<i></i></a>
-
-          <h2><a href="article.html" title="">php如何判断一个日期的格式是否正确</a></h2>
-
-        </header>
-        <p class="meta">
-          <time class="time"><i class="glyphicon glyphicon-time"></i> 2016-1-4 10:29:39</time> <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 共120人围观</span>  <a class="comment" href="article.html#comment"><i class="glyphicon glyphicon-comment"></i> 0个不明物体</a>
+        <p class="note">
+          {!! str_limit($article->description, 200, '...') !!}
         </p>
-        <p class="note">可以用strtotime()把日期（$date）转成时间戳，再用date()按需要验证的格式转成一个日期，来跟$date比较是否相同来验证这个日期的格式是否是正确的。所以要验证日期格式 ...</p>
       </article>
-      <article class="excerpt excerpt-5">
-        <a class="focus" href="/article" title="">
-          <img class="thumb" data-original="/home/images/excerpt.jpg" src="/home/images/excerpt.jpg" alt="">
-        </a>
-        <header><a class="cat" href="program">后端程序<i></i></a>
+      @endforeach
 
-          <h2><a href="article.html" title="">php如何判断一个日期的格式是否正确</a></h2>
 
-        </header>
-        <p class="meta">
-          <time class="time"><i class="glyphicon glyphicon-time"></i> 2016-1-4 10:29:39</time> <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 共120人围观</span>  <a class="comment" href="article.html#comment"><i class="glyphicon glyphicon-comment"></i> 0个不明物体</a>
-        </p>
-        <p class="note">可以用strtotime()把日期（$date）转成时间戳，再用date()按需要验证的格式转成一个日期，来跟$date比较是否相同来验证这个日期的格式是否是正确的。所以要验证日期格式 ...</p>
-      </article>
-      <nav class="pagination" style="display: none;">
+      <nav class="pagination">
+        {{ $articles->links() }}
         <ul>
-          <li class="prev-page"></li>
-          <li class="active"><span>1</span>
-          </li>
-          <li><a href="?page=2">2</a>
-          </li>
-          <li class="next-page"><a href="?page=2">下一页</a>
-          </li>
-          <li><span>共 2 页</span>
+          <li><span>共  {{ $articles->lastPage() }} 页</span>
           </li>
         </ul>
       </nav>

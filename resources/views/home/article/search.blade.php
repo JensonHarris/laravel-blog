@@ -102,21 +102,38 @@
                         </a>
                     </div>
                 </div>
-                <a class="left carousel-control" href="#focusslide" role="button" data-slide="prev" rel="nofollow"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>  <span class="sr-only">上一个</span>
-
+                <a class="left carousel-control" href="#focusslide" role="button" data-slide="prev" rel="nofollow">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">上一个</span>
                 </a>
-                <a class="right carousel-control" href="#focusslide" role="button" data-slide="next" rel="nofollow"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>  <span class="sr-only">下一个</span>
-
+                <a class="right carousel-control" href="#focusslide" role="button" data-slide="next" rel="nofollow">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">下一个</span>
                 </a>
             </div>
-            <article class="excerpt-minic excerpt-minic-index">
-                <h2><span class="red">【今日推荐】</span><a href="" title="">从下载看我们该如何做事</a></h2>
-
-                <p class="note">一次我下载几部电影，发现如果同时下载多部要等上几个小时，然后我把最想看的做个先后排序，去设置同时只能下载一部，结果是不到一杯茶功夫我就能看到最想看的电影。 这就像我们一段时间内想干成很多事情，是同时干还是有选择有顺序的干，结果很不一样。同时...</p>
-            </article>
+            <div class="excerpt-minic excerpt-minic-index">
+                <form class="bs-example bs-example-form" role="form">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="input-group">
+                                <input type="text" class="form-control input-lg">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default btn-lg" type="button">
+                                        Go!
+                                    </button>
+					            </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
             <div class="title">
-                <h3>最新发布</h3>
-
+                <span style="margin-top: 35px;margin-bottom: 5px;color: #818488ee;">
+                    共搜索到关于
+                    <span style="color: red;">php</span>的
+                    <span style="color: red;">68</span>
+                    条记录：
+                </span>
             </div>
             <article class="excerpt excerpt-1">
                 <a class="focus" href="/article" title="">
@@ -233,16 +250,6 @@
                     </div>
                 </div>
             </div>
-            <div class="widget widget_search">
-                <form class="navbar-form" action="/Search" method="post">
-                    <div class="input-group">
-                        <input type="text" name="keyword" class="form-control" size="35" placeholder="请输入关键字">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default btn-search" name="search" type="submit">搜索</button>
-                        </span>
-                    </div>
-                </form>
-            </div>文章标签</div>
         <div class="widget widget_sentence">
             <h3>每日一句</h3>
             <div class="widget-sentence-content">

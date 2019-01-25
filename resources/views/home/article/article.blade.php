@@ -6,10 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>异清轩博客文章页面</title>
-
     <link href="/plugins/markdown/css/editormd.css" rel="stylesheet" />
-
-
     <link rel="stylesheet" type="text/css" href="/home/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/home/css/nprogress.css">
     <link rel="stylesheet" type="text/css" href="/home/css/style.css">
@@ -25,21 +22,6 @@
 <header class="header">
     <nav class="navbar navbar-default" id="navbar">
         <div class="container">
-            <!-- <div class="header-topbar hidden-xs link-border">
-              <ul class="site-nav topmenu">
-                <li><a href="tags.html">标签云</a></li>
-                <li><a href="readers.html" rel="nofollow">读者墙</a></li>
-                <li><a href="links.html" rel="nofollow">友情链接</a></li>
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" rel="nofollow">关注本站 <span class="caret"></span></a>
-                  <ul class="dropdown-menu header-topbar-dropdown-menu">
-                    <li><a data-toggle="modal" data-target="#WeChat" rel="nofollow"><i class="fa fa-weixin"></i> 微信</a></li>
-                    <li><a href="#" rel="nofollow"><i class="fa fa-weibo"></i> 微博</a></li>
-                    <li><a data-toggle="modal" data-target="#areDeveloping" rel="nofollow"><i class="fa fa-rss"></i> RSS</a></li>
-                  </ul>
-                </li>
-              </ul>
-              <a href="javascript:;" class="login" rel="nofollow">Hi,请登录</a>&nbsp;&nbsp;<a href="javascript:;" class="register" rel="nofollow">我要注册</a>&nbsp;&nbsp;<a href="" rel="nofollow">找回密码</a>
-            </div> -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar" aria-expanded="false"> <span class="sr-only"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
                 <h1 class="logo hvr-bounce-in"><a href="" title=""><img src="/home/images/logo.png" alt=""></a></h1>

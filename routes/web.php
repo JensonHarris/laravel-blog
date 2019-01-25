@@ -15,7 +15,7 @@
 //首页
  Route::get('/', 'Home\IndexController@index');
 //文章详情页
- Route::get('/article', 'Home\ArticleController@index');
+ Route::get('/article/{article}', 'Home\ArticleController@index');
 
 Route::get('/Search', 'Home\ArticleController@show');
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Models\Article;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,8 @@ class IndexController extends Controller
      */
     public function index()
     {
-        return view('home.index.index');
+        $articles =  Article::orderBy('created_at', 'DESC')->paginate(5);
+        return view('home.index.index',compact('articles'));
     }
 
     /**

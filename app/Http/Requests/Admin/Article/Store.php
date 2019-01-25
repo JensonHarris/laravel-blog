@@ -29,7 +29,8 @@ class Store extends FormRequest
             'author'      => 'required',
             'keywords'    => 'required',
             'title'       => 'required',
-            'description' => 'required',
+            'description' => 'required|max:800',
+            'markdown'    => 'required'
         ];
     }
 
@@ -49,6 +50,7 @@ class Store extends FormRequest
             'keywords.required'    => '文章标题不能为空',
             'title.required'       => '文章关键词不能为空',
             'description.required' => '文章描述不能为空',
+            'markdown.required'    => '请填写文章内容',
         ];
     }
 }
