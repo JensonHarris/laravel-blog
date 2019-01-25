@@ -11,7 +11,6 @@
   <link rel="stylesheet" type="text/css" href="/home/css/nprogress.css">
   <link rel="stylesheet" type="text/css" href="/home/css/style.css">
   <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
-  <link rel="apple-touch-icon-precomposed" href="/home/images/icon/icon.png">
   <link rel="shortcut icon" href="/favicon.ico">
   <script src="/home/js/jquery-2.1.4.min.js"></script>
   <script src="/home/js/nprogress.js"></script>
@@ -61,7 +60,6 @@
     <div class="content">
       <div class="jumbotron">
         <h1>欢迎访问异清轩博客</h1>
-
         <p>在这里可以看到前端技术，后端程序，网站内容管理系统等文章，还有我的程序人生！</p>
       </div>
       <div id="focusslide" class="carousel slide" data-ride="carousel">
@@ -77,31 +75,35 @@
             <a href="" target="_blank">
               <img src="/home/images/banner/banner_01.jpg" alt="" class="img-responsive">
             </a>
-            <!-- <div class="carousel-caption"> </div>  --></div>
+          </div>
           <div class="item">
             <a href="" target="_blank">
               <img src="/home/images/banner/banner_02.jpg" alt="" class="img-responsive">
             </a>
-            <!--<div class="carousel-caption"> </div>--></div>
+          </div>
           <div class="item">
             <a href="" target="_blank">
               <img src="/home/images/banner/banner_03.jpg" alt="" class="img-responsive">
             </a>
-            <!--<div class="carousel-caption"> </div>--></div>
+          </div>
           <div class="item active">
             <a href="" target="_blank">
               <img src="/home/images/banner/banner_04.jpg" alt="" class="img-responsive">
             </a>
-            <!-- <div class="carousel-caption"> </div>  --></div>
+          </div>
           <div class="item">
             <a href="" target="_blank">
               <img src="/home/images/banner/banner_05.jpg" alt="" class="img-responsive">
             </a>
-            <!--<div class="carousel-caption"> </div>--></div>
+          </div>
         </div>
-        <a class="left carousel-control" href="#focusslide" role="button" data-slide="prev" rel="nofollow"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>  <span class="sr-only">上一个</span>
+        <a class="left carousel-control middle" href="#focusslide" role="button" data-slide="prev" rel="nofollow">
+         <i class="fas fa-angle-left fa-lg"></i>
+          <span class="sr-only">上一个</span>
         </a>
-        <a class="right carousel-control" href="#focusslide" role="button" data-slide="next" rel="nofollow"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>  <span class="sr-only">下一个</span>
+        <a class="right carousel-control middle" href="#focusslide" role="button" data-slide="next" rel="nofollow">
+          <i class="fas fa-angle-right fa-lg"></i>
+          <span class="sr-only">下一个</span>
         </a>
       </div>
       <article class="excerpt-minic excerpt-minic-index">
@@ -125,16 +127,20 @@
           </h2>
         </header>
         <p class="meta">
+          <span class="views">
+            <i class="fas fa-user-secret"></i>&nbsp;
+             {{$article->author}}
+          </span>
           <time class="time">
-            <i class="glyphicon glyphicon-time"></i>
+            <i class="far fa-clock"></i>
             {{$article->created_at}}
           </time>
           <span class="views">
-            <i class="glyphicon glyphicon-eye-open"></i>
+            <i class="fas fa-eye"></i>
             共120人围观
           </span>
           <a class="comment" href="article.html#comment">
-            <i class="glyphicon glyphicon-comment"></i> 0个不明物体
+           <i class="fas fa-comment-alt"></i> 0个不明物体
           </a>
         </p>
         <p class="note">
@@ -142,8 +148,6 @@
         </p>
       </article>
       @endforeach
-
-
       <nav class="pagination">
         {{ $articles->links() }}
         <ul>
@@ -159,8 +163,6 @@
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="active"><a href="#notice" aria-controls="notice" role="tab" data-toggle="tab">网站公告</a>
           </li>
-          {{--<li role="presentation"><a href="#centre" aria-controls="centre" role="tab" data-toggle="tab">会员中心</a>--}}
-          {{--</li>--}}
           <li role="presentation"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">联系站长</a>
           </li>
         </ul>
@@ -178,16 +180,12 @@
               </li>
             </ul>
           </div>
-          <div role="tabpanel" class="tab-pane centre" id="centre">
-            <h4>需要登录才能进入会员中心</h4>
-
-            <p> <a data-toggle="modal" data-target="#loginModal" class="btn btn-primary">立即登录</a>  <a href="javascript:;" class="btn btn-default">现在注册</a>
-            </p>
-          </div>
           <div role="tabpanel" class="tab-pane contact" id="contact">
             <h2>Email:<br />
-              <a href="mailto:admin@ylsat.com" data-toggle="tooltip" data-placement="bottom" title="admin@ylsat.com">jesonc99@163.com</a></h2>
-
+              <a href="mailto:admin@ylsat.com" data-toggle="tooltip" data-placement="bottom" title="admin@ylsat.com">
+                jesonc99@163.com
+              </a>
+            </h2>
           </div>
         </div>
       </div>
@@ -200,34 +198,57 @@
           </div>
         </form>
       </div>
-
-文章标签
-
-
     </div>
     <div class="widget widget_sentence">
       <h3>每日一句</h3>
-
       <div class="widget-sentence-content">
         <h4>2016年01月05日星期二</h4>
-
         <p>Do not let what you cannot do interfere with what you can do.
-          <br />别让你不能做的事妨碍到你能做的事。（John Wooden）</p>
+          <br />别让你不能做的事妨碍到你能做的事。（John Wooden）
+        </p>
       </div>
     </div>
     <div class="widget widget_hot">
       <h3>热门文章</h3>
-
       <ul>
-        <li><a href=""><span class="thumbnail"><img class="thumb" data-original="/home/images/excerpt.jpg" src="/home/images/excerpt.jpg" alt=""></span><span class="text">php如何判断一个日期的格式是否正确</span><span class="muted"><i class="glyphicon glyphicon-time"></i> 2016-1-4 </span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i> 120</span></a>
+        <li>
+          <a href="">
+            <span class="thumbnail">
+              <img class="thumb" data-original="/home/images/excerpt.jpg" src="/home/images/excerpt.jpg" alt="">
+            </span>
+            <span class="text">php如何判断一个日期的格式是否正确</span>
+            <span class="muted">
+              <i class="far fa-clock"></i> 2016-1-4
+            </span>
+            <span class="muted"><i class="fas fa-eye"></i> 120
+            </span>
+          </a>
         </li>
-        <li><a href=""><span class="thumbnail"><img class="thumb" data-original="/home/images/excerpt.jpg" src="/home/images/excerpt.jpg" alt=""></span><span class="text">php如何判断一个日期的格式是否正确</span><span class="muted"><i class="glyphicon glyphicon-time"></i> 2016-1-4 </span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i> 120</span></a>
+        <li>
+          <a href="">
+            <span class="thumbnail">
+              <img class="thumb" data-original="/home/images/excerpt.jpg" src="/home/images/excerpt.jpg" alt="">
+            </span>
+            <span class="text">php如何判断一个日期的格式是否正确</span>
+            <span class="muted">
+              <i class="far fa-clock"></i> 2016-1-4
+            </span>
+            <span class="muted"><i class="fas fa-eye"></i> 120
+            </span>
+          </a>
         </li>
-        <li><a href=""><span class="thumbnail"><img class="thumb" data-original="/home/images/excerpt.jpg" src="/home/images/excerpt.jpg" alt=""></span><span class="text">php如何判断一个日期的格式是否正确</span><span class="muted"><i class="glyphicon glyphicon-time"></i> 2016-1-4 </span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i> 120</span></a>
-        </li>
-        <li><a href=""><span class="thumbnail"><img class="thumb" data-original="/home/images/excerpt.jpg" src="/home/images/excerpt.jpg" alt=""></span><span class="text">php如何判断一个日期的格式是否正确</span><span class="muted"><i class="glyphicon glyphicon-time"></i> 2016-1-4 </span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i> 120</span></a>
-        </li>
-        <li><a href=""><span class="thumbnail"><img class="thumb" data-original="/home/images/excerpt.jpg" src="/home/images/excerpt.jpg" alt=""></span><span class="text">php如何判断一个日期的格式是否正确</span><span class="muted"><i class="glyphicon glyphicon-time"></i> 2016-1-4 </span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i> 120</span></a>
+        <li>
+          <a href="">
+            <span class="thumbnail">
+              <img class="thumb" data-original="/home/images/excerpt.jpg" src="/home/images/excerpt.jpg" alt="">
+            </span>
+            <span class="text">php如何判断一个日期的格式是否正确</span>
+            <span class="muted">
+              <i class="far fa-clock"></i> 2016-1-4
+            </span>
+            <span class="muted"><i class="fas fa-eye"></i> 120
+            </span>
+          </a>
         </li>
       </ul>
     </div>
@@ -235,80 +256,12 @@
 </section>
 <footer class="footer">
   <div class="container">
-    <p>© 2016 <a href="">ylsat.com</a>   <a href="http://www.miitbeian.gov.cn/" target="_blank" rel="nofollow">粤ICP备18048113</a>   <a href="sitemap.xml" target="_blank" class="sitemap">网站地图</a>
+    <p>© 2018 <a href="">bjson.cn</a>   <a href="http://www.miitbeian.gov.cn/" target="_blank" rel="nofollow">粤ICP备18048113</a>
     </p>
   </div>
-  <div id="gotop">
-    <a class="gotop"></a>
-  </div>
 </footer>
-<!--微信二维码模态框-->
-<div class="modal fade user-select" id="WeChat" tabindex="-1" role="dialog" aria-labelledby="WeChatModalLabel">
-  <div class="modal-dialog" role="document" style="margin-top:120px;max-width:280px;">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
-        </button>
-        <h4 class="modal-title" id="WeChatModalLabel" style="cursor:default;">微信扫一扫</h4>
-
-      </div>
-      <div class="modal-body" style="text-align:center">
-        <img src="/home/images/weixin.jpg" alt="" style="cursor:pointer" />
-      </div>
-    </div>
-  </div>
-</div>
-<!--该功能正在日以继夜的开发中-->
-{{--<div class="modal fade user-select" id="areDeveloping" tabindex="-1" role="dialog" aria-labelledby="areDevelopingModalLabel">--}}
-  {{--<div class="modal-dialog" role="document">--}}
-    {{--<div class="modal-content">--}}
-      {{--<div class="modal-header">--}}
-        {{--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>--}}
-        {{--</button>--}}
-        {{--<h4 class="modal-title" id="areDevelopingModalLabel" style="cursor:default;">该功能正在日以继夜的开发中…</h4>--}}
-
-      {{--</div>--}}
-      {{--<div class="modal-body">--}}
-        {{--<img src="/home/images/baoman/baoman_01.gif" alt="深思熟虑" />--}}
-        {{--<p style="padding:15px 15px 15px 100px; position:absolute; top:15px; cursor:default;">很抱歉，程序猿正在日以继夜的开发此功能，本程序将会在以后的版本中持续完善！</p>--}}
-      {{--</div>--}}
-      {{--<div class="modal-footer">--}}
-        {{--<button type="button" class="btn btn-primary" data-dismiss="modal">朕已阅</button>--}}
-      {{--</div>--}}
-    {{--</div>--}}
-  {{--</div>--}}
-{{--</div>--}}
-<!--登录注册模态框-->
-<div class="modal fade user-select" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <form action="/Admin/Index/login" method="post">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
-          </button>
-          <h4 class="modal-title" id="loginModalLabel">登录</h4>
-
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label for="loginModalUserNmae">用户名</label>
-            <input type="text" class="form-control" id="loginModalUserNmae" placeholder="请输入用户名" autofocus maxlength="15" autocomplete="off" required>
-          </div>
-          <div class="form-group">
-            <label for="loginModalUserPwd">密码</label>
-            <input type="password" class="form-control" id="loginModalUserPwd" placeholder="请输入密码" maxlength="18" autocomplete="off" required>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-          <button type="submit" class="btn btn-primary">登录</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
 <script src="/home/js/bootstrap.min.js"></script>
 <script src="/home/js/jquery.ias.js"></script>
-<script src=/home/js/scripts.js"></script>
+<script src="/home/js/scripts.js"></script>
 </body>
 </html>

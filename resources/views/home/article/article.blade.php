@@ -206,7 +206,7 @@
                     </div>
                     <div class="lyb_info_content">
                         <div class="lyb_info_ewx">
-                            <img src=".//home/images/weixin.jpg" draggable="false">
+                            <img src="/home/images/weixin.jpg" draggable="false">
                         </div>
                     </div>
                 </div>

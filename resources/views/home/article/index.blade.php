@@ -192,15 +192,12 @@
                         <div class="conte_title">
                             <span class="conte_title1">姓名:</span> <span>程铖</span>
                         </div>
-
                         <div class="conte_title">
                             <span class="conte_title1">职业:</span> <span>PHP开发工程师</span>
                         </div>
-
                         <div class="conte_title">
                             <span class="conte_title1">现居:</span> <span>广州市•天河区</span>
                         </div>
-
                         <div class="conte_title">
                             <span class="conte_title1">描述:</span> <span>一个没有PHP天赋的PHP程序员。</span>
                         </div>
@@ -212,7 +209,7 @@
                     </div>
                     <div class="lyb_info_content">
                         <div class="lyb_info_ewx">
-                            <img src=".//home/images/weixin.jpg" draggable="false">
+                            <img src="/home/images/weixin.jpg" draggable="false">
                         </div>
                     </div>
                 </div>

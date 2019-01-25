@@ -1873,9 +1873,7 @@ color:#FFF;
 .sign h3 small {
 	margin-right: 80px;
 }
-.pagination ul > li {
-	display: none
-}
+
 .pagination ul > li.prev-page, .pagination ul > li.next-page {
 	display: inline
 }
@@ -2672,14 +2670,14 @@ color:#FFF;
 }
 .lyb_info_info{
 	color: #696767ee;
-	margin-top: 20px;
+	margin-top: 10px;
 	font-size: 16px;
 	font-weight: 700;
 	text-align: center;
 }
 
 .lyb_info_content {
-	margin: 15px 0;
+	margin: 10px 0;
 	font-size: 14px;
 	overflow: hidden;
 }
@@ -2703,7 +2701,7 @@ color:#FFF;
 	height: 20px;
 }
 .conte_title{
-	margin-top: 20px;
+	margin-top: 15px;
 	margin-left: 15px;
 }
 .conte_title1{
@@ -2712,8 +2710,8 @@ color:#FFF;
 	margin-right: 10px;
 }
 .lyb_info_ewx{
-	width: 200px;
-	height: 200px;
+	width: 150px;
+	height: 150px;
 	margin: 0 auto;
 }
 .lyb_info_ewx img{
@@ -3110,4 +3108,6 @@ color:#FFF;
 
 
 /* 热门 推荐 热评 */
-
+.middle{
+	line-height: 80px;
+}

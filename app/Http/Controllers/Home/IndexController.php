@@ -15,7 +15,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $articles =  Article::orderBy('created_at', 'DESC')->paginate(5);
+        $articles =  Article::orderBy('created_at', 'DESC')->paginate(10);
         return view('home.index.index',compact('articles'));
     }
 
