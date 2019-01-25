@@ -13,8 +13,10 @@
     <link rel="stylesheet" type="text/css" href="/home/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/home/css/nprogress.css">
 <link rel="stylesheet" type="text/css" href="/home/css/style.css">
-<link rel="stylesheet" type="text/css" href="/home/css/font-awesome.min.css">
-<link rel="apple-touch-icon-precomposed" href="/home/images/icon/icon.png">
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+
+    <link rel="apple-touch-icon-precomposed" href="/home/images/icon/icon.png">
+
 <link rel="shortcut icon" href="/favicon.ico">
 <script src="/home/js/jquery-2.1.4.min.js"></script>
 <script src="/home/js/nprogress.js"></script>

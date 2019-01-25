@@ -10,23 +10,12 @@
   <link rel="stylesheet" type="text/css" href="/home/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/home/css/nprogress.css">
   <link rel="stylesheet" type="text/css" href="/home/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/home/css/font-awesome.min.css">
+  <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
   <link rel="apple-touch-icon-precomposed" href="/home/images/icon/icon.png">
   <link rel="shortcut icon" href="/favicon.ico">
   <script src="/home/js/jquery-2.1.4.min.js"></script>
   <script src="/home/js/nprogress.js"></script>
   <script src="/home/js/jquery.lazyload.min.js"></script>
-  <!--[if gte IE 9]>
-  <script src="/home/js/jquery-1.11.1.min.js" type="text/javascript"></script>
-  <script src="/home/js/html5shiv.min.js" type="text/javascript"></script>
-  <script src="/home/js/respond.min.js" type="text/javascript"></script>
-  <script src="/home/js/selectivizr-min.js" type="text/javascript"></script>
-  <![endif]-->
-  <!--[if lt IE 9]>
-  <script>
-    window.location.href = 'upgrade-browser.html';
-  </script>
-  <![endif]-->
 </head>
 
 <body class="user-select">
@@ -236,6 +225,10 @@
           </div>
         </form>
       </div>
+
+文章标签
+
+
     </div>
     <div class="widget widget_sentence">
       <h3>每日一句</h3>
@@ -341,6 +334,6 @@
 </div>
 <script src="/home/js/bootstrap.min.js"></script>
 <script src="/home/js/jquery.ias.js"></script>
-<script src=/home/js/scripts.js "></script>
+<script src=/home/js/scripts.js"></script>
 </body>
 </html>

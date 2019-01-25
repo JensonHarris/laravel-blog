@@ -17,5 +17,6 @@
 //文章详情页
  Route::get('/article', 'Home\ArticleController@index');
 
+Route::get('/Search', 'Home\ArticleController@show');
 
 include_once ('admin.php');
