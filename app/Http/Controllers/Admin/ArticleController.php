@@ -7,6 +7,7 @@ use App\Models\Article;
 use App\Models\ArticleTag;
 use App\Models\ArticleContent;
 use App\Models\ArticleCategory;
+use App\Models\ArticleStatistic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\Admin\Article\Store;
@@ -71,6 +72,8 @@ class ArticleController extends Controller
                 $tags[$key]['article_id'] = $articleResult->id;
             }
             $tag = ArticleTag::insert($tags);
+            $statisticData =  ['article_id'=>$articleResult->id];
+            $statistic = ArticleStatistic::insert($statisticData);
             DB::commit();
             return $this->success(20002);
         } catch (\Exception $e){
