@@ -1,70 +1,6 @@
-<!doctype html>
-<html lang="zh-CN">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>异清轩博客文章页面</title>
-    <link href="/plugins/markdown/css/editormd.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="/home/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/home/css/nprogress.css">
-    <link rel="stylesheet" type="text/css" href="/home/css/style.css">
-    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
-    <link rel="apple-touch-icon-precomposed" href="/home/images/icon/icon.png">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <script src="/home/js/jquery-2.1.4.min.js"></script>
-    <script src="/home/js/nprogress.js"></script>
-    <script src="/home/js/jquery.lazyload.min.js"></script>
-</head>
-
-<body class="user-select single">
-<header class="header">
-    <nav class="navbar navbar-default" id="navbar">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar" aria-expanded="false"> <span class="sr-only"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-
-                </button>
-                <h1 class="logo hvr-bounce-in">
-                    <a href="" title="">
-                        <img src="/home/images/logo.png" alt="">
-                    </a>
-                </h1>
-
-            </div>
-            <div class="collapse navbar-collapse" id="header-navbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden-index active"><a data-cont="异清轩首页" href="index.html">首页</a>
-                    </li>
-                    <li><a href="category.html">PHP</a>
-                    </li>
-                    <li><a href="category.html">前端</a>
-                    </li>
-                    <li><a href="category.html">服务器</a>
-                    </li>
-                    <li><a href="category.html">数据库</a>
-                    </li>
-                    <li><a href="category.html">程序员</a>
-                    </li>
-                    <li><a href="category.html">资源分享</a>
-                    </li>
-                </ul>
-                <form class="navbar-form visible-xs" action="/Search" method="post">
-                    <div class="input-group">
-                        <input type="text" name="keyword" class="form-control" placeholder="请输入关键字" maxlength="20" autocomplete="off"> <span class="input-group-btn">
-            <button class="btn btn-default btn-search" name="search" type="submit">搜索</button>
-            </span>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </nav>
-</header>
+@extends("home.layout.main")
+@section('title', 'JsonC博客')
+@section("content")
 <section class="container  single">
     <div class="content-wrap">
         <div class="content">
@@ -217,114 +153,18 @@
             <div id="postcomments"></div>
         </div>
     </div>
-    <aside class="sidebar">
-        <div class="fixed">
-            <div class="widget widget-tabs">
-                <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#notice" aria-controls="notice" role="tab" data-toggle="tab" draggable="false">网站公告</a></li>
-
-                    <li role="presentation"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab" draggable="false">联系站长</a></li>
-                </ul>
-                <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane notice active" id="notice">
-                        <ul>
-                            <li>
-                                <time datetime="2019-01-14">01-14</time>
-                                <a href="javascript:void(0);" target="_blank" draggable="false">好久没有更新了，感谢老访客的支持~~</a>
-                            </li>
-                            <li>
-                                <time datetime="2018-10-30">10-30</time>
-                                <a href="javascript:void(0);" target="_blank" draggable="false">最近考驾照~ 没有时间更新文章~</a>
-                            </li>
-                            <li>
-                                <time datetime="2018-10-24">10-24</time>
-                                <a href="javascript:void(0);" target="_blank" draggable="false">加班赶进度吧~~</a>
-                            </li>
-                            <li>
-                                <time datetime="2018-10-08">10-08</time>
-                                <a href="javascript:void(0);" target="_blank" draggable="false">每天进步一点点~ 每天进步一点点！</a>
-                            </li>
-                            <li>
-                                <time datetime="2018-10-07">10-07</time>
-                                <a href="javascript:void(0);" target="_blank" draggable="false">结束假期~开始努力赚钱！ 加油 加油 加油！</a>
-                            </li>
-
-                        </ul>
-                    </div>
-
-                    <div role="tabpanel" class="tab-pane contact" id="contact">
-                        <h2>Email:<br>
-                            <a href="mailto:admin@ylsat.com" data-toggle="tooltip" data-placement="bottom" title="" draggable="false" data-original-title="liangjucai@163.com">liangjucai@163.com</a></h2>
-                    </div>
-                </div>
-            </div>                <div class="widget widget_search">
-                <form class="navbar-form" action="/search" method="get">
-                    <div class="input-group">
-                        <input type="text" name="keys" class="form-control" size="35" placeholder="请输入关键字" maxlength="30" autocomplete="off">
-                        <span class="input-group-btn">
-            <button class="btn btn-default btn-search" type="submit">搜索</button>
-            </span></div>
-                </form>
-            </div>            </div>
-        <div class="widget widget_sentence">
-            <h3>每日一句</h3>
-            <div class="widget-sentence-content">
-                <h4>2019年01月28日 星期一</h4>
-                <p>Never envy other people's excellence, because they believe that they can also be excellent.</p>
-                <p>从不羡慕别人的优秀，因为相信自己也可以优秀。（Justin）</p>
-            </div>
-        </div>
-
-
-         <div class="widget widget_hot">
-            <h3>随机文章</h3>
-            <ul>
-                <li>
-                    <a href="https://www.liangjucai.com/article/222" target="_blank" draggable="false">
-                        <span class="thumbnail">
-                            <img class="thumb" src="https://files.liangjucai.com/blog/images/20180907233817574954.png?x-oss-process=image/resize,m_fixed,h_150,w_220"  draggable="false">
-                        </span>
-                        <span class="text">centos防火墙关闭|centos7.2防火墙关闭|firewall关闭|端口开启</span>
-                        <span class="muted"><i class="far fa-clock"></i> 2018-09-07 </span>
-                        <span class="muted"><i class="fas fa-eye"></i> 211</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.liangjucai.com/article/222" target="_blank" draggable="false">
-                        <span class="thumbnail">
-                            <img class="thumb" src="https://files.liangjucai.com/blog/images/20180907233817574954.png?x-oss-process=image/resize,m_fixed,h_150,w_220"  draggable="false">
-                        </span>
-                        <span class="text">centos防火墙关闭|centos7.2防火墙关闭|firewall关闭|端口开启</span>
-                        <span class="muted"><i class="far fa-clock"></i> 2018-09-07 </span>
-                        <span class="muted"><i class="fas fa-eye"></i> 211</span>
-                    </a>
-                </li> <li>
-                    <a href="https://www.liangjucai.com/article/222" target="_blank" draggable="false">
-                        <span class="thumbnail">
-                            <img class="thumb" src="https://files.liangjucai.com/blog/images/20180907233817574954.png?x-oss-process=image/resize,m_fixed,h_150,w_220"  draggable="false">
-                        </span>
-                        <span class="text">centos防火墙关闭|centos7.2防火墙关闭|firewall关闭|端口开启</span>
-                        <span class="muted"><i class="far fa-clock"></i> 2018-09-07 </span>
-                        <span class="muted"><i class="fas fa-eye"></i> 211</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </aside>
-</section>
-<footer class="footer">
-    <div class="container">
-        <p>© 2016 <a href="">ylsat.com</a>   <a href="http://www.miitbeian.gov.cn/" target="_blank" rel="nofollow">豫ICP备20151109-1</a>   <a href="sitemap.xml" target="_blank" class="sitemap">网站地图</a>
-        </p>
-    </div>
-    <div id="gotop">
-        <a class="gotop"></a>
-    </div>
-</footer>
-<script src="/home/js/bootstrap.min.js"></script>
-<script src="/home/js/jquery.ias.js"></script>
-<script src="/home/js/scripts.js"></script>
+@endsection
+@section('scripts')
 <script src="/home/js/jquery.qqFace.js"></script>
+
+<script src="/plugins/markdown/lib/flowchart.min.js"></script>
+<script src="/plugins/markdown/lib/jquery.flowchart.min.js"></script>
+<script src="/plugins/markdown/lib/marked.min.js"></script>
+<script src="/plugins/markdown/lib/prettify.min.js"></script>
+<script src="/plugins/markdown/lib/raphael.min.js"></script>
+<script src="/plugins/markdown/lib/underscore.min.js"></script>
+<script src="/plugins/markdown/lib/sequence-diagram.min.js"></script>
+<script src="/plugins/markdown/editormd.js"></script>
 <script type="text/javascript">
     $(function() {
         $('.emotion').qqFace({
@@ -360,19 +200,7 @@
             }
         }, 'json');
     });
-</script>
-</body>
 
-</html>
-<script src="/plugins/markdown/lib/flowchart.min.js"></script>
-<script src="/plugins/markdown/lib/jquery.flowchart.min.js"></script>
-<script src="/plugins/markdown/lib/marked.min.js"></script>
-<script src="/plugins/markdown/lib/prettify.min.js"></script>
-<script src="/plugins/markdown/lib/raphael.min.js"></script>
-<script src="/plugins/markdown/lib/underscore.min.js"></script>
-<script src="/plugins/markdown/lib/sequence-diagram.min.js"></script>
-<script src="/plugins/markdown/editormd.js"></script>
-<script>
     editormd.markdownToHTML("test-editormd", {
         htmlDecode: "style,script,iframe",
         emoji: true,
@@ -383,3 +211,4 @@
     });
 
 </script>
+@endsection

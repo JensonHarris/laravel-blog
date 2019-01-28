@@ -78,4 +78,3 @@
         </ul>
     </div>
 </aside>
-</section>

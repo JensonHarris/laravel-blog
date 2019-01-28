@@ -1,6 +1,7 @@
 @extends("home.layout.main")
 @section('title', 'JsonC博客')
 @section("content")
+<section class="container">
   <div class="content-wrap">
     <div class="content">
       <div class="jumbotron">
@@ -102,7 +103,6 @@
       </nav>
     </div>
   </div>
-
 @endsection
 @section('scripts')
 @endsection

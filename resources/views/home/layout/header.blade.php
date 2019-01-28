@@ -54,4 +54,3 @@
         </div>
     </nav>
 </header>
-<section class="container">
