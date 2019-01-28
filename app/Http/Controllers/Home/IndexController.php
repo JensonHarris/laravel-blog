@@ -16,28 +16,11 @@ class IndexController extends Controller
      */
     public function index()
     {
-
         $articles    =  Article::orderBy('created_at', 'DESC')->paginate(10);
-        $hotArticles =  $this->hotArticles();
 
-        return view('home.index.index',compact('articles' ,'hotArticles'));
+        return view('home.index.index',compact('articles'));
     }
 
-    /**
-     * Notes : 热门文章推荐
-     * Author: JesonC <748532271@qq.com>
-     * Date  : 2019/1/28 11:21
-     * @return mixed
-     */
-    public function hotArticles()
-    {
-        $hotViews = ArticleStatistic::orderBy('views', 'DESC')->take(5)->get();
-
-        return  $hotArticles = $hotViews->map(function ($item) {
-            return $item->article;
-        });
-
-    }
 
     /**
      * Store a newly created resource in storage.

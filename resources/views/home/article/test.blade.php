@@ -125,14 +125,14 @@
                                         <a class="fab fa-weibo" href="" target="_blank"></a>
                                         <a class="fab fa-weixin" href="javascript:;" tabindex="-1">
                                             {{--<div class="wechat-qrcode">--}}
-                                                {{--<h4>微信扫一扫：分享</h4>--}}
-                                                {{--<div class="qrcode">--}}
-                                                    {{--<img src="">--}}
-                                                {{--</div>--}}
-                                                {{--<div class="help">--}}
-                                                    {{--<p>微信点“+”，扫一扫</p>--}}
-                                                    {{--<p>右上角“...”分享到朋友圈</p>--}}
-                                                {{--</div>--}}
+                                            {{--<h4>微信扫一扫：分享</h4>--}}
+                                            {{--<div class="qrcode">--}}
+                                            {{--<img src="">--}}
+                                            {{--</div>--}}
+                                            {{--<div class="help">--}}
+                                            {{--<p>微信点“+”，扫一扫</p>--}}
+                                            {{--<p>右上角“...”分享到朋友圈</p>--}}
+                                            {{--</div>--}}
                                             {{--</div>--}}
                                         </a>
                                     </div> <span class="triangle"></span>
@@ -168,7 +168,7 @@
             </article>
             <div class="article-tags">标签：
                 @foreach ($article->articleTags as $tag)
-                <a href="/tagsList/{{$tag->id}}" rel="tag" target="_blank" title="{{$tag->name}}" draggable="false">{{$tag->name}}</a>
+                    <a href="/tagsList/{{$tag->id}}" rel="tag" target="_blank" title="{{$tag->name}}" draggable="false">{{$tag->name}}</a>
                 @endforeach
             </div>
             <div class="relates">
@@ -219,94 +219,70 @@
     </div>
     <aside class="sidebar">
         <div class="fixed">
-            <div class="widget widget-tabs">
-                <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#notice" aria-controls="notice" role="tab" data-toggle="tab" draggable="false">网站公告</a></li>
+            <div class="widget widget_sentence">
+                <h3>个人简介</h3>
 
-                    <li role="presentation"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab" draggable="false">联系站长</a></li>
-                </ul>
-                <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane notice active" id="notice">
-                        <ul>
-                            <li>
-                                <time datetime="2019-01-14">01-14</time>
-                                <a href="javascript:void(0);" target="_blank" draggable="false">好久没有更新了，感谢老访客的支持~~</a>
-                            </li>
-                            <li>
-                                <time datetime="2018-10-30">10-30</time>
-                                <a href="javascript:void(0);" target="_blank" draggable="false">最近考驾照~ 没有时间更新文章~</a>
-                            </li>
-                            <li>
-                                <time datetime="2018-10-24">10-24</time>
-                                <a href="javascript:void(0);" target="_blank" draggable="false">加班赶进度吧~~</a>
-                            </li>
-                            <li>
-                                <time datetime="2018-10-08">10-08</time>
-                                <a href="javascript:void(0);" target="_blank" draggable="false">每天进步一点点~ 每天进步一点点！</a>
-                            </li>
-                            <li>
-                                <time datetime="2018-10-07">10-07</time>
-                                <a href="javascript:void(0);" target="_blank" draggable="false">结束假期~开始努力赚钱！ 加油 加油 加油！</a>
-                            </li>
-
-                        </ul>
+                <div class="widget-sentence-content">
+                    <div class="lyb_info_img">
+                        <img src="/home/images/jesonC.jpg" draggable="false">
                     </div>
+                    <div class="lyb_info_name"> <span>JensonC</span>
 
-                    <div role="tabpanel" class="tab-pane contact" id="contact">
-                        <h2>Email:<br>
-                            <a href="mailto:admin@ylsat.com" data-toggle="tooltip" data-placement="bottom" title="" draggable="false" data-original-title="liangjucai@163.com">liangjucai@163.com</a></h2>
+                    </div>
+                    <div class="lyb_info_info"> <span>——————   个人简介   ——————</span>
+
+                    </div>
+                    <div class="lyb_info_content">
+                        <div class="conte_title"> <span class="conte_title1">姓名:</span>  <span>程铖</span>
+
+                        </div>
+                        <div class="conte_title"> <span class="conte_title1">职业:</span>  <span>PHP开发工程师</span>
+
+                        </div>
+                        <div class="conte_title"> <span class="conte_title1">现居:</span>  <span>广州市•天河区</span>
+
+                        </div>
+                        <div class="conte_title"> <span class="conte_title1">描述:</span>  <span>一个没有PHP天赋的PHP程序员。</span>
+
+                        </div>
+                    </div>
+                    <div class="lyb_info_info"> <span>——————     联系我     ——————</span>
+
+                    </div>
+                    <div class="lyb_info_content">
+                        <div class="lyb_info_ewx">
+                            <img src="/home/images/weixin.jpg" draggable="false">
+                        </div>
                     </div>
                 </div>
-            </div>                <div class="widget widget_search">
-                <form class="navbar-form" action="/search" method="get">
+            </div>
+            <div class="widget widget_search">
+                <form class="navbar-form" action="/Search" method="post">
                     <div class="input-group">
-                        <input type="text" name="keys" class="form-control" size="35" placeholder="请输入关键字" maxlength="30" autocomplete="off">
-                        <span class="input-group-btn">
-            <button class="btn btn-default btn-search" type="submit">搜索</button>
-            </span></div>
+                        <input type="text" name="keyword" class="form-control" size="35" placeholder="请输入关键字" maxlength="15" autocomplete="off"> <span class="input-group-btn">
+            <button class="btn btn-default btn-search" name="search" type="submit">搜索</button>
+            </span>
+                    </div>
                 </form>
-            </div>            </div>
-        <div class="widget widget_sentence">
-            <h3>每日一句</h3>
-            <div class="widget-sentence-content">
-                <h4>2019年01月28日 星期一</h4>
-                <p>Never envy other people's excellence, because they believe that they can also be excellent.</p>
-                <p>从不羡慕别人的优秀，因为相信自己也可以优秀。（Justin）</p>
             </div>
         </div>
+        <div class="widget widget_sentence">
+            <h3>每日一句</h3>
 
+            <div class="widget-sentence-content">
+                <h4>2016年01月05日星期二</h4>
 
-         <div class="widget widget_hot">
-            <h3>随机文章</h3>
+                <p>Do not let what you cannot do interfere with what you can do.
+                    <br />别让你不能做的事妨碍到你能做的事。（John Wooden）</p>
+            </div>
+        </div>
+        <div class="widget widget_hot">
+            <h3>热门文章</h3>
+
             <ul>
-                <li>
-                    <a href="https://www.liangjucai.com/article/222" target="_blank" draggable="false">
-                        <span class="thumbnail">
-                            <img class="thumb" src="https://files.liangjucai.com/blog/images/20180907233817574954.png?x-oss-process=image/resize,m_fixed,h_150,w_220"  draggable="false">
-                        </span>
-                        <span class="text">centos防火墙关闭|centos7.2防火墙关闭|firewall关闭|端口开启</span>
-                        <span class="muted"><i class="far fa-clock"></i> 2018-09-07 </span>
-                        <span class="muted"><i class="fas fa-eye"></i> 211</span>
-                    </a>
+                <li><a href=""><span class="thumbnail"><img class="thumb" data-original="/home/images/excerpt.jpg" src="/home/images/excerpt.jpg" alt=""></span><span class="text">php如何判断一个日期的格式是否正确</span><span class="muted"><i class="glyphicon glyphicon-time"></i> 2016-1-4 </span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i> 120</span></a>
                 </li>
-                <li>
-                    <a href="https://www.liangjucai.com/article/222" target="_blank" draggable="false">
-                        <span class="thumbnail">
-                            <img class="thumb" src="https://files.liangjucai.com/blog/images/20180907233817574954.png?x-oss-process=image/resize,m_fixed,h_150,w_220"  draggable="false">
-                        </span>
-                        <span class="text">centos防火墙关闭|centos7.2防火墙关闭|firewall关闭|端口开启</span>
-                        <span class="muted"><i class="far fa-clock"></i> 2018-09-07 </span>
-                        <span class="muted"><i class="fas fa-eye"></i> 211</span>
-                    </a>
-                </li> <li>
-                    <a href="https://www.liangjucai.com/article/222" target="_blank" draggable="false">
-                        <span class="thumbnail">
-                            <img class="thumb" src="https://files.liangjucai.com/blog/images/20180907233817574954.png?x-oss-process=image/resize,m_fixed,h_150,w_220"  draggable="false">
-                        </span>
-                        <span class="text">centos防火墙关闭|centos7.2防火墙关闭|firewall关闭|端口开启</span>
-                        <span class="muted"><i class="far fa-clock"></i> 2018-09-07 </span>
-                        <span class="muted"><i class="fas fa-eye"></i> 211</span>
-                    </a>
+                <li><a href=""><span class="thumbnail"><img class="thumb" data-original="/home/images/excerpt.jpg" src="/home/images/excerpt.jpg" alt=""></span><span class="text">php如何判断一个日期的格式是否正确</span><span class="muted"><i class="glyphicon glyphicon-time"></i> 2016-1-4 </span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i> 120</span></a>
                 </li>
             </ul>
         </div>
@@ -381,5 +357,4 @@
         flowChart: true, // 默认不解析
         sequenceDiagram: true // 默认不解析
     });
-
 </script>
