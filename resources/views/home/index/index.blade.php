@@ -137,7 +137,7 @@
           </time>
           <span class="views">
             <i class="fas fa-eye"></i>
-            共120人围观
+            共 {{$article->statistic->views}}人围观
           </span>
           <a class="comment" href="article.html#comment">
            <i class="fas fa-comment-alt"></i> 0个不明物体

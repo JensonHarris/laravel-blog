@@ -35,9 +35,6 @@
                     <li><a href="category.html">数据库</a></li>
                     <li><a href="category.html">程序员</a></li>
                     <li><a href="category.html">资源分享</a></li>
-                    <li><a href="tags.html">标签云</a></li>
-                    <li><a href="readers.html" rel="nofollow">读者墙</a></li>
-                    <li><a href="links.html" rel="nofollow">友情链接</a></li>
                 </ul>
                 <form class="navbar-form visible-xs" action="/Search" method="post">
                     <div class="input-group">
@@ -54,11 +51,29 @@
     <div class="content-wrap">
         <div class="content">
             <header class="article-header">
-                <h1 class="article-title"><a href="https://www.liangjucai.com/article/340" draggable="false">为什么Java跟PHP总是产生争议，谁才是最好的语言？</a></h1>
-                <div class="article-meta"> <span class="item article-meta-time">
-          <time class="time" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="时间：2018-11-21 23:05:23"><i class="glyphicon glyphicon-time"></i> 2018-11-21 23:05:23</time>
-          </span> <span class="item article-meta-source" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="来源：原创"><i class="glyphicon glyphicon-globe"></i> 原创</span>
-                    <span class="item article-meta-category" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="栏目：程序员"><i class="glyphicon glyphicon-list"></i> <a href="program" title="" draggable="false">程序员</a></span> <span class="item article-meta-views" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="查看：11"><i class="glyphicon glyphicon-eye-open"></i> 共11人围观</span> <span class="item article-meta-comment" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="评论：0"><i class="glyphicon glyphicon-comment"></i> 0个不明物体</span></div>
+                <h1 class="article-title">
+                    <a href="https://www.liangjucai.com/article/340" draggable="false">为什么Java跟PHP总是产生争议，谁才是最好的语言？</a>
+                </h1>
+                <div class="article-meta">
+                    <span class="item article-meta-time">
+                      <time class="time" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="时间：2018-11-21 23:05:23">
+                        <i class="far fa-clock"></i> 2018-11-21 23:05:23
+                    </time>
+                    </span>
+                    <span class="item article-meta-source" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="来源：原创">
+                        <i class="fas fa-globe-americas"></i> 原创
+                    </span>
+                    <span class="item article-meta-category" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="栏目：程序员">
+                        <i class="fas fa-list"></i>
+                        <a href="program" title="" draggable="false">程序员</a>
+                    </span>
+                    <span class="item article-meta-views" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="查看：11">
+                        <i class="far fa-eye"></i> 共11人围观
+                    </span>
+                    <span class="item article-meta-comment" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="评论：0">
+                        <i class="fas fa-comment-alt"></i> 0个不明物体
+                    </span>
+                </div>
             </header>
             <article class="article-content">
                 <div class="art_content_div">
@@ -76,7 +91,7 @@
                 <div class="admired">
                     <div class="admired_div">
                         <div class="praise">
-                            <i class="fa fa-heart-o"></i>喜欢(<span id="like_num">0</span>)
+                            <i class="fas fa-heart"></i>喜欢(<span id="like_num">0</span>)
                         </div>
 
                         <div class="enjoy">
