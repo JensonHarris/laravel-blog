@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Models\Article;
+use App\Models\ArticleStatistic;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,19 +16,26 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $articles =  Article::orderBy('created_at', 'DESC')->paginate(10);
-        return view('home.index.index',compact('articles'));
+
+        $articles    =  Article::orderBy('created_at', 'DESC')->paginate(10);
+        $hotArticles =  $this->hotArticles();
+
+        return view('home.index.index',compact('articles' ,'hotArticles'));
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Notes : 热门文章推荐
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/28 11:21
+     * @return mixed
      */
     public function hotArticles()
     {
-        $articles =  Article::orderBy('created_at', 'DESC')->paginate(10);
-        return view('home.index.index',compact('articles'));
+        $hotViews = ArticleStatistic::orderBy('views', 'DESC')->take(5)->get();
+
+        return  $hotArticles = $hotViews->map(function ($item) {
+            return $item->article;
+        });
 
     }
 

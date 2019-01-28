@@ -219,45 +219,21 @@
     <div class="widget widget_hot">
       <h3>热门文章</h3>
       <ul>
+        @foreach ($hotArticles as $hotArticle)
         <li>
-          <a href="">
+          <a href="/article/{{$hotArticle->id}}">
             <span class="thumbnail">
-              <img class="thumb" data-original="/home/images/excerpt.jpg" src="/home/images/excerpt.jpg" alt="">
+              <img class="thumb"  src="{{$hotArticle->cover_map}}">
             </span>
-            <span class="text">php如何判断一个日期的格式是否正确</span>
+            <span class="text">{{$hotArticle->title}}</span>
             <span class="muted">
-              <i class="far fa-clock"></i> 2016-1-4
+              <i class="far fa-clock"></i>{{$hotArticle->created_at->toDateString()}}
             </span>
-            <span class="muted"><i class="fas fa-eye"></i> 120
+            <span class="muted"><i class="fas fa-eye"></i> {{$hotArticle->statistic->views}}
             </span>
           </a>
         </li>
-        <li>
-          <a href="">
-            <span class="thumbnail">
-              <img class="thumb" data-original="/home/images/excerpt.jpg" src="/home/images/excerpt.jpg" alt="">
-            </span>
-            <span class="text">php如何判断一个日期的格式是否正确</span>
-            <span class="muted">
-              <i class="far fa-clock"></i> 2016-1-4
-            </span>
-            <span class="muted"><i class="fas fa-eye"></i> 120
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <span class="thumbnail">
-              <img class="thumb" data-original="/home/images/excerpt.jpg" src="/home/images/excerpt.jpg" alt="">
-            </span>
-            <span class="text">php如何判断一个日期的格式是否正确</span>
-            <span class="muted">
-              <i class="far fa-clock"></i> 2016-1-4
-            </span>
-            <span class="muted"><i class="fas fa-eye"></i> 120
-            </span>
-          </a>
-        </li>
+        @endforeach
       </ul>
     </div>
   </aside>

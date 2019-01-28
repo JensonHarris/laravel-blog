@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0309578-d17d-4de2-b75c-ef41f21187cf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Home/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Home/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/AdminUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/AdminUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ArticleStatistic.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ArticleStatistic.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/index/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/index/index.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,7 +45,7 @@
           <entry key="js" value="91" />
           <entry key="json" value="7" />
           <entry key="log" value="3" />
-          <entry key="php" value="631" />
+          <entry key="php" value="632" />
           <entry key="png" value="1" />
         </counts>
       </usages-collector>
@@ -58,7 +57,7 @@
           <entry key="Image" value="11" />
           <entry key="JSON" value="6" />
           <entry key="JavaScript" value="91" />
-          <entry key="PHP" value="355" />
+          <entry key="PHP" value="356" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="tsconfig" value="1" />
         </counts>
@@ -69,17 +68,17 @@
           <entry key="env" value="9" />
           <entry key="js" value="1109" />
           <entry key="json" value="5" />
-          <entry key="php" value="9987" />
+          <entry key="php" value="10199" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="2821" />
+          <entry key="Blade" value="2846" />
           <entry key="CSS" value="64" />
           <entry key="HTML" value="1" />
           <entry key="JSON" value="5" />
           <entry key="JavaScript" value="1109" />
-          <entry key="PHP" value="7165" />
+          <entry key="PHP" value="7352" />
           <entry key="PLAIN_TEXT" value="9" />
         </counts>
       </usages-collector>
@@ -87,11 +86,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/home/index/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="214" column="18" selection-start-line="214" selection-start-column="18" selection-end-line="214" selection-end-column="18" />
+            <state relative-caret-position="395">
+              <caret line="223" column="41" selection-start-line="223" selection-start-column="41" selection-end-line="223" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Models/ArticleStatistic.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -108,8 +116,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Home/IndexController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="26" column="33" lean-forward="true" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+            <state relative-caret-position="154">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
               <folding>
                 <element signature="e#45#68#0#PHP" expanded="true" />
               </folding>
@@ -120,8 +128,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/Article.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="24" column="70" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="70" />
+            <state relative-caret-position="704">
+              <caret line="32" column="35" selection-start-line="27" selection-start-column="2" selection-end-line="35" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -140,7 +148,7 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/AdminUser.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="352">
@@ -178,7 +186,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/admin/ajs/login.js" />
         <option value="$PROJECT_DIR$/public/admin/ajs/role.js" />
         <option value="$PROJECT_DIR$/public/admin/ajs/updaterole.js" />
         <option value="$PROJECT_DIR$/public/admin/ajs/roleedit.js" />
@@ -226,9 +233,10 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/public/home/css/style.css" />
         <option value="$PROJECT_DIR$/resources/views/home/article/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/home/index/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Home/IndexController.php" />
         <option value="$PROJECT_DIR$/app/Models/AdminUser.php" />
+        <option value="$PROJECT_DIR$/app/Models/ArticleStatistic.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Home/IndexController.php" />
+        <option value="$PROJECT_DIR$/resources/views/home/index/index.blade.php" />
       </list>
     </option>
   </component>
@@ -477,12 +485,12 @@
       <workItem from="1548386554321" duration="8685000" />
       <workItem from="1548401334524" duration="1306000" />
       <workItem from="1548403812820" duration="4008000" />
-      <workItem from="1548642774699" duration="1406000" />
+      <workItem from="1548642774699" duration="3978000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="252031000" />
+    <option name="totallyTimeSpent" value="254603000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -517,9 +525,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Models/ArticleTag.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/errorcode.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -769,10 +774,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/home/index/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Models/AdminRoleUser.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/AdminUser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="214" column="18" selection-start-line="214" selection-start-column="18" selection-end-line="214" selection-end-column="18" />
+        <state relative-caret-position="352">
+          <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/ArticleStatistic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -785,18 +800,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Home/IndexController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="26" column="33" lean-forward="true" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+        <state relative-caret-position="154">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
           <folding>
             <element signature="e#45#68#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Article.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="24" column="70" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="70" />
         </state>
       </provider>
     </entry>
@@ -807,13 +815,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/AdminRoleUser.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/AdminUser.php">
+    <entry file="file://$PROJECT_DIR$/app/Models/Article.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+        <state relative-caret-position="704">
+          <caret line="32" column="35" selection-start-line="27" selection-start-column="2" selection-end-line="35" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home/index/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="223" column="41" selection-start-line="223" selection-start-column="41" selection-end-line="223" selection-end-column="41" />
         </state>
       </provider>
     </entry>
