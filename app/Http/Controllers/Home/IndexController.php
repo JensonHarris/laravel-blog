@@ -24,9 +24,11 @@ class IndexController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function hotArticles()
     {
-        //
+        $articles =  Article::orderBy('created_at', 'DESC')->paginate(10);
+        return view('home.index.index',compact('articles'));
+
     }
 
     /**

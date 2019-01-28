@@ -208,6 +208,14 @@
         </p>
       </div>
     </div>
+
+    <div class="widget widget_sentence">
+      <h3>热门标签</h3>
+      <div class="widget-sentence-content">
+       iiiiiiiiiii
+      </div>
+    </div>
+
     <div class="widget widget_hot">
       <h3>热门文章</h3>
       <ul>

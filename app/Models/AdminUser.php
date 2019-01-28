@@ -36,6 +36,12 @@ class AdminUser extends Authenticatable
         return $this->belongsToMany(AdminRole::class, 'admin_role_user', 'au_id', 'ar_id');
     }
 
+    /**
+     * Notes : 用户分页列表
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/28 10:56
+     * @param $limit
+     */
     public function users($limit)
     {
         return DB::table('admin_users')
