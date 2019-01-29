@@ -14,8 +14,8 @@
     <script src="/home/js/jquery-2.1.4.min.js"></script>
     <script src="/home/js/nprogress.js"></script>
     <script src="/home/js/jquery.lazyload.min.js"></script>
+    @yield('styles')
 </head>
-
 <body class="user-select">
 <header class="header">
     <nav class="navbar navbar-default" id="navbar">
@@ -28,20 +28,23 @@
             </div>
             <div class="collapse navbar-collapse" id="header-navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden-index active"><a data-cont="异清轩首页" href="index.html">首页</a>
+                    <li class="hidden-index active"><a data-cont="JeosnC blog首页" href="/">首页</a>
                     </li>
-                    <li><a href="category.html">PHP</a>
+                    @foreach ($navigates as $navigate)
+                    <li>
+                        <a href="/article/category/{{$navigate->id}}">{{$navigate->name}}</a>
                     </li>
-                    <li><a href="category.html">前端</a>
-                    </li>
-                    <li><a href="category.html">服务器</a>
-                    </li>
-                    <li><a href="category.html">数据库</a>
-                    </li>
-                    <li><a href="category.html">程序员</a>
-                    </li>
-                    <li><a href="category.html">资源分享</a>
-                    </li>
+                    @endforeach
+                    {{--<li><a href="category.html">前端</a>--}}
+                    {{--</li>--}}
+                    {{--<li><a href="category.html">服务器</a>--}}
+                    {{--</li>--}}
+                    {{--<li><a href="category.html">数据库</a>--}}
+                    {{--</li>--}}
+                    {{--<li><a href="category.html">程序员</a>--}}
+                    {{--</li>--}}
+                    {{--<li><a href="category.html">资源分享</a>--}}
+                    {{--</li>--}}
                 </ul>
                 <form class="navbar-form visible-xs" action="/Search" method="post">
                     <div class="input-group">

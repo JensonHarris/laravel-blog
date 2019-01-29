@@ -59,7 +59,6 @@
       </article>
       <div class="title">
         <h3>最新发布</h3>
-
       </div>
       @foreach ($articles as $article)
       <article class="excerpt">

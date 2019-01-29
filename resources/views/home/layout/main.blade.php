@@ -2,4 +2,4 @@
     @yield("content")
 @include('home.layout.aside')
 @include('home.layout.footer')
-@yield('scripts')
+   @yield('scripts')

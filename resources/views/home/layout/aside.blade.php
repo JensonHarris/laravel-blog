@@ -39,6 +39,14 @@
                 </div>
             </form>
         </div>
+
+        <div class="widget widget_sentence">
+            <h3>热门标签</h3>
+            <div class="widget-sentence-content">
+                111111111111111111111
+            </div>
+        </div>
+
     </div>
     <div class="widget widget_sentence">
         <h3>每日一句</h3>
@@ -50,12 +58,7 @@
         </div>
     </div>
 
-    <div class="widget widget_sentence">
-        <h3>热门标签</h3>
-        <div class="widget-sentence-content">
-            iiiiiiiiiii
-        </div>
-    </div>
+
 
     <div class="widget widget_hot">
         <h3>热门文章</h3>
@@ -78,3 +81,4 @@
         </ul>
     </div>
 </aside>
+</section>
