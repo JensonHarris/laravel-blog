@@ -80,3 +80,7 @@ layui.use(['jquery','layer'],function(){
     });
 
 });
+
+// 重定向跳转
+if (window != top)
+    top.location.href = location.href;

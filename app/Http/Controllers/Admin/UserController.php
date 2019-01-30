@@ -73,17 +73,6 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-
-    }
-
-    /**
      * Notes : 用户编辑页
      * Author: JesonC <748532271@qq.com>
      * Date  : 2019/1/16 14:30

@@ -193,13 +193,14 @@ layui.use('table', function(){
     //监听行工具事件
     table.on('tool(test)', function(obj){
         var data = obj.data;
+        var url = '/admin/user/update/'+data.au_id;
         if(obj.event === 'del'){
             layer.confirm('真的删除该用户吗？', function(index){
                 $.ajax({
                     type: "POST",
-                    url: '/admin/user/destroy',
+                    url: url,
                     dataType: "json",
-                    data: {au_id: data.au_id},
+                    data: '',
                     error: function(msg) {
                         if (msg.status == 422) {
                             var json=JSON.parse(msg.responseText);

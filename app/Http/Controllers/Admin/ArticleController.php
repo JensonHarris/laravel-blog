@@ -25,6 +25,12 @@ class ArticleController extends Controller
     }
 
 
+    /**
+     * Notes :文章类表数据
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/30 14:32
+     * @param Request $request
+     */
     public function jsonData(Request $request)
     {
         $limit = $request->input('limit','10');
@@ -82,16 +88,6 @@ class ArticleController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Notes : 文章编辑页
