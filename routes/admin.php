@@ -169,6 +169,8 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login']], function() {
         Route::get('', 'Admin\CommentController@index');
         //评论数据
         Route::get('/jsonData', 'Admin\CommentController@jsonData');
+        //标签评论
+        Route::post('/destroy', 'Admin\CommentController@destroy');
     });
 
 

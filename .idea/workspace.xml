@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0309578-d17d-4de2-b75c-ef41f21187cf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ArticleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/ajs/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/ajs/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/ajs/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/ajs/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/index/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index/profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CommentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/ajs/comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/ajs/comment.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,11 +44,11 @@
           <entry key="gif" value="4" />
           <entry key="html" value="3" />
           <entry key="jpg" value="14" />
-          <entry key="js" value="109" />
+          <entry key="js" value="112" />
           <entry key="json" value="7" />
           <entry key="log" value="3" />
           <entry key="md" value="1" />
-          <entry key="php" value="797" />
+          <entry key="php" value="805" />
           <entry key="png" value="19" />
         </counts>
       </usages-collector>
@@ -64,9 +59,9 @@
           <entry key="HTML" value="3" />
           <entry key="Image" value="37" />
           <entry key="JSON" value="6" />
-          <entry key="JavaScript" value="109" />
+          <entry key="JavaScript" value="112" />
           <entry key="Markdown" value="1" />
-          <entry key="PHP" value="468" />
+          <entry key="PHP" value="476" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="tsconfig" value="1" />
         </counts>
@@ -75,10 +70,10 @@
         <counts>
           <entry key="css" value="64" />
           <entry key="env" value="9" />
-          <entry key="js" value="1267" />
+          <entry key="js" value="1272" />
           <entry key="json" value="5" />
           <entry key="md" value="61" />
-          <entry key="php" value="11648" />
+          <entry key="php" value="11661" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -87,9 +82,9 @@
           <entry key="CSS" value="64" />
           <entry key="HTML" value="1" />
           <entry key="JSON" value="5" />
-          <entry key="JavaScript" value="1267" />
+          <entry key="JavaScript" value="1272" />
           <entry key="Markdown" value="61" />
-          <entry key="PHP" value="8308" />
+          <entry key="PHP" value="8321" />
           <entry key="PLAIN_TEXT" value="9" />
         </counts>
       </usages-collector>
@@ -103,89 +98,73 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/PermissionController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="511">
+              <caret line="105" column="41" selection-start-line="104" selection-start-column="7" selection-end-line="111" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/CommentController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="665">
+              <caret line="96" column="5" selection-start-line="96" selection-start-column="5" selection-end-line="96" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/admin/ajs/comment.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/errorcode.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="638">
+              <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/TagController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1161">
+              <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1430">
+            <state relative-caret-position="-829">
               <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Middleware/AdminAuth.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Middleware/AdminLogin.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/RoleController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="19" column="23" selection-start-line="17" selection-start-column="2" selection-end-line="24" selection-end-column="5" />
-              <folding>
-                <element signature="e#39#51#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="643">
+              <caret line="165" column="33" selection-start-line="165" selection-start-column="33" selection-end-line="165" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/index/profile.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="94" column="110" selection-start-line="94" selection-start-column="110" selection-end-line="94" selection-end-column="110" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/laravel/tinker/src/TinkerCaster.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="45" selection-start-line="38" selection-start-column="3" selection-end-line="55" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="598">
-                <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/login/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1166">
-              <caret line="53" column="7" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/admin/ajs/login.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="753">
-              <caret line="84" selection-start-line="84" selection-end-line="86" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/home/index/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/index/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8074">
-              <caret line="367" column="14" selection-start-line="367" selection-start-column="11" selection-end-line="367" selection-end-column="14" />
+            <state relative-caret-position="572">
+              <caret line="103" column="25" lean-forward="true" selection-start-line="99" selection-start-column="7" selection-end-line="108" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -219,8 +198,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/home/js/scripts.js" />
-        <option value="$PROJECT_DIR$/resources/views/home/article/test.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/home/layout/content.blade.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
@@ -260,7 +237,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_01_09_161626_create_article_category_table.php" />
         <option value="$PROJECT_DIR$/app/Models/ArticleCategory.php" />
         <option value="$PROJECT_DIR$/config/errorcode.php" />
-        <option value="$PROJECT_DIR$/routes/admin.php" />
         <option value="$PROJECT_DIR$/public/admin/ajs/user.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ArticleController.php" />
@@ -270,6 +246,9 @@
         <option value="$PROJECT_DIR$/public/admin/ajs/login.js" />
         <option value="$PROJECT_DIR$/resources/views/admin/index/profile.blade.php" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/routes/admin.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/CommentController.php" />
+        <option value="$PROJECT_DIR$/public/admin/ajs/comment.js" />
       </list>
     </option>
   </component>
@@ -410,18 +389,38 @@
               <item name="laravel-blog" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Middleware" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="laravel-blog" type="b2602c69:ProjectViewProjectNode" />
               <item name="laravel-blog" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Providers" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="laravel-blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laravel-blog" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="laravel-blog" type="b2602c69:ProjectViewProjectNode" />
               <item name="laravel-blog" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="laravel-blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laravel-blog" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="laravel-blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laravel-blog" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="ajs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="laravel-blog" type="b2602c69:ProjectViewProjectNode" />
@@ -560,12 +559,12 @@
       <workItem from="1548747686570" duration="965000" />
       <workItem from="1548752741189" duration="3284000" />
       <workItem from="1548813030673" duration="11632000" />
-      <workItem from="1548835429385" duration="2358000" />
+      <workItem from="1548835429385" duration="2876000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="288038000" />
+    <option name="totallyTimeSpent" value="288556000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -611,13 +610,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/admin/ajs/authlist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="66" column="42" selection-start-line="41" selection-start-column="3" selection-end-line="83" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/permission/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="709">
@@ -663,13 +655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="337">
           <caret line="62" column="41" lean-forward="true" selection-start-line="36" selection-start-column="2" selection-end-line="78" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/admin/ajs/category.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="165" column="36" selection-start-line="165" selection-start-column="36" selection-end-line="165" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -753,13 +738,6 @@
     <entry file="file://$PROJECT_DIR$/app/Models/ArticleComment.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/errorcode.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/admin/ajs/user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="359">
@@ -774,20 +752,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="98" column="5" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ChartController.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/CommentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-858" />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -809,43 +775,8 @@
         <state relative-caret-position="-396" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/RoleController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3481">
-          <caret line="165" column="33" selection-start-line="165" selection-start-column="33" selection-end-line="165" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/PermissionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2266">
-          <caret line="105" column="41" selection-start-line="104" selection-start-column="7" selection-end-line="111" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="50" column="40" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/TagController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UploaderController.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1430">
-          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Middleware/AdminAuth.php">
       <provider selected="true" editor-type-id="text-editor" />
@@ -891,13 +822,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/tinker/src/TinkerCaster.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="45" selection-start-line="38" selection-start-column="3" selection-end-line="55" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -905,6 +829,83 @@
             <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/tinker/src/TinkerCaster.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="45" selection-start-line="38" selection-start-column="3" selection-end-line="55" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/admin/ajs/category.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="181" column="42" selection-start-line="155" selection-end-line="198" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="166" column="34" selection-start-line="166" selection-start-column="31" selection-end-line="166" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="103" column="25" lean-forward="true" selection-start-line="99" selection-start-column="7" selection-end-line="108" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/PermissionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="105" column="41" selection-start-line="104" selection-start-column="7" selection-end-line="111" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/RoleController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="643">
+          <caret line="165" column="33" selection-start-line="165" selection-start-column="33" selection-end-line="165" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/TagController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1161">
+          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-829">
+          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/errorcode.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/CommentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="96" column="5" selection-start-line="96" selection-start-column="5" selection-end-line="96" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/admin/ajs/comment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
         </state>
       </provider>
     </entry>

@@ -85,8 +85,14 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->input('id');
+        $category = ArticleComment::find($id);
+        $result = $category->delete();
+        if ($result) {
+            return $this->success(20003);
+        }
+        return $this->error(40003);
     }
 }
