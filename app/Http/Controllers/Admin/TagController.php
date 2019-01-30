@@ -94,6 +94,15 @@ class TagController extends Controller
      */
     public function destroy(Request $request)
     {
-        dd($request->input());
+        $id  = $request->input('id');
+        $tag = Tag::find($id);
+        if (!$tag->articles->count()){
+            $result = $tag->delete();
+            if ($result){
+                return $this->success(20003);
+            }
+            return $this->error(40003);
+        }
+        return $this->error(40033);
     }
 }

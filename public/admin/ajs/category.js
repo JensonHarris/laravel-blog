@@ -154,36 +154,47 @@ layui.use('table', function(){
         }
     });
 
-    //头工具栏事件
-    table.on('toolbar(test)', function(obj){
-        var checkStatus = table.checkStatus(obj.config.id);
-        switch(obj.event){
-            case 'getCheckData':
-                var data = checkStatus.data;
-                layer.alert(JSON.stringify(data));
-                break;
-            case 'getCheckLength':
-                var data = checkStatus.data;
-                layer.msg('选中了：'+ data.length + ' 个');
-                break;
-            case 'isAll':
-                layer.msg(checkStatus.isAll ? '全选': '未全选');
-                break;
-        };
-    });
-
     //监听行工具事件
     table.on('tool(test)', function(obj){
         var data = obj.data;
-        //console.log(obj)
         if(obj.event === 'del'){
-            layer.confirm('真的删除行么', function(index){
-                obj.del();
-                layer.close(index);
+            layer.confirm('真的删除该分类吗？', function(index){
+                $.ajax({
+                    type: "POST",
+                    url: '/admin/category/destroy',
+                    dataType: "json",
+                    data: {id: data.id},
+                    error: function(msg) {
+                        if (msg.status == 422) {
+                            var json=JSON.parse(msg.responseText);
+                            json = json.errors;
+                            for ( var item in json) {
+                                for ( var i = 0; i < json[item].length; i++) {
+                                    layer.msg(json[item][i], {icon: 5});
+                                    return ; //遇到验证错误，就退出
+                                }
+                            }
+                        } else {
+                            layer.msg('服务器连接失败', {icon: 5});
+                            return ;
+                        }
+                    },
+                    success: function(res) {
+                        if (res.status) {
+                            layer.msg(res.message, {
+                                icon: 1,//提示的样式
+                                time: 2000, //2秒关闭
+                                end:function(){
+                                    obj.del();
+                                }
+                            });
+                        } else {
+                            layer.msg(res.message, {icon: 5});
+                        }
+                    }
+                });
+                return false;
             });
-        } else if(obj.event === 'edit'){
-            console.log(obj.data);
-
         }
     });
 });

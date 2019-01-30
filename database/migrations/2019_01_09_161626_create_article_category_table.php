@@ -13,7 +13,7 @@ class CreateArticleCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('article_category', function (Blueprint $table) {
+        Schema::create('article_categorys', function (Blueprint $table) {
             $table->increments('id')->comment('文章分类ID');
             $table->string('name')->comment('文章分类名');
             $table->unsignedSmallInteger('parent_id')->comment('父级分类ID');
@@ -23,7 +23,7 @@ class CreateArticleCategoryTable extends Migration
             $table->boolean('is_nav')->default(0)->comment('是否为导航：0是 1否');
             $table->timestamps();
         });
-        DB::statement("ALTER TABLE `article_category` comment'文章分类表'"); // 表注释
+        DB::statement("ALTER TABLE `article_categorys` comment'文章分类表'"); // 表注释
 
     }
 
@@ -34,6 +34,6 @@ class CreateArticleCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('article_category');
+        Schema::dropIfExists('article_categorys');
     }
 }

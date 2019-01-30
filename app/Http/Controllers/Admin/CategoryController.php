@@ -95,8 +95,17 @@ class CategoryController extends Controller
      * Date  : 2019/1/10 11:09
      * @param $id
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->input('id');
+        $category = ArticleCategory::find($id);
+        if (!$category->articles->count()){
+            $result = $category->delete();
+            if ($result){
+                return $this->success(20003);
+            }
+            return $this->error(40003);
+        }
+        return $this->error(40043);
     }
 }

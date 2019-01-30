@@ -142,7 +142,7 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login']], function() {
         //文章编辑逻辑
         Route::post('/update/{id}', 'Admin\CategoryController@update');
         //文章删除
-        Route::put('/destroy', 'Admin\CategoryController@destroy');
+        Route::post('/destroy', 'Admin\CategoryController@destroy');
     });
 
 

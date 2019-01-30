@@ -97,7 +97,6 @@ class PermissionController extends Controller
      * Notes : 权限删除逻辑
      * Author: JesonC <748532271@qq.com>
      * Date  : 2019/1/16 14:26
-     * @param $id
      */
     public function destroy(Request $request)
     {
