@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\Admin\User\Store;
 use App\Http\Requests\Admin\User\Update;
+use Monolog\Handler\IFTTTHandler;
 
 class UserController extends Controller
 {
@@ -135,8 +136,20 @@ class UserController extends Controller
      * Date  : 2019/1/16 14:29
      * @param $id
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $au_id =  $request->input('au_id');
+        $adminUser  = AdminUser::find($au_id);
+        DB::beginTransaction();
+        try {
+            $adminUser->delete();
+            AdminRoleUser::where('au_id','=',$au_id)->delete();
+
+            DB::commit();
+            return $this->success(20003);
+        } catch (\Exception $e){
+            DB::rollBack();
+            return $this->error(40003);
+        }
     }
 }

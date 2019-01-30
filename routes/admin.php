@@ -4,7 +4,7 @@
  * @Author: Jenson Harris
  * @Date:   2018-12-24 22:05:00
  * @Last Modified by:   Jenson Harris
- * @Last Modified time: 2019-01-19 19:58:45
+ * @Last Modified time: 2019-01-29 17:49:17
  */
 
 //登录模块
@@ -48,7 +48,7 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login']], function() {
         //管理员编辑逻辑
         Route::post('/update/{au_id}', 'Admin\UserController@update');
         //管理员删除
-        Route::put('/destroy', 'Admin\UserController@destroy');
+        Route::post('/destroy', 'Admin\UserController@destroy');
     });
 
 
@@ -66,7 +66,7 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login']], function() {
         //权限编辑逻辑
         Route::post('/update/{ap_id}', 'Admin\PermissionController@update');
         //权限删除
-        Route::put('/destroy', 'Admin\PermissionController@destroy');
+        Route::post('/destroy', 'Admin\PermissionController@destroy');
     });
 
 
@@ -106,7 +106,7 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login']], function() {
         //角色编辑逻辑
         Route::post('/update/{ar_id}', 'Admin\RoleController@update');
         //角色删除
-        Route::put('/destroy', 'Admin\RoleController@destroy');
+        Route::post('/destroy', 'Admin\RoleController@destroy');
     });
 
 
@@ -160,7 +160,7 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login']], function() {
         //标签编辑逻辑
         Route::post('/update/{id}', 'Admin\TagController@update');
         //标签删除
-        Route::put('/destroy', 'Admin\TagController@destroy');
+        Route::post('/destroy', 'Admin\TagController@destroy');
     });
 
 	//  评论列表

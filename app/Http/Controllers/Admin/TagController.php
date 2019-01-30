@@ -92,8 +92,8 @@ class TagController extends Controller
      * Date  : 2019/1/10 11:07
      * @param $id
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        dd($request->input());
     }
 }

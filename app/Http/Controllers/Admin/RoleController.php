@@ -84,16 +84,6 @@ class RoleController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Notes : 角色编辑页
@@ -162,8 +152,17 @@ class RoleController extends Controller
      * Date  : 2019/1/16 14:29
      * @param $id
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $ar_id = $request->input('ar_id');
+        $adminRole =  AdminRole::find($ar_id);
+        if (!$adminRole->users->count()){
+            $result = $adminRole->delete();
+            if ($result){
+                return $this->success(20003);
+            }
+            return $this->error(40003);
+        }
+        return $this->error(40023);
     }
 }

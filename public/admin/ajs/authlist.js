@@ -8,17 +8,22 @@ layui.use('table', function(){
     });
     table.render({
         elem: '#test'
-        ,url:'/admin/role/jsonData'
+        ,url:'/admin/permission/jsonData'
         ,toolbar: '#toolbarDemo'
         ,title: '权限数据表'
         ,cols: [[
-            // {type: 'checkbox', fixed: 'left'},
-            {field:'ar_id', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
-            ,{field:'ar_name', title:'角色名称'}
-            ,{field:'ar_description', title:'角色描述' }
-            ,{field:'ar_status', title:'角色状态'}
-            ,{field:'created_at', title:'添加时间',width:200, sort: true}
+            // {type: 'checkbox', fixed: 'left'}
+            {field:'ap_id', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
+            ,{field:'ap_name', title:'权限名'}
+            ,{field:'icon', title:'图标', width:60, toolbar: '#iconfont'}
+            ,{field:'ap_control', title:'控制器' }
+            ,{field:'ap_action', title:'方法'}
+            ,{field:'ap_url', title:'URL'}
+            ,{field:'method', title:'请求方式'}
+            ,{field:'created_at', title:'添加时间', width:200, sort: true}
             ,{fixed: 'right', title:'操作', toolbar: '#barDemo'}
+
+
         ]]
         ,page: true
         ,response: {
@@ -38,12 +43,12 @@ layui.use('table', function(){
     table.on('tool(test)', function(obj){
         var data = obj.data;
         if(obj.event === 'del'){
-            layer.confirm('真的删除该角色吗？', function(index){
+            layer.confirm('真的删除该权限吗？', function(index){
                 $.ajax({
                     type: "POST",
-                    url: '/admin/role/destroy',
+                    url: '/admin/permission/destroy',
                     dataType: "json",
-                    data: {ar_id: data.ar_id},
+                    data: {ap_id: data.ap_id},
                     error: function(msg) {
                         if (msg.status == 422) {
                             var json=JSON.parse(msg.responseText);

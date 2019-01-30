@@ -62,16 +62,6 @@ class PermissionController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Notes : 权限编辑页
@@ -109,8 +99,17 @@ class PermissionController extends Controller
      * Date  : 2019/1/16 14:26
      * @param $id
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-
+        $ap_id =  $request->input('ap_id');
+        $permission  = AdminPermission::find($ap_id);
+        if (!$permission->subPermission->count()){
+            $result = $permission->delete();
+            if ($result){
+                return $this->success(20003);
+            }
+            return $this->error(40003);
+        }
+        return $this->error(40013);
     }
 }
