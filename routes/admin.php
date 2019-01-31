@@ -48,7 +48,9 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login']], function() {
         //管理员编辑逻辑
         Route::post('/update/{au_id}', 'Admin\UserController@update');
         //管理员删除
-        Route::post('/destroy/{adminUser}', 'Admin\UserController@destroy');
+        Route::post('/destroy', 'Admin\UserController@destroy');
+        //用户状态
+        Route::post('/changeStatus', 'Admin\UserController@changeStatus');
     });
 
 

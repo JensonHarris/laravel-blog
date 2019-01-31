@@ -38,7 +38,7 @@ layui.use('table', function(){
     table.on('tool(test)', function(obj){
         var data = obj.data;
         if(obj.event === 'del'){
-            layer.confirm('真的删除该角色吗？', function(index){
+            layer.confirm('你确定要删除该角色吗？', {icon: 3, title:'删除角色'}, function(index){
                 $.ajax({
                     type: "POST",
                     url: '/admin/role/destroy',

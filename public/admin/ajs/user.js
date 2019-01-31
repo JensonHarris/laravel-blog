@@ -171,6 +171,7 @@ layui.use('table', function(){
             ,{field:'ar_name', title:'角色'}
             ,{field:'au_email', title:'邮箱'}
             ,{field:'au_mobile', title:'联系方式'}
+            ,{field: 'au_status', title:'状态', width:80, toolbar: '#stateDemo'}
             ,{field:'created_at', title:'添加时间',width:200, sort: true}
             ,{fixed: 'right', title:'操作', toolbar: '#barDemo'}
 
@@ -193,14 +194,14 @@ layui.use('table', function(){
     //监听行工具事件
     table.on('tool(test)', function(obj){
         var data = obj.data;
-        var url = '/admin/user/update/'+data.au_id;
+        //删除用户
         if(obj.event === 'del'){
-            layer.confirm('真的删除该用户吗？', function(index){
+            layer.confirm('你确定要删除该用户吗？', {icon: 3, title:'删除用户'}, function(index){
                 $.ajax({
                     type: "POST",
-                    url: url,
+                    url: '/admin/user/destroy',
                     dataType: "json",
-                    data: '',
+                    data: {au_id: data.au_id},
                     error: function(msg) {
                         if (msg.status == 422) {
                             var json=JSON.parse(msg.responseText);
@@ -223,6 +224,90 @@ layui.use('table', function(){
                                 time: 2000, //2秒关闭
                                 end:function(){
                                     obj.del();
+                                }
+                            });
+                        } else {
+                            layer.msg(res.message, {icon: 5});
+                        }
+                    }
+                });
+                return false;
+            });
+        }
+
+        //禁用用户
+        if(obj.event === 'disabled'){
+            alert('禁用');
+            layer.confirm('你确定要禁用该用户吗？', {icon: 3, title:'删除用户'}, function(index){
+                $.ajax({
+                    type: "POST",
+                    url: '/admin/user/changeStatus',
+                    dataType: "json",
+                    data: {au_id: data.au_id,au_status:1},
+                    error: function(msg) {
+                        if (msg.status == 422) {
+                            var json=JSON.parse(msg.responseText);
+                            json = json.errors;
+                            for ( var item in json) {
+                                for ( var i = 0; i < json[item].length; i++) {
+                                    layer.msg(json[item][i], {icon: 5});
+                                    return ; //遇到验证错误，就退出
+                                }
+                            }
+                        } else {
+                            layer.msg('服务器连接失败', {icon: 5});
+                            return ;
+                        }
+                    },
+                    success: function(res) {
+                        if (res.status) {
+                            layer.msg(res.message, {
+                                icon: 1,//提示的样式
+                                time: 2000, //2秒关闭
+                                end:function(){
+                                    window.location.href="/admin/user";
+                                }
+                            });
+                        } else {
+                            layer.msg(res.message, {icon: 5});
+                        }
+                    }
+                });
+                return false;
+            });
+        }
+
+        //启用用户
+        if(obj.event === 'start'){
+            alert('启用');
+            layer.confirm('你确定要启用该用户吗？', {icon: 3, title:'删除用户'}, function(index){
+                $.ajax({
+                    type: "POST",
+                    url: '/admin/user/changeStatus',
+                    dataType: "json",
+                    data: {au_id: data.au_id,au_status:0},
+                    error: function(msg) {
+                        if (msg.status == 422) {
+                            var json=JSON.parse(msg.responseText);
+                            json = json.errors;
+                            for ( var item in json) {
+                                for ( var i = 0; i < json[item].length; i++) {
+                                    layer.msg(json[item][i], {icon: 5});
+                                    return ; //遇到验证错误，就退出
+                                }
+                            }
+                        } else {
+                            layer.msg('服务器连接失败', {icon: 5});
+                            return ;
+                        }
+                    },
+                    success: function(res) {
+                        if (res.status) {
+                            layer.msg(res.message, {
+                                icon: 1,//提示的样式
+                                time: 2000, //2秒关闭
+                                end:function(){
+                                    window.location.href="/admin/user";
                                 }
                             });
                         } else {

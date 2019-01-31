@@ -36,7 +36,11 @@
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
 <script type="text/html" id="stateDemo">
-    <button type="button" class="btn btn-danger btn-xs">禁用</button>
+    @{{#  if(d.au_status ==0){ }}
+    <button class="layui-btn layui-btn-xs layui-bg-cyan" lay-event="disabled">禁用</button>
+    @{{#  }  else { }}
+    <button class="layui-btn layui-btn-xs layui-bg-blue" lay-event="start">启用</button>
+    @{{#  } }}
 </script>
 <script type="text/javascript" src="/admin/ajs/user.js"></script>
 @endsection

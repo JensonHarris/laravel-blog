@@ -141,4 +141,22 @@ class UserController extends Controller
             return $this->error(40003);
         }
     }
+
+
+    /**
+     * Notes : 改变用户状态
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/31 17:03
+     * @param Request $request
+     */
+    public function changeStatus(Request $request)
+    {
+        $user =  $request->input();
+        $admins =  AdminUser::where(['au_id'=>$user['au_id']])->update($user);
+        if ($admins){
+            return $this->success(20005);
+        }
+        return $this->error(40005);
+
+    }
 }
