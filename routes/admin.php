@@ -4,7 +4,7 @@
  * @Author: Jenson Harris
  * @Date:   2018-12-24 22:05:00
  * @Last Modified by:   Jenson Harris
- * @Last Modified time: 2019-01-29 17:49:17
+ * @Last Modified time: 2019-01-31 17:49:09
  */
 
 //登录模块
@@ -109,6 +109,8 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login']], function() {
         Route::post('/update/{ar_id}', 'Admin\RoleController@update');
         //角色删除
         Route::post('/destroy', 'Admin\RoleController@destroy');
+        //角色状态
+        Route::post('/changeStatus', 'Admin\RoleController@changeStatus');
     });
 
 
@@ -145,6 +147,8 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login']], function() {
         Route::post('/update/{id}', 'Admin\CategoryController@update');
         //文章删除
         Route::post('/destroy', 'Admin\CategoryController@destroy');
+        //前端导航
+        Route::post('/navStatus', 'Admin\CategoryController@navStatus');
     });
 
 

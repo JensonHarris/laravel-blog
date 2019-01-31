@@ -128,13 +128,13 @@ layui.use('table', function(){
         ,toolbar: '#toolbarDemo'
         ,title: '权限数据表'
         ,cols: [[
-            {type: 'checkbox', fixed: 'left'}
-            ,{field:'id', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
+            // {type: 'checkbox', fixed: 'left'},
+            {field:'id', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
             ,{field:'name', title:'分类名称'}
             ,{field:'seo_title', title:'SEO标题'}
             ,{field:'seo_keywords', title:'SEO关键字'}
             ,{field:'seo_desc', title:'SEO描述'}
-            ,{field:'is_nav', title:'是否为导航'}
+            ,{field: 'is_nav', title:'是否为导航', width:100, align:'center', toolbar: '#navDemo'}
             ,{field:'created_at', title:'添加时间',width:200, sort: true}
             ,{fixed: 'right', title:'操作', toolbar: '#barDemo'}
 
@@ -186,6 +186,88 @@ layui.use('table', function(){
                                 time: 2000, //2秒关闭
                                 end:function(){
                                     obj.del();
+                                }
+                            });
+                        } else {
+                            layer.msg(res.message, {icon: 5});
+                        }
+                    }
+                });
+                return false;
+            });
+        }
+
+        //取消导航
+        if(obj.event === 'disabled'){
+            layer.confirm('你确定要取消该分类导航吗？', {icon: 3, title:'取消导航'}, function(index){
+                $.ajax({
+                    type: "POST",
+                    url: '/admin/category/navStatus',
+                    dataType: "json",
+                    data: {id: data.id,is_nav:1},
+                    error: function(msg) {
+                        if (msg.status == 422) {
+                            var json=JSON.parse(msg.responseText);
+                            json = json.errors;
+                            for ( var item in json) {
+                                for ( var i = 0; i < json[item].length; i++) {
+                                    layer.msg(json[item][i], {icon: 5});
+                                    return ; //遇到验证错误，就退出
+                                }
+                            }
+                        } else {
+                            layer.msg('服务器连接失败', {icon: 5});
+                            return ;
+                        }
+                    },
+                    success: function(res) {
+                        if (res.status) {
+                            layer.msg(res.message, {
+                                icon: 1,//提示的样式
+                                time: 2000, //2秒关闭
+                                end:function(){
+                                    window.location.href="/admin/category";
+                                }
+                            });
+                        } else {
+                            layer.msg(res.message, {icon: 5});
+                        }
+                    }
+                });
+                return false;
+            });
+        }
+
+        //设为导航
+        if(obj.event === 'start'){
+            layer.confirm('你确定要该分类设为导航吗？', {icon: 3, title:'设置导航'}, function(index){
+                $.ajax({
+                    type: "POST",
+                    url: '/admin/category/navStatus',
+                    dataType: "json",
+                    data: {id: data.id,is_nav:0},
+                    error: function(msg) {
+                        if (msg.status == 422) {
+                            var json=JSON.parse(msg.responseText);
+                            json = json.errors;
+                            for ( var item in json) {
+                                for ( var i = 0; i < json[item].length; i++) {
+                                    layer.msg(json[item][i], {icon: 5});
+                                    return ; //遇到验证错误，就退出
+                                }
+                            }
+                        } else {
+                            layer.msg('服务器连接失败', {icon: 5});
+                            return ;
+                        }
+                    },
+                    success: function(res) {
+                        if (res.status) {
+                            layer.msg(res.message, {
+                                icon: 1,//提示的样式
+                                time: 2000, //2秒关闭
+                                end:function(){
+                                    window.location.href="/admin/category";
                                 }
                             });
                         } else {

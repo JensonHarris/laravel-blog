@@ -171,7 +171,7 @@ layui.use('table', function(){
             ,{field:'ar_name', title:'角色'}
             ,{field:'au_email', title:'邮箱'}
             ,{field:'au_mobile', title:'联系方式'}
-            ,{field: 'au_status', title:'状态', width:80, toolbar: '#stateDemo'}
+            ,{field: 'au_status', title:'状态', width:80, align:'center', toolbar: '#stateDemo'}
             ,{field:'created_at', title:'添加时间',width:200, sort: true}
             ,{fixed: 'right', title:'操作', toolbar: '#barDemo'}
 
@@ -237,8 +237,7 @@ layui.use('table', function(){
 
         //禁用用户
         if(obj.event === 'disabled'){
-            alert('禁用');
-            layer.confirm('你确定要禁用该用户吗？', {icon: 3, title:'删除用户'}, function(index){
+            layer.confirm('你确定要禁用该用户吗？', {icon: 3, title:'禁用用户'}, function(index){
                 $.ajax({
                     type: "POST",
                     url: '/admin/user/changeStatus',
@@ -279,8 +278,7 @@ layui.use('table', function(){
 
         //启用用户
         if(obj.event === 'start'){
-            alert('启用');
-            layer.confirm('你确定要启用该用户吗？', {icon: 3, title:'删除用户'}, function(index){
+            layer.confirm('你确定要启用该用户吗？', {icon: 3, title:'启用用户'}, function(index){
                 $.ajax({
                     type: "POST",
                     url: '/admin/user/changeStatus',

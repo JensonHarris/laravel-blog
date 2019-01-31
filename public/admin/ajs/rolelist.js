@@ -16,7 +16,7 @@ layui.use('table', function(){
             {field:'ar_id', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
             ,{field:'ar_name', title:'角色名称'}
             ,{field:'ar_description', title:'角色描述' }
-            ,{field:'ar_status', title:'角色状态'}
+            ,{field: 'ar_status', title:'角色状态', width:100,  align:'center',toolbar: '#stateDemo'}
             ,{field:'created_at', title:'添加时间',width:200, sort: true}
             ,{fixed: 'right', title:'操作', toolbar: '#barDemo'}
         ]]
@@ -66,6 +66,88 @@ layui.use('table', function(){
                                 time: 2000, //2秒关闭
                                 end:function(){
                                     obj.del();
+                                }
+                            });
+                        } else {
+                            layer.msg(res.message, {icon: 5});
+                        }
+                    }
+                });
+                return false;
+            });
+        }
+
+        //禁用用户
+        if(obj.event === 'disabled'){
+            layer.confirm('你确定要禁用该角色吗？', {icon: 3, title:'角色禁用'}, function(index){
+                $.ajax({
+                    type: "POST",
+                    url: '/admin/role/changeStatus',
+                    dataType: "json",
+                    data: {ar_id: data.ar_id,ar_status:1},
+                    error: function(msg) {
+                        if (msg.status == 422) {
+                            var json=JSON.parse(msg.responseText);
+                            json = json.errors;
+                            for ( var item in json) {
+                                for ( var i = 0; i < json[item].length; i++) {
+                                    layer.msg(json[item][i], {icon: 5});
+                                    return ; //遇到验证错误，就退出
+                                }
+                            }
+                        } else {
+                            layer.msg('服务器连接失败', {icon: 5});
+                            return ;
+                        }
+                    },
+                    success: function(res) {
+                        if (res.status) {
+                            layer.msg(res.message, {
+                                icon: 1,//提示的样式
+                                time: 2000, //2秒关闭
+                                end:function(){
+                                    window.location.href="/admin/role";
+                                }
+                            });
+                        } else {
+                            layer.msg(res.message, {icon: 5});
+                        }
+                    }
+                });
+                return false;
+            });
+        }
+
+        //启用用户
+        if(obj.event === 'start'){
+            layer.confirm('你确定要启用该角色吗？', {icon: 3, title:'启用角色'}, function(index){
+                $.ajax({
+                    type: "POST",
+                    url: '/admin/role/changeStatus',
+                    dataType: "json",
+                    data: {ar_id: data.ar_id,ar_status:0},
+                    error: function(msg) {
+                        if (msg.status == 422) {
+                            var json=JSON.parse(msg.responseText);
+                            json = json.errors;
+                            for ( var item in json) {
+                                for ( var i = 0; i < json[item].length; i++) {
+                                    layer.msg(json[item][i], {icon: 5});
+                                    return ; //遇到验证错误，就退出
+                                }
+                            }
+                        } else {
+                            layer.msg('服务器连接失败', {icon: 5});
+                            return ;
+                        }
+                    },
+                    success: function(res) {
+                        if (res.status) {
+                            layer.msg(res.message, {
+                                icon: 1,//提示的样式
+                                time: 2000, //2秒关闭
+                                end:function(){
+                                    window.location.href="/admin/role";
                                 }
                             });
                         } else {

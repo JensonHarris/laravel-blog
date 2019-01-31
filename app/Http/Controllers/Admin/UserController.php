@@ -152,11 +152,10 @@ class UserController extends Controller
     public function changeStatus(Request $request)
     {
         $user =  $request->input();
-        $admins =  AdminUser::where(['au_id'=>$user['au_id']])->update($user);
-        if ($admins){
+        $result =  AdminUser::where(['au_id'=>$user['au_id']])->update($user);
+        if ($result){
             return $this->success(20005);
         }
         return $this->error(40005);
-
     }
 }

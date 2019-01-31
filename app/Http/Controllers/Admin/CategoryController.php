@@ -108,4 +108,21 @@ class CategoryController extends Controller
         }
         return $this->error(40043);
     }
+
+    /**
+     * Notes : 前端导航栏
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/31 17:40
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function navStatus(Request $request)
+    {
+        $category =  $request->input();
+        $result =  ArticleCategory::where(['id'=>$category['id']])->update($category);
+        if ($result){
+            return $this->success(20005);
+        }
+        return $this->error(40005);
+    }
 }

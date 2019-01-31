@@ -165,4 +165,20 @@ class RoleController extends Controller
         }
         return $this->error(40023);
     }
+
+    /**
+     * Notes : 角色状态
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/1/31 17:25
+     * @param Request $request
+     */
+    public function changeStatus(Request $request)
+    {
+        $role =  $request->input();
+        $result =  AdminRole::where(['ar_id'=>$role['ar_id']])->update($role);
+        if ($result){
+            return $this->success(20005);
+        }
+        return $this->error(40005);
+    }
 }

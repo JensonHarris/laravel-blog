@@ -13,9 +13,6 @@
                 <div class="layui-inline">
                     <a class="layui-btn layui-btn-normal addNews_btn" href="{{'/admin/category/create'}}">添加文章分类</a>
                 </div>
-                <div class="layui-inline">
-                    <a class="layui-btn layui-btn-danger layui-btn-normal delAll_btn">批量删除</a>
-                </div>
             </form>
         </blockquote>
     </div>
@@ -31,17 +28,16 @@
     </div>
 @endsection
 @section('scripts')
-<script type="text/html" id="toolbarDemo">
-    <div class="layui-btn-container">
-        <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
-        <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
-        <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
-    </div>
-</script>
-
 <script type="text/html" id="barDemo">
     <a class="layui-btn layui-btn-xs"  href="/admin/category/@{{d.id}}/edit">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<script type="text/html" id="navDemo">
+    @{{#  if(d.is_nav ==0){ }}
+    <button class="layui-btn layui-btn-xs layui-bg-cyan" lay-event="disabled">非导航</button>
+    @{{#  }  else { }}
+    <button class="layui-btn layui-btn-xs layui-bg-blue" lay-event="start">导航</button>
+    @{{#  } }}
 </script>
 <script type="text/javascript" src="/admin/ajs/category.js"></script>
 @endsection

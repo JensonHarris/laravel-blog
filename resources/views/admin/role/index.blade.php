@@ -32,5 +32,12 @@
     <a class="layui-btn layui-btn-xs"  href="/admin/role/@{{d.ar_id}}/edit">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
+<script type="text/html" id="stateDemo">
+    @{{#  if(d.ar_status ==0){ }}
+    <button class="layui-btn layui-btn-xs layui-bg-cyan" lay-event="disabled">禁用</button>
+    @{{#  }  else { }}
+    <button class="layui-btn layui-btn-xs layui-bg-blue" lay-event="start">启用</button>
+    @{{#  } }}
+</script>
 <script type="text/javascript" src="/admin/ajs/rolelist.js"></script>
 @endsection
