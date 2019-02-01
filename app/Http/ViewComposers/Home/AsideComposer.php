@@ -9,18 +9,23 @@
 namespace App\Http\ViewComposers\Home;
 
 use Illuminate\View\View;
+use App\Models\Tag;
 use App\Models\ArticleStatistic;
 
 class AsideComposer
 {
     public function compose(View $view)
     {
+        //热门文章
         $hotViews = ArticleStatistic::orderBy('views', 'DESC')->take(5)->get();
 
         $hotArticles = $hotViews->map(function ($item) {
             return $item->article;
         });
 
-        $view->with('hotArticles' ,$hotArticles);
+        //文章标签
+        $articleTags = Tag::all();
+
+        $view->with(['hotArticles' =>$hotArticles, 'articleTags'=>$articleTags]);
     }
 }

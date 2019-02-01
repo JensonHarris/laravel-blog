@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * Author: JesonC
- * Date: 2019/1/29
- * Time: 15:44
+ * Date: 2019/2/1
+ * Time: 16:55
  */
 
 namespace App\Http\ViewComposers\Home;
@@ -11,11 +11,12 @@ namespace App\Http\ViewComposers\Home;
 use Illuminate\View\View;
 use App\Models\ArticleCategory;
 
-class HeaderComposers
+class HeaderComposer
 {
     public function compose(View $view)
     {
-        $navigates = ArticleCategory::all();
+        $navigates = ArticleCategory::where('parent_id', '=', 0)->get();
         $view->with('navigates' ,$navigates);
     }
 }
+
