@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\DB;
 
 class Article extends Model
 {
@@ -43,6 +44,21 @@ class Article extends Model
     public function statistic()
     {
         return $this->hasOne(ArticleStatistic::class, 'article_id');
+    }
+
+    /**
+     * Notes : 文章列表数据
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/2/1 10:37
+     * @return mixed
+     */
+    public function articles($limit)
+    {
+        return DB::table('articles as ar')
+            ->leftJoin('article_categories as ac','ar.category_id','=','ac.id')
+            ->leftJoin('article_statistics as as','ar.id','=','as.article_id')
+            ->select('ar.*','ac.name','as.views','as.likes')
+            ->paginate($limit);
     }
 
 }

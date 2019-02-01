@@ -31,10 +31,10 @@ class ArticleController extends Controller
      * Date  : 2019/1/30 14:32
      * @param Request $request
      */
-    public function jsonData(Request $request)
+    public function jsonData(Request $request, Article $article)
     {
         $limit = $request->input('limit','10');
-        $articles  = Article::paginate($limit);
+        $articles  = $article->articles($limit);
         return $this->success('200',$articles);
     }
     /**
