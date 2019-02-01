@@ -153,4 +153,19 @@ class ArticleController extends Controller
         //
     }
 
+
+    /**
+     * Notes : 是否置顶
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/2/1 15:19
+     */
+    public function changeTopStatue(Request $request)
+    {
+        $article =  $request->input();
+        $result =  Article::where(['id'=>$article['id']])->update($article);
+        if ($result){
+            return $this->success(20005);
+        }
+        return $this->error(40005);
+    }
 }

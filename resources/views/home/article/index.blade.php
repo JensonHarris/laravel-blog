@@ -25,7 +25,7 @@
                         <i class="far fa-eye"></i> 共{{$article->statistic->views}}人围观
                     </span>
                     <span class="item article-meta-comment" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="评论：0">
-                        <i class="fas fa-comment-alt"></i> 0个不明物体
+                        <i class="fas fa-comment-dots"></i> 0个不明物体
                     </span>
 
                 </div>

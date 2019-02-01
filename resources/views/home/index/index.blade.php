@@ -65,27 +65,35 @@
         <a class="focus" href="/article/{{$article->id}}" target="_blank">
           <img class="thumb" src="{{$article->cover_map}}">
         </a>
+
         <header>
           <a class="cat" href="#" target="_blank">{{$article->articleCategory->name}}<i></i></a>
           <h2>
             <a href="/article/{{$article->id}}" target="_blank">{{$article->title}}</a>
           </h2>
+           @if(!$article->is_top )
+           <img src="/home/images/top.png" class="sticky" >
+          @endif
         </header>
         <p class="meta">
+          <time class="time">
+            <i class="far fa-clock"></i>
+            {{$article->created_at->toDateString()}}
+          </time>
           <span class="views">
             <i class="fas fa-user-secret"></i>&nbsp;
              {{$article->author}}
           </span>
-          <time class="time">
-            <i class="far fa-clock"></i>
-            {{$article->created_at}}
-          </time>
           <span class="views">
             <i class="fas fa-eye"></i>
-            共 {{$article->statistic->views}}人围观
+           阅读(<span>{{$article->statistic->views}}</span>)
           </span>
           <a class="comment" href="article.html#comment">
-           <i class="fas fa-comment-alt"></i> 0个不明物体
+           <i class="fas fa-comment-dots"></i>
+           评论(<span>66</span>)
+          </a>
+          <a href="javascript:;"  class="post-like" >
+            <i class="far fa-thumbs-up"></i>赞(<span>66</span>)
           </a>
         </p>
         <p class="note">
@@ -93,6 +101,7 @@
         </p>
       </article>
       @endforeach
+</article>
       <nav class="pagination">
         {{ $articles->links() }}
         <ul>

@@ -87,6 +87,8 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login']], function() {
         Route::post('/update/{id}', 'Admin\ArticleController@update');
         //文章删除
         Route::put('/destroy', 'Admin\ArticleController@destroy');
+         //是否置顶
+        Route::post('/changeTopStatue', 'Admin\ArticleController@changeTopStatue');
     });
 
 

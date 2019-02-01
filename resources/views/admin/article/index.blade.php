@@ -42,6 +42,6 @@
     @{{#  } }}
 </script>
 <script type="text/html" id="articleImg">
-    <img src="@{{ d.cover_map}}">
+    <img src="@{{ d.cover_map}}" >
 </script>
 @endsection

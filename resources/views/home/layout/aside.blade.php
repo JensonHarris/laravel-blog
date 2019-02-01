@@ -40,13 +40,22 @@
             </form>
         </div>
 
-        <div class="widget widget_sentence">
+        <div class="widget widget_ui_tags">
             <h3>热门标签</h3>
-            <div class="widget-sentence-content">
-                111111111111111111111
-            </div>
-        </div>
-
+            <div class="items">
+                <a href="https://blog.quietguoguo.com/tag/cundaima" style="background:#ff5473; opacity: 0.6;">纯代码 (49)</a>
+                <a href="https://blog.quietguoguo.com/tag/%e6%98%93%e7%bb%8f" style="background:#ff5473; opacity: 0.6;">易经 (32)</a>
+                <a href="https://blog.quietguoguo.com/tag/%e5%9b%bd%e5%ad%a6" style="background:#3366FF; opacity: 0.6;">国学 (32)</a>
+                <a href="https://blog.quietguoguo.com/tag/wordpress-plugins" style="background:#df27ea; opacity: 0.6;">WordPress插件 (19)</a>
+                <a href="https://blog.quietguoguo.com/tag/topic-modification" style="background:#8e7daa; opacity: 0.6;">主题修改 (19)</a>
+                <a href="https://blog.quietguoguo.com/tag/wordpress%e5%ad%a6%e4%b9%a0" style="background:#31ac76; opacity: 0.6;">WordPress学习 (15)</a><a href="https://blog.quietguoguo.com/tag/css" style="background:#f85200; opacity: 0.6;">CSS (13)</a>
+                <a href="https://blog.quietguoguo.com/tag/javascript" style="background:#f99f13; opacity: 0.6;">JavaScript (13)</a>
+                <a href="https://blog.quietguoguo.com/tag/php" style="background:#31a6a0; opacity: 0.6;">PHP (12)</a>
+                <a href="https://blog.quietguoguo.com/tag/dux" style="background:#df27ea; opacity: 0.6;">DUX (12)</a>
+                <a href="https://blog.quietguoguo.com/tag/u-s-a" style="background:#f85200; opacity: 0.6;">美国 (10)</a>
+                <a href="https://blog.quietguoguo.com/tag/wordpress%e5%87%bd%e6%95%b0" style="background:#27ea80; opacity: 0.6;">WordPress函数 (10)</a>
+               </div>
+           </div>
     </div>
     <div class="widget widget_sentence">
         <h3>每日一句</h3>
