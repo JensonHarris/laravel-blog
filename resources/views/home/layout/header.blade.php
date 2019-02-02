@@ -23,28 +23,21 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar" aria-expanded="false"> <span class="sr-only"></span>  <span class="icon-bar"></span>  <span class="icon-bar"></span>  <span class="icon-bar"></span>
                 </button>
-                <h1 class="logo hvr-bounce-in"><a href="" title=""><img src="/home/images/logo.png" alt=""></a></h1>
+                <h1 class="logo hvr-bounce-in"><a href="" title=""><img class="logo" src="/home/images/logo.png" alt=""></a></h1>
 
             </div>
             <div class="collapse navbar-collapse" id="header-navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden-index active"><a data-cont="JeosnC blog首页" href="/">首页</a>
+                    <li class="hidden-index  @if (!($category->id??0))
+                            active @endif">
+                        <a data-cont="JeosnC blog首页" href="/">首页</a>
                     </li>
                     @foreach ($navigates as $navigate)
-                    <li>
+                    <li  @if ($navigate->id == ($category->id??0))
+                         class="active" @endif>
                         <a href="/article/category/{{$navigate->id}}">{{$navigate->name}}</a>
                     </li>
                     @endforeach
-                    {{--<li><a href="category.html">前端</a>--}}
-                    {{--</li>--}}
-                    {{--<li><a href="category.html">服务器</a>--}}
-                    {{--</li>--}}
-                    {{--<li><a href="category.html">数据库</a>--}}
-                    {{--</li>--}}
-                    {{--<li><a href="category.html">程序员</a>--}}
-                    {{--</li>--}}
-                    {{--<li><a href="category.html">资源分享</a>--}}
-                    {{--</li>--}}
                 </ul>
                 <form class="navbar-form visible-xs" action="/Search" method="post">
                     <div class="input-group">

@@ -1,5 +1,5 @@
 @extends("home.layout.main")
-@section('title', 'JsonC博客')
+@section('title', $article->title)
 @section("content")
 <section class="container  single">
     <div class="content-wrap">
@@ -43,7 +43,7 @@
                             <div class="pay_show slidebottoms">
                                 <div class="ps_con">
                                     <div class="ps_code">
-                                        <img src="https://www.liangjucai.com/wx_skm.png" draggable="false">
+                                        <img src="/home/images/pay/weixpay.jpg" draggable="false">
                                     </div>
                                     <div class="ps_tab"> <a data-type="2" class="active" draggable="false">微信</a>
                                         <a data-type="1" draggable="false">支付宝</a>
@@ -178,9 +178,9 @@
         $(".ps_tab a").removeClass('active');
         $(this).addClass('active');
         if ($(this).attr('data-type') == 1) {
-            $(".ps_code img").attr('src', "https://www.liangjucai.com/zfb_skm.png");
+            $(".ps_code img").attr('src', "/home/images/pay/alipay.jpg");
         } else {
-            $(".ps_code img").attr('src', "https://www.liangjucai.com/wx_skm.png");
+            $(".ps_code img").attr('src', "/home/images/pay/weixpay.jpg");
         }
     });
 

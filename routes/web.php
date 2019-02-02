@@ -14,8 +14,17 @@
 
 //首页
  Route::get('/', 'Home\IndexController@index');
-//文章详情页
- Route::get('/article/{article}', 'Home\ArticleController@index');
+
+
+Route::group(['prefix' => 'article'], function() {
+    //文章详情页
+    Route::get('/{article}', 'Home\ArticleController@index');
+
+    Route::get('/category/{id}', 'Home\ArticleController@category');
+
+});
+
+
 
 Route::get('/Search', 'Home\ArticleController@show');
 

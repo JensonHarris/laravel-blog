@@ -137,6 +137,7 @@ class ArticleController extends Controller
             }
             return $this->error(40004);
         } catch (\Exception $e){
+//            return $e->getMessage();
             DB::rollBack();
             return $this->error(40004);
         }

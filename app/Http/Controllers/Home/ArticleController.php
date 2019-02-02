@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
-use App\Models\ArticleContent;
+use App\Models\ArticleCategory;
 use App\Http\Controllers\Controller;
 
 class ArticleController extends Controller
@@ -47,14 +47,18 @@ class ArticleController extends Controller
     {
         return Article::find(Article::where('id', '>', $id)->min('id'));
     }
+
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Notes : 文章分类
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/2/2 14:39
      */
-    public function create()
+    public function category($id, ArticleCategory $articleCategory)
     {
-        //
+        $category   =  $articleCategory->find($id);
+        $categoryIds = $articleCategory->getCategories($id);
+        $articles    = Article::whereIn('category_id',$categoryIds)->orderBy('is_top', 'ASC')->orderBy('created_at', 'DESC')->paginate(10);
+        return view('home.article.category',compact('articles', 'category'));
     }
 
     /**

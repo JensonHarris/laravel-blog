@@ -3158,6 +3158,10 @@ color:#FFF;
 		top:0;
 		width: 10%;
 	}
+   .logo{
+		width: 80%;
+		margin-top: 5px
+	}
 }
 
 .tagColor-0{
@@ -3174,4 +3178,20 @@ color:#FFF;
 
 .tagColor-3{
 	background: #f99f13;
+}
+
+.catleader {
+	background-color: #fff;
+	border: 1px solid #eaeaea;
+	border-radius: 4px;
+	margin-bottom: 15px;
+	padding: 15px 20px;
+}
+
+.catleader {
+	background-color: #fff;
+	border: 1px solid #eaeaea;
+	border-radius: 4px;
+	margin-bottom: 15px;
+	padding: 15px 20px;
 }
