@@ -69,9 +69,7 @@ class ArticleController extends Controller
      */
     public function tagArticles(Tag $tag)
     {
-        $articles  = $tag->articles;
-
-
+        $articles  = $tag->articles()->orderBy('is_top', 'ASC')->orderBy('created_at', 'DESC')->paginate();
 
         return view('home.article.tag',compact('articles', 'tag'));
     }

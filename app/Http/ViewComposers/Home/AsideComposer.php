@@ -24,7 +24,7 @@ class AsideComposer
         });
 
         //文章标签
-        $articleTags = Tag::all();
+        $articleTags = Tag::has('articles')->withCount('articles')->get();
 
         $view->with(['hotArticles' =>$hotArticles, 'articleTags'=>$articleTags]);
     }
