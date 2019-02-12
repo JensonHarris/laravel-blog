@@ -30,8 +30,10 @@
                 </div>
             </div>
         </div>
+        @if(!isset($keyword))
         <div class="widget widget_search">
-            <form class="navbar-form" action="/Search" method="post">
+            <form class="navbar-form"  method="POST" action="/search">
+                {{ csrf_field() }}
                 <div class="input-group">
                     <input type="text" name="keyword" class="form-control" size="35" placeholder="请输入关键字" maxlength="15" autocomplete="off"> <span class="input-group-btn">
             <button class="btn btn-default btn-search" name="search" type="submit">搜索</button>
@@ -39,7 +41,7 @@
                 </div>
             </form>
         </div>
-
+        @endif
         <div class="widget widget_ui_tags">
             <h3>热门标签</h3>
             <div class="items">

@@ -75,6 +75,19 @@ class ArticleController extends Controller
     }
 
     /**
+     * Notes : 文章搜索
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/2/12 16:19
+     */
+    public function search(Request $request, Article $article)
+    {
+        $keyword =  $request->input('keyword');
+//        dd($keyword);
+        $articles= [];
+        return view('home.article.search',compact('articles', 'keyword'));
+
+    }
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

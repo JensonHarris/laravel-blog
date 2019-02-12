@@ -24,11 +24,10 @@ Route::group(['prefix' => 'article'], function() {
 
     Route::get('/tag/{tag}', 'Home\ArticleController@tagArticles');
 
-
 });
 
 
 
-Route::get('/Search', 'Home\ArticleController@show');
+Route::post('/search', 'Home\ArticleController@search');
 
 include_once ('admin.php');
