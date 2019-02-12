@@ -44,7 +44,7 @@
             <h3>热门标签</h3>
             <div class="items">
                 @foreach ($articleTags as $key => $articleTag)
-                <a href="#" class="tagColor-{{($key+1)%4}}">{{$articleTag->name}} ({{$articleTag->articles->count()}})</a>
+                <a href="/article/tag/{{$articleTag->id}}" class="tagColor-{{($key+1)%4}}">{{$articleTag->name}} ({{$articleTag->articles->count()}})</a>
                 @endforeach
                </div>
            </div>

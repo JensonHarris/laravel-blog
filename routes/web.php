@@ -20,7 +20,10 @@ Route::group(['prefix' => 'article'], function() {
     //文章详情页
     Route::get('/{article}', 'Home\ArticleController@index');
 
-    Route::get('/category/{id}', 'Home\ArticleController@category');
+    Route::get('/category/{id}', 'Home\ArticleController@categoryArticles');
+
+    Route::get('/tag/{tag}', 'Home\ArticleController@tagArticles');
+
 
 });
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use App\Models\Tag;
 use App\Models\ArticleCategory;
 use App\Http\Controllers\Controller;
 
@@ -49,16 +50,30 @@ class ArticleController extends Controller
     }
 
     /**
-     * Notes : 文章分类
+     * Notes : 分类文章
      * Author: JesonC <748532271@qq.com>
      * Date  : 2019/2/2 14:39
      */
-    public function category($id, ArticleCategory $articleCategory)
+    public function categoryArticles($id, ArticleCategory $articleCategory)
     {
         $category   =  $articleCategory->find($id);
         $categoryIds = $articleCategory->getCategories($id);
         $articles    = Article::whereIn('category_id',$categoryIds)->orderBy('is_top', 'ASC')->orderBy('created_at', 'DESC')->paginate(10);
         return view('home.article.category',compact('articles', 'category'));
+    }
+
+    /**
+     * Notes : 标签文章
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/2/2 15:52
+     */
+    public function tagArticles(Tag $tag)
+    {
+        $articles  = $tag->articles;
+
+
+
+        return view('home.article.tag',compact('articles', 'tag'));
     }
 
     /**
