@@ -104,7 +104,7 @@
             </article>
             <div class="article-tags">标签：
                 @foreach ($article->articleTags as $tag)
-                <a href="/tagsList/{{$tag->id}}" rel="tag" target="_blank" title="{{$tag->name}}" draggable="false">{{$tag->name}}</a>
+                <a href="/article/tag/{{$tag->id}}" rel="tag" target="_blank" title="{{$tag->name}}" draggable="false">{{$tag->name}}</a>
                 @endforeach
             </div>
             <div class="relates">

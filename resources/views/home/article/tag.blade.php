@@ -18,7 +18,9 @@
                         </a>
 
                         <header>
-                            <a class="cat" href="#" target="_blank">{{$article->articleCategory->name}}<i></i></a>
+                            <a class="cat" href="/article/category/{{$article->articleCategory->id}}" target="_blank">
+                                {{$article->articleCategory->name}}<i></i>
+                            </a>
                             <h2>
                                 <a href="/article/{{$article->id}}" target="_blank">{{$article->title}}</a>
                             </h2>
