@@ -23,7 +23,7 @@
                 </div>
                 <div role="tabpanel" class="tab-pane contact" id="contact">
                     <h2>Email:<br />
-                        <a href="mailto:admin@ylsat.com" data-toggle="tooltip" data-placement="bottom" title="admin@ylsat.com">
+                        <a href="mailto:jesonc99@163.com" data-toggle="tooltip" data-placement="bottom" title="jesonc99@163.com">
                             jesonc99@163.com
                         </a>
                     </h2>
@@ -53,11 +53,16 @@
     </div>
     <div class="widget widget_sentence">
         <h3>每日一句</h3>
+        {{--<div class="widget-sentence-content">--}}
+            {{--<h4>{{now()->format(' Y年 m月 d日 ')}}</h4>--}}
+            {{--<p>Do not let what you cannot do interfere with what you can do.--}}
+                {{--<br />别让你不能做的事妨碍到你能做的事。（John Wooden）--}}
+            {{--</p>--}}
+        {{--</div>--}}
         <div class="widget-sentence-content">
-            <h4>2016年01月05日星期二</h4>
-            <p>Do not let what you cannot do interfere with what you can do.
-                <br />别让你不能做的事妨碍到你能做的事。（John Wooden）
-            </p>
+            <h4 >{{now()->format(' Y年 m月 d日 ')}}<span id="now-time"></span></h4>
+            <p id="daily-sentence">Never envy other people's excellence, because they believe that they can also be excellent.</p>
+            <p id="note">从不羡慕别人的优秀，因为相信自己也可以优秀。（Justin）</p>
         </div>
     </div>
 
@@ -85,3 +90,4 @@
     </div>
 </aside>
 </section>
+

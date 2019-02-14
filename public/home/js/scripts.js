@@ -214,3 +214,25 @@ try {
         console.log("\nPOWERED BY WY ALL RIGHTS RESERVED");
     }
 } catch (e) {};
+
+//M每日一句
+$(function(){
+    var today = new Date();
+    var week = " 星期" + "日一二三四五六 ".charAt(today.getDay());
+    $('#now-time').text(week);
+
+    $.ajax({
+        type: "GET",
+        url: 'http://open.iciba.com/dsapi',
+        dataType: "jsonp",
+        error: function(msg) {
+            $('#daily-sentence').html("Never envy other people's excellence, because they believe that they can also be excellent");
+        },
+        success: function(res) {
+            $('#daily-sentence').html(res.content);
+            $('#note').html(res.note);
+        }
+    });
+    return false; //阻
+});
+
