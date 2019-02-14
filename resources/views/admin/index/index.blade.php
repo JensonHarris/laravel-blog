@@ -224,7 +224,7 @@
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
-                        <a >
+                        <a href="/admin/clear">
                             <i class="fa fa-spin fa-sync-alt"></i>清除缓存
                         </a>
                     </li>
@@ -368,3 +368,5 @@
 <!-- 自定义js -->
 <script src="/admin/js/hplus.js?v=4.1.0"></script>
 <script type="text/javascript" src="/admin/js/contabs.js"></script>
+<script>
+</script>

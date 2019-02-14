@@ -27,6 +27,8 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login']], function() {
     Route::get('/index', 'Admin\IndexController@index');
 
     Route::get('/profile', 'Admin\IndexController@profile');
+
+    Route::get('/clear', 'Admin\IndexController@clear');
     //修改完个人信息
     Route::post('/updateUser/{au_id}', 'Admin\IndexController@updateUser');
     //退出登录

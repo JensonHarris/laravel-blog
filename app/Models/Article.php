@@ -62,15 +62,15 @@ class Article extends Model
     }
 
     /**
-     * Notes : 文章搜索
+     * Notes :  文章搜索
      * Author: JesonC <748532271@qq.com>
-     * Date  : 2019/2/13 16:41
-     * @param $wd
+     * Date  : 2019/2/14 9:38
+     * @param $keyword
      * @return mixed
+     *
      */
     public function searchArticleGetId($keyword)
     {
-
         return DB::table('articles as ar')
             ->leftJoin('article_contents as ac', 'ar.id', '=', 'ac.article_id')
             ->orWhere('ar.title', 'LIKE', "%$keyword%")
