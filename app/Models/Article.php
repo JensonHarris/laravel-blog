@@ -55,10 +55,49 @@ class Article extends Model
     public function articles($limit)
     {
         return DB::table('articles as ar')
-            ->leftJoin('article_categories as ac','ar.category_id','=','ac.id')
-            ->leftJoin('article_statistics as as','ar.id','=','as.article_id')
-            ->select('ar.*','ac.name','as.views','as.likes')
+            ->leftJoin('article_categories as ac', 'ar.category_id','=', 'ac.id')
+            ->leftJoin('article_statistics as as', 'ar.id','=', 'as.article_id')
+            ->select('ar.*', 'ac.name', 'as.views', 'as.likes')
             ->paginate($limit);
+    }
+
+    /**
+     * Notes : 文章搜索
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/2/13 16:41
+     * @param $wd
+     * @return mixed
+     */
+    public function searchArticleGetId($keyword)
+    {
+
+        return DB::table('articles as ar')
+            ->leftJoin('article_contents as ac', 'ar.id', '=', 'ac.article_id')
+            ->orWhere('ar.title', 'LIKE', "%$keyword%")
+            ->orWhere('ar.author', 'LIKE', "%$keyword%")
+            ->orWhere('ar.description', 'LIKE', "%$keyword%")
+            ->orWhere('ac.markdown', 'LIKE', "%$keyword%")
+            ->pluck('ar.id');
+//
+        // 如果 SCOUT_DRIVER 为 null 则使用 sql 搜索
+//        if (is_null(env('SCOUT_DRIVER'))) {
+//            $id = Article::where('title', 'like', "%$keyword%")
+//                ->orWhere('description', 'like', "%$keyword%")
+//                ->orWhere('markdown', 'like', "%$keyword%")
+//                ->pluck('id');
+//            return $id;
+//        }
+
+//        // 如果全文搜索出错则降级使用 sql like
+//        try{
+//            $id = Article::search($keyword)->keys();
+//        } catch (\Exception $e) {
+//            $id = Article::where('title', 'like', "%$keyword%")
+//                ->orWhere('description', 'like', "%$keyword%")
+//                ->orWhere('markdown', 'like', "%$keyword%")
+//                ->pluck('id');
+//        }
+//        return $id;
     }
 
 }

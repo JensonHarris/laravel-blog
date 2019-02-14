@@ -82,8 +82,8 @@ class ArticleController extends Controller
     public function search(Request $request, Article $article)
     {
         $keyword =  $request->input('keyword');
-//        dd($keyword);
-        $articles= [];
+        $articleIds =  $article->searchArticleGetId($keyword);
+        $articles    = Article::whereIn('id',$articleIds)->orderBy('is_top', 'ASC')->orderBy('created_at', 'DESC')->paginate(10);
         return view('home.article.search',compact('articles', 'keyword'));
 
     }

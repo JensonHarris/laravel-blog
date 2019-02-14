@@ -9,13 +9,14 @@
                     <p>在这里可以看到前端技术，后端程序，网站内容管理系统等文章，还有我的程序人生！</p>
                 </div>
                 <div class="catleader">
-                    <form class="bs-example bs-example-form" role="form">
+                    <form class="bs-example bs-example-form" role="form" action="/search" method="POST">
+                        {{ csrf_field() }}
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="input-group">
-                                    <input type="text" class="form-control input-lg" value="{{$keyword}}">
+                                    <input type="text" class="form-control input-lg" name="keyword" value="{{$keyword}}">
                                     <span class="input-group-btn">
-                                    <button class="btn btn-default btn-lg" type="button">
+                                    <button class="btn btn-default btn-lg" name="search" type="submit">
                                         Go!
                                     </button>
                                 </span>
@@ -28,17 +29,11 @@
                 <span style="margin-top: 35px;margin-bottom: 5px;color: #818488ee;">
                     共搜索到关于
                     <span class="text-danger">{{$keyword}}</span>的
-                    <span class="text-danger">68</span>
+                    <span class="text-danger">{{$articles->total()}}</span>
                     条记录：
                 </span>
                 </div>
-                <form class="navbar-form visible-xs" action="/search" method="POST">
-                    <div class="input-group">
-                        <input type="text" name="keyword" class="form-control" placeholder="请输入关键字" maxlength="20" autocomplete="off"> <span class="input-group-btn">
-            <button class="btn btn-default btn-search" name="search" type="submit">搜索</button>
-            </span>
-                    </div>
-                </form>
+
                 @foreach ($articles as $article)
                     <article class="excerpt">
                         <a class="focus" href="/article/{{$article->id}}" target="_blank">
@@ -84,9 +79,9 @@
                     @endforeach
                     </article>
                     <nav class="pagination">
-                        {{--{{ $articles->links() }}--}}
+                        {{ $articles->links() }}
                         <ul>
-                            {{--<li><span>共  {{ $articles->lastPage() }} 页</span>--}}
+                            <li><span>共  {{ $articles->lastPage() }} 页</span>
                             </li>
                         </ul>
                     </nav>

@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        @if(!isset($keyword))
+        @if(! array_key_exists('keyword', get_defined_vars()))
         <div class="widget widget_search">
             <form class="navbar-form"  method="POST" action="/search">
                 {{ csrf_field() }}
