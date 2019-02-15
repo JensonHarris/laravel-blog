@@ -1,5 +1,5 @@
 @extends("home.layout.main")
-@section('title', '落葉憂傷博客')
+@section('title', 'JesonC博客')
 @section("content")
     <section class="container">
         <div class="content-wrap">

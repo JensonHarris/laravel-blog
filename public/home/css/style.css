@@ -3203,3 +3203,23 @@ color:#FFF;
 	margin-bottom: 15px;
 	padding: 15px 20px;
 }
+
+.breadcrumbs {
+	padding: 15px 0;
+	font-size: 12px;
+	line-height: 1;
+	text-align: left;
+	background-color: #fff;
+	margin-bottom: 15px;
+	margin-top: -20px;
+	border-bottom: 1px solid #EBEBEB;
+	box-shadow: 0 1px 3px rgba(0,0,0,.04);
+	color: #999;
+}
+.breadcrumbs a{
+    color: #999;
+}
+.breadcrumbs a:hover {
+	color: #3399CC;
+}
+

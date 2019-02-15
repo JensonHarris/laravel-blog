@@ -1,6 +1,12 @@
 @extends("home.layout.main")
 @section('title', $article->title)
 @section("content")
+    <div class="breadcrumbs">
+        <div class="container">当前位置：
+            <a href="/">JesonC博客</a><small>&gt;</small>
+            <a href="/article/category/{{$article->articleCategory->id}}">{{$article->articleCategory->name}}</a> <small>&gt;</small>{{$article->title}}
+        </div>
+    </div>
 <section class="container  single">
     <div class="content-wrap">
         <div class="content">
@@ -99,7 +105,7 @@
                         @endif
                     </div>
                 </div>
-                <p class="article-copyright hidden-xs">未经允许不得转载：<a href="https://www.liangjucai.com/article/340" draggable="false">JesonC博客</a> » <a href="https://www.liangjucai.com/article/340" draggable="false">{{$article->title}}</a>
+                <p class="article-copyright hidden-xs">未经允许不得转载：<a href="/article/{{$article->id}}" draggable="false">JesonC博客</a> » <a href="/article/{{$article->id}}" draggable="false">{{$article->title}}</a>
                 </p>
             </article>
             <div class="article-tags">标签：
@@ -107,19 +113,19 @@
                 <a href="/article/tag/{{$tag->id}}" rel="tag" target="_blank" title="{{$tag->name}}" draggable="false">{{$tag->name}}</a>
                 @endforeach
             </div>
-            <div class="relates">
-                <div class="title">
-                    <h3>好文推荐</h3>
-                </div>
-                <ul>
-                    <li>
-                        <a href="https://www.liangjucai.com/article/142" target="_blank" title="程序员为什么不爱炫富？" draggable="false">程序员为什么不爱炫富？</a>
-                    </li>
-                    <li>
-                        <a href="https://www.liangjucai.com/article/255" target="_blank" title="生活，不会亏待努力奋斗的人" draggable="false">生活，不会亏待努力奋斗的人</a>
-                    </li>
-                </ul>
-            </div>
+            {{--<div class="relates">--}}
+                {{--<div class="title">--}}
+                    {{--<h3>好文推荐</h3>--}}
+                {{--</div>--}}
+                {{--<ul>--}}
+                    {{--<li>--}}
+                        {{--<a href="https://www.liangjucai.com/article/142" target="_blank" title="程序员为什么不爱炫富？" draggable="false">程序员为什么不爱炫富？</a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                        {{--<a href="https://www.liangjucai.com/article/255" target="_blank" title="生活，不会亏待努力奋斗的人" draggable="false">生活，不会亏待努力奋斗的人</a>--}}
+                    {{--</li>--}}
+                {{--</ul>--}}
+            {{--</div>--}}
             <div class="title" id="comment">
                 <h3>评论
                     <small>抢沙发</small>

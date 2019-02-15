@@ -53,16 +53,10 @@
     </div>
     <div class="widget widget_sentence">
         <h3>每日一句</h3>
-        {{--<div class="widget-sentence-content">--}}
-            {{--<h4>{{now()->format(' Y年 m月 d日 ')}}</h4>--}}
-            {{--<p>Do not let what you cannot do interfere with what you can do.--}}
-                {{--<br />别让你不能做的事妨碍到你能做的事。（John Wooden）--}}
-            {{--</p>--}}
-        {{--</div>--}}
         <div class="widget-sentence-content">
             <h4 >{{now()->format(' Y年 m月 d日 ')}}<span id="now-time"></span></h4>
-            <p id="daily-sentence">Never envy other people's excellence, because they believe that they can also be excellent.</p>
-            <p id="note">从不羡慕别人的优秀，因为相信自己也可以优秀。（Justin）</p>
+            <p id="daily-sentence"></p>
+            <p id="note"></p>
         </div>
     </div>
 

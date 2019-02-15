@@ -1,11 +1,11 @@
 @extends("home.layout.main")
-@section('title', '落葉憂傷博客')
+@section('title', 'JesonC博客')
 @section("content")
     <section class="container">
         <div class="content-wrap">
             <div class="content">
                 <div class="jumbotron">
-                    <h1>欢迎访问落葉憂傷博客</h1>
+                    <h1>欢迎访问JesonC博客</h1>
                     <p>在这里可以看到前端技术，后端程序，网站内容管理系统等文章，还有我的程序人生！</p>
                 </div>
                 <div class="catleader">
