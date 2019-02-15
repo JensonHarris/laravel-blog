@@ -2801,17 +2801,14 @@ color:#FFF;
 赞赏
  */
 .admired{
+	margin-top: 40px;
 	width: 100%;
-	/*overflow: hidden;*/
-	/*height: 50px;*/
 	text-align:center;
 	margin-bottom: 30px;
 }
 .admired_div{
 	width: 300px;
 	margin: 0 auto;
-	/*height: 50px;*/
-	/*overflow: hidden;*/
 	display: inline-block;
 	line-height: 38px;
 	letter-spacing: 1px;
@@ -2821,39 +2818,51 @@ color:#FFF;
 	margin-right: 6px;
 }
 .admired_div .praise{
-	width: 140px;
-	margin-top: 10px;
+	width: 150px;
 	height: 40px;
 	float: left;
 	border: 1px solid #d2cece;
-	/*color: #ffffff;*/
-	/*background: #f78585;*/
+	color: #ffffff;
+	background: #ff4400;
 }
+
+.admired_div  .praise:hover{
+	background: #878787;
+}
+
 .admired_div .share{
-	margin-top: 10px;
-	width: 140px;
+	width: 150px;
 	float: right;
 	border: 1px solid #d2cece;
-	/*color: #ffffff;*/
+	color: #ffffff;
 	height: 40px;
-	/*background: #5fcec0;*/
+	background: #ecb842;
 }
+
+.admired_div  .share:hover{
+	background: #878787;
+}
+
 .admired_div  .enjoy{
 	position:absolute;
 	left: 125px;
 	height: 50px;
 	width: 50px;
-	border-radius: 50px;
-	line-height: 46px;
-	background: #FFFFFF;
-	border: 1px solid #d2cece;
-	box-shadow:0 1px 5px #999;
+	border-radius: 50%;
+	line-height: 40px;
+	background: #7ab951;
 	text-align: center;
-	letter-spacing: 0px;
-	color: red;
+	color: #ffffff;
 	font-weight: 600;
 	font-size: 20px;
+	top: -5px;
+	border: 4px solid #fff;
 }
+
+.admired_div  .enjoy:hover{
+	background: #878787;
+}
+
 .admired_div .share:hover .share{
 	border: 1px solid #b5b1b1;
 }
@@ -2964,7 +2973,7 @@ color:#FFF;
 	border-radius:5px;
 	border-bottom:1px solid #e1dfdf;
 	box-shadow:0 5px 15px #999;
-	width: 130px;
+	width: 150px;
 }
 .fx_show .fx_show a.active {
 	border-bottom:1px solid #ff4300;
@@ -3223,3 +3232,16 @@ color:#FFF;
 	color: #3399CC;
 }
 
+.social-share{overflow: hidden;vertical-align: top;margin: 3px;}
+.social-share a{width: 24px;height: 24px;display: inline-block;margin-right: 5px;background: url(/home/images/share.png) no-repeat;cursor: pointer;margin-bottom: 0;opacity: .8}
+.social-share a:hover{opacity: 1}
+.social-share a.bds_weixin{background-position    : 0 -33px;}
+.social-share a.bds_tsina{background-position     : 0 0;}
+.social-share a.bds_qzone{background-position     : 0 -65px;}
+.social-share a.bds_sqq{background-position       : 0 -98px;}
+.social-share a.bds_tqq{background-position       : 0 -163px;}
+.social-share a.bds_renren{background-position    : 0 -131px;}
+
+@media (max-width:560px){
+
+}

@@ -57,26 +57,18 @@
                                     </div> <span class="triangle"></span>
 
                                 </div>
-                            </div>赏</div>
+                            </div>赏
+                        </div>
                         <div class="share">
                             <div class="fx_show slidebottoms">
                                 <div class="ps_con">
                                     <div class="row share-component social-share" id="share-2">
-                                        <a class="social-share-icon icon-qzone" href=" " target="_blank"></a>
-                                        <a class="fab fa-qq" href="" target="_blank"></a>
-                                        <a class="fab fa-weibo" href="" target="_blank"></a>
-                                        <a class="fab fa-weixin" href="javascript:;" tabindex="-1">
-                                            {{--<div class="wechat-qrcode">--}}
-                                                {{--<h4>微信扫一扫：分享</h4>--}}
-                                                {{--<div class="qrcode">--}}
-                                                    {{--<img src="">--}}
-                                                {{--</div>--}}
-                                                {{--<div class="help">--}}
-                                                    {{--<p>微信点“+”，扫一扫</p>--}}
-                                                    {{--<p>右上角“...”分享到朋友圈</p>--}}
-                                                {{--</div>--}}
-                                            {{--</div>--}}
-                                        </a>
+
+                                            <a class="bds_qzone" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{url()->full()}}&sharesource=qzone&title={{$article->title}}&pics={{$article->cover_map}}&summary={{$article->description}}" title="分享到QQ空间" target="_blank"></a>
+                                            <a class="bds_tsina" href="http://service.weibo.com/share/share.php?url={{url()->full()}}&sharesource=weibo&title={{$article->title}}&pic={{$article->cover_map}}&appkey=" title="分享到新浪微博" target="_blank"></a>
+                                            <a class="bds_sqq" href="http://connect.qq.com/widget/shareqq/index.html?url={{url()->full()}}&sharesource=qzone&title={{$article->title}}&pics={{$article->cover_map}}&summary={{$article->description}}&desc={{$article->description}}" title="分享到QQ好友" target="_blank"></a>
+                                        <a class="bds_weixin" data-cmd="weixin" title="分享到微信" target="_blank"></a>
+
                                     </div> <span class="triangle"></span>
 
                                 </div>
@@ -216,5 +208,13 @@
         sequenceDiagram: true // 默认不解析
     });
 
+
+
+
+
 </script>
+
+        <script>
+
+        </script>
 @endsection
