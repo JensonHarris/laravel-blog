@@ -5,6 +5,8 @@ namespace App\Models;
 class ArticleStatistic extends Model
 {
 
+    public $timestamps = false;
+
     /**
      * Notes : 文章内容
      * Author: JesonC <748532271@qq.com>

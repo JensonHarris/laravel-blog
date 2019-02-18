@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Home;
 use App\Models\Article;
 use App\Models\ArticleStatistic;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class IndexController extends Controller
 {

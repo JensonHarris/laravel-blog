@@ -164,36 +164,70 @@ document.onkeydown=function(event){
 /*文章评论*/
 $(function(){
 	$("#comment-submit").click(function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 		var commentContent = $("#comment-textarea");
+		var commentName    = $('#comment_name').val();
+		var commentEmail   = $('#comment_email').val();
 		var commentButton = $("#comment-submit");
 		var promptBox = $('.comment-prompt');
 		var promptText = $('.comment-prompt-text');
 		var articleid = $('.articleid').val();
 		promptBox.fadeIn(400);
-		if(commentContent.val() === ''){
+		if (commentName == ''){
+            promptText.text('请留下您的昵称');
+            return false;
+        }
+        if (commentEmail == ''){
+            promptText.text('请留下您的邮箱');
+            return false;
+        }
+        if(commentContent.val() === ''){
 			promptText.text('请留下您的评论');
 			return false;
 		}
 		commentButton.attr('disabled',true);
 		commentButton.addClass('disabled');
 		promptText.text('正在提交...');
+		var content  = replace_em(commentContent.val());
 		$.ajax({
 			type:"POST",
-			url:"test.php?id=" + articleid,
-			//url:"/Article/comment/id/" + articleid,
-			data:"commentContent=" + replace_em(commentContent.val()),
+			url:"/article/comment",
+            dataType: "json",
+            data: {article_id:articleid,content:content},
 			cache:false, //不缓存此页面
-			success:function(data){
-				alert(data);
-				promptText.text('评论成功!');
-			    commentContent.val(null);
-				$(".commentlist").fadeIn(300);
-				/*$(".commentlist").append();*/
-				commentButton.attr('disabled',false);
-				commentButton.removeClass('disabled');
-			}
+
+            error: function(msg) {
+                if (msg.status == 422) {
+                    var json=JSON.parse(msg.responseText);
+                    json = json.errors;
+                    for ( var item in json) {
+                        for ( var i = 0; i < json[item].length; i++) {
+                            layer.msg(json[item][i], {icon: 5});
+                            return ; //遇到验证错误，就退出
+                        }
+                    }
+                } else {
+                    layer.msg(res.message, {icon: 5});
+                    return ;
+                }
+            },
+            success: function(res) {
+                if (res.status) {
+                    layer.msg(res.message, {icon: 1});
+                    commentContent.val(null);
+                    $(".commentlist").fadeIn(300);
+                    commentButton.attr('disabled',false);
+                    commentButton.removeClass('disabled');
+                    return false;
+                } else {
+                    layer.msg(res.message, {icon: 5});
+                }
+            }
 		});
-		/*$(".commentlist").append(replace_em(commentContent.val()));*/
 		promptBox.fadeOut(100);
 		return false;
 	});

@@ -14,7 +14,6 @@
                 <h1 class="article-title">
                     <a href="/article/{{$article->id}}" draggable="false">{{$article->title}}</a>
                 </h1>
-
                 <div class="article-meta"> <span class="item article-meta-time">
                       <time class="time" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="时间：{{$article->created_at}}">
                         <i class="far fa-clock"></i> {{$article->created_at}}
@@ -44,7 +43,7 @@
                 </div>
                 <div class="admired">
                     <div class="admired_div">
-                        <div class="praise"> <i class="far fa-heart"></i>喜欢(<span id="like_num">0</span>)</div>
+                        <div class="praise" data-id="{{$article->id}}"> <i class="far fa-heart"></i>喜欢(<span id="like_num">{{$article->statistic->likes}}</span>)</div>
                         <div class="enjoy">
                             <div class="pay_show slidebottoms">
                                 <div class="ps_con">
@@ -105,19 +104,7 @@
                 <a href="/article/tag/{{$tag->id}}" rel="tag" target="_blank" title="{{$tag->name}}" draggable="false">{{$tag->name}}</a>
                 @endforeach
             </div>
-            {{--<div class="relates">--}}
-                {{--<div class="title">--}}
-                    {{--<h3>好文推荐</h3>--}}
-                {{--</div>--}}
-                {{--<ul>--}}
-                    {{--<li>--}}
-                        {{--<a href="https://www.liangjucai.com/article/142" target="_blank" title="程序员为什么不爱炫富？" draggable="false">程序员为什么不爱炫富？</a>--}}
-                    {{--</li>--}}
-                    {{--<li>--}}
-                        {{--<a href="https://www.liangjucai.com/article/255" target="_blank" title="生活，不会亏待努力奋斗的人" draggable="false">生活，不会亏待努力奋斗的人</a>--}}
-                    {{--</li>--}}
-                {{--</ul>--}}
-            {{--</div>--}}
+
             <div class="title" id="comment">
                 <h3>评论
                     <small>抢沙发</small>
@@ -141,8 +128,8 @@
 
                                 <div class="comment-prompt"><i class="fa fa-spin fa-circle-o-notch"></i>  <span class="comment-prompt-text"></span>
                                 </div>
-                                <input type="hidden" value="1" class="articleid">
-                                <button type="button" name="comment-submit" class="comment-submit" tabindex="5" articleid="1" data-id="0">评论</button>
+                                <input type="hidden" value="{{$article->id}}" class="articleid">
+                                <button type="button" id="comment-submit" class="comment-submit" tabindex="5" articleid="1" data-id="0">评论</button>
                             </div>
                         </div>
                     </div>
@@ -154,7 +141,7 @@
 @endsection
 @section('scripts')
 <script src="/home/js/jquery.qqFace.js"></script>
-
+<script src="/home/js/jquery.cookie.js"></script>
 <script src="/plugins/markdown/lib/flowchart.min.js"></script>
 <script src="/plugins/markdown/lib/jquery.flowchart.min.js"></script>
 <script src="/plugins/markdown/lib/marked.min.js"></script>
@@ -163,58 +150,5 @@
 <script src="/plugins/markdown/lib/underscore.min.js"></script>
 <script src="/plugins/markdown/lib/sequence-diagram.min.js"></script>
 <script src="/plugins/markdown/editormd.js"></script>
-<script type="text/javascript">
-    $(function() {
-        $('.emotion').qqFace({
-            id: 'facebox',
-            assign: 'comment-textarea',
-            path: '/home/images/arclist/' //表情存放的路径
-        });
-    });
-
-    $(".ps_tab a").click(function() {
-        $(".ps_tab a").removeClass('active');
-        $(this).addClass('active');
-        if ($(this).attr('data-type') == 1) {
-            $(".ps_code img").attr('src', "/home/images/pay/alipay.jpg");
-        } else {
-            $(".ps_code img").attr('src', "/home/images/pay/weixpay.jpg");
-        }
-    });
-
-    $(".praise").click(function() {
-        $.post("https://www.liangjucai.com/articleLike", {
-            'id': "340"
-        }, function(res) {
-            if (res.code == 200) {
-                layer.msg('大爷:) 点赞成功~', {
-                    time: 1200
-                });
-                $("#like_num").html(parseInt($("#like_num").html()) + 1);
-            } else {
-                layer.msg('大爷:(  ' + res.message, {
-                    time: 1200
-                });
-            }
-        }, 'json');
-    });
-
-    editormd.markdownToHTML("test-editormd", {
-        htmlDecode: "style,script,iframe",
-        emoji: true,
-        taskList: true,
-        tex: true, // 默认不解析
-        flowChart: true, // 默认不解析
-        sequenceDiagram: true // 默认不解析
-    });
-
-
-
-
-
-</script>
-
-        <script>
-
-        </script>
+<script src="/home/js/article.js"></script>
 @endsection

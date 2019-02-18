@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Home;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use App\Models\Tag;
+use App\Models\ArticleComment;
 use App\Models\ArticleCategory;
-use App\Http\Controllers\Controller;
+use App\Models\ArticleStatistic;
 
 class ArticleController extends Controller
 {
@@ -87,15 +88,37 @@ class ArticleController extends Controller
         return view('home.article.search',compact('articles', 'keyword'));
 
     }
+
+    /**
+     * Notes :  文章点赞
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/2/18 10:59
+     */
+    public function articleLike(Request $request)
+    {
+        $article_id =  $request->input('article_id');
+        $result = ArticleStatistic::where('article_id', '=', $article_id)->increment('likes');;
+        if ($result){
+            $likes = ArticleStatistic::where('article_id', '=', $article_id)->first();
+            return $this->success(20006,$likes);
+        }
+        return $this->error(40005);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function comment(Request $request, ArticleComment $articleComment)
     {
-
+        $content  = $request->input();
+        $result = $articleComment->create($content);
+        if ($result){
+            return $this->success(20007);
+        }
+        return $this->error(40005);
     }
 
     /**
