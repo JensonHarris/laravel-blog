@@ -15,7 +15,7 @@ layui.use('table', function(){
             ,{field:'id', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
             ,{field:'content', title:'评论内容', }
             ,{field:'title', title:'评论文章'}
-            ,{field:'name', title:'用户', width:100}
+            ,{field:'nickname', title:'用户', width:100}
             ,{field:'status', title:'状态', width:120, templet:'#commentStatus'}
             ,{field:'created_at', title:'评论时间', width:200, sort: true}
             ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
@@ -38,13 +38,14 @@ layui.use('table', function(){
     //监听行工具事件
     table.on('tool(test)', function(obj){
         var data = obj.data;
-        if(obj.event === 'del'){
-            layer.confirm('你确定要删除该留言吗？', {icon: 3, title:'删除留言'}, function(index){
+        //禁用用户
+        if(obj.event === 'disabled'){
+            layer.confirm('你确定要撤销留言吗？', {icon: 3, title:'撤销显示'}, function(index){
                 $.ajax({
                     type: "POST",
-                    url: '/admin/comment/destroy',
+                    url: '/admin/comment/changeStatus',
                     dataType: "json",
-                    data: {id: data.id},
+                    data: {id: data.id,status:1},
                     error: function(msg) {
                         if (msg.status == 422) {
                             var json=JSON.parse(msg.responseText);
@@ -66,7 +67,48 @@ layui.use('table', function(){
                                 icon: 1,//提示的样式
                                 time: 2000, //2秒关闭
                                 end:function(){
-                                    obj.del();
+                                    window.location.href="/admin/comment";
+                                }
+                            });
+                        } else {
+                            layer.msg(res.message, {icon: 5});
+                        }
+                    }
+                });
+                return false;
+            });
+        }
+
+        //启用用户
+        if(obj.event === 'start') {
+            layer.confirm('你确定要发布留言吗？', {icon: 3, title: '留言发布'}, function (index) {
+                $.ajax({
+                    type: "POST",
+                    url: '/admin/comment/changeStatus',
+                    dataType: "json",
+                    data: {id: data.id, status: 0},
+                    error: function (msg) {
+                        if (msg.status == 422) {
+                            var json = JSON.parse(msg.responseText);
+                            json = json.errors;
+                            for (var item in json) {
+                                for (var i = 0; i < json[item].length; i++) {
+                                    layer.msg(json[item][i], {icon: 5});
+                                    return; //遇到验证错误，就退出
+                                }
+                            }
+                        } else {
+                            layer.msg('服务器连接失败', {icon: 5});
+                            return;
+                        }
+                    },
+                    success: function (res) {
+                        if (res.status) {
+                            layer.msg(res.message, {
+                                icon: 1,//提示的样式
+                                time: 2000, //2秒关闭
+                                end: function () {
+                                    window.location.href="/admin/comment";
                                 }
                             });
                         } else {

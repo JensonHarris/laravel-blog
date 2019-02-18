@@ -179,12 +179,12 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login']], function() {
         Route::get('', 'Admin\CommentController@index');
         //评论数据
         Route::get('/jsonData', 'Admin\CommentController@jsonData');
-        //标签评论
-        Route::post('/destroy', 'Admin\CommentController@destroy');
+        //审核评论
+        Route::post('/changeStatus', 'Admin\CommentController@changeStatus');
     });
 
 
-    //  评论列表
+    //  上传
     Route::group(['prefix' => 'upload'], function() {
         Route::post('', 'Admin\UploaderController@uploadImage');
         Route::post('/cover', 'Admin\UploaderController@uploadCover');

@@ -24,7 +24,9 @@ class ArticleController extends Controller
         // 下一篇文章
         $next_article = $this->getNextArticle($id);
 
-        return view('home.article.index',compact('article', 'prev_article', 'next_article'));
+        $comments    = ArticleComment::where('status', '=', 0)->where('article_id', '=', $id)->orderBy('created_at', 'DESC')->paginate(10);
+//dd($comments);
+        return view('home.article.index',compact('article', 'prev_article', 'next_article', 'comments'));
     }
 
 
@@ -106,63 +108,21 @@ class ArticleController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Notes : 文章留言功能
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/2/18 16:22
+     * @param Request $request
      */
     public function comment(Request $request, ArticleComment $articleComment)
     {
-        $content  = $request->input();
-        $result = $articleComment->create($content);
+        $comment  = $request->input();
+        $result = $articleComment->create($comment);
         if ($result){
             return $this->success(20007);
         }
         return $this->error(40005);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show()
-    {
-        return view('home.article.search');
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

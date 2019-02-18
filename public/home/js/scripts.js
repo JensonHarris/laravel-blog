@@ -197,7 +197,11 @@ $(function(){
 			type:"POST",
 			url:"/article/comment",
             dataType: "json",
-            data: {article_id:articleid,content:content},
+            data: {article_id:articleid
+                ,content:content
+                ,nickname:commentName
+                ,email:commentEmail
+            },
 			cache:false, //不缓存此页面
 
             error: function(msg) {

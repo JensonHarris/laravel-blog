@@ -135,7 +135,43 @@
                     </div>
                 </form>
             </div>
-            <div id="postcomments"></div>
+            <div id="postcomments">
+                @foreach ($comments as $key=>$comment)
+                    <ol class="commentlist">
+                        <li class="comment-content">
+                            <div class="comment-hf">
+                                <div><span class="comment-f">#{{$key+1}}</span>
+                                </div>
+                                <div><a class="comm_hf_btn1" data-id="{{$comment->id}}">回复</a>
+                                </div>
+                            </div>
+                            <div class="comment-avatar"><span class="avatar" id="nickname">{{$comment->nickname}}</span>
+                            </div>
+                            <div class="comment-main">
+                                <p><a href="#" target="_blank">{{$comment->nickname}}</a><span class="time">({{$comment->created_at}})</span>
+                                    <br>{{$comment->content}}</p>
+                            </div>
+                        </li>
+                    </ol>
+                @endforeach
+
+                {{--<li class="comment-content comm_list">--}}
+                    {{--<div class="comment-hf">--}}
+                        {{--<div><span class="comment-f">#_1</span>--}}
+                        {{--</div>--}}
+                        {{--<div><a class="comm_hf_btn1" data-id="238">回复</a>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="comment-avatar"><span class="avatar">J</span>--}}
+                    {{--</div>--}}
+                    {{--<div class="comment-main">--}}
+                        {{--<p><a href="https://www.liangjucai.com" target="_blank">Justin</a>: <span style="font-size: 12px;margin-left: 1px;"><label class="blog_comm_name">博主</label>回复</span><a style="font-size: 12px;margin-left: 1px;" href="https://www.liulangboy.com" target="_blank">六狼风情</a>--}}
+                            {{--<span--}}
+                                    {{--class="time">(2019-01-30 20:29:55)</span>--}}
+                            {{--<br>欢迎</p>--}}
+                    {{--</div>--}}
+                {{--</li>--}}
+            </div>
         </div>
     </div>
 @endsection
@@ -151,4 +187,5 @@
 <script src="/plugins/markdown/lib/sequence-diagram.min.js"></script>
 <script src="/plugins/markdown/editormd.js"></script>
 <script src="/home/js/article.js"></script>
+
 @endsection

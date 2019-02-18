@@ -16,8 +16,8 @@ class CreateArticleCommentsTable extends Migration
     {
         Schema::create('article_comments', function (Blueprint $table) {
             $table->increments('id')->comment('主键id');
-            $table->integer('member_id')->unsigned()->default(0)->comment('评论用户id 关联member表的id');
-            $table->boolean('type')->default(1)->comment('1：文章评论');
+            $table->string('nickname',32)->default('')->comment('姓名昵称');
+            $table->string('email')->default('')->comment('邮箱');
             $table->integer('pid')->unsigned()->default(0)->comment('父级id');
             $table->integer('article_id')->unsigned()->comment('文章id');
             $table->text('content')->comment('内容');

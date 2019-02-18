@@ -71,3 +71,8 @@ editormd.markdownToHTML("test-editormd", {
     flowChart: true, // 默认不解析
     sequenceDiagram: true // 默认不解析
 });
+
+
+var str = $('#nickname').text();
+var name  = str.split('');
+$('#nickname').text(name[0]);

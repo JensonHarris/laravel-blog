@@ -10,8 +10,7 @@ class ArticleComment extends Model
     {
         return DB::table('article_comments as ac')
             ->leftJoin('articles as a','ac.article_id','=','a.id')
-            ->leftJoin('members as m','ac.member_id','=','m.id')
-            ->select('ac.*','m.name','a.title')
+            ->select('ac.*','a.title')
             ->paginate($limit);
     }
 }
