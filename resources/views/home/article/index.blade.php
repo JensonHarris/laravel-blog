@@ -145,11 +145,12 @@
                                 <div><a class="comm_hf_btn1" data-id="{{$comment->id}}">回复</a>
                                 </div>
                             </div>
-                            <div class="comment-avatar"><span class="avatar" id="nickname">{{$comment->nickname}}</span>
+                            <div class="comment-avatar">
+                                <span class="avatar nickname" id="nickname">{{$comment->nickname}}</span>
                             </div>
                             <div class="comment-main">
                                 <p><a href="#" target="_blank">{{$comment->nickname}}</a><span class="time">({{$comment->created_at}})</span>
-                                    <br>{{$comment->content}}</p>
+                                    <br>{!! $comment->content !!}</p>
                             </div>
                         </li>
                     </ol>
@@ -187,5 +188,7 @@
 <script src="/plugins/markdown/lib/sequence-diagram.min.js"></script>
 <script src="/plugins/markdown/editormd.js"></script>
 <script src="/home/js/article.js"></script>
+        <script>
 
+        </script>
 @endsection

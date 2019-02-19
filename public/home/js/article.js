@@ -72,7 +72,10 @@ editormd.markdownToHTML("test-editormd", {
     sequenceDiagram: true // 默认不解析
 });
 
+//显示头像为昵称的首字
+$('.nickname').each(function(){
+    var str = $(this).text();
+    var name  = str.split('');
+    $(this).text(name[0]);
+});
 
-var str = $('#nickname').text();
-var name  = str.split('');
-$('#nickname').text(name[0]);
