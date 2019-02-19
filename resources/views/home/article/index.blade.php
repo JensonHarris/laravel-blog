@@ -43,7 +43,7 @@
                 </div>
                 <div class="admired">
                     <div class="admired_div">
-                        <div class="praise" data-id="{{$article->id}}"> <i class="far fa-heart"></i>喜欢(<span id="like_num">{{$article->statistic->likes}}</span>)</div>
+                        <div class="praise" data-id="{{$article->id}}"> <i class="far fa-heart"></i><span id="like_num" class="like_num">喜欢({{$article->statistic->likes}})</span></div>
                         <div class="enjoy">
                             <div class="pay_show slidebottoms">
                                 <div class="ps_con">
@@ -71,7 +71,7 @@
                                     </div> <span class="triangle"></span>
 
                                 </div>
-                            </div> <i class="fa fa-share-alt"></i>分享</div>
+                            </div> <i class="fa fa-share-alt"></i><span class="share-article">分享</span></div>
                     </div>
                 </div>
                 <div class="art_page">
