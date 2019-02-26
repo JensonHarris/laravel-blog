@@ -41,9 +41,9 @@
 <script type="text/javascript" src="/admin/ajs/comment.js"></script>
 <script type="text/html" id="commentStatus">
     @{{#  if(d.status ==0){ }}
-    <button type="button" class="btn btn-danger btn-xs">禁用</button>
-    @{{#  } else { }}
-    已发布
+    <button class="layui-btn layui-btn-xs layui-bg-cyan" lay-event="disabled">撤销</button>
+    @{{#  }  else { }}
+    <button class="layui-btn layui-btn-xs layui-bg-blue" lay-event="start">发布</button>
     @{{#  } }}
 </script>
 @endsection

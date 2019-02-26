@@ -14,7 +14,6 @@
                 <h1 class="article-title">
                     <a href="/article/{{$article->id}}" draggable="false">{{$article->title}}</a>
                 </h1>
-
                 <div class="article-meta"> <span class="item article-meta-time">
                       <time class="time" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="时间：{{$article->created_at}}">
                         <i class="far fa-clock"></i> {{$article->created_at}}
@@ -44,7 +43,7 @@
                 </div>
                 <div class="admired">
                     <div class="admired_div">
-                        <div class="praise"> <i class="far fa-heart"></i>喜欢(<span id="like_num">0</span>)</div>
+                        <div class="praise" data-id="{{$article->id}}"> <i class="far fa-heart"></i><span id="like_num" class="like_num">喜欢({{$article->statistic->likes}})</span></div>
                         <div class="enjoy">
                             <div class="pay_show slidebottoms">
                                 <div class="ps_con">
@@ -72,7 +71,7 @@
                                     </div> <span class="triangle"></span>
 
                                 </div>
-                            </div> <i class="fa fa-share-alt"></i>分享</div>
+                            </div> <i class="fa fa-share-alt"></i><span class="share-article">分享</span></div>
                     </div>
                 </div>
                 <div class="art_page">
@@ -105,19 +104,7 @@
                 <a href="/article/tag/{{$tag->id}}" rel="tag" target="_blank" title="{{$tag->name}}" draggable="false">{{$tag->name}}</a>
                 @endforeach
             </div>
-            {{--<div class="relates">--}}
-                {{--<div class="title">--}}
-                    {{--<h3>好文推荐</h3>--}}
-                {{--</div>--}}
-                {{--<ul>--}}
-                    {{--<li>--}}
-                        {{--<a href="https://www.liangjucai.com/article/142" target="_blank" title="程序员为什么不爱炫富？" draggable="false">程序员为什么不爱炫富？</a>--}}
-                    {{--</li>--}}
-                    {{--<li>--}}
-                        {{--<a href="https://www.liangjucai.com/article/255" target="_blank" title="生活，不会亏待努力奋斗的人" draggable="false">生活，不会亏待努力奋斗的人</a>--}}
-                    {{--</li>--}}
-                {{--</ul>--}}
-            {{--</div>--}}
+
             <div class="title" id="comment">
                 <h3>评论
                     <small>抢沙发</small>
@@ -141,20 +128,57 @@
 
                                 <div class="comment-prompt"><i class="fa fa-spin fa-circle-o-notch"></i>  <span class="comment-prompt-text"></span>
                                 </div>
-                                <input type="hidden" value="1" class="articleid">
-                                <button type="button" name="comment-submit" class="comment-submit" tabindex="5" articleid="1" data-id="0">评论</button>
+                                <input type="hidden" value="{{$article->id}}" class="articleid">
+                                <button type="button" id="comment-submit" class="comment-submit" tabindex="5" articleid="1" data-id="0">评论</button>
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
-            <div id="postcomments"></div>
+            <div id="postcomments">
+                @foreach ($comments as $key=>$comment)
+                    <ol class="commentlist">
+                        <li class="comment-content">
+                            <div class="comment-hf">
+                                <div><span class="comment-f">#{{$key+1}}</span>
+                                </div>
+                                <div><a class="comm_hf_btn1" data-id="{{$comment->id}}">回复</a>
+                                </div>
+                            </div>
+                            <div class="comment-avatar">
+                                <span class="avatar nickname" id="nickname">{{$comment->nickname}}</span>
+                            </div>
+                            <div class="comment-main">
+                                <p><a href="#" target="_blank">{{$comment->nickname}}</a><span class="time">({{$comment->created_at}})</span>
+                                    <br>{!! $comment->content !!}</p>
+                            </div>
+                        </li>
+                    </ol>
+                @endforeach
+
+                {{--<li class="comment-content comm_list">--}}
+                    {{--<div class="comment-hf">--}}
+                        {{--<div><span class="comment-f">#_1</span>--}}
+                        {{--</div>--}}
+                        {{--<div><a class="comm_hf_btn1" data-id="238">回复</a>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="comment-avatar"><span class="avatar">J</span>--}}
+                    {{--</div>--}}
+                    {{--<div class="comment-main">--}}
+                        {{--<p><a href="https://www.liangjucai.com" target="_blank">Justin</a>: <span style="font-size: 12px;margin-left: 1px;"><label class="blog_comm_name">博主</label>回复</span><a style="font-size: 12px;margin-left: 1px;" href="https://www.liulangboy.com" target="_blank">六狼风情</a>--}}
+                            {{--<span--}}
+                                    {{--class="time">(2019-01-30 20:29:55)</span>--}}
+                            {{--<br>欢迎</p>--}}
+                    {{--</div>--}}
+                {{--</li>--}}
+            </div>
         </div>
     </div>
 @endsection
 @section('scripts')
 <script src="/home/js/jquery.qqFace.js"></script>
-
+<script src="/home/js/jquery.cookie.js"></script>
 <script src="/plugins/markdown/lib/flowchart.min.js"></script>
 <script src="/plugins/markdown/lib/jquery.flowchart.min.js"></script>
 <script src="/plugins/markdown/lib/marked.min.js"></script>
@@ -163,57 +187,7 @@
 <script src="/plugins/markdown/lib/underscore.min.js"></script>
 <script src="/plugins/markdown/lib/sequence-diagram.min.js"></script>
 <script src="/plugins/markdown/editormd.js"></script>
-<script type="text/javascript">
-    $(function() {
-        $('.emotion').qqFace({
-            id: 'facebox',
-            assign: 'comment-textarea',
-            path: '/home/images/arclist/' //表情存放的路径
-        });
-    });
-
-    $(".ps_tab a").click(function() {
-        $(".ps_tab a").removeClass('active');
-        $(this).addClass('active');
-        if ($(this).attr('data-type') == 1) {
-            $(".ps_code img").attr('src', "/home/images/pay/alipay.jpg");
-        } else {
-            $(".ps_code img").attr('src', "/home/images/pay/weixpay.jpg");
-        }
-    });
-
-    $(".praise").click(function() {
-        $.post("https://www.liangjucai.com/articleLike", {
-            'id': "340"
-        }, function(res) {
-            if (res.code == 200) {
-                layer.msg('大爷:) 点赞成功~', {
-                    time: 1200
-                });
-                $("#like_num").html(parseInt($("#like_num").html()) + 1);
-            } else {
-                layer.msg('大爷:(  ' + res.message, {
-                    time: 1200
-                });
-            }
-        }, 'json');
-    });
-
-    editormd.markdownToHTML("test-editormd", {
-        htmlDecode: "style,script,iframe",
-        emoji: true,
-        taskList: true,
-        tex: true, // 默认不解析
-        flowChart: true, // 默认不解析
-        sequenceDiagram: true // 默认不解析
-    });
-
-
-
-
-
-</script>
-
+<script src="/home/js/article.js"></script>
         <script>
 
         </script>

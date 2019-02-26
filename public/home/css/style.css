@@ -3167,9 +3167,15 @@ color:#FFF;
 		width: 10%;
 	}
    .logo{
-		width: 80%;
+		width: 65%;
 		margin-top: 5px
 	}
+   .like_num{
+	   font-size: 8px;
+   }
+   .share-article{
+	   font-size: 8px;
+   }
 }
 
 .tagColor-0{

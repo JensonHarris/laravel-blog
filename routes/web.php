@@ -24,6 +24,13 @@ Route::group(['prefix' => 'article'], function() {
 
     Route::get('/tag/{tag}', 'Home\ArticleController@tagArticles');
 
+    Route::post('/articleLike', 'Home\ArticleController@articleLike');
+
+    Route::post('/comment', 'Home\ArticleController@comment');
+
+
+
+
 });
 
 

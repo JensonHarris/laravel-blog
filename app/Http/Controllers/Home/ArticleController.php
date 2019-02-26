@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Home;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use App\Models\Tag;
+use App\Models\ArticleComment;
 use App\Models\ArticleCategory;
-use App\Http\Controllers\Controller;
+use App\Models\ArticleStatistic;
 
 class ArticleController extends Controller
 {
@@ -23,7 +24,9 @@ class ArticleController extends Controller
         // 下一篇文章
         $next_article = $this->getNextArticle($id);
 
-        return view('home.article.index',compact('article', 'prev_article', 'next_article'));
+        $comments    = ArticleComment::where('status', '=', 0)->where('article_id', '=', $id)->orderBy('created_at', 'DESC')->paginate(10);
+//dd($comments);
+        return view('home.article.index',compact('article', 'prev_article', 'next_article', 'comments'));
     }
 
 
@@ -87,59 +90,39 @@ class ArticleController extends Controller
         return view('home.article.search',compact('articles', 'keyword'));
 
     }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
 
+    /**
+     * Notes :  文章点赞
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/2/18 10:59
+     */
+    public function articleLike(Request $request)
+    {
+        $article_id =  $request->input('article_id');
+        $result = ArticleStatistic::where('article_id', '=', $article_id)->increment('likes');;
+        if ($result){
+            $likes = ArticleStatistic::where('article_id', '=', $article_id)->first();
+            return $this->success(20006,$likes);
+        }
+        return $this->error(40005);
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Notes : 文章留言功能
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/2/18 16:22
+     * @param Request $request
      */
-    public function show()
+    public function comment(Request $request, ArticleComment $articleComment)
     {
-        return view('home.article.search');
+        $comment  = $request->input();
+        $result = $articleComment->create($comment);
+        if ($result){
+            return $this->success(20007);
+        }
+        return $this->error(40005);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
