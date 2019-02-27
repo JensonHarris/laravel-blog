@@ -2807,7 +2807,7 @@ color:#FFF;
 	margin-bottom: 30px;
 }
 .admired_div{
-	width: 300px;
+	width: 350px;
 	margin: 0 auto;
 	display: inline-block;
 	line-height: 38px;
@@ -2818,7 +2818,7 @@ color:#FFF;
 	margin-right: 6px;
 }
 .admired_div .praise{
-	width: 150px;
+	width: 175px;
 	height: 40px;
 	float: left;
 	border: 1px solid #d2cece;
@@ -2831,7 +2831,7 @@ color:#FFF;
 }
 
 .admired_div .share{
-	width: 150px;
+	width: 175px;
 	float: right;
 	border: 1px solid #d2cece;
 	color: #ffffff;
@@ -2845,7 +2845,7 @@ color:#FFF;
 
 .admired_div  .enjoy{
 	position:absolute;
-	left: 125px;
+	left: 150px;
 	height: 50px;
 	width: 50px;
 	border-radius: 50%;
@@ -3010,8 +3010,49 @@ color:#FFF;
     float: right;
     margin-right: 10px;
 }
-@media screen and (max-width:1000px){
-	.art_page_prev{
+
+@media (max-width:640px){
+	.admired_div{
+	width: 300px;
+	margin: 0 auto;
+	display: inline-block;
+	line-height: 38px;
+	letter-spacing: 1px;
+	position:relative;
+}
+.admired_div i{
+	margin-right: 4px;
+}
+.admired_div .praise{
+	width: 150px;
+	height: 40px;
+	float: left;
+	border: 1px solid #d2cece;
+	color: #ffffff;
+	background: #ff4400;
+}
+
+.admired_div .share{
+	width: 150px;
+	float: right;
+	border: 1px solid #d2cece;
+	color: #ffffff;
+	height: 40px;
+	background: #ecb842;
+}
+
+.admired_div  .enjoy{
+	position:absolute;
+	left: 120px;
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	line-height: 40px;
+	font-weight: 600;
+	font-size: 18px;
+}
+
+   .art_page_prev{
 		float: left;
 		margin-left: 10px;
 		width: 100%;
@@ -3022,7 +3063,6 @@ color:#FFF;
 		width: 100%;
 	}
 }
-
 
 /* 热门 推荐 热评 */
 .widget-box {

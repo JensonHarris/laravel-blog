@@ -43,7 +43,7 @@
                 </div>
                 <div class="admired">
                     <div class="admired_div">
-                        <div class="praise" data-id="{{$article->id}}"> <i class="far fa-heart"></i><span id="like_num" class="like_num">喜欢({{$article->statistic->likes}})</span></div>
+                        <div class="praise like_num" data-id="{{$article->id}}"> <i class="far fa-heart"></i>喜欢(<span id="like_num">{{$article->statistic->likes}}</span>)</div>
                         <div class="enjoy">
                             <div class="pay_show slidebottoms">
                                 <div class="ps_con">
@@ -60,7 +60,7 @@
                         </div>
                         <div class="share">
                             <div class="fx_show slidebottoms">
-                                <div class="ps_con">
+                                <div class="ps_con like_num">
                                     <div class="row share-component social-share" id="share-2">
 
                                             <a class="bds_qzone" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{url()->full()}}&sharesource=qzone&title={{$article->title}}&pics={{$article->cover_map}}&summary={{$article->description}}" title="分享到QQ空间" target="_blank"></a>
@@ -71,7 +71,7 @@
                                     </div> <span class="triangle"></span>
 
                                 </div>
-                            </div> <i class="fa fa-share-alt"></i><span class="share-article">分享</span></div>
+                            </div> <i class="fa fa-share-alt "></i><span class="share-article">分享</span></div>
                     </div>
                 </div>
                 <div class="art_page">
