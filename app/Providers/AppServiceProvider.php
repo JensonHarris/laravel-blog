@@ -27,9 +27,9 @@ class AppServiceProvider extends ServiceProvider
             $filepath = storage_path('logs\sql.log');
             //写入sql
             if ($bindings) {
-                file_put_contents( $filepath, "[" . date("Y-m-d H:i:s") . "]" . $sql .' 耗时:'.$time.'ms'. "\r\nparmars:" . json_encode($bindings, 320) . "\r\n\r\n", FILE_APPEND);
+                file_put_contents( $filepath, "[" . date("Y-m-d H:i:s") . "]" . $sql .' 耗时:'.$time.'ms'. "parmars:" . json_encode($bindings, 320) . "", FILE_APPEND);
             } else {
-                file_put_contents( $filepath, "[" . date("Y-m-d H:i:s") . "]" . $sql .' 耗时:'.$time.'ms'. "\r\n\r\n", FILE_APPEND);
+                file_put_contents( $filepath, "[" . date("Y-m-d H:i:s") . "]" . $sql .' 耗时:'.$time.'ms'. "", FILE_APPEND);
             }
         });
     }

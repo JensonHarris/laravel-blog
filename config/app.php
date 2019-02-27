@@ -165,6 +165,10 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Overtrue\LaravelLang\TranslationServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Laravel\Scout\ScoutServiceProvider::class,
+
+        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
+
 
 
         /*

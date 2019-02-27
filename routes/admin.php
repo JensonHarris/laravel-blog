@@ -18,11 +18,14 @@ Route::group(['prefix' => 'admin'], function() {
     });
 });
 
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
+
 //权限控制开启
 //Route::group(['prefix' => 'admin','middleware' => ['check.login', 'admin.auth']], function() {
 
 //后台模块
-Route::group(['prefix' => 'admin','middleware' => ['check.login']], function() {
+Route::group(['prefix' => 'admin','middleware' => ['check.login', 'history']], function() {
 
     Route::get('/index', 'Admin\IndexController@index');
 
@@ -35,6 +38,8 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login']], function() {
     Route::get('/logout', 'Admin\LoginController@logout');
 
     Route::get('/charts', 'Admin\ChartController@index');
+
+
 
     //---------管理员列表页-------------------------------
     Route::group(['prefix' => 'user'], function() {

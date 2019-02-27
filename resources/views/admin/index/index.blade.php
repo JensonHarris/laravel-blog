@@ -173,15 +173,9 @@
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a class="J_menuItem" href="../systems/list.html">
-                                系统列表
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a class="J_menuItem" href="{{url('/admin/charts')}}">
-                                订单统计
+                            <i class="fa fa-calendar"></i>
+                            <a class="J_menuItem" href="/logs">
+                              日志列表
                             </a>
                         </li>
                     </ul>

@@ -2,10 +2,39 @@
 
 namespace App\Models;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Support\Facades\DB;
 
 class Article extends Model
 {
+    use Searchable;
+
+
+    /**
+     * Notes : 定义索引的type
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/2/26 17:29
+     * @return string
+     */
+    public function searchableAs()
+    {
+        return 'articles';
+    }
+
+    
+    /**
+     * Notes : 定义搜索字段
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/2/26 17:30
+     * @return
+     */
+    public function toSearchableArray()
+    {
+        return [
+            'title' => $this->title,
+            'content' => $this->content,
+        ];
+    }
     /**
      * Notes : 文章所有的标签
      * Author: JesonC <748532271@qq.com>
