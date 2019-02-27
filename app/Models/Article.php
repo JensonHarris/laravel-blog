@@ -21,7 +21,7 @@ class Article extends Model
         return 'articles';
     }
 
-    
+
     /**
      * Notes : 定义搜索字段
      * Author: JesonC <748532271@qq.com>
@@ -31,8 +31,10 @@ class Article extends Model
     public function toSearchableArray()
     {
         return [
-            'title' => $this->title,
-            'content' => $this->content,
+            'title'       => $this->title,
+            'author'      => $this->author,
+            'description' => $this->description,
+            'markdown'    =>$this->articleContent
         ];
     }
     /**
@@ -100,33 +102,19 @@ class Article extends Model
      */
     public function searchArticleGetId($keyword)
     {
-        return DB::table('articles as ar')
-            ->leftJoin('article_contents as ac', 'ar.id', '=', 'ac.article_id')
-            ->orWhere('ar.title', 'LIKE', "%$keyword%")
-            ->orWhere('ar.author', 'LIKE', "%$keyword%")
-            ->orWhere('ar.description', 'LIKE', "%$keyword%")
-            ->orWhere('ac.markdown', 'LIKE', "%$keyword%")
-            ->pluck('ar.id');
-//
-        // 如果 SCOUT_DRIVER 为 null 则使用 sql 搜索
-//        if (is_null(env('SCOUT_DRIVER'))) {
-//            $id = Article::where('title', 'like', "%$keyword%")
-//                ->orWhere('description', 'like', "%$keyword%")
-//                ->orWhere('markdown', 'like', "%$keyword%")
-//                ->pluck('id');
-//            return $id;
-//        }
-
-//        // 如果全文搜索出错则降级使用 sql like
-//        try{
-//            $id = Article::search($keyword)->keys();
-//        } catch (\Exception $e) {
-//            $id = Article::where('title', 'like', "%$keyword%")
-//                ->orWhere('description', 'like', "%$keyword%")
-//                ->orWhere('markdown', 'like', "%$keyword%")
-//                ->pluck('id');
-//        }
-//        return $id;
+         //如果全文搜索出错则降级使用 sql like
+        try{
+            $id = Article::search($keyword)->keys();
+        } catch (\Exception $e) {
+            $id = DB::table('articles as ar')
+                ->leftJoin('article_contents as ac', 'ar.id', '=', 'ac.article_id')
+                ->orWhere('ar.title', 'LIKE', "%$keyword%")
+                ->orWhere('ar.author', 'LIKE', "%$keyword%")
+                ->orWhere('ar.description', 'LIKE', "%$keyword%")
+                ->orWhere('ac.markdown', 'LIKE', "%$keyword%")
+                ->pluck('ar.id');
+        }
+        return $id;
     }
 
 }
