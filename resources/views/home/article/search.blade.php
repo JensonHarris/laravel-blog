@@ -28,8 +28,8 @@
                 <div class="title">
                 <span style="margin-top: 35px;margin-bottom: 5px;color: #818488ee;">
                     共搜索到关于
-                    <span class="text-danger">{{$keyword}}</span>的
-                    <span class="text-danger">{{$articles->total()}}</span>
+                    <span class="search">{{$keyword}}</span>的
+                    <span class="search">{{$articles->total()}}</span>
                     条记录：
                 </span>
                 </div>
