@@ -22,10 +22,10 @@ Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 
 //权限控制开启
-//Route::group(['prefix' => 'admin','middleware' => ['check.login', 'admin.auth']], function() {
+Route::group(['prefix' => 'admin','middleware' => ['check.login', 'admin.auth', 'history']], function() {
 
 //后台模块
-Route::group(['prefix' => 'admin','middleware' => ['check.login', 'history']], function() {
+//Route::group(['prefix' => 'admin','middleware' => ['check.login', 'history']], function() {
 
     Route::get('/index', 'Admin\IndexController@index');
 

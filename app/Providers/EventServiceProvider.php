@@ -19,6 +19,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\AdminAccessLog' => [
             'App\Listeners\AdminAccessLogListener',
         ],
+        'App\Events\AdminCheckAuth' => [
+            'App\Listeners\AdminCheckAuthListener',
+        ],
     ];
 
     /**
