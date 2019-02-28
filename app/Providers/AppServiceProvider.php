@@ -20,19 +20,20 @@ class AppServiceProvider extends ServiceProvider
         //$username = session('username');
         //视图间共享数据
         //View::share('username', 'value-共享数据');
-        DB::listen(function ($query) {
-            $sql = $query->sql;
-            $bindings = $query->bindings;
-            $time = $query->time;
-            $filepath = storage_path('logs\sql.log');
-            //写入sql
-            if ($bindings) {
-                file_put_contents( $filepath, "[" . date("Y-m-d H:i:s") . "]" . $sql .' 耗时:'.$time.'ms'. "parmars:" . json_encode($bindings, 320) . "", FILE_APPEND);
-            } else {
-                file_put_contents( $filepath, "[" . date("Y-m-d H:i:s") . "]" . $sql .' 耗时:'.$time.'ms'. "", FILE_APPEND);
-            }
-        });
+        // DB::listen(function ($query) {
+        //     $sql = $query->sql;
+        //     $bindings = $query->bindings;
+        //     $time = $query->time;
+        //     $filepath = storage_path('logs\sql.log');
+        //     //写入sql
+        //     if ($bindings) {
+        //         file_put_contents( $filepath, "[" . date("Y-m-d H:i:s") . "]  " . $sql .'  耗时: '.$time.' ms'. "parmars:" . json_encode($bindings, 320) . "\r\n", FILE_APPEND);
+        //     } else {
+        //         file_put_contents( $filepath, "[" . date("Y-m-d H:i:s") . "]" . $sql .'  耗时: '.$time.' ms'. "\r\n", FILE_APPEND);
+        //     }
+        // });
     }
+
 
     /**
      * Register any application services.

@@ -16,6 +16,11 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Event' => [
             'App\Listeners\EventListener',
         ],
+        //新增监听SQL事件
+        'Illuminate\Database\Events\QueryExecuted' => [
+            'App\Listeners\QueryListener',
+        ],
+
         'App\Events\AdminAccessLog' => [
             'App\Listeners\AdminAccessLogListener',
         ],

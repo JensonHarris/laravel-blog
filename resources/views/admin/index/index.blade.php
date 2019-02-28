@@ -173,9 +173,9 @@
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <i class="fa fa-calendar"></i>
                             <a class="J_menuItem" href="/logs">
-                              日志列表
+                            <i class="fa fa-list-alt"></i>
+                              <span>日志列表</span>
                             </a>
                         </li>
                     </ul>

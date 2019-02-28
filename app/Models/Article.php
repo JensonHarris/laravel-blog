@@ -9,7 +9,6 @@ class Article extends Model
 {
     use Searchable;
 
-
     /**
      * Notes : 定义索引的type
      * Author: JesonC <748532271@qq.com>
@@ -20,7 +19,6 @@ class Article extends Model
     {
         return 'articles';
     }
-
 
     /**
      * Notes : 定义搜索字段
