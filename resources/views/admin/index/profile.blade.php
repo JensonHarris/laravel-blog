@@ -131,4 +131,4 @@
     <script type="text/javascript" src="/admin/plugins/layui/layui.js"></script>
 </body>
 </html>
-<script type="text/javascript" src="/admin/ajs/index.js"></script>
+<script type="text/javascript" src="/admin/js/index.js"></script>

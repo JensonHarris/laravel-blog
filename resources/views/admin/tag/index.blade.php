@@ -32,5 +32,5 @@
     <a class="layui-btn layui-btn-xs"  href="/admin/tag/@{{d.id}}/edit">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
-<script type="text/javascript" src="/admin/ajs/tag.js"></script>
+<script type="text/javascript" src="/admin/js/tag.js"></script>
 @endsection

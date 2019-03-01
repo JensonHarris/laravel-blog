@@ -28,7 +28,7 @@
     </div>
 @endsection
 @section('scripts')
-<script type="text/javascript" src="/admin/ajs/articlelist.js"></script>
+<script type="text/javascript" src="/admin/js/articlelist.js"></script>
 <script type="text/html" id="barDemo">
     <a class="layui-btn layui-btn-xs"  href="/admin/article/@{{d.id}}/edit">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>

@@ -35,5 +35,5 @@
  <script type="text/html" id="iconfont">
      <i class="@{{ d.icon }}"></i>
  </script>
- <script type="text/javascript" src="/admin/ajs/authlist.js"></script>
+ <script type="text/javascript" src="/admin/js/authlist.js"></script>
 @endsection

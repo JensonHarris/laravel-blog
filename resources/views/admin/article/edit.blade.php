@@ -127,7 +127,7 @@
 <script src="/admin/js/jquery.min.js"></script>
 <script type="text/javascript" src="/admin/plugins/layui/layui.js"></script>
 <script type="text/javascript" src="/plugins/markdown/editormd.js"></script>
-<script type="text/javascript" src="/admin/ajs/article.js"></script>
+<script type="text/javascript" src="/admin/js/article.js"></script>
 
 
 

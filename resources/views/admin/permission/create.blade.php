@@ -85,7 +85,7 @@
     </div>
 @endsection
 @section('scripts')
-    <script type="text/javascript" src="/admin/ajs/auth.js"></script>
+    <script type="text/javascript" src="/admin/js/auth.js"></script>
     <script type="text/javascript" src="/plugins/fontawesome/dist/js/fontawesome-iconpicker.js"></script>
 @endsection
 

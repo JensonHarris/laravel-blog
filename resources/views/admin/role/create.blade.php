@@ -87,6 +87,6 @@
 </body>
 </html>
 <script type="text/javascript" src="/admin/plugins/layui/layui.js"></script>
-<script type="text/javascript" src="/admin/ajs/role.js"></script>
+<script type="text/javascript" src="/admin/js/role.js"></script>
 
 

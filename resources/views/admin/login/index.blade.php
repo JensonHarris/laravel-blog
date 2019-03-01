@@ -49,6 +49,6 @@
 <script type="text/javascript" src="/admin/plugins/layui/layui.js"></script>
 <script type="text/javascript" src="/admin/js/jquery-3.2.1.js"></script>
 <script type="text/javascript" src="/admin/js/jparticle.jquery.js"></script>
-<script type="text/javascript" src="/admin/ajs/login.js"></script>
+<script type="text/javascript" src="/admin/js/login.js"></script>
 </body>
 </html>

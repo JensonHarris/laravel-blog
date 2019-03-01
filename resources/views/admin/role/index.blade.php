@@ -39,5 +39,5 @@
     <button class="layui-btn layui-btn-xs layui-bg-blue" lay-event="start">启用</button>
     @{{#  } }}
 </script>
-<script type="text/javascript" src="/admin/ajs/rolelist.js"></script>
+<script type="text/javascript" src="/admin/js/rolelist.js"></script>
 @endsection

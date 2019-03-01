@@ -39,5 +39,5 @@
     <button class="layui-btn layui-btn-xs layui-bg-blue" lay-event="start">导航</button>
     @{{#  } }}
 </script>
-<script type="text/javascript" src="/admin/ajs/category.js"></script>
+<script type="text/javascript" src="/admin/js/category.js"></script>
 @endsection
