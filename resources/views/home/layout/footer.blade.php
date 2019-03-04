@@ -10,4 +10,6 @@
 <script src="/home/js/bootstrap.min.js"></script>
 <script src="/home/js/jquery.ias.js"></script>
 <script src="/home/js/scripts.js"></script>
+<script src="/home/js/jquery.cookie.js"></script>
+
 

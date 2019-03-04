@@ -62,16 +62,13 @@
                             <div class="fx_show slidebottoms">
                                 <div class="ps_con like_num">
                                     <div class="row share-component social-share" id="share-2">
-
                                             <a class="bds_qzone" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{url()->full()}}&sharesource=qzone&title={{$article->title}}&pics={{$article->cover_map}}&summary={{$article->description}}" title="分享到QQ空间" target="_blank"></a>
                                             <a class="bds_tsina" href="http://service.weibo.com/share/share.php?url={{url()->full()}}&sharesource=weibo&title={{$article->title}}&pic={{$article->cover_map}}&appkey=" title="分享到新浪微博" target="_blank"></a>
                                             <a class="bds_sqq" href="http://connect.qq.com/widget/shareqq/index.html?url={{url()->full()}}&sharesource=qzone&title={{$article->title}}&pics={{$article->cover_map}}&summary={{$article->description}}&desc={{$article->description}}" title="分享到QQ好友" target="_blank"></a>
                                         <a class="bds_weixin" data-cmd="weixin" title="分享到微信" target="_blank"></a>
-
                                     </div> <span class="triangle"></span>
-
                                 </div>
-                            </div> <i class="fa fa-share-alt "></i><span class="share-article">分享</span></div>
+                            </div> <i class="fa fa-share-alt "></i><span class="share-article" >分享</span></div>
                     </div>
                 </div>
                 <div class="art_page">
@@ -178,7 +175,6 @@
 @endsection
 @section('scripts')
 <script src="/home/js/jquery.qqFace.js"></script>
-<script src="/home/js/jquery.cookie.js"></script>
 <script src="/plugins/markdown/lib/flowchart.min.js"></script>
 <script src="/plugins/markdown/lib/jquery.flowchart.min.js"></script>
 <script src="/plugins/markdown/lib/marked.min.js"></script>
@@ -188,4 +184,7 @@
 <script src="/plugins/markdown/lib/sequence-diagram.min.js"></script>
 <script src="/plugins/markdown/editormd.js"></script>
 <script src="/home/js/article.js"></script>
+        <script>
+
+        </script>
 @endsection

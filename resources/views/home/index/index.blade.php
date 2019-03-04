@@ -115,39 +115,4 @@
   </div>
 @endsection
 @section('scripts')
-<script src="/home/js/jquery.cookie.js"></script>
-
-    <script>
-
-        function pageViews(articleId){
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            var views = $.cookie('article_'+articleId);
-            if (views == articleId){
-                return false;
-            }
-            $.ajax({
-                type: "POST",
-                url: '/article/articleViews',
-                dataType: "json",
-                data: {article_id:articleId},
-                error: function(msg) {
-                        return false;
-                },
-                success: function(res) {
-                    if (res.status) {
-                        var article = 'article_'+articleId;
-                        $.cookie(article, articleId, { expires: 1 });
-                        return false;
-                    } else {
-                        return false;
-                    }
-                }
-            });
-            return false;
-        }
-    </script>
 @endsection

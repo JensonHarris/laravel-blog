@@ -66,19 +66,19 @@
         <h3>热门文章</h3>
         <ul>
             @foreach ($hotArticles as $hotArticle)
-                <li>
-                    <a href="/article/{{$hotArticle->id}}">
-            <span class="thumbnail">
-              <img class="thumb"  src="{{$hotArticle->cover_map}}">
-            </span>
-                        <span class="text">{{$hotArticle->title}}</span>
-                        <span class="muted">
-              <i class="far fa-clock"></i>{{$hotArticle->created_at->toDateString()}}
-            </span>
-                        <span class="muted"><i class="fas fa-eye"></i> {{$hotArticle->statistic->views}}
-            </span>
-                    </a>
-                </li>
+            <li>
+                <a href="/article/{{$hotArticle->id}}"   onclick = "pageViews({{$hotArticle->id}})" target="_blank">
+                <span class="thumbnail">
+                  <img class="thumb"  src="{{$hotArticle->cover_map}}">
+                </span>
+                            <span class="text">{{$hotArticle->title}}</span>
+                            <span class="muted">
+                  <i class="far fa-clock"></i>{{$hotArticle->created_at->toDateString()}}
+                </span>
+                            <span class="muted"><i class="fas fa-eye"></i> {{$hotArticle->statistic->views}}
+                </span>
+                </a>
+            </li>
             @endforeach
         </ul>
     </div>
