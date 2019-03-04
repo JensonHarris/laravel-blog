@@ -39,8 +39,9 @@ class AdminAccessLogListener
             'browser' =>$this->browser($request),
             'referer'=>$request->header('referer')
         ];
-        History::create($requestData);
-
+        if ($requestData['query']) {
+          History::create($requestData);
+        }
     }
 
     /**

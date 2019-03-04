@@ -62,16 +62,16 @@
       </div>
       @foreach ($articles as $article)
       <article class="excerpt">
-        <a class="focus" href="/article/{{$article->id}}" target="_blank">
+        <a class="focus" href="/article/{{$article->id}}" target="_blank" onclick = "pageViews({{$article->id}})" >
           <img class="thumb" src="{{$article->cover_map}}">
         </a>
 
         <header>
-          <a class="cat" href="/article/category/{{$article->articleCategory->id}}" target="_blank">
+          <a class="cat" href="/article/category/{{$article->articleCategory->id}}" target="_blank" >
             {{$article->articleCategory->name}}<i></i>
           </a>
           <h2>
-            <a href="/article/{{$article->id}}" target="_blank">{{$article->title}}</a>
+            <a href="/article/{{$article->id}}" target="_blank" onclick = "pageViews({{$article->id}})" >{{$article->title}}</a>
           </h2>
            @if(!$article->is_top )
            <img src="/home/images/top.png" class="sticky" >
@@ -90,7 +90,7 @@
             <i class="fas fa-eye"></i>
            阅读(<span>{{$article->statistic->views}}</span>)
           </span>
-          <a class="comment" href="article.html#comment">
+          <a class="comment" href="javascript:;">
            <i class="fas fa-comment-dots"></i>
            评论(<span>66</span>)
           </a>
@@ -115,4 +115,39 @@
   </div>
 @endsection
 @section('scripts')
+<script src="/home/js/jquery.cookie.js"></script>
+
+    <script>
+
+        function pageViews(articleId){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            var views = $.cookie('article_'+articleId);
+            if (views == articleId){
+                return false;
+            }
+            $.ajax({
+                type: "POST",
+                url: '/article/articleViews',
+                dataType: "json",
+                data: {article_id:articleId},
+                error: function(msg) {
+                        return false;
+                },
+                success: function(res) {
+                    if (res.status) {
+                        var article = 'article_'+articleId;
+                        $.cookie(article, articleId, { expires: 1 });
+                        return false;
+                    } else {
+                        return false;
+                    }
+                }
+            });
+            return false;
+        }
+    </script>
 @endsection

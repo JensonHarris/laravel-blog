@@ -188,7 +188,4 @@
 <script src="/plugins/markdown/lib/sequence-diagram.min.js"></script>
 <script src="/plugins/markdown/editormd.js"></script>
 <script src="/home/js/article.js"></script>
-        <script>
-
-        </script>
 @endsection

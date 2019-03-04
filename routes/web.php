@@ -26,6 +26,8 @@ Route::group(['prefix' => 'article'], function() {
 
     Route::post('/articleLike', 'Home\ArticleController@articleLike');
 
+    Route::post('/articleViews', 'Home\ArticleController@articleViews');
+
     Route::post('/comment', 'Home\ArticleController@comment');
 
 

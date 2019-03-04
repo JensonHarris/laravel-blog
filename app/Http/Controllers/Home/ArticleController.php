@@ -108,6 +108,21 @@ class ArticleController extends Controller
     }
 
     /**
+     * Notes : 文章的阅读量
+     * Author: JesonC <748532271@qq.com>
+     * Date  : 2019/3/4 9:30
+     */
+    public function articleViews(Request $request)
+    {
+        $article_id =  $request->input('article_id');
+        $result = ArticleStatistic::where('article_id', '=', $article_id)->increment('views');;
+        if ($result){
+            return $this->success(20005);
+        }
+        return $this->error(40005);
+    }
+
+    /**
      * Notes : 文章留言功能
      * Author: JesonC <748532271@qq.com>
      * Date  : 2019/2/18 16:22
