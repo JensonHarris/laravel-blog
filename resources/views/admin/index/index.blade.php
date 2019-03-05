@@ -240,7 +240,7 @@
             </button>
             <nav class="page-tabs J_menuTabs">
                 <div class="page-tabs-content">
-                    <a href="javascript:;" class="active J_menuTab" data-id="{{url('/admin/charts')}}">后台首页</a>
+                    <a href="javascript:;" class="active J_menuTab" data-id="{{url('/admin/profile')}}">个人资料</a>
                 </div>
             </nav>
             <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i>
@@ -262,7 +262,7 @@
         </div>
         <!--首页部分-->
         <div class="row J_mainContent" id="content-main">
-            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="{{url('/admin/charts')}}"frameborder="0" data-id="{{url('/admin/charts')}}" seamless></iframe>
+            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="{{url('/admin/profile')}}" frameborder="0" data-id="{{url('/admin/profile')}}" seamless></iframe>
         </div>
         <div class="footer">
             <div class="pull-right">&copy; 2018-2019 <a href="#">Jeson'C blog</a>

@@ -1,5 +1,8 @@
 @extends("home.layout.main")
 @section('title', $article->title)
+@section("styles")
+    <link rel="stylesheet" href="/home/css/share.min.css">
+@endsection
 @section("content")
     <div class="breadcrumbs">
         <div class="container">当前位置：
@@ -58,15 +61,29 @@
                                 </div>
                             </div>赏
                         </div>
+                        {{--<div id="share_box" style="display:none;">--}}
+                            {{--<h1 class="share_title">分享到</h1>--}}
+                            {{--<div class="social-share" data-initialized="true" style="text-align: center;" data-url="http://www.baidu.com?(要分享的链接)"  data-title="要分享的标题（可选）">--}}
+                                {{--<a href="#" class="social-share-icon icon-weibo"></a>--}}
+                                {{--<a href="#" class="social-share-icon icon-wechat"></a>--}}
+                                {{--<a href="#" class="social-share-icon icon-qq"></a>--}}
+                                {{--<a href="#" class="social-share-icon icon-qzone"></a>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
                         <div class="share">
                             <div class="fx_show slidebottoms">
                                 <div class="ps_con like_num">
-                                    <div class="row share-component social-share" id="share-2">
-                                            <a class="bds_qzone" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{url()->full()}}&sharesource=qzone&title={{$article->title}}&pics={{$article->cover_map}}&summary={{$article->description}}" title="分享到QQ空间" target="_blank"></a>
-                                            <a class="bds_tsina" href="http://service.weibo.com/share/share.php?url={{url()->full()}}&sharesource=weibo&title={{$article->title}}&pic={{$article->cover_map}}&appkey=" title="分享到新浪微博" target="_blank"></a>
-                                            <a class="bds_sqq" href="http://connect.qq.com/widget/shareqq/index.html?url={{url()->full()}}&sharesource=qzone&title={{$article->title}}&pics={{$article->cover_map}}&summary={{$article->description}}&desc={{$article->description}}" title="分享到QQ好友" target="_blank"></a>
-                                        <a class="bds_weixin" data-cmd="weixin" title="分享到微信" target="_blank"></a>
-                                    </div> <span class="triangle"></span>
+                                    <div class="row share-component social-share" data-initialized="true" style="text-align: center;" data-url="{{url()->full()}}"  data-title="{{$article->title}}">
+                                        <a href="#" class="social-share-icon icon-weibo"></a>
+                                        <a href="#" class="social-share-icon icon-qzone"></a>
+                                        <a href="#" class="social-share-icon icon-qq"></a>
+                                        <a href="#" class="social-share-icon icon-wechat"></a>
+                                        <a href="#" class="social-share-icon icon-linkedin"></a>
+                                        <a href="#" class="social-share-icon icon-facebook"></a>
+                                        <a href="#" class="social-share-icon icon-google"></a>
+                                        <a href="#" class="social-share-icon icon-twitter"></a>
+                                    </div>
+                                    <span class="triangle"></span>
                                 </div>
                             </div> <i class="fa fa-share-alt "></i><span class="share-article" >分享</span></div>
                     </div>
@@ -183,6 +200,7 @@
 <script src="/plugins/markdown/lib/underscore.min.js"></script>
 <script src="/plugins/markdown/lib/sequence-diagram.min.js"></script>
 <script src="/plugins/markdown/editormd.js"></script>
+<script src="/home/js/social-share.min.js"></script>
 <script src="/home/js/article.js"></script>
         <script>
 
