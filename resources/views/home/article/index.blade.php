@@ -77,7 +77,8 @@
                                         <a href="#" class="social-share-icon icon-weibo"></a>
                                         <a href="#" class="social-share-icon icon-qzone"></a>
                                         <a href="#" class="social-share-icon icon-qq"></a>
-                                        <a href="#" class="social-share-icon icon-wechat"></a>
+                                        <a href="#" class="social-share-icon icon-wechat" tabindex="-1"></a>
+
                                         <a href="#" class="social-share-icon icon-linkedin"></a>
                                         <a href="#" class="social-share-icon icon-facebook"></a>
                                         <a href="#" class="social-share-icon icon-google"></a>
@@ -85,7 +86,8 @@
                                     </div>
                                     <span class="triangle"></span>
                                 </div>
-                            </div> <i class="fa fa-share-alt "></i><span class="share-article" >分享</span></div>
+                            </div>
+                            <i class="fa fa-share-alt "></i><span class="share-article" >分享</span></div>
                     </div>
                 </div>
                 <div class="art_page">
