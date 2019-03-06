@@ -204,7 +204,4 @@
 <script src="/plugins/markdown/editormd.js"></script>
 <script src="/home/js/social-share.min.js"></script>
 <script src="/home/js/article.js"></script>
-        <script>
-
-        </script>
 @endsection

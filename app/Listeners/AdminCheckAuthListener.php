@@ -27,8 +27,6 @@ class AdminCheckAuthListener
      */
     public function handle(AdminCheckAuth $event)
     {
-
-
         $request = $event->request;
         $Route = \Route::current()->getActionName();
         list($control, $action) = explode('@', $Route);
@@ -40,14 +38,18 @@ class AdminCheckAuthListener
             'method'     => $method
         ];
 
-        $adminUser = Auth::guard('admin')->user()->roles;
+        $admin     = Auth::guard('admin')->user();
+        $adminUser = $admin->roles;
         $userPermissions = $adminUser->get(0)->permissions;
         $permissions = $userPermissions->map(function ($item) {
             return $item->only(['ap_control', 'ap_action', 'method']);
         })->contains($permission);
          //如果不是管理员或者没有登录;则重定向到登录页面
-//        if (!$permissions) {
-//            dd('没有该权限');
-//        }
+        if ($admin->au_id != 1){
+            if (!$permissions ) {
+                dd('没有该权限');
+            }
+        }
+
     }
 }
