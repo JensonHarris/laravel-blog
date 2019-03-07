@@ -48,13 +48,13 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        /* 错误页面 */
-        if ($exception instanceof NotFoundHttpException) {
-            $code = $exception->getStatusCode();
-            if (view()->exists('errors.' . $code)) {
-                return response()->view('errors.' . $exception->getStatusCode());
-            }
-        }
+//        /* 错误页面 */
+//        if ($exception instanceof NotFoundHttpException) {
+//            $code = $exception->getStatusCode();
+//            if (view()->exists('errors.' . $code)) {
+//                return response()->view('errors.' . $exception->getStatusCode());
+//            }
+//        }
         return parent::render($request, $exception);
 
     }

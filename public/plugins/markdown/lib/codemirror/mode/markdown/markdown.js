@@ -31,7 +31,7 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
     modeCfg.highlightFormatting = false;
 
   // Maximum number of nested blockquotes. Set to 0 for infinite nesting.
-  // Excess `>` will emit `error` token.
+  // Excess `>` will emit `errors` token.
   if (modeCfg.maxBlockquoteDepth === undefined)
     modeCfg.maxBlockquoteDepth = 0;
 
@@ -239,7 +239,7 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
         }
 
         // Add `formatting-quote` and `formatting-quote-#` for blockquotes
-        // Add `error` instead if the maximum blockquote nesting depth is passed
+        // Add `errors` instead if the maximum blockquote nesting depth is passed
         if (state.formatting[i] === "quote") {
           if (!modeCfg.maxBlockquoteDepth || modeCfg.maxBlockquoteDepth >= state.quote) {
             styles.push(formatting + "-" + state.formatting[i] + "-" + state.quote);

@@ -27,7 +27,7 @@
 //   no tip should be shown. By default the docstring is shown.
 // * typeTip: Like completionTip, but for the tooltips shown for type
 //   queries.
-// * responseFilter: A function(doc, query, request, error, data) that
+// * responseFilter: A function(doc, query, request, errors, data) that
 //   will be applied to the Tern responses before treating them
 //
 //

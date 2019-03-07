@@ -2021,7 +2021,7 @@
 
             newMarkdownDoc = editormd.filterHTMLTags(newMarkdownDoc, settings.htmlDecode);
 
-            //console.error("cmValue", cmValue, newMarkdownDoc);
+            //console.errors("cmValue", cmValue, newMarkdownDoc);
 
             this.markdownTextarea.text(cmValue);
 

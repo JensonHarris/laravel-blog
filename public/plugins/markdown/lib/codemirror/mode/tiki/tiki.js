@@ -86,7 +86,7 @@ CodeMirror.defineMode('tiki', function(config) {
       if (stream.eat("=")) {//titleBar
         return chain(inBlock("header string", "=-", inText));
       } else if (stream.eat("-")) {//deleted
-        return chain(inBlock("error tw-deleted", "--", inText));
+        return chain(inBlock("errors tw-deleted", "--", inText));
       }
       break;
     case "=": //underline

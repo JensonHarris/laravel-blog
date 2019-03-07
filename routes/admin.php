@@ -189,6 +189,25 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login', 'admin.auth', 
     });
 
 
+    //---------管理员列表页-------------------------------
+    Route::group(['prefix' => 'notice'], function() {
+        Route::get('', 'Admin\NoticeController@index');
+//        //管理员列表数据
+//        Route::get('/jsonData', 'Admin\UserController@jsonData');
+//        //管理员创建页面
+//        Route::get('/create', 'Admin\UserController@create');
+//        //管理员创建逻辑
+//        Route::post('', 'Admin\UserController@store');
+//        //管理员编辑
+//        Route::get('/{adminUser}/edit', 'Admin\UserController@edit');
+//        //管理员编辑逻辑
+//        Route::post('/update/{au_id}', 'Admin\UserController@update');
+//        //管理员删除
+//        Route::post('/destroy', 'Admin\UserController@destroy');
+//        //用户状态
+//        Route::post('/changeStatus', 'Admin\UserController@changeStatus');
+    });
+
     //  上传
     Route::group(['prefix' => 'upload'], function() {
         Route::post('', 'Admin\UploaderController@uploadImage');
