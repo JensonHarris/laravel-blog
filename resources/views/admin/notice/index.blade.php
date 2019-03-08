@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @extends("admin.layout.main")
 @section('title', '系统公告')
 @section("content")
@@ -42,3 +43,6 @@
     <script type="text/javascript" src="/admin/js/notice.js"></script>
 @endsection
 
+=======
+1111111111111111111
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf

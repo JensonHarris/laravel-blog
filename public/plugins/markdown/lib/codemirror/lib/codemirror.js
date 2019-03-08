@@ -2873,7 +2873,7 @@
   // Operations are used to wrap a series of changes to the editor
   // state in such a way that each change won't have to update the
   // cursor and display (which would be awkward, slow, and
-  // error-prone). Instead, display updates are batched and then all
+  // errors-prone). Instead, display updates are batched and then all
   // combined and executed at once.
 
   var operationGroup = null;
@@ -8182,7 +8182,7 @@
   };
 
   function activeElt() { return document.activeElement; }
-  // Older versions of IE throws unspecified error when touching
+  // Older versions of IE throws unspecified errors when touching
   // document.activeElement in some cases (during loading, in iframe)
   if (ie && ie_version < 11) activeElt = function() {
     try { return document.activeElement; }

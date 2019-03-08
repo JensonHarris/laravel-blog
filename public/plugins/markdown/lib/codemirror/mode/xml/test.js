@@ -14,7 +14,7 @@
   MT("nonmatching",
      "[tag&bracket <][tag top][tag&bracket >]",
      "  [tag&bracket <][tag inner][tag&bracket />]",
-     "  [tag&bracket </][tag&error tip][tag&bracket&error >]");
+     "  [tag&bracket </][tag&errors tip][tag&bracket&errors >]");
 
   MT("doctype",
      "[meta <!doctype foobar>]",

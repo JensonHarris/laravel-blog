@@ -348,7 +348,7 @@ CodeMirror.defineMode("sass", function(config) {
       return "operator";
 
     // If we haven't returned by now, we move 1 character
-    // and return an error
+    // and return an errors
     stream.next();
     return null;
   }

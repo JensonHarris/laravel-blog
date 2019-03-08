@@ -8,11 +8,11 @@
   // Error, because "foobarhello" is neither a known type or property, but
   // property was expected (after "and"), and it should be in parenthese.
   MT("atMediaUnknownType",
-     "[def @media] [attribute screen] [keyword and] [error foobarhello] { }");
+     "[def @media] [attribute screen] [keyword and] [errors foobarhello] { }");
 
-  // Soft error, because "foobarhello" is not a known property or type.
+  // Soft errors, because "foobarhello" is not a known property or type.
   MT("atMediaUnknownProperty",
-     "[def @media] [attribute screen] [keyword and] ([error foobarhello]) { }");
+     "[def @media] [attribute screen] [keyword and] ([errors foobarhello]) { }");
 
   // Make sure nesting works with media queries
   MT("atMediaMaxWidthNested",
@@ -25,7 +25,7 @@
      "[qualifier .foo-bar_hello] { }");
 
   MT("idSelector",
-     "[builtin #foo] { [error #foo] }");
+     "[builtin #foo] { [errors #foo] }");
 
   MT("tagSelectorUnclosed",
      "[tag foo] { [property margin]: [number 0] } [tag bar] { }");
@@ -53,10 +53,10 @@
      "[tag foo] { [property background]: [atom #ffffff]; }");
 
   MT("tagColorHex4",
-     "[tag foo] { [property background]: [atom&error #ffff]; }");
+     "[tag foo] { [property background]: [atom&errors #ffff]; }");
 
   MT("tagColorHexInvalid",
-     "[tag foo] { [property background]: [atom&error #ffg]; }");
+     "[tag foo] { [property background]: [atom&errors #ffg]; }");
 
   MT("tagNegativeNumber",
      "[tag foo] { [property margin]: [number -5px]; }");
@@ -68,7 +68,7 @@
      "[tag foo] { [meta -foo-][property box-sizing]: [meta -foo-][atom border-box]; }");
 
   MT("tagBogusProperty",
-     "[tag foo] { [property&error barhelloworld]: [number 0]; }");
+     "[tag foo] { [property&errors barhelloworld]: [number 0]; }");
 
   MT("tagTwoProperties",
      "[tag foo] { [property margin]: [number 0]; [property padding]: [number 0]; }");
@@ -115,7 +115,7 @@
   MT("font_face",
      "[def @font-face] {",
      "  [property font-family]: [string 'myfont'];",
-     "  [error nonsense]: [string 'abc'];",
+     "  [errors nonsense]: [string 'abc'];",
      "  [property src]: [atom url]([string http://blah]),",
      "    [atom url]([string http://foo]);",
      "}");

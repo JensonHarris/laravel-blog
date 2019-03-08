@@ -26,8 +26,8 @@
                         <i class="fas fa-globe-americas"></i> 原创
                     </span>
                     <span class="item article-meta-category" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="栏目：{{$article->articleCategory->name}}">
-                        <i class="fas fa-list"></i>
-                        <a href="program" title="" draggable="false">{{$article->articleCategory->name}}</a>
+                        <i class="fas fa-list"></i>{{$article->articleCategory->name}}
+                        {{--<a href="program" title="" draggable="false">{{$article->articleCategory->name}}</a>--}}
                     </span>
                     <span class="item article-meta-views" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="查看：{{$article->statistic->views}}">
                         <i class="far fa-eye"></i> 共{{$article->statistic->views}}人围观

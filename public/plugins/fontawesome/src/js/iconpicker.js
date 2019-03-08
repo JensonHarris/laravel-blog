@@ -571,10 +571,10 @@
             _updateFormGroupStatus: function(isValid) {
                 if (this.hasInput()) {
                     if (isValid !== false) {
-                        // Remove form-group error class if any
-                        this.input.parents('.form-group:first').removeClass('has-error');
+                        // Remove form-group errors class if any
+                        this.input.parents('.form-group:first').removeClass('has-errors');
                     } else {
-                        this.input.parents('.form-group:first').addClass('has-error');
+                        this.input.parents('.form-group:first').addClass('has-errors');
                     }
                     return true;
                 }

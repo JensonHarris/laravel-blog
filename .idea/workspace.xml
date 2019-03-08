@@ -1,7 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="d0309578-d17d-4de2-b75c-ef41f21187cf" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="d0309578-d17d-4de2-b75c-ef41f21187cf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/notice/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/errorcode.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/errorcode.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/jquery-3.2.1.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/jquery-3.2.1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/flot/jquery.flot.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/flot/jquery.flot.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/flot/jquery.flot.pie.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/flot/jquery.flot.pie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/plugins/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/plugins/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/plugins/layui/lay/modules/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/plugins/layui/lay/modules/jquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/plugins/layui/lay/modules/mobile.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/plugins/layui/lay/modules/mobile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/plugins/layui/lay/modules/table.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/plugins/layui/lay/modules/table.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/plugins/layui/lay/modules/upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/plugins/layui/lay/modules/upload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/plugins/layui/layui.all.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/plugins/layui/layui.all.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/home/js/jquery-2.1.4.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/js/jquery-2.1.4.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/fontawesome/dist/js/fontawesome-iconpicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/fontawesome/dist/js/fontawesome-iconpicker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/fontawesome/dist/js/fontawesome-iconpicker.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/fontawesome/dist/js/fontawesome-iconpicker.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/fontawesome/src/js/iconpicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/fontawesome/src/js/iconpicker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/editormd.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/editormd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/addon/lint/javascript-lint.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/addon/lint/javascript-lint.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/addon/tern/tern.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/addon/tern/tern.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/lib/codemirror.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/lib/codemirror.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/clojure/clojure.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/clojure/clojure.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/css/scss_test.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/css/scss_test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/css/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/css/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/dockerfile/dockerfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/dockerfile/dockerfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/ecl/ecl.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/ecl/ecl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/erlang/erlang.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/erlang/erlang.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/http/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/http/http.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/markdown/markdown.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/markdown/markdown.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/sass/sass.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/sass/sass.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/scheme/scheme.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/scheme/scheme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/sql/sql.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/sql/sql.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/stex/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/stex/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/tcl/tcl.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/tcl/tcl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/tiki/tiki.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/tiki/tiki.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/vbscript/vbscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/vbscript/vbscript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/xml/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/xml/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/xml/xml.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/mode/xml/xml.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/modes.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/codemirror/modes.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/marked.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/marked.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/markdown/lib/sequence-diagram.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/markdown/lib/sequence-diagram.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/index/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/article/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/article/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+    </list>
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +70,13 @@
     <session id="468602266">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+<<<<<<< HEAD
           <entry key="project.closed" value="61" />
           <entry key="project.open.time.0" value="1" />
+=======
+          <entry key="project.closed" value="63" />
+          <entry key="project.open.time.0" value="2" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
           <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.11" value="9" />
@@ -34,6 +94,7 @@
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.510" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="5" />
@@ -43,6 +104,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+<<<<<<< HEAD
           <entry key="css" value="29" />
           <entry key="env" value="9" />
           <entry key="example" value="1" />
@@ -54,11 +116,24 @@
           <entry key="log" value="13" />
           <entry key="md" value="1" />
           <entry key="php" value="1353" />
+=======
+          <entry key="css" value="35" />
+          <entry key="env" value="5" />
+          <entry key="gif" value="4" />
+          <entry key="html" value="3" />
+          <entry key="jpg" value="16" />
+          <entry key="js" value="204" />
+          <entry key="json" value="8" />
+          <entry key="log" value="4" />
+          <entry key="md" value="2" />
+          <entry key="php" value="1236" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
           <entry key="png" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+<<<<<<< HEAD
           <entry key="Blade" value="490" />
           <entry key="CSS" value="29" />
           <entry key="HTML" value="3" />
@@ -68,6 +143,17 @@
           <entry key="Markdown" value="1" />
           <entry key="PHP" value="863" />
           <entry key="PLAIN_TEXT" value="23" />
+=======
+          <entry key="Blade" value="479" />
+          <entry key="CSS" value="35" />
+          <entry key="HTML" value="3" />
+          <entry key="Image" value="41" />
+          <entry key="JSON" value="7" />
+          <entry key="JavaScript" value="204" />
+          <entry key="Markdown" value="2" />
+          <entry key="PHP" value="757" />
+          <entry key="PLAIN_TEXT" value="9" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
           <entry key="tsconfig" value="1" />
         </counts>
       </usages-collector>
@@ -79,19 +165,32 @@
           <entry key="json" value="5" />
           <entry key="log" value="26" />
           <entry key="md" value="61" />
+<<<<<<< HEAD
           <entry key="php" value="18437" />
+=======
+          <entry key="php" value="18017" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+<<<<<<< HEAD
           <entry key="Blade" value="5951" />
+=======
+          <entry key="Blade" value="5710" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
           <entry key="CSS" value="435" />
           <entry key="HTML" value="1" />
           <entry key="JSON" value="5" />
           <entry key="JavaScript" value="2374" />
           <entry key="Markdown" value="61" />
+<<<<<<< HEAD
           <entry key="PHP" value="12485" />
           <entry key="PLAIN_TEXT" value="46" />
+=======
+          <entry key="PHP" value="12306" />
+          <entry key="PLAIN_TEXT" value="19" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
@@ -102,8 +201,9 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/NoticeController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-132">
@@ -111,43 +211,74 @@
               <folding>
                 <element signature="e#46#74#0#PHP" expanded="true" />
               </folding>
+=======
+        <entry file="file://$PROJECT_DIR$/app/Listeners/AdminCheckAuthListener.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="39" selection-start-line="39" selection-end-line="40" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/app/Models/Notice.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="308">
               <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
             </state>
+=======
+        <entry file="file://$PROJECT_DIR$/app/Listeners/AdminAccessLogListener.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1359" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/app/Models/ArticleContent.php">
+=======
+        <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/app/Models/ArticleComment.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="352">
               <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+=======
+        <entry file="file://$PROJECT_DIR$/app/Exceptions/Handler.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="599">
+              <caret line="56" column="11" selection-start-line="50" selection-start-column="9" selection-end-line="56" selection-end-column="11" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/app/Models/ArticleCategory.php">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <caret selection-end-line="1" />
+=======
+        <entry file="file://$PROJECT_DIR$/.env">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/app/Models/AdminUser.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-12" />
@@ -159,11 +290,27 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="462">
               <caret line="74" column="106" selection-end-line="74" selection-end-column="106" />
+=======
+        <entry file="file://$PROJECT_DIR$/routes/admin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="533">
+              <caret line="191" column="52" selection-start-line="191" selection-start-column="52" selection-end-line="191" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/index/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="190" column="72" selection-start-line="190" selection-start-column="72" selection-end-line="190" selection-end-column="72" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/storage/logs/sql.log">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="644">
@@ -179,6 +326,20 @@
               <caret line="137" selection-start-line="137" selection-end-line="137" />
             </state>
           </provider>
+=======
+        <entry file="file://$PROJECT_DIR$/app/Listeners/EventListener.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Providers/ComposerServiceProvider.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Listeners/QueryListener.php">
+          <provider selected="true" editor-type-id="text-editor" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
         </entry>
       </file>
     </leaf>
@@ -211,6 +372,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/app/Console/Commands/ESInit.php" />
+        <option value="$PROJECT_DIR$/config/app.php" />
+        <option value="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
+        <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
+        <option value="$PROJECT_DIR$/app/Events/AdminAccessLog.php" />
+        <option value="$PROJECT_DIR$/app/Http/Middleware/AdminAccess.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/LoginController.php" />
+        <option value="$PROJECT_DIR$/app/Listeners/AdminAccessLogListener.php" />
+        <option value="$PROJECT_DIR$/app/Models/History.php" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
         <option value="$PROJECT_DIR$/database/migrations/2019_02_27_101001_create_histories_table.php" />
         <option value="$PROJECT_DIR$/resources/views/home/article/search.blade.php" />
         <option value="$PROJECT_DIR$/app/Events/AdminCheckLogin.php" />
@@ -220,6 +393,10 @@
         <option value="$PROJECT_DIR$/app/Models/Article.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/QueryLogs.php" />
         <option value="$PROJECT_DIR$/app/Listeners/QueryListener.php" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/.env" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
         <option value="$PROJECT_DIR$/resources/views/errors/501.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/errors/404.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/errors/503.blade.php" />
@@ -237,13 +414,13 @@
         <option value="$PROJECT_DIR$/public/home/js/jquery.ias.js" />
         <option value="$PROJECT_DIR$/public/home/js/jquery.qqFace.js" />
         <option value="$PROJECT_DIR$/public/home/js/jquery.snow.js" />
-        <option value="$PROJECT_DIR$/resources/views/home/article/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/home/layout/footer.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/home/index/index.blade.php" />
         <option value="$PROJECT_DIR$/public/home/js/nprogress.js" />
         <option value="$PROJECT_DIR$/public/home/js/snow.js" />
         <option value="$PROJECT_DIR$/resources/views/home/layout/header.blade.php" />
         <option value="$PROJECT_DIR$/app/Listeners/AdminCheckAuthListener.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/app/Exceptions/Handler.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/app/Events/AdminCheckAuth.php" />
@@ -262,6 +439,15 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/NoticeController.php" />
         <option value="$PROJECT_DIR$/storage/logs/sql.log" />
         <option value="$PROJECT_DIR$/public/admin/js/notice.js" />
+=======
+        <option value="$PROJECT_DIR$/resources/views/home/article/index.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_03_07_171300_create_notices_table.php" />
+        <option value="$PROJECT_DIR$/routes/admin.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/NoticeController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/notice/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Exceptions/Handler.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/index/index.blade.php" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
       </list>
     </option>
   </component>
@@ -378,8 +564,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="155" />
-    <option name="y" value="143" />
+    <option name="x" value="-147" />
+    <option name="y" value="165" />
     <option name="width" value="1653" />
     <option name="height" value="897" />
   </component>
@@ -399,6 +585,7 @@
             <path>
               <item name="laravel-blog" type="b2602c69:ProjectViewProjectNode" />
               <item name="laravel-blog" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -437,13 +624,21 @@
               <item name="laravel-blog" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="home" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
             </path>
             <path>
               <item name="laravel-blog" type="b2602c69:ProjectViewProjectNode" />
               <item name="laravel-blog" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="home" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
             </path>
             <path>
               <item name="laravel-blog" type="b2602c69:ProjectViewProjectNode" />
@@ -564,26 +759,41 @@
       <workItem from="1551775611645" duration="4278000" />
       <workItem from="1551834882198" duration="3841000" />
       <workItem from="1551843881751" duration="981000" />
+<<<<<<< HEAD
       <workItem from="1551850479824" duration="4238000" />
       <workItem from="1552009066127" duration="1680000" />
       <workItem from="1552011662185" duration="4338000" />
       <workItem from="1552025336080" duration="8651000" />
+=======
+      <workItem from="1551850479824" duration="4978000" />
+      <workItem from="1551940481567" duration="49000" />
+      <workItem from="1551944419025" duration="298000" />
+      <workItem from="1551949602618" duration="2239000" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="465957000" />
+=======
+    <option name="totallyTimeSpent" value="454614000" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21908316" />
+=======
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1881663" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32929516" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32929516" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -592,8 +802,13 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010661" side_tool="true" visible="true" weight="0.018722467" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4989339" visible="true" weight="0.018722467" />
+=======
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32929516" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.22026432" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
       <window_info anchor="bottom" id="Command Line Tools Console" order="12" weight="0.32929516" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -634,6 +849,7 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/resources/views/admin/category/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -715,6 +931,97 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
           <caret line="30" column="18" lean-forward="true" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="18" />
+=======
+    <entry file="file://$PROJECT_DIR$/public/home/js/jquery.qqFace.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret column="2790" selection-start-column="2790" selection-end-column="2790" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/errors/404.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/errors/501.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/errors/503.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home/article/category.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home/article/search.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home/article/tag.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home/index/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2618">
+          <caret line="116" column="19" selection-start-line="116" selection-start-column="19" selection-end-line="116" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home/layout/header.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="57" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home/layout/main.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home/layout/footer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home/layout/aside.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1518">
+          <caret line="69" column="115" selection-start-line="69" selection-start-column="115" selection-end-line="69" selection-end-column="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/AdminAuth.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/app.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/home/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/home/css/normalize.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret column="2006" selection-start-column="2006" selection-end-column="2006" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
         </state>
       </provider>
     </entry>
@@ -723,16 +1030,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Exceptions/Handler.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="528">
           <caret line="24" column="19" lean-forward="true" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
           <folding>
             <element signature="e#34#48#0#PHP" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="22">
+          <caret column="1155" selection-start-column="1155" selection-end-column="1155" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/Admin/Notice/Store.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="604">
           <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
         </state>
@@ -740,9 +1053,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Listeners/EventListener.php">
       <provider selected="true" editor-type-id="text-editor" />
+=======
+        <state relative-caret-position="66">
+          <caret column="3994" selection-start-column="3994" selection-end-column="3994" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Export-e849126d-2b55-40b6-8d5f-3e8500f268f7/Centos7-JDK8-ElasticSearch6-x-7e3cecaf-e7c9-46ce-ab74-2031b5e87032.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Providers/EventServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="225">
           <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="20" selection-end-column="10" />
         </state>
@@ -934,6 +1262,183 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="137" selection-start-line="137" selection-end-line="137" />
+=======
+        <state relative-caret-position="357">
+          <caret line="9" column="311" selection-start-line="9" selection-start-column="311" selection-end-line="9" selection-end-column="311" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home/article/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_27_101001_create_histories_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="27" column="70" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2018_12_23_142824_create_admin_permission_adn_roles_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="18" column="21" selection-start-line="18" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_01_10_101827_create_articles_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_01_10_092841_create_tags_table.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_01_09_161626_create_article_category_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="27" selection-start-line="22" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_01_09_160947_create_member_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-66" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_01_10_102015_create_article_contents_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="18" column="27" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ArticleController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="3" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/LoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="18" column="41" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/NoticeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/notice/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_07_171300_create_notices_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Events/AdminCheckAuth.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Events/Event.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Events/AdminAccessLog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/RouteServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/EventServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-215" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/ComposerServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/QueryListener.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/EventListener.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/AdminCheckAuthListener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="39" selection-start-line="39" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/AdminAccessLogListener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1359" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Exceptions/Handler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="56" column="11" selection-start-line="50" selection-start-column="9" selection-end-line="56" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="191" column="52" selection-start-line="191" selection-start-column="52" selection-end-line="191" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/index/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="190" column="72" selection-start-line="190" selection-start-column="72" selection-end-line="190" selection-end-column="72" />
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
         </state>
       </provider>
     </entry>

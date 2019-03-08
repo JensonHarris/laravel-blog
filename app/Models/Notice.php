@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+<<<<<<< HEAD
 class Notice extends Model
 {
 
@@ -14,4 +15,11 @@ class Notice extends Model
     {
         return $this->hasOne(AdminUser::class, 'au_id' , 'id');
     }
+=======
+use Illuminate\Database\Eloquent\Model;
+
+class Notice extends Model
+{
+    //
+>>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
 }
