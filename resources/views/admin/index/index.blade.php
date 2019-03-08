@@ -188,8 +188,9 @@
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a class="J_menuItem" href="../systems/list.html">
-                                系统列表
+                            <a class="J_menuItem" href="{{'/admin/notice'}}">
+                                <i class="fa fa-list-alt"></i>
+                                <span>系统公告</span>
                             </a>
                         </li>
                     </ul>

@@ -188,6 +188,23 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login', 'admin.auth', 
         Route::post('/changeStatus', 'Admin\CommentController@changeStatus');
     });
 
+    //  评论列表
+    Route::group(['prefix' => 'notice'], function() {
+        //评论列表
+        Route::get('', 'Admin\NoticeController@index');
+        //公告数据
+        Route::get('/jsonData', 'Admin\NoticeController@jsonData');
+        //公告建页面
+        Route::get('/create', 'Admin\NoticeController@create');
+        //创建公告逻辑
+        Route::post('', 'Admin\NoticeController@store');
+        //公告编辑
+        Route::get('/{notice}/edit', 'Admin\NoticeController@edit');
+        //标签编辑逻辑
+        Route::post('/update/{id}', 'Admin\NoticeController@update');
+        //会员删除
+        Route::post('/destroy', 'Admin\NoticeController@destroy');
+    });
 
     //  上传
     Route::group(['prefix' => 'upload'], function() {
