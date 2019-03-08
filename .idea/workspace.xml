@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d0309578-d17d-4de2-b75c-ef41f21187cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/admin/js/notice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/notice/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/notice/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/index/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/errors/404.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/errors/501.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/errors/503.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
-    </list>
+    <list default="true" id="d0309578-d17d-4de2-b75c-ef41f21187cf" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +15,7 @@
     <session id="468602266">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="60" />
+          <entry key="project.closed" value="61" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.10" value="2" />
@@ -580,12 +567,12 @@
       <workItem from="1551850479824" duration="4238000" />
       <workItem from="1552009066127" duration="1680000" />
       <workItem from="1552011662185" duration="4338000" />
-      <workItem from="1552025336080" duration="8442000" />
+      <workItem from="1552025336080" duration="8651000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="465748000" />
+    <option name="totallyTimeSpent" value="465957000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
