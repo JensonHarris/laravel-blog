@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Session;
 use App\Models\AdminUser;
 use App\models\AdminRoleUser;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $adminUser = Auth::guard('admin')->user();
+        $adminUser = session('admin');
         $adminRole = $adminUser->roles->pluck('ar_name');
         return view('admin.index.index',compact('adminUser', 'adminRole'));
     }
@@ -30,7 +31,7 @@ class IndexController extends Controller
      */
     public function profile()
     {
-        $adminUser = Auth::guard('admin')->user();
+        $adminUser = session('admin');
         return view('admin.index.profile',compact('adminUser'));
     }
 

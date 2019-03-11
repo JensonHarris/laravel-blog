@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use Illuminate\Session;
 use App\Events\AdminCheckAuth;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Queue\InteractsWithQueue;
@@ -38,14 +39,29 @@ class AdminCheckAuthListener
             'method'     => $method
         ];
 
-        $admin     = Auth::guard('admin')->user();
-        $adminUser = $admin->roles;
-        $userPermissions = $adminUser->get(0)->permissions;
-        $permissions = $userPermissions->map(function ($item) {
-            return $item->only(['ap_control', 'ap_action', 'method']);
-        })->contains($permission);
-         //如果不是管理员或者没有登录;则重定向到登录页面
+        if (!session('admin')){
+            $admin     = Auth::guard('admin')->user();
+            session(['admin' => $admin]);
+        }else{
+            $admin = session('admin');
+        }
         if ($admin->au_id != 1){
+            if (!session('adminUser')){
+                $adminUser = $admin->roles;
+                session(['adminUser' => $adminUser]);
+            }else{
+                $adminUser = session('adminUser');
+            }
+            if (!session('userPermissions')){
+                $userPermissions = $adminUser->get(0)->permissions;
+                session(['userPermissions' => $userPermissions]);
+            }else{
+                $userPermissions = session('userPermissions');
+            }
+            $permissions = $userPermissions->map(function ($item) {
+                return $item->only(['ap_control', 'ap_action', 'method']);
+            })->contains($permission);
+             //如果不是管理员或者没有登录;则重定向到登录页面
             if (!$permissions ) {
                 dd('没有该权限');
             }

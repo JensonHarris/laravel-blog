@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\AdminUser;
 use Illuminate\Http\Request;
+use Illuminate\Session;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Admin\Login\Store;
 
@@ -28,6 +29,8 @@ class LoginController extends Controller
     {
         $admin = request(['au_name','password']);
         if (true == Auth::guard('admin')->attempt($admin)){
+            $admin =  Auth::guard('admin')->user();
+            session(['admin' => $admin]);
             return $this->success(20001);
         }
         return $this->error(40001);
@@ -41,6 +44,7 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::guard('admin')->logout();
+        session()->flush();
         return redirect('/admin/login');
     }
 

@@ -28,9 +28,15 @@ class AdminAccessLogListener
      */
     public function handle(AdminAccessLog $event)
     {
+        if (!session('admin')){
+            $admin     = \Auth::guard('admin')->user();
+            session(['admin' => $admin]);
+        }else{
+            $admin = session('admin');
+        }
         $request = $event->request;
         $requestData = [
-            'user_id' => \Auth::guest('admin')? \Auth::guard('admin')->user()->au_id : 0,
+            'user_id' => \Auth::guest('admin')? $admin->au_id : 0,
             'ip'=>ip2long($request->ip()),
             'path'=> $request->path(),
             'query'=>$request->server('QUERY_STRING'),

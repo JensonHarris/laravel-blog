@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-<<<<<<< HEAD
+use Illuminate\Session;
 use App\Models\Notice;
+use Illuminate\Http\Request;
 use App\Http\Requests\Admin\Notice\Store;
-=======
-use App\Http\Controllers\Controller;
->>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
 
 class NoticeController extends Controller
 {
@@ -17,12 +14,12 @@ class NoticeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        dd($request->session()->all());
         return view('admin.notice.index');
     }
 
-<<<<<<< HEAD
 
     /**
      * Notes : 文章分类列表数据
@@ -36,8 +33,7 @@ class NoticeController extends Controller
         $notices  = Notice::paginate($limit);
         return $this->success('200',$notices);
     }
-=======
->>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
+
     /**
      * Show the form for creating a new resource.
      *
@@ -45,12 +41,9 @@ class NoticeController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
-        $adminUser = \Auth::guard('admin')->user();
+        $adminUser = session('admin');
         return view('admin.notice.create', compact('adminUser'));
-=======
-        //
->>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
+
     }
 
     /**
@@ -59,33 +52,17 @@ class NoticeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
     public function store(Store $request, Notice $notice)
     {
         $notices = $request->input();
-//        dd($notices);
         $result   = $notice->create($notices);
         if (!$result){
             return $this->error(40002);
         }
         return $this->success(20002);
-=======
-    public function store(Request $request)
-    {
-        //
->>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -93,16 +70,11 @@ class NoticeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
     public function edit(Notice $notice)
     {
-        $adminUser = \Auth::guard('admin')->user();
+        $adminUser = session('admin');
         return view('admin.notice.edit', compact('adminUser', 'notice'));
-=======
-    public function edit($id)
-    {
-        //
->>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
+
     }
 
     /**
@@ -112,7 +84,6 @@ class NoticeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
     public function update(Store $request, Notice $notice)
     {
         $notices = $request->input();
@@ -121,11 +92,7 @@ class NoticeController extends Controller
             return $this->error(40004);
         }
         return $this->success(20004);
-=======
-    public function update(Request $request, $id)
-    {
-        //
->>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
+
     }
 
     /**
@@ -134,7 +101,6 @@ class NoticeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
     public function destroy(Request $request)
     {
         $id = $request->input('id');
@@ -144,10 +110,5 @@ class NoticeController extends Controller
             return $this->success(20003);
         }
         return $this->error(40003);
-=======
-    public function destroy($id)
-    {
-        //
->>>>>>> e5481069684ba31a79e5080c6ecaa6f003df76cf
     }
 }
