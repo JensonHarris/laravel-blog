@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Session;
 use App\Models\Notice;
 use Illuminate\Http\Request;
 use App\Http\Requests\Admin\Notice\Store;
@@ -14,9 +13,8 @@ class NoticeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        dd($request->session()->all());
         return view('admin.notice.index');
     }
 
