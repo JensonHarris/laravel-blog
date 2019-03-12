@@ -71,7 +71,7 @@
                     <div class="layui-form-item" pane="">
                         <label class="layui-form-label">是否禁用</label>
                         <div class="layui-input-block">
-                            <input type="checkbox" checked="" name="au_status" lay-skin="switch" lay-filter="switchTest" lay-text="启用|禁用">
+                            <input type="checkbox"  name="au_status" lay-skin="switch" lay-filter="switchTest" lay-text="启用|禁用" @if(!$adminUser->au_status) checked="" @endif>
                         </div>
                     </div>
                     <div class="layui-form-item">

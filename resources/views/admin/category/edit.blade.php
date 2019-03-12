@@ -55,7 +55,7 @@
                     <div class="layui-form-item" pane="">
                         <label class="layui-form-label">设为导航</label>
                         <div class="layui-input-block">
-                            <input type="checkbox" checked="" id="is_nav" name="is_nav" lay-skin="switch" lay-filter="switchTest" lay-text="是|否">
+                            <input type="checkbox" id="is_nav" name="is_nav" lay-skin="switch" lay-filter="switchTest" lay-text="是|否" @if(!$articleCategory->is_nav) checked="" @endif>
                         </div>
                     </div>
                     <div class="layui-form-item">

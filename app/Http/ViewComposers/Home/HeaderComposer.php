@@ -15,7 +15,8 @@ class HeaderComposer
 {
     public function compose(View $view)
     {
-        $navigates = ArticleCategory::where('parent_id', '=', 0)->get();
+        $navigates = ArticleCategory::where('parent_id', '=', 0)->where('is_nav', '=', 0)
+            ->select('id', 'name')->get();
         $view->with('navigates' ,$navigates);
     }
 }

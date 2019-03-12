@@ -12,6 +12,7 @@ use Illuminate\View\View;
 use App\Models\Tag;
 use App\Models\ArticleStatistic;
 
+
 class AsideComposer
 {
     public function compose(View $view)
@@ -24,7 +25,10 @@ class AsideComposer
         });
 
         //文章标签
-        $articleTags = Tag::has('articles')->withCount('articles')->get();
+        $articleTags = Tag::has('articles')->select('id', 'name')->withCount('articles')->get();
+
+        //网站公告
+//        $siteNotices = ArticleCategory::where('parent_id', '=', 0)->where('is_nav', '=', 0)->get();
 
         $view->with(['hotArticles' =>$hotArticles, 'articleTags'=>$articleTags]);
     }

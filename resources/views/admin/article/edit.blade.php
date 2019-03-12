@@ -108,7 +108,7 @@
                     <div class="layui-form-item  layui-col-md6 layui-col-md-offset1" pane="">
                         <label class="layui-form-label">是否置顶</label>
                         <div class="layui-input-block">
-                            <input type="checkbox" checked="" name="is_top" id="is_top" lay-skin="switch" lay-filter="switchTest" lay-text="ON|OFF">
+                            <input type="checkbox"  name="is_top" id="is_top"  lay-skin="switch" lay-filter="switchTest" lay-text="ON|OFF"  @if(!$article->is_top) checked="" @endif>
                         </div>
                     </div>
                     <div class="layui-form-item layui-col-md6 layui-col-md-offset1">
@@ -129,7 +129,12 @@
 <script type="text/javascript" src="/plugins/markdown/editormd.js"></script>
 <script type="text/javascript" src="/admin/js/article.js"></script>
 
+<script>
+    form.val('example', {
 
+        "is_top": false //开关状态
+    })
+</script>
 
 
 

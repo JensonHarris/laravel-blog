@@ -61,7 +61,7 @@
                     <div class="layui-form-item" pane="">
                         <label class="layui-form-label">是否置顶 </label>
                         <div class="layui-input-block">
-                            <input type="checkbox" checked="" id="is_top" name="is_top" lay-skin="switch" lay-filter="switchTest" lay-text="是|否">
+                            <input type="checkbox" id="is_top" name="is_top" lay-skin="switch" lay-filter="switchTest" lay-text="是|否" @if(!$notice->is_top) checked="" @endif>
                         </div>
                     </div>
                     <div class="layui-form-item">
