@@ -89,36 +89,17 @@
                             <legend>简约时间线：大事记</legend>
                         </fieldset>
                         <ul class="layui-timeline">
-                            <li class="layui-timeline-item">
-                                <i class="layui-icon layui-timeline-axis"></i>
-                                <div class="layui-timeline-content layui-text">
-                                    <div class="layui-timeline-title">2019年1月2，再过几个小时就可以坐上回家过年的列车了，现在还在公司改着BUG</div>
-                                </div>
-                            </li>
-                            <li class="layui-timeline-item">
-                                <i class="layui-icon layui-timeline-axis"></i>
-                                <div class="layui-timeline-content layui-text">
-                                    <div class="layui-timeline-title">2018年12月25，愿人生少许非出于本心的选择；愿每个重大的抉择都不要偏离太远；</div>
-                                </div>
-                            </li>
-                            <li class="layui-timeline-item">
-                                <i class="layui-icon layui-timeline-axis"></i>
-                                <div class="layui-timeline-content layui-text">
-                                    <div class="layui-timeline-title">2018年11月11，一年一度的双十一，依然孤身一身在远方漂泊；</div>
-                                </div>
-                            </li>
-                            <li class="layui-timeline-item">
-                                <i class="layui-icon layui-timeline-axis"></i>
-                                <div class="layui-timeline-content layui-text">
-                                    <div class="layui-timeline-title">2018年10月1日，低头做事；抬头做人；脚踏实地；过简单的小日子 ；</div>
-                                </div>
-                            </li>
-                            <li class="layui-timeline-item">
-                                <i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i>
-                                <div class="layui-timeline-content layui-text">
-                                    <div class="layui-timeline-title">2018年9月9日 这一连串bug调的我也是真醉了；好久没有敲代码敲到这么晚了；睡觉；睡觉；</div>
-                                </div>
-                            </li>
+                            @foreach ($systemNotices as $systemNotice)
+                                <li class="layui-timeline-item">
+                                    <i class="layui-icon layui-timeline-axis"></i>
+                                    <div class="layui-timeline-content layui-text">
+                                        <div class="layui-timeline-title">
+                                            <span class="layui-badge">{{$systemNotice->created_at->diffForHumans()}} </span>
+                                            {{$systemNotice->content}}
+                                        </div>
+                                    </div>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

@@ -129,12 +129,5 @@
 <script type="text/javascript" src="/plugins/markdown/editormd.js"></script>
 <script type="text/javascript" src="/admin/js/article.js"></script>
 
-<script>
-    form.val('example', {
-
-        "is_top": false //开关状态
-    })
-</script>
-
 
 

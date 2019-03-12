@@ -24,7 +24,6 @@ class Store extends FormRequest
     public function rules()
     {
         return [
-            'type'    => 'required',
             'level'   => 'required',
             'content' => 'required',
         ];
@@ -40,7 +39,6 @@ class Store extends FormRequest
     public function attributes()
     {
         return [
-            'type'    => '公告类型',
             'level'   => '公告等级',
             'content' => '公告内容'
         ];

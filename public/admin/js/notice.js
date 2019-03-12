@@ -135,8 +135,7 @@ layui.use('table', function(){
         ,cols: [[
             // {type: 'checkbox', fixed: 'left'},
             {field:'id', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
-            ,{field:'type', title:'公告类型'}
-            ,{field:'level', title:'公告等级'}
+            ,{field:'level', title:'公告等级',width:100,}
             ,{field:'content', title:'公告内容'}
             ,{field: 'is_top', title:'是否置顶', width:100, align:'center', toolbar: '#navDemo'}
             ,{field:'created_at', title:'添加时间',width:200, sort: true}

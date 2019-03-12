@@ -21,16 +21,6 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">公告类型</label>
-                        <div class="layui-input-block">
-                            <select name="type" id="type" lay-verify="select_type">
-                                <option value="" selected="">请选择父级分类</option>
-                                <option value="0">后台</option>
-                                <option value="1">前台</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="layui-form-item">
                         <label class="layui-form-label">公告等级</label>
                         <div class="layui-input-block">
                             <select name="level" id="level" lay-verify="select_level">

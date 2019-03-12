@@ -7,6 +7,7 @@ use App\Models\AdminUser;
 use App\models\AdminRoleUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Notice;
 use App\Http\Requests\Admin\User\Update;
 use Illuminate\Support\Facades\Artisan;
 
@@ -32,7 +33,8 @@ class IndexController extends Controller
     public function profile()
     {
         $adminUser = session('admin');
-        return view('admin.index.profile',compact('adminUser'));
+        $systemNotices = Notice::orderBy('is_top', 'ASC')->orderBy('created_at', 'DESC')->orderBy('level', 'DESC')->get();
+        return view('admin.index.profile',compact('adminUser', 'systemNotices'));
     }
 
 
