@@ -9,16 +9,17 @@
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane notice active" id="notice">
-                    <ul>
-                        <li>
-                            <time datetime="">01-04</time> <a href="" target="_blank"></a>
-                        </li>
-                        <li>
-                            <time datetime="2016-01-04">01-04</time> <a target="_blank" href="">在这里可以看到前端技术，后端程序，网站内容管理系统等文章，还有我的程序人生！</a>
-                        </li>
-                        <li>
-                            <time datetime="2016-01-04">01-04</time> <a target="_blank" href="">在这个小工具中最多可以调用五条</a>
-                        </li>
+                    <ul>@if($siteNotices)
+                            @foreach ($siteNotices as $key => $siteNotice)
+                            <li>
+                                <time datetime="">{{$siteNotice->created_at->toDateString()}}</time> <a href="/article/{{$siteNotice->id}}" target="_blank">{{$siteNotice->title}}</a>
+                            </li>
+                            @endforeach
+                        @else
+                            <li>
+                                <time datetime=""></time> 暂无公告...
+                            </li>
+                        @endif
                     </ul>
                 </div>
                 <div role="tabpanel" class="tab-pane contact" id="contact">

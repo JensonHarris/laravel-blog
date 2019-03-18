@@ -39,13 +39,13 @@ class AdminAccessLogListener
             'user_id' => \Auth::guest('admin')? $admin->au_id : 0,
             'ip'=>ip2long($request->ip()),
             'path'=> $request->path(),
-            'query'=>$request->server('QUERY_STRING'),
+            'query'=>json_encode($request->all(), JSON_UNESCAPED_UNICODE),
             'method'=>$request->method(),
             'platform'=>$this->platform($request),
             'browser' =>$this->browser($request),
             'referer'=>$request->header('referer')
         ];
-        if ($requestData['query']) {
+        if ($request->all()) {
           History::create($requestData);
         }
     }

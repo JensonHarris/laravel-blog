@@ -10,6 +10,8 @@ namespace App\Http\ViewComposers\Home;
 
 use Illuminate\View\View;
 use App\Models\Tag;
+use App\Models\Article;
+use App\Models\ArticleCategory;
 use App\Models\ArticleStatistic;
 
 
@@ -28,8 +30,13 @@ class AsideComposer
         $articleTags = Tag::has('articles')->select('id', 'name')->withCount('articles')->get();
 
         //网站公告
-//        $siteNotices = ArticleCategory::where('parent_id', '=', 0)->where('is_nav', '=', 0)->get();
+        $categoryId = ArticleCategory::where('name', '网站公告')->first(['id']);
+        if($categoryId){
+            $siteNotices =  Article::where('category_id',$categoryId->id)->orderBy('is_top', 'ASC')->orderBy('created_at', 'DESC')->paginate(5);
+        }else{
+            $siteNotices = '';
+        }
 
-        $view->with(['hotArticles' =>$hotArticles, 'articleTags'=>$articleTags]);
+        $view->with(['hotArticles' =>$hotArticles, 'articleTags'=>$articleTags, 'siteNotices'=>$siteNotices]);
     }
 }
