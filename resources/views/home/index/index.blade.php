@@ -32,7 +32,7 @@
               <img src="/home/images/banner/banner_03.jpg" alt="" class="img-responsive">
             </a>
           </div>
-          <div class="item active">
+          <div class="item">
             <a href="" target="_blank">
               <img src="/home/images/banner/banner_04.jpg" alt="" class="img-responsive">
             </a>

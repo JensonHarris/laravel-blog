@@ -22,12 +22,26 @@
     <nav class="navbar navbar-default" id="navbar">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar" aria-expanded="false"> <span class="sr-only"></span>  <span class="icon-bar"></span>  <span class="icon-bar"></span>  <span class="icon-bar"></span>
-                </button>
-                <h1 class="logo hvr-bounce-in"><a href="/" title=""><img class="logo" src="/home/images/logo.png" alt=""></a></h1>
 
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar" aria-expanded="false">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                    {{--<span class="sr-only"></span>--}}
+                    {{--<span class="icon-bar"></span>--}}
+                    {{--<span class="icon-bar"></span>--}}
+                    {{--<span class="icon-bar"></span>--}}
+                </button>
+                <h1 class="logo hvr-bounce-in">
+                    <a href="/" title="">
+                        <img class="logo" src="/home/images/logo.png" alt="">
+                    </a>
+                </h1>
             </div>
             <div class="collapse navbar-collapse" id="header-navbar">
+                <div class="mobile-button">
+                    <button type="button" class="phone navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar" aria-expanded="false">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </button>
+                </div>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden-index  @if (!($category->id??0))
                             active @endif">
