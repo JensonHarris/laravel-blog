@@ -1,5 +1,8 @@
 @extends("admin.layout.main")
     @section('title', '权限管理')
+@section('styles')
+    <link href="/plugins/fontawesome/dist/css/fontawesome-iconpicker.min.css" rel="stylesheet">
+@endsection
 @section("content")
   <div class="ibox-title">
         <blockquote class="layui-elem-quote">
@@ -92,6 +95,7 @@
 @endsection
 @section('scripts')
     <script type="text/javascript" src="/admin/js/auth.js"></script>
+    <script type="text/javascript" src="/plugins/fontawesome/dist/js/fontawesome-iconpicker.js"></script>
 @endsection
 
 

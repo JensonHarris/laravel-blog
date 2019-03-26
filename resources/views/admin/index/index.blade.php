@@ -78,13 +78,13 @@
                             <li>
                                 <a class="J_menuItem" href="{{url('/admin/user')}}">
                                     <i class="fas fa-user-lock"></i>
-                                    <span class="nav-label"> 管理员列表</span>
+                                    <span class="nav-label"> 管理员管理</span>
                                 </a>
                             </li>
                             <li>
                                 <a  class="J_menuItem" href="{{'/admin/role'}}">
                                     <i class="fas fa-user-secret"></i>
-                                    <span class="nav-label">角色列表</span>
+                                    <span class="nav-label">角色管理</span>
                                 </a>
                             </li>
                         </ul>

@@ -14,11 +14,13 @@ Route::group(['prefix' => 'admin'], function() {
         Route::get('', 'Admin\LoginController@index');
         //登录验证
         Route::post('', 'Admin\LoginController@login');
-
+        //退出登录
+        Route::get('/logout', 'Admin\LoginController@logout');
     });
 });
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
 
 
 //权限控制开启
@@ -34,8 +36,6 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login', 'admin.auth', 
     Route::get('/clear', 'Admin\IndexController@clear');
     //修改完个人信息
     Route::post('/updateUser/{au_id}', 'Admin\IndexController@updateUser');
-    //退出登录
-    Route::get('/logout', 'Admin\LoginController@logout');
 
     Route::get('/charts', 'Admin\ChartController@index');
 
@@ -79,26 +79,6 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login', 'admin.auth', 
     });
 
 
-    Route::group(['prefix' => 'article'], function() {
-        //---------文章列表-------------------------------
-        Route::get('', 'Admin\ArticleController@index');
-        //文章数据
-        Route::get('/jsonData', 'Admin\ArticleController@jsonData');
-        //文章创建页面
-        Route::get('/create', 'Admin\ArticleController@create');
-        //文章创建逻辑
-        Route::post('', 'Admin\ArticleController@store');
-        //文章编辑
-        Route::get('/{article}/edit', 'Admin\ArticleController@edit');
-        //文章编辑逻辑
-        Route::post('/update/{id}', 'Admin\ArticleController@update');
-        //文章删除
-        Route::put('/destroy', 'Admin\ArticleController@destroy');
-         //是否置顶
-        Route::post('/changeTopStatue', 'Admin\ArticleController@changeTopStatue');
-    });
-
-
     Route::group(['prefix' => 'role'], function() {
         //---------角色列表-------------------------------
         Route::get('', 'Admin\RoleController@index');
@@ -106,8 +86,6 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login', 'admin.auth', 
         Route::get('/jsonData', 'Admin\RoleController@jsonData');
         //角色创建页面
         Route::get('/create', 'Admin\RoleController@create');
-        //权限数据
-        Route::post('/create', 'Admin\RoleController@create');
         //角色创建逻辑
         Route::post('', 'Admin\RoleController@store');
         //角色编辑
@@ -120,6 +98,25 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login', 'admin.auth', 
         Route::post('/destroy', 'Admin\RoleController@destroy');
         //角色状态
         Route::post('/changeStatus', 'Admin\RoleController@changeStatus');
+    });
+
+    Route::group(['prefix' => 'category'], function() {
+        //---------文章分类列表-------------------------------
+        Route::get('', 'Admin\CategoryController@index');
+        //文章分类数据
+        Route::get('/jsonData', 'Admin\CategoryController@jsonData');
+        //文章分类创建页面
+        Route::get('/create', 'Admin\CategoryController@create');
+        //文章创建逻辑
+        Route::post('', 'Admin\CategoryController@store');
+        //文章分类编辑
+        Route::get('/{articleCategory}/edit', 'Admin\CategoryController@edit');
+        //文章编辑逻辑
+        Route::post('/update/{id}', 'Admin\CategoryController@update');
+        //文章删除
+        Route::post('/destroy', 'Admin\CategoryController@destroy');
+        //前端导航
+        Route::post('/navStatus', 'Admin\CategoryController@navStatus');
     });
 
 
@@ -140,25 +137,25 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login', 'admin.auth', 
         Route::put('/destroy', 'Admin\MemberController@destroy');
     });
 
-
-    Route::group(['prefix' => 'category'], function() {
-        //---------文章分类列表-------------------------------
-        Route::get('', 'Admin\CategoryController@index');
-        //文章分类数据
-        Route::get('/jsonData', 'Admin\CategoryController@jsonData');
-        //文章分类创建页面
-        Route::get('/create', 'Admin\CategoryController@create');
+    Route::group(['prefix' => 'article'], function() {
+        //---------文章列表-------------------------------
+        Route::get('', 'Admin\ArticleController@index');
+        //文章数据
+        Route::get('/jsonData', 'Admin\ArticleController@jsonData');
+        //文章创建页面
+        Route::get('/create', 'Admin\ArticleController@create');
         //文章创建逻辑
-        Route::post('', 'Admin\CategoryController@store');
-        //文章分类编辑
-        Route::get('/{articleCategory}/edit', 'Admin\CategoryController@edit');
+        Route::post('', 'Admin\ArticleController@store');
+        //文章编辑
+        Route::get('/{article}/edit', 'Admin\ArticleController@edit');
         //文章编辑逻辑
-        Route::post('/update/{id}', 'Admin\CategoryController@update');
+        Route::post('/update/{id}', 'Admin\ArticleController@update');
         //文章删除
-        Route::post('/destroy', 'Admin\CategoryController@destroy');
-        //前端导航
-        Route::post('/navStatus', 'Admin\CategoryController@navStatus');
+        Route::put('/destroy', 'Admin\ArticleController@destroy');
+        //是否置顶
+        Route::post('/changeTopStatue', 'Admin\ArticleController@changeTopStatue');
     });
+
 
 
     Route::group(['prefix' => 'tag'], function() {
@@ -188,7 +185,7 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login', 'admin.auth', 
         Route::post('/changeStatus', 'Admin\CommentController@changeStatus');
     });
 
-    //  评论列表
+    //  系统公告列表
     Route::group(['prefix' => 'notice'], function() {
         //评论列表
         Route::get('', 'Admin\NoticeController@index');
@@ -206,31 +203,10 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login', 'admin.auth', 
         Route::post('/destroy', 'Admin\NoticeController@destroy');
     });
 
-    //---------管理员列表页-------------------------------
-    Route::group(['prefix' => 'notice'], function() {
-        Route::get('', 'Admin\NoticeController@index');
-//        //管理员列表数据
-//        Route::get('/jsonData', 'Admin\UserController@jsonData');
-//        //管理员创建页面
-//        Route::get('/create', 'Admin\UserController@create');
-//        //管理员创建逻辑
-//        Route::post('', 'Admin\UserController@store');
-//        //管理员编辑
-//        Route::get('/{adminUser}/edit', 'Admin\UserController@edit');
-//        //管理员编辑逻辑
-//        Route::post('/update/{au_id}', 'Admin\UserController@update');
-//        //管理员删除
-//        Route::post('/destroy', 'Admin\UserController@destroy');
-//        //用户状态
-//        Route::post('/changeStatus', 'Admin\UserController@changeStatus');
-    });
-
-    //  上传
-    Route::group(['prefix' => 'upload'], function() {
-        Route::post('', 'Admin\UploaderController@uploadImage');
-        Route::post('/cover', 'Admin\UploaderController@uploadCover');
-
-    });
-
 });
 
+//  图片上传
+Route::group(['prefix' => 'admin/upload'], function() {
+    Route::post('', 'Admin\UploaderController@uploadImage');
+    Route::post('/cover', 'Admin\UploaderController@uploadCover');
+});
