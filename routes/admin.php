@@ -14,9 +14,9 @@ Route::group(['prefix' => 'admin'], function() {
         Route::get('', 'Admin\LoginController@index');
         //登录验证
         Route::post('', 'Admin\LoginController@login');
-        //退出登录
-        Route::get('/logout', 'Admin\LoginController@logout');
     });
+    //退出登录
+    Route::get('/logout', 'Admin\LoginController@logout');
 });
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');

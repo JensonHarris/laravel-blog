@@ -27,11 +27,14 @@ class LoginController extends Controller
      */
     public function login(Store $request)
     {
-        $admin = request(['au_name','password']);
-        if (true == Auth::guard('admin')->attempt($admin)){
+        $logData = request(['au_name','password']);
+        if (true == Auth::guard('admin')->attempt($logData)){
             $admin =  Auth::guard('admin')->user();
-            session(['admin' => $admin]);
-            return $this->success(20001);
+            if ($admin->au_status){
+                return $this->error(40011);
+            }
+                session(['admin' => $admin]);
+                return $this->success(20001);
         }
         return $this->error(40001);
     }
