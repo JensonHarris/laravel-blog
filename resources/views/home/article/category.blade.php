@@ -44,7 +44,7 @@
             <i class="fas fa-eye"></i>
            阅读(<span>{{$article->statistic->views}}</span>)
           </span>
-                            <a class="comment" href="article.html#comment">
+                            <a class="comment" href="javascript:;">
                                 <i class="fas fa-comment-dots"></i>
                                 评论(<span>66</span>)
                             </a>
