@@ -92,10 +92,10 @@
           </span>
           <a class="comment" href="javascript:;">
            <i class="fas fa-comment-dots"></i>
-           评论(<span>66</span>)
+           评论(<span>{{$article->ArticleComments->count()}}</span>)
           </a>
           <a href="javascript:;"  class="post-like" >
-            <i class="far fa-thumbs-up"></i>赞(<span>66</span>)
+            <i class="far fa-thumbs-up"></i>赞(<span>{{$article->statistic->likes}}</span>)
           </a>
         </p>
         <p class="note">

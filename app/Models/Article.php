@@ -75,6 +75,17 @@ class Article extends Model
         return $this->hasOne(ArticleStatistic::class, 'article_id');
     }
 
+
+    /**
+     * Notes : 文章评论数
+     * Author: JesonC <jesoncx@gmail.com>
+     * Date  : 2019/5/16 13:54
+     */
+    public function ArticleComments()
+    {
+        return $this->hasMany(ArticleComment::class, 'article_id');
+    }
+
     /**
      * Notes : 文章列表数据
      * Author: JesonC <748532271@qq.com>

@@ -62,6 +62,9 @@ class ArticleController extends Controller
         $articlesData  = $request->except('file');
         $tagIds        =  array_pull($articlesData, 'tag_ids');
         $markdown      =  array_pull($articlesData,'markdown');
+        if ($articlesData['editormd-image-file']) {
+            array_pull($articlesData,'editormd-image-file');
+        }
         DB::beginTransaction();
         try {
             $articleResult = $article->create($articlesData);
@@ -83,6 +86,7 @@ class ArticleController extends Controller
             DB::commit();
             return $this->success(20002);
         } catch (\Exception $e){
+           return $e->getMessage();
             DB::rollBack();
             return $this->error(40002);
         }
