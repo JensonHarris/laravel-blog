@@ -63,7 +63,7 @@ class ArticleController extends Controller
         $articlesData  = $request->except('file');
         $tagIds        =  array_pull($articlesData, 'tag_ids');
         $markdown      =  array_pull($articlesData,'markdown');
-        if ($articlesData['editormd-image-file']) {
+        if (isset($articlesData['editormd-image-file'])) {
             array_pull($articlesData,'editormd-image-file');
         }
         DB::beginTransaction();
