@@ -107,15 +107,15 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login', 'admin.auth', 
         Route::get('/jsonData', 'Admin\CategoryController@jsonData');
         //文章分类创建页面
         Route::get('/create', 'Admin\CategoryController@create');
-        //文章创建逻辑
+        //文章分类创建逻辑
         Route::post('', 'Admin\CategoryController@store');
         //文章分类编辑
         Route::get('/{articleCategory}/edit', 'Admin\CategoryController@edit');
-        //文章编辑逻辑
+        //文章分类编辑逻辑
         Route::post('/update/{id}', 'Admin\CategoryController@update');
-        //文章删除
+        //文章分类删除
         Route::post('/destroy', 'Admin\CategoryController@destroy');
-        //前端导航
+        //前端分类导航
         Route::post('/navStatus', 'Admin\CategoryController@navStatus');
     });
 
@@ -151,7 +151,7 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login', 'admin.auth', 
         //文章编辑逻辑
         Route::post('/update/{id}', 'Admin\ArticleController@update');
         //文章删除
-        Route::put('/destroy', 'Admin\ArticleController@destroy');
+        Route::post('/destroy', 'Admin\ArticleController@destroy');
         //是否置顶
         Route::post('/changeTopStatue', 'Admin\ArticleController@changeTopStatue');
     });

@@ -127,5 +127,45 @@ layui.use('table', function(){
                 return false;
             });
         }
+
+        if(obj.event === 'del'){
+            layer.confirm('你确定要删除该文章吗？', {icon: 3, title:'删除文章'}, function(index){
+                $.ajax({
+                    type: "POST",
+                    url: '/admin/article/destroy',
+                    dataType: "json",
+                    data: {id: data.id},
+                    error: function(msg) {
+                        if (msg.status == 422) {
+                            var json=JSON.parse(msg.responseText);
+                            json = json.errors;
+                            for ( var item in json) {
+                                for ( var i = 0; i < json[item].length; i++) {
+                                    layer.msg(json[item][i], {icon: 5});
+                                    return ; //遇到验证错误，就退出
+                                }
+                            }
+                        } else {
+                            layer.msg('服务器连接失败', {icon: 5});
+                            return ;
+                        }
+                    },
+                    success: function(res) {
+                        if (res.status) {
+                            layer.msg(res.message, {
+                                icon: 1,//提示的样式
+                                time: 2000, //2秒关闭
+                                end:function(){
+                                    obj.del();
+                                }
+                            });
+                        } else {
+                            layer.msg(res.message, {icon: 5});
+                        }
+                    }
+                });
+                return false;
+            });
+        }
     });
 });

@@ -25,7 +25,7 @@
                 <div role="tabpanel" class="tab-pane contact" id="contact">
                     <h2>Email:<br />
                         <a href="mailto:jesonc99@163.com" data-toggle="tooltip" data-placement="bottom" title="jesonc99@163.com">
-                            jesonc99@163.com
+                            jesoncx@gmail.com
                         </a>
                     </h2>
                 </div>

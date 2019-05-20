@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\ArticleComment;
 use App\Models\Tag;
 use App\Models\Article;
 use App\Models\ArticleTag;
@@ -153,9 +154,30 @@ class ArticleController extends Controller
      * Date  : 2019/1/16 14:23
      * @param $id
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $id =  $request->input('id');
+
+        DB::beginTransaction();
+        try{
+            //删除文章
+            Article::where('id', '=', $id)->delete();
+            //删除文章内容
+            ArticleContent::where('article_id', '=', $id)->delete();
+            //删除文章标签
+            ArticleTag::where('article_id', '=', $id)->delete();
+            //删除文章统计
+            ArticleStatistic::where('article_id', '=', $id)->delete();
+            //删除文章评论
+            ArticleComment::where('article_id', '=', $id)->delete();
+
+            DB::commit();
+        }catch (\Exception $e){
+
+            DB::rollBack();
+            return $this->error(40004);
+        }
+        return $this->success(20003);
     }
 
 
