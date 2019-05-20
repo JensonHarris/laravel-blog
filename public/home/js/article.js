@@ -23,44 +23,43 @@ $(".praise").click(function() {
         }
     });
     var id = $(".praise").attr("data-id");
-    var likes = $.cookie('article_'+id);
-    if (likes === id){
+    if (!$.cookie(id)){
+        $.ajax({
+            type: "POST",
+            url: '/article/articleLike',
+            dataType: "json",
+            data: {article_id:id},
+            error: function(msg) {
+                if (msg.status == 422) {
+                    var json=JSON.parse(msg.responseText);
+                    json = json.errors;
+                    for ( var item in json) {
+                        for ( var i = 0; i < json[item].length; i++) {
+                            layer.msg(json[item][i], {icon: 5});
+                            return ; //遇到验证错误，就退出
+                        }
+                    }
+                } else {
+                    layer.msg('服务器连接失败', {icon: 5});
+                    return ;
+                }
+            },
+            success: function(res) {
+                if (res.status) {
+                    $.cookie(id, id);
+
+                    $('#like_num').text(res.data.likes);
+                    layer.msg(res.message, {icon: 1});
+                } else {
+                    layer.msg(res.message, {icon: 5});
+                }
+            }
+        });
+        return false;
+    }else {
         layer.msg('已点赞', {icon: 5});
         return false;
     }
-    $.ajax({
-        type: "POST",
-        url: '/article/articleLike',
-        dataType: "json",
-        data: {article_id:id},
-        error: function(msg) {
-            if (msg.status == 422) {
-                var json=JSON.parse(msg.responseText);
-                json = json.errors;
-                for ( var item in json) {
-                    for ( var i = 0; i < json[item].length; i++) {
-                        layer.msg(json[item][i], {icon: 5});
-                        return ; //遇到验证错误，就退出
-                    }
-                }
-            } else {
-                layer.msg('服务器连接失败', {icon: 5});
-                return ;
-            }
-        },
-        success: function(res) {
-            if (res.status) {
-                var article = 'article_'+id;
-                $.cookie(article, id, { expires: 1 });
-
-                $('#like_num').text(res.data.likes);
-                layer.msg(res.message, {icon: 1});
-            } else {
-                layer.msg(res.message, {icon: 5});
-            }
-        }
-    });
-    return false; //阻
 });
 
 editormd.markdownToHTML("test-editormd", {
