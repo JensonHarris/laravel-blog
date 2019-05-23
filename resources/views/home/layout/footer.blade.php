@@ -11,5 +11,6 @@
 <script src="/home/js/jquery.ias.js"></script>
 <script src="/home/js/scripts.js"></script>
 <script src="/home/js/jquery.cookie.js"></script>
+<script src="/home/js/pageview.js"></script>
 <script src="/home/js/snow.js"></script>
 

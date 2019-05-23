@@ -274,35 +274,33 @@ $(function(){
     return false; //阻
 });
 
-//
-function pageViews(articleId){
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-    var views = $.cookie('article_'+articleId);
-    if (views == articleId){
-        return false;
-    }
-    $.ajax({
-        type: "POST",
-        url: '/article/articleViews',
-        dataType: "json",
-        data: {article_id:articleId},
-        error: function(msg) {
-            return false;
-        },
-        success: function(res) {
-            if (res.status) {
-                var article = 'article_'+articleId;
-                $.cookie(article, articleId, { expires: 1 });
-                return false;
-            } else {
-                return false;
-            }
-        }
-    });
-    return false;
-}
+// //
+// function pageViews(articleId){
+//     $.ajaxSetup({
+//         headers: {
+//             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//         }
+//     });
+//     if (!$.cookie(articleId)){
+//         $.ajax({
+//             type: "POST",
+//             url: '/article/articleViews',
+//             dataType: "json",
+//             data: {article_id:articleId},
+//             error: function(msg) {
+//                 return false;
+//             },
+//             success: function(res) {
+//                 if (res.status) {
+//                     $.cookie(articleId, articleId,{ expires:1});
+//                     return false;
+//                 } else {
+//                     return false;
+//                 }
+//             }
+//         });
+//     }else{
+//         return false;
+//     }
+// }
 

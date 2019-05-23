@@ -23,7 +23,8 @@ $(".praise").click(function() {
         }
     });
     var id = $(".praise").attr("data-id");
-    if (!$.cookie(id)){
+    var praiseId =  'praise'+id;
+    if (!$.cookie(praiseId)){
         $.ajax({
             type: "POST",
             url: '/article/articleLike',
@@ -46,7 +47,7 @@ $(".praise").click(function() {
             },
             success: function(res) {
                 if (res.status) {
-                    $.cookie(id, id);
+                    $.cookie(praiseId, praiseId,{expires:1});
 
                     $('#like_num').text(res.data.likes);
                     layer.msg(res.message, {icon: 1});

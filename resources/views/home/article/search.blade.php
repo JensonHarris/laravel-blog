@@ -36,7 +36,7 @@
 
                 @foreach ($articles as $article)
                     <article class="excerpt">
-                        <a class="focus" href="/article/{{$article->id}}" target="_blank">
+                        <a class="focus" href="/article/{{$article->id}}" target="_blank" onclick = "pageViews({{$article->id}})">
                             <img class="thumb" src="{{$article->cover_map}}">
                         </a>
 
