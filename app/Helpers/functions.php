@@ -70,7 +70,7 @@ if ( !function_exists('uploadFile') ) {
      * @param bool $childPath  是否根据日期生成子目录
      * @return array  上传的状态
      */
-    function uploadFile($file, $path = 'upload', $childPath = true)
+    function uploadFile($file, $path = 'upload', $newidth = 200, $childPath = true)
     {
         //判断请求中是否包含name=file的上传文件
         if (!request()->hasFile($file)) {
@@ -78,6 +78,19 @@ if ( !function_exists('uploadFile') ) {
             return $data;
         }
         $file = request()->file($file);
+
+        //上传文件类型列表
+        $uptypes=[
+            'image/jpg',
+            'image/jpeg',
+            'image/png',
+            'image/gif',
+        ];
+        if (!in_array($file->getClientMimeType(), $uptypes)){
+            $data = ['status_code' => 500, 'message' => '上传文件不合法'];
+            return $data;
+        }
+
         //判断文件上传过程中是否出错
         if (!$file->isValid()) {
             $data = ['status_code' => 500, 'message' => '文件上传出错'];
@@ -94,10 +107,39 @@ if ( !function_exists('uploadFile') ) {
         }
         //获取上传的文件名
         $oldName = $file->getClientOriginalName();
+        //TODO
+        //获取图像信息
+        list($width, $height, $type)= getimagesize($file);
+
+        $imageinfo = [
+            'width'=>$width,
+            'height'=>$height,
+            'type'=>image_type_to_extension($type,false),
+        ];
+
+        $fun = "imagecreatefrom".$imageinfo['type'];
+
+        $image = $fun($file);
+
+        $newWidth  = $newidth;
+        $newHeight = $height * ($newidth/$width);
+
+        $image_thump = imagecreatetruecolor($newWidth, $newHeight);
+
+        //将原图复制带图片载体上面，并且按照一定比例压缩,极大的保持了清晰度
+        imagecopyresampled($image_thump, $image,0,0,0,0, $newWidth, $newHeight, $width, $height);
+
+        $imgType = "image" . $imageinfo['type'];
         //组合新的文件名
+
         $newName = uniqid() . '.' . $file->getClientOriginalExtension();
+
+        $result = $imgType($image_thump, $path.$newName);
+
+        imagedestroy($image_thump);
+        imagedestroy($image);
         //上传失败
-        if (!$file->move($path, $newName)) {
+        if (!$result) {
             $data = [
                 'success' => 0,
                 'message' => '保存文件失败',
@@ -111,6 +153,9 @@ if ( !function_exists('uploadFile') ) {
             'message' => '上传成功',
             'url' => trim($path, '.').$newName
         ];
+
+
         return $data;
     }
 }
+

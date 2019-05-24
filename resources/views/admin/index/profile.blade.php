@@ -24,9 +24,9 @@
                             <div class="ibox-content profile-content">
                                 <div class="layui-upload-drag profile-user-img" id="cove">
                                     @if(!$adminUser->headimgurl)
-                                        <img  id="cover" class="cover-map" src="/admin/img/avatar.png" alt="文章封面图">
+                                        <img  id="cover" class="cover-map" src="/admin/img/avatar.png" alt="个人头像">
                                     @else
-                                        <img  id="cover" class="cover-map" src="{{$adminUser->headimgurl}}" alt="文章封面图">
+                                        <img  id="cover" class="cover-map" src="{{$adminUser->headimgurl}}" alt="个人头像">
                                     @endif
                                 </div>
                                 <input type="hidden" name="headimgurl" id="headimgurl"  class="layui-input" value="{{$adminUser->headimgurl}}">

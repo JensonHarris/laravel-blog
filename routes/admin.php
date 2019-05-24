@@ -209,4 +209,5 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login', 'admin.auth', 
 Route::group(['prefix' => 'admin/upload'], function() {
     Route::post('', 'Admin\UploaderController@uploadImage');
     Route::post('/cover', 'Admin\UploaderController@uploadCover');
+    Route::post('/headimg', 'Admin\UploaderController@uploadHeadImg');
 });

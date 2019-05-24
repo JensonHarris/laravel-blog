@@ -63,7 +63,7 @@ class ArticleController extends Controller
         $articlesData  = $request->except('file');
         $tagIds        =  array_pull($articlesData, 'tag_ids');
         $markdown      =  array_pull($articlesData,'markdown');
-        
+
         DB::beginTransaction();
         try {
             $articleResult = $article->create($articlesData);
@@ -117,7 +117,7 @@ class ArticleController extends Controller
      */
     public function update(Store $request, Article $article)
     {
-        $articlesData  =  $request->except('file');
+        $articlesData  =  $request->except('file', '_token','editormd-image-file');
         $tagIds        =  array_pull($articlesData, 'tag_ids');
         $markdown      =  array_pull($articlesData,'markdown');
         $content_id    =  array_pull($articlesData,'content_id');

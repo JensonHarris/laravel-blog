@@ -101,7 +101,7 @@ layui.use('upload', function(){
         ,headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
         }
-        ,url: '/admin/upload/cover'
+        ,url: '/admin/upload/headimg'
         ,done: function(res){
             if (res.succese = 1){
                 $('#headimgurl').val(res.url);
