@@ -63,9 +63,7 @@ class ArticleController extends Controller
         $articlesData  = $request->except('file');
         $tagIds        =  array_pull($articlesData, 'tag_ids');
         $markdown      =  array_pull($articlesData,'markdown');
-        if (!isset($articlesData['editormd-image-file'])) {
-            array_pull($articlesData,'editormd-image-file');
-        }
+        
         DB::beginTransaction();
         try {
             $articleResult = $article->create($articlesData);

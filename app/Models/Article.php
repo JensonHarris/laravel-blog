@@ -9,6 +9,8 @@ class Article extends Model
 {
     use Searchable;
 
+    protected $guarded = ['editormd-image-file'];
+
     /**
      * Notes : 定义索引的type
      * Author: JesonC <748532271@qq.com>
