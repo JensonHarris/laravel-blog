@@ -15,6 +15,15 @@
     <script src="/home/js/jquery-2.1.4.min.js"></script>
     <script src="/home/js/nprogress.js"></script>
     <script src="/home/js/jquery.lazyload.min.js"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?3902321fd5ebb5c29df514511ca1c300";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
     @yield('styles')
 </head>
 <body class="user-select">

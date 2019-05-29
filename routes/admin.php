@@ -11,7 +11,7 @@
 Route::group(['prefix' => 'admin'], function() {
     Route::group(['prefix' => 'login'], function() {
         //登录页面
-        Route::get('', 'Admin\LoginController@index');
+        Route::as('xadmin')->get('', 'Admin\LoginController@index');
         //登录验证
         Route::post('', 'Admin\LoginController@login');
     });
