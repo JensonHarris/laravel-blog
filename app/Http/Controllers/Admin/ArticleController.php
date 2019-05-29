@@ -117,7 +117,7 @@ class ArticleController extends Controller
      */
     public function update(Store $request, Article $article)
     {
-        $articlesData  =  $request->except('file', '_token','editormd-image-file');
+        $articlesData  =  $request->except('file', '_token','editormd-image-file', 'table-align');
         $tagIds        =  array_pull($articlesData, 'tag_ids');
         $markdown      =  array_pull($articlesData,'markdown');
         $content_id    =  array_pull($articlesData,'content_id');

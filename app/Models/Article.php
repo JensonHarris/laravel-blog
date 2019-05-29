@@ -9,7 +9,7 @@ class Article extends Model
 {
     use Searchable;
 
-    protected $guarded = ['editormd-image-file'];
+    protected $guarded = ['editormd-image-file', 'table-align'];
 
     /**
      * Notes : 定义索引的type
