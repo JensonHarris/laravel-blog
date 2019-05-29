@@ -5,6 +5,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="bjson,博客,JavaScript,PHP,laravel,数据库,mysql,ES,浏览器,thinkPHP,http,Git,搜索引擎,服务器,Linux,cookie,vue,html">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <link rel="stylesheet" type="text/css" href="/home/css/bootstrap.min.css">
