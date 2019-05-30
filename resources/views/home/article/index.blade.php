@@ -1,4 +1,5 @@
 @extends("home.layout.main")
+@section('keywords', $article->keywords)
 @section('title', $article->title)
 @section("styles")
     <link rel="stylesheet" href="/home/css/share.min.css">

@@ -25,7 +25,6 @@ class ArticleController extends Controller
         $next_article = $this->getNextArticle($id);
 
         $comments    = ArticleComment::where('status', '=', 0)->where('article_id', '=', $id)->orderBy('created_at', 'DESC')->paginate(10);
-
         return view('home.article.index',compact('article', 'prev_article', 'next_article', 'comments'));
     }
 

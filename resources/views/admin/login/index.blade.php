@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>CCSHOP后台</title>
+	<title>BJSON博客后台</title>
 	<meta name="keywords" content="LarryCMS后台登录界面" />
 	<meta name="description" content="LarryCMS Version:1.09" />
 	<meta name="Author" content="larry" />
@@ -22,7 +22,7 @@
 	<div class="larry-canvas" id="canvas"></div>
 	<div class="layui-layout layui-layout-login">
 		<h1>
-			<strong>blog管理系统后台</strong>
+			<strong>BJSON博客系统后台</strong>
 			<em>Jenson Harris</em>
 		</h1>
 		<div class="layui-user-icon larry-login">
@@ -41,7 +41,7 @@
 			<input type="button" value="立即登陆" class="submit_btn" lay-submit lay-filter="*"/>
 		</div>
 		<div class="layui-login-text">
-			<p>© 2016-2017 Larry 版权所有</p>
+			<p>© 2018-2019 BJSON 版权所有</p>
 			<p>粤ICP备18048113 <a href="" title="">bjson.cn</a></p>
 		</div>
 	</div>
