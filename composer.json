@@ -14,6 +14,7 @@
         "laravel/tinker": "~1.0",
         "mews/captcha": "^2.2",
         "overtrue/laravel-lang": "~3.0",
+        "predis/predis": "^1.1",
         "rap2hpoutre/laravel-log-viewer": "^1.0",
         "tamayo/laravel-scout-elastic": "^4.0"
     },
