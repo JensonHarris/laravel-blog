@@ -17,15 +17,18 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Article $article)
+    public function index(Request $request, Article $article)
     {
+
         $id =  $article->id;
         // 上一篇文章
         $prev_article = $this->getPrevArticle($id);
         // 下一篇文章
         $next_article = $this->getNextArticle($id);
 
-        $comments = Cache::remember('comments-'.$id, $this->minutes, function() use($id){
+        $page = $request->get('page',1);
+
+        $comments = Cache::remember('comments-'.$page.'-'.$id, $this->minutes, function() use($id){
 
             return ArticleComment::where('status', '=', 0)->where('article_id', '=', $id)->orderBy('created_at', 'DESC')->paginate(10);
         });
@@ -69,13 +72,15 @@ class ArticleController extends Controller
      * Author: JesonC <748532271@qq.com>
      * Date  : 2019/2/2 14:39
      */
-    public function categoryArticles($id, ArticleCategory $articleCategory)
+    public function categoryArticles(Request $request, $id, ArticleCategory $articleCategory)
     {
+        $page = $request->get('page',1);
+
         $category = Cache::remember('category-'.$id, $this->minutes, function() use($id, $articleCategory){
             return $articleCategory->find($id);
         });
 
-        $articles = Cache::remember('category-article-'.$id, $this->minutes, function() use($id,$articleCategory){
+        $articles = Cache::remember('category-article-'.$page.'-'.$id, $this->minutes, function() use($id,$articleCategory){
             $categoryIds = $articleCategory->getCategories($id);
             return     Article::whereIn('category_id',$categoryIds)->orderBy('is_top', 'ASC')->orderBy('created_at', 'DESC')->paginate(10);
         });
@@ -88,12 +93,13 @@ class ArticleController extends Controller
      * Author: JesonC <748532271@qq.com>
      * Date  : 2019/2/2 15:52
      */
-    public function tagArticles(Tag $tag)
+    public function tagArticles(Request $request, Tag $tag)
     {
         $tagId = $tag->id;
+        $page = $request->get('page',1);
 
-        $articles = Cache::remember('tag-'.$tagId, $this->minutes, function() use($tag){
-            return $tag->articles()->orderBy('is_top', 'ASC')->orderBy('created_at', 'DESC')->paginate();
+        $articles = Cache::remember('tag-'.$page.'-'.$tagId, $this->minutes, function() use($tag){
+            return $tag->articles()->orderBy('is_top', 'ASC')->orderBy('created_at', 'DESC')->paginate(10);
         });
 
         return view('home.article.tag',compact('articles', 'tag'));
@@ -107,9 +113,12 @@ class ArticleController extends Controller
     public function search(Request $request, Article $article)
     {
         $keyword =  $request->input('keyword');
+
+        $page = $request->get('page',1);
+
         $articleIds =  $article->searchArticleGetId($keyword);
 
-        $articles = Cache::remember('search-'.$keyword, $this->minutes, function() use($articleIds){
+        $articles = Cache::remember('search-'.$page.'-'.$keyword, $this->minutes, function() use($articleIds){
 
             return Article::whereIn('id',$articleIds)->orderBy('is_top', 'ASC')->orderBy('created_at', 'DESC')->paginate(10);
         });

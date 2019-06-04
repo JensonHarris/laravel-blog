@@ -7,7 +7,7 @@
     <meta name="renderer" content="webkit">
     <title>JesonC博客后台</title>
     <link rel="shortcut icon" href="/favicon.ico">
-    <link href="/admin/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="http://lib.baomitu.com/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
     <link href="/admin/css/animate.css" rel="stylesheet">
     <link href="/admin/css/style.css?v=4.1.0" rel="stylesheet">
@@ -355,8 +355,10 @@
 </body>
 </html>
 <!-- 全局js -->
-<script src="/admin/js/jquery.min.js"></script>
-<script src="/admin/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="http://lib.baomitu.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://lib.baomitu.com/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+{{--<script src="/admin/js/jquery.min.js"></script>--}}
+{{--<script src="/admin/js/bootstrap.min.js?v=3.3.6"></script>--}}
 <script src="/admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 <script src="/admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 <script src="/admin/js/plugins/layer/layer.min.js"></script>

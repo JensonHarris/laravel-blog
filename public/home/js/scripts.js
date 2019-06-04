@@ -1,7 +1,7 @@
 //当浏览器窗口大小改变时重载网页
-/*window.onresize=function(){
+window.onresize=function(){
     window.location.reload();
-}*/
+};
 
 //页面加载
 $('body').show();

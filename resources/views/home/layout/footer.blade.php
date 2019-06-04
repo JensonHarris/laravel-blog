@@ -6,11 +6,11 @@
 </footer>
 </body>
 </html>
-<script src="/admin/plugins/layer/layer.js"></script>
-<script src="/home/js/bootstrap.min.js"></script>
+<script src="http://lib.baomitu.com/layer/3.1.1/layer.js"></script>
+<script src="http://lib.baomitu.com/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="/home/js/jquery.ias.js"></script>
 <script src="/home/js/scripts.js"></script>
-<script src="/home/js/jquery.cookie.js"></script>
+<script src="http://lib.baomitu.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script src="/home/js/pageview.js"></script>
 <script src="/home/js/snow.js"></script>
 

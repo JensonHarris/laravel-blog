@@ -25,7 +25,7 @@ class UploaderController extends Controller
      */
     public function uploadCover()
     {
-        $result = uploadFile('file', 'uploads/article/cover', 230);
+        $result = uploadFile('file', 'uploads/article/cover', 220);
         return response()->json($result);
     }
 

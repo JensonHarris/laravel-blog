@@ -9,12 +9,12 @@
     <meta name="keywords" content="@yield('keywords')" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
-    <link rel="stylesheet" type="text/css" href="/home/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://lib.baomitu.com/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/home/css/nprogress.css">
     <link rel="stylesheet" type="text/css" href="/home/css/style.css">
     <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
     <link rel="shortcut icon" href="/favicon.ico">
-    <script src="/home/js/jquery-2.1.4.min.js"></script>
+    <script src="http://lib.baomitu.com/jquery/2.1.4/jquery.min.js"></script>
     <script src="/home/js/nprogress.js"></script>
     <script src="/home/js/jquery.lazyload.min.js"></script>
     <script>
