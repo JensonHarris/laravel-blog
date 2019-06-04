@@ -13,6 +13,11 @@ class Controller extends BaseController
 
 
     /**
+     * @var int  缓存时间
+     */
+    public $minutes = 30;
+
+    /**
      * Notes : 成功返回
      * Author: JesonC <748532271@qq.com>
      * Date  : 2019/1/4 14:36

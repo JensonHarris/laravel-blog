@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Home;
 
 use App\Models\Article;
+use Illuminate\Support\Facades\Cache;
+
 
 class IndexController extends Controller
 {
@@ -13,7 +15,10 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $articles    =  Article::orderBy('is_top', 'ASC')->orderBy('created_at', 'DESC')->paginate(10);
+
+        $articles = Cache::remember('articles', $this->minutes, function () {
+            return Article::orderBy('is_top', 'ASC')->orderBy('created_at', 'DESC')->paginate(10);
+        });
 
         return view('home.index.index',compact('articles'));
     }

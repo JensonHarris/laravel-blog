@@ -8,6 +8,7 @@ use App\Models\Tag;
 use App\Models\ArticleComment;
 use App\Models\ArticleCategory;
 use App\Models\ArticleStatistic;
+use Illuminate\Support\Facades\Cache;
 
 class ArticleController extends Controller
 {
@@ -24,7 +25,11 @@ class ArticleController extends Controller
         // 下一篇文章
         $next_article = $this->getNextArticle($id);
 
-        $comments    = ArticleComment::where('status', '=', 0)->where('article_id', '=', $id)->orderBy('created_at', 'DESC')->paginate(10);
+        $comments = Cache::remember('comments-'.$id, $this->minutes, function() use($id){
+
+            return ArticleComment::where('status', '=', 0)->where('article_id', '=', $id)->orderBy('created_at', 'DESC')->paginate(10);
+        });
+
         return view('home.article.index',compact('article', 'prev_article', 'next_article', 'comments'));
     }
 
@@ -37,7 +42,11 @@ class ArticleController extends Controller
      */
     protected function getPrevArticle($id)
     {
-        return Article::find(Article::where('id', '<', $id)->max('id'));
+       $prev_article =  Cache::remember('prev_article-'.$id, $this->minutes, function() use($id){
+           return Article::find(Article::where('id', '<', $id)->max('id'));
+       });
+
+        return $prev_article;
     }
 
     /**
@@ -48,7 +57,11 @@ class ArticleController extends Controller
      */
     protected function getNextArticle($id)
     {
-        return Article::find(Article::where('id', '>', $id)->min('id'));
+        $next_article =  Cache::remember('next_article-'.$id, $this->minutes, function() use($id){
+            return Article::find(Article::where('id', '>', $id)->min('id'));
+        });
+
+        return $next_article;
     }
 
     /**
@@ -58,9 +71,15 @@ class ArticleController extends Controller
      */
     public function categoryArticles($id, ArticleCategory $articleCategory)
     {
-        $category   =  $articleCategory->find($id);
-        $categoryIds = $articleCategory->getCategories($id);
-        $articles    = Article::whereIn('category_id',$categoryIds)->orderBy('is_top', 'ASC')->orderBy('created_at', 'DESC')->paginate(10);
+        $category = Cache::remember('category-'.$id, $this->minutes, function() use($id, $articleCategory){
+            return $articleCategory->find($id);
+        });
+
+        $articles = Cache::remember('category-article-'.$id, $this->minutes, function() use($id,$articleCategory){
+            $categoryIds = $articleCategory->getCategories($id);
+            return     Article::whereIn('category_id',$categoryIds)->orderBy('is_top', 'ASC')->orderBy('created_at', 'DESC')->paginate(10);
+        });
+
         return view('home.article.category',compact('articles', 'category'));
     }
 
@@ -71,7 +90,11 @@ class ArticleController extends Controller
      */
     public function tagArticles(Tag $tag)
     {
-        $articles  = $tag->articles()->orderBy('is_top', 'ASC')->orderBy('created_at', 'DESC')->paginate();
+        $tagId = $tag->id;
+
+        $articles = Cache::remember('tag-'.$tagId, $this->minutes, function() use($tag){
+            return $tag->articles()->orderBy('is_top', 'ASC')->orderBy('created_at', 'DESC')->paginate();
+        });
 
         return view('home.article.tag',compact('articles', 'tag'));
     }
@@ -86,7 +109,11 @@ class ArticleController extends Controller
         $keyword =  $request->input('keyword');
         $articleIds =  $article->searchArticleGetId($keyword);
 
-        $articles    = Article::whereIn('id',$articleIds)->orderBy('is_top', 'ASC')->orderBy('created_at', 'DESC')->paginate(10);
+        $articles = Cache::remember('search-'.$keyword, $this->minutes, function() use($articleIds){
+
+            return Article::whereIn('id',$articleIds)->orderBy('is_top', 'ASC')->orderBy('created_at', 'DESC')->paginate(10);
+        });
+
         return view('home.article.search',compact('articles', 'keyword'));
 
     }
@@ -137,7 +164,5 @@ class ArticleController extends Controller
         }
         return $this->error(40005);
     }
-
-
 
 }
