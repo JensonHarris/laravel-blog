@@ -5,7 +5,8 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="bjson,博客,JavaScript,PHP,laravel,数据库,mysql,ES,浏览器,thinkPHP,http,Git,搜索引擎,服务器,Linux,cookie,vue,html">
+    <meta name="keywords" content="bjson,博客,JavaScript,PHP,laravel,数据库,mysql,ES,浏览器,thinkPHP,http,Git,搜索引擎,服务器,Linux,cookie,vue,html,PHP博客,PHP个人博客,PHP技术博客,PHP教程,数据库设计,服务器搭建,SEO优化,个人博客模板,博客模板,博客系统,技术博客,个人博客,设计模式,laravel博客">
+    <meta name="description" content="bjson,博客,JavaScript,PHP,laravel,数据库,mysql,ES,浏览器,thinkPHP,http,Git,搜索引擎,服务器,Linux,cookie,vue,H5,PHP博客,PHP个人博客,PHP技术博客,PHP教程,数据库设计,服务器搭建,SEO优化,个人博客模板,博客模板,博客系统,技术博客,个人博客,设计模式,laravel博客">
     <meta name="keywords" content="@yield('keywords')" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
