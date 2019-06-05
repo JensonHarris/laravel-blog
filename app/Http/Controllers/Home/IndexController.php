@@ -21,7 +21,6 @@ class IndexController extends Controller
         $articles = Cache::remember('articles-page'.$page, $this->minutes, function () {
             return Article::orderBy('is_top', 'ASC')->orderBy('created_at', 'DESC')->paginate(10);
         });
-
         return view('home.index.index',compact('articles'));
     }
 

@@ -49,8 +49,8 @@ class CommentController extends Controller
     public function destroy(Request $request)
     {
         $id = $request->input('id');
-        $category = ArticleComment::find($id);
-        $result = $category->delete();
+        $comment = ArticleComment::find($id);
+        $result = $comment->delete();
         if ($result) {
             return $this->success(20003);
         }

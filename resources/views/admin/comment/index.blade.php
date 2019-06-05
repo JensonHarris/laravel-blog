@@ -25,7 +25,6 @@
 @endsection
 @section('scripts')
 <script type="text/html" id="barDemo">
-    <a class="layui-btn layui-btn-xs">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
 <script type="text/javascript" src="/admin/js/comment.js"></script>

@@ -183,6 +183,8 @@ Route::group(['prefix' => 'admin','middleware' => ['check.login', 'admin.auth', 
         Route::get('/jsonData', 'Admin\CommentController@jsonData');
         //审核评论
         Route::post('/changeStatus', 'Admin\CommentController@changeStatus');
+        //删除评论
+        Route::post('/destroy', 'Admin\CommentController@destroy');
     });
 
     //  系统公告列表
