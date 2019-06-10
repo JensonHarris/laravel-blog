@@ -16,6 +16,7 @@
         "overtrue/laravel-lang": "~3.0",
         "predis/predis": "^1.1",
         "rap2hpoutre/laravel-log-viewer": "^1.0",
+        "renatomarinho/laravel-page-speed": "^1.8",
         "tamayo/laravel-scout-elastic": "^4.0"
     },
     "require-dev": {
