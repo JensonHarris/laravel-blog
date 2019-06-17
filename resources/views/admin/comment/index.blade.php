@@ -27,7 +27,6 @@
 <script type="text/html" id="barDemo">
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
-<script type="text/javascript" src="/admin/js/comment.js"></script>
 <script type="text/html" id="commentStatus">
     @{{#  if(d.status ==0){ }}
     <button class="layui-btn layui-btn-xs layui-bg-cyan" lay-event="disabled">撤销</button>
@@ -35,4 +34,5 @@
     <button class="layui-btn layui-btn-xs layui-bg-blue" lay-event="start">发布</button>
     @{{#  } }}
 </script>
+<script type="text/javascript" src="/admin/js/comment.js"></script>
 @endsection

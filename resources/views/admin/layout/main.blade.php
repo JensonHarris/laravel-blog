@@ -23,6 +23,6 @@
 </html>
 <script src="http://lib.baomitu.com/jquery/2.1.4/jquery.min.js"></script>
 <script src="http://lib.baomitu.com/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="/admin/js/content.js?v=1.0.0"></script>
+<script src="/admin/js/content.js"></script>
 <script src="/admin/plugins/layui/layui.js" charset="utf-8"></script>
 @yield('scripts')

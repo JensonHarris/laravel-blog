@@ -363,7 +363,7 @@
 <script src="/admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 <script src="/admin/js/plugins/layer/layer.min.js"></script>
 <!-- 自定义js -->
-<script src="/admin/js/hplus.js?v=4.1.0"></script>
+<script src="/admin/js/hplus.js"></script>
 <script type="text/javascript" src="/admin/js/contabs.js"></script>
 <script>
 </script>

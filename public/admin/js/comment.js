@@ -11,8 +11,7 @@ layui.use('table', function(){
         ,toolbar: '#toolbarDemo'
         ,title: '权限数据表'
         ,cols: [[
-            {type: 'checkbox', fixed: 'left'}
-            ,{field:'id', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
+            {field:'id', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
             ,{field:'content', title:'评论内容', }
             ,{field:'title', title:'评论文章'}
             ,{field:'nickname', title:'用户', width:100}
@@ -22,14 +21,14 @@ layui.use('table', function(){
         ]]
         ,page: true
         ,response: {
-            statusCode: 200 //重新规定成功的状态码为 200，table 组件默认为 0
+            statusCode: 200
         }
-        ,parseData: function(res){ //将原始数据解析成 table 组件所规定的数据
+        ,parseData: function(res){
             return {
-                "code" : res.code, //解析接口状态
-                "msg"  : res.message, //解析提示文本
-                "count":res.data.total, //解析数据长度
-                "data" : res.data.data //解析数据列表
+                "code" : res.code,
+                "msg"  : res.message,
+                "count": res.data.total,
+                "data" : res.data.data
             };
         }
     });

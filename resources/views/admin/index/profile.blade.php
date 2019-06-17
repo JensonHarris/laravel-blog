@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" href="/favicon.ico">
-    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
-    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <link href="/admin/plugins/layui/css/layui.css" rel="stylesheet">
     <link href="/admin/css/profile.css" rel="stylesheet">
 </head>
@@ -108,7 +108,7 @@
         </div>
     </div>
     <!-- 全局js -->
-    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/jquery.min.js"></script>
     <script type="text/javascript" src="/admin/plugins/layui/layui.js"></script>
 </body>
 </html>

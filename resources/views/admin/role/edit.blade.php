@@ -10,7 +10,7 @@
     <title>角色管理</title>
     <link rel="shortcut icon" href="/favicon.ico">
     <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
-    <link href="/admin/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="/admin/css/style.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/admin/plugins/layui/css/layui.css">
     <link rel="stylesheet" type="text/css" href="/admin/plugins/layui_ext/dtree/dtree.css">
     <link rel="stylesheet" type="text/css" href="/admin/plugins/layui_ext/dtree/font/dtreefont.css">
