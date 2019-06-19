@@ -103,7 +103,7 @@
 </div>
 </body>
 </html>
-<script src="http://lib.baomitu.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://lib.baomitu.com/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript" src="/admin/plugins/layui/layui.js"></script>
 <script type="text/javascript" src="/admin/js/article.js"></script>
 <script type="text/javascript" src="/plugins/markdown/editormd.js"></script>
